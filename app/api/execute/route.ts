@@ -66,8 +66,8 @@ export async function POST(request: Request) {
     });
     if (!upstream.ok) {
       return failure(upstream.status === 429
-        ? "Rust Playground đang nhận nhiều yêu cầu. Hãy đợi một chút rồi thử lại."
-        : "Chưa kết nối được với Rust Playground. Hãy thử lại hoặc mở mã trong Playground.", 502);
+        ? "Trình biên dịch đang bận. Hãy đợi một chút rồi thử lại."
+        : "Chưa kết nối được với trình biên dịch. Hãy thử lại.", 502);
     }
     const result = await upstream.json() as {
       success?: unknown; stdout?: unknown; stderr?: unknown; error?: unknown;

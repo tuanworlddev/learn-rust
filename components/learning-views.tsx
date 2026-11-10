@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useRef, useState, type ReactNode } from "react";
+import Link from "next/link";
 import {
   ArrowLeft, ArrowRight, Bookmark, BookOpen, Check, CheckCircle2,
   Circle, CircleAlert, Code2, Download, ExternalLink, FileText, FolderCode, Lightbulb,
@@ -158,8 +159,7 @@ export function LessonView({ lesson, progress, onBookmark, onQuiz, onPass, onCom
           <h3>Yêu cầu</h3>
           <ol className="lv-requirements">{lesson.exercise.requirements.map(requirement => <li key={requirement}>{requirement}</li>)}</ol>
           <ExpectedOutput output={lesson.expectedOutput} />
-          <p className="lv-help-text">“Kiểm tra bài làm” chạy mã và so sánh kết quả mẫu. Hãy thử thêm đầu vào khác khi phù hợp.</p>
-          {solved && <p className="lv-inline-status"><CheckCircle2 size={17} />Đã từng vượt qua kiểm tra mẫu. Khi sửa mã, hãy kiểm tra lại.</p>}
+          {solved && <p className="lv-inline-status"><CheckCircle2 size={17} />Đã từng vượt qua kiểm tra mẫu.</p>}
           <div className="lv-exercise-actions">
             <button className="button button-primary" onClick={openEditor}><Code2 size={16} />Viết mã</button>
             <button className="button button-secondary transition-colors duration-150 motion-reduce:transition-none" onClick={() => openTab("quiz")}>Trả lời câu hỏi<ArrowRight size={16} /></button>
@@ -188,7 +188,6 @@ export function LessonView({ lesson, progress, onBookmark, onQuiz, onPass, onCom
           <span className={solved ? "lv-status" : ""}>{solved ? <CheckCircle2 size={15} /> : <Circle size={15} />}Bài tập {solved ? "đã đạt" : "chưa đạt"}</span>
           <span className={quizCorrect ? "lv-status" : ""}>{quizCorrect ? <CheckCircle2 size={15} /> : <Circle size={15} />}Câu hỏi {quizCorrect ? "đã đạt" : "chưa đạt"}</span>
         </div>
-        {!canComplete && !complete && <p>Hoàn thành bài tập và trả lời đúng câu hỏi để ghi nhận tiến độ.</p>}
         <button className={`button ${complete ? "button-secondary" : "button-primary"}`}
           disabled={!canComplete || complete} onClick={onComplete}>
           {complete ? <Check size={16} /> : <CheckCircle2 size={16} />}
@@ -234,7 +233,6 @@ export function Playground({ go }: { go: (route: string) => void }) {
       </select>
     </div>
     <CodeLab key={template.id} initialCode={template.code} storageKey={`rustviet-playground-${template.id}`} />
-    <p className="lv-help-text">Mỗi ví dụ có bản nháp riêng. Dùng dữ liệu mẫu trong mã; chưa hỗ trợ stdin tương tác.</p>
   </section>;
 }
 
@@ -242,8 +240,8 @@ const projectIcons = [Wallet, FileText, ListTodo];
 
 export function ProjectsView({ progress, go }: { progress: Progress; go: (route: string) => void }) {
   return <section className="lv-projects-view">
-    <ViewHeading title="Dự án" description="Ba bài tập tổng hợp một tệp, chạy ngay trên web.">
-      <button className="text-link lv-inline-link" onClick={() => go("di-lam")}>Dự án trên máy<ArrowRight size={15} /></button>
+    <ViewHeading title="Dự án">
+      <button className="text-link lv-inline-link" onClick={() => go("phong-van")}>Phỏng vấn<ArrowRight size={15} /></button>
     </ViewHeading>
     <div className="lv-project-list">{projects.map((project, index) => {
       const Icon = projectIcons[index] || FolderCode;
@@ -251,14 +249,14 @@ export function ProjectsView({ progress, go }: { progress: Progress; go: (route:
       return <article className="lv-project-row" key={project.id}>
         <Icon className="lv-project-icon" size={23} />
         <div className="lv-project-copy">
-          <button className="lv-item-title" onClick={() => go(`du-an/${project.id}`)}>{project.title}</button>
+          <Link href={`/du-an/${project.id}`} prefetch={false} className="lv-item-title">{project.title}</Link>
           <div className="lv-item-meta"><span>{project.level}</span><span>{project.estimate}</span>
             {finished && <span className="lv-status"><CheckCircle2 size={14} />Đã hoàn thành</span>}
           </div>
           <p>{project.description}</p>
           <div className="lv-topic-tags">{project.tags.map(tag => <span key={tag}>{tag}</span>)}</div>
         </div>
-        <button className="button button-secondary transition-colors duration-150 motion-reduce:transition-none" onClick={() => go(`du-an/${project.id}`)}>Mở dự án<ArrowRight size={15} /></button>
+        <Link href={`/du-an/${project.id}`} prefetch={false} className="button button-secondary transition-colors duration-150 motion-reduce:transition-none">Mở dự án<ArrowRight size={15} /></Link>
       </article>;
     })}</div>
   </section>;
@@ -288,7 +286,7 @@ export function ProjectWorkspace({ project, progress, go, onPass }: {
         <ol className="lv-requirements">{project.instructions.map(instruction => <li key={instruction}>{instruction}</li>)}</ol>
         <ExpectedOutput output={project.expectedOutput} />
         <div className="lv-note"><Lightbulb size={17} /><p>Giữ các assertion trong mã mẫu để kiểm tra cả những trường hợp ngoài đầu ra minh họa.</p></div>
-        {finished && <p className="lv-inline-status"><CheckCircle2 size={17} />Đã từng vượt qua kiểm tra mẫu. Khi sửa mã, hãy kiểm tra lại.</p>}
+        {finished && <p className="lv-inline-status"><CheckCircle2 size={17} />Đã từng vượt qua kiểm tra mẫu.</p>}
       </article>
     </div>
     <aside className="lv-practice-column" aria-label="Trình soạn thảo dự án">
@@ -349,7 +347,6 @@ export function Notebook({ progress, onLesson, onBookmark, onNotes }: {
       </div>
       <textarea id="learn-rust-notes" value={progress.notes} onChange={event => onNotes(event.target.value)}
         placeholder="Ghi lại điều bạn muốn nhớ…" spellCheck={false} />
-      <p className="lv-help-text">Tự động lưu trên trình duyệt này. Tải ghi chú để giữ một bản sao.</p>
     </section>
     <section id={`${tabsId}-cheatsheet-panel`} role="tabpanel" aria-labelledby={`${tabsId}-cheatsheet-tab`} tabIndex={0} hidden={tab !== "cheatsheet"}>
       <div className="lv-cheatsheet-grid">{cheatSheets.map(sheet => <article className="lv-cheatsheet-card" key={sheet.title}>

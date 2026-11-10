@@ -286,7 +286,7 @@ export const interviewQuestions: InterviewQuestion[] = [
   {
     id: "service-security", category: "Backend & dự án",
     question: "Một API chạy được trên localhost còn thiếu gì trước khi cho người khác sử dụng?",
-    answer: ["Xác định ai được làm gì và kiểm tra quyền trên từng tài nguyên; có đăng nhập chưa đồng nghĩa người đó được xem mọi bản ghi. Dùng thư viện và giao thức đã được xem xét thay vì tự nghĩ cơ chế mật mã.", "Cấu hình secret bên ngoài source, giới hạn request/tải, timeout, chính sách CORS phù hợp, TLS tại lớp triển khai và thông báo lỗi không lộ nội bộ. Các mục này cần cấu hình và kiểm thử theo môi trường cụ thể.", "Có health/readiness, log có cấu trúc không chứa token hay dữ liệu nhạy cảm, migration/backup/restore, shutdown và cách rollback. Một lab học tập không mặc nhiên là dịch vụ sẵn sàng công khai."],
+    answer: ["Xác định ai được làm gì và kiểm tra quyền trên từng tài nguyên; có đăng nhập chưa đồng nghĩa người đó được xem mọi bản ghi. Dùng thư viện và giao thức đã được xem xét thay vì tự nghĩ cơ chế mật mã.", "Cấu hình secret bên ngoài source, giới hạn request/tải, timeout, chính sách CORS phù hợp, TLS tại lớp triển khai và thông báo lỗi không lộ nội bộ. Các mục này cần cấu hình và kiểm thử theo môi trường cụ thể.", "Có health/readiness, log có cấu trúc không chứa token hay dữ liệu nhạy cảm, migration/backup/restore, shutdown và cách rollback."],
     followUp: "Một user đổi ID trong URL để đọc task của người khác. Kiểm tra phân quyền nằm ở đâu và bạn viết integration test thế nào?",
     pitfall: "Đồng nhất an toàn bộ nhớ của Rust với bảo mật ứng dụng hoặc coi chạy được container là đã vận hành an toàn.",
     source: { label: "Axum: middleware", url: "https://docs.rs/axum/latest/axum/middleware/index.html" },
@@ -319,14 +319,14 @@ export const careerProjects: CareerProject[] = [
   },
   {
     id: "api", title: "Task API với Axum, Tokio và SQLx",
-    description: "Xây dịch vụ quản lý công việc có HTTP thật, dữ liệu bền vững, migration và kiểm thử qua router. Lab trong repo là điểm xuất phát; các mốc mở rộng vẫn cần bạn tự hoàn thành.",
-    prerequisites: "Chương 7–9, 13, 15–16 và kiến thức cơ bản HTTP/SQL. Làm bằng Cargo trên máy; editor một tệp trên web không chạy lab này.",
+    description: "Xây dịch vụ quản lý công việc có HTTP, lưu trữ dữ liệu, migration và kiểm thử qua router.",
+    prerequisites: "Chương 7–9, 13, 15–16 và kiến thức cơ bản HTTP/SQL.",
     starter: "https://github.com/tuanworlddev/learn-rust/tree/main/labs/task-api",
     files: ["Cargo.toml / Cargo.lock — phụ thuộc có phiên bản", "src/main.rs — cấu hình, listener và shutdown", "src/lib.rs — app/router có thể kiểm thử", "src/tasks.rs — DTO, validation và handler", "src/database.rs / src/error.rs — DB và lỗi", "migrations/ — schema có phiên bản", "tests/ — hành vi API và dữ liệu"],
     milestones: [
       { title: "Chạy và hiểu lab", tasks: ["Làm theo labs/task-api/README.md; tạo, đọc, cập nhật, xóa task và kiểm tra dữ liệu còn sau khi khởi động lại.", "Đọc luồng request qua DTO, validation, query có bind và response; giải thích đâu là lỗi client, đâu là lỗi hạ tầng."] },
       { title: "Tự mở rộng nghiệp vụ", tasks: ["Thêm deadline và bộ lọc cho danh sách; giữ phân trang có giới hạn và thứ tự ổn định đã có trong lab. Tạo migration mới thay vì sửa tay DB.", "Đọc transaction ghi task cùng event có sẵn, rồi bổ sung optimistic concurrency hoặc idempotency key. Tạo lỗi/xung đột để kiểm tra rollback và không thực hiện trùng side effect."] },
-      { title: "Thực hành trước khi triển khai", tasks: ["Bổ sung xác thực/phân quyền theo tài nguyên và test user A không đọc/sửa task của user B. Lab chưa có tính năng này không được xem như API nhiều người dùng hoàn chỉnh.", "Kiểm tra quá tải, timeout, log không lộ bí mật, shutdown và backup/restore. Thử deploy ở môi trường học tập sau khi hiểu cấu hình bind, TLS và secret."] },
+      { title: "Thực hành trước khi triển khai", tasks: ["Bổ sung xác thực/phân quyền theo tài nguyên và test user A không đọc/sửa task của user B.", "Kiểm tra quá tải, timeout, log không lộ bí mật, shutdown và backup/restore. Thử deploy ở môi trường học tập sau khi hiểu cấu hình bind, TLS và secret."] },
     ],
     acceptance: ["CRUD trả status và JSON theo hợp đồng được ghi; dữ liệu tồn tại sau restart.", "Request rỗng, quá dài hoặc sai kiểu bị từ chối; SQL dùng bind cho giá trị đầu vào.", "Test dùng DB riêng, có ca rollback và hai thao tác cạnh tranh; không phụ thuộc DB cá nhân.", "Có migration, README, kiểm tra CI và cách vận hành/rollback được thử ở môi trường học tập.", "Nếu bật nhiều người dùng, kiểm tra quyền của từng tài nguyên; ghi rõ những phần chưa triển khai."],
     tests: ["CRUD, không tìm thấy, JSON hỏng, Unicode, giới hạn title/body và phân trang.", "Chuỗi chứa dấu nháy và SQL như dữ liệu; lỗi DB trả phản hồi ổn định không lộ câu SQL hoặc đường dẫn.", "Restart giữ dữ liệu; transaction rollback; xung đột cập nhật và retry theo chính sách đã nêu.", "Phân quyền chéo người dùng, dừng khi có request đang chạy và kiểm tra tính toàn vẹn sau phục hồi."],

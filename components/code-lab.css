@@ -214,8 +214,6 @@
 .cl-solution > div button { display: flex; align-items: center; gap: 4px; border: 0; background: none; color: var(--cl-accent); font-size: 12px; cursor: pointer; }
 .cl-solution > pre { overflow: auto; margin: 0; padding: 12px !important; border: 0 !important; border-radius: 0 !important; background: var(--cl-bg) !important; color: var(--cl-text) !important; font: 13px/1.65 var(--cl-mono); }
 .cl-feedback { margin: 9px 0; color: var(--cl-muted); font-size: 12px; }
-.cl-service-note { margin: 8px 0 0; color: var(--cl-muted); font-size: 11px; line-height: 1.6; }
-.cl-service-note a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .cl-confirm { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 10px 12px; border-bottom: 1px solid var(--cl-line); background: var(--cl-panel); color: var(--cl-text); font-size: 12px; }
 .cl-confirm span { flex: 1; min-width: 180px; line-height: 1.5; }
 .cl-confirm button { padding: 5px 9px; border: 1px solid var(--cl-line); border-radius: 3px; background: var(--cl-bg); color: var(--cl-text); cursor: pointer; }
@@ -231,12 +229,10 @@
 .lv-practice-column > .code-lab .cl-editor-shell { border: 0; border-bottom: 1px solid var(--cl-line); border-radius: 0; }
 .lv-practice-column > .code-lab .cl-editor { height: clamp(300px, 52vh, 560px); }
 .lv-practice-column > .code-lab > .cl-learning-tools,
-.lv-practice-column > .code-lab > .cl-service-note,
 .lv-practice-column > .code-lab > .cl-feedback { margin-right: 12px; margin-left: 12px; }
 .lv-practice-column > .code-lab > .cl-verdict,
 .lv-practice-column > .code-lab > .cl-hints,
 .lv-practice-column > .code-lab > .cl-solution { margin-right: 12px; margin-left: 12px; }
-.lv-practice-column > .code-lab > .cl-service-note { margin-bottom: 12px; }
 @media (max-width: 900px) {
   .lv-practice-column > .code-lab .cl-editor { height: 320px; }
 }

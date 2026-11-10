@@ -200,8 +200,6 @@
   white-space: pre-wrap;
   overflow-wrap: anywhere;
 }
-.lv-help-text { color: var(--muted); font-size: 13px; line-height: 1.65; margin: 12px 0 0; }
-.lv-article .lv-help-text { font-size: 13px; }
 .lv-article .lv-inline-status { display: flex; margin: 16px 0; }
 .lv-quiz-options { display: grid; gap: 10px; margin: 18px 0; }
 .lv-quiz-option {
@@ -245,7 +243,6 @@
 .lv-completion-checks { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 12px; }
 .lv-completion-checks > span { display: flex; gap: 6px; align-items: center; color: var(--muted); font-size: 13px; }
 .lv-completion-checks > .lv-status { color: var(--accent); }
-.lv-completion > p { margin: 0 0 12px; color: var(--muted); font-size: 13px; line-height: 1.65; }
 .lv-completion button:disabled { cursor: default; opacity: .55; }
 .lv-lesson-pagination {
   display: flex;

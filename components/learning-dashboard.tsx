@@ -1,12 +1,14 @@
 "use client";
 import {useEffect,useState} from "react";
+import Link from "next/link";
+import {routeHref} from "@/lib/routes";
 import {ArrowRight,Bookmark,Check,ChevronDown,Search,X} from "lucide-react";
 import {modules,lessons,type Lesson} from "@/src/data/curriculum";
 import {EmptyState,PageHeading,type Progress} from "./learning-shared";
 
 const normalize=(s:string)=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d");
 
-export function Roadmap({progress,resume,initialModule,onLesson,onBookmark}:{progress:Progress;resume:Lesson;initialModule:string|null;onLesson:(id:string)=>void;onBookmark:(id:string)=>void}){
+export function Roadmap({progress,resume,initialModule,onLesson,onVisit,onBookmark}:{progress:Progress;resume:Lesson;initialModule:string|null;onLesson:(id:string)=>void;onVisit:(id:string)=>void;onBookmark:(id:string)=>void}){
  const [query,setQuery]=useState("");
  const [expanded,setExpanded]=useState<string[]>(modules.map(m=>m.id));
  useEffect(()=>{if(initialModule){setExpanded(p=>p.includes(initialModule)?p:[...p,initialModule]);document.getElementById(`module-${initialModule}`)?.scrollIntoView({behavior:"smooth",block:"start"});}},[initialModule]);
@@ -20,7 +22,7 @@ export function Roadmap({progress,resume,initialModule,onLesson,onBookmark}:{pro
   {query&&<p className="mb-4 text-sm text-[var(--muted)]" role="status">{count} bài phù hợp</p>}
   <div className="toc-grid">{visible.map(({module,index,items})=>{const isOpen=expanded.includes(module.id);const allItems=lessons.filter(l=>l.moduleId===module.id);return <section className="toc-chapter" key={module.id} id={`module-${module.id}`}>
    <button className="toc-heading" aria-expanded={isOpen} aria-controls={`toc-${module.id}`} onClick={()=>setExpanded(p=>p.includes(module.id)?p.filter(id=>id!==module.id):[...p,module.id])}><span>{String(index+1).padStart(2,"0")}</span><h2>{module.title}</h2><ChevronDown size={15} className={`transition-transform duration-200 ${isOpen?"rotate-180":""}`}/></button>
-   <div id={`toc-${module.id}`} className={`toc-collapse ${isOpen?"is-open":""}`} inert={!isOpen} aria-hidden={!isOpen}><div>{items.map(lesson=>{const saved=progress.bookmarks.includes(lesson.id);const done=progress.completed.includes(lesson.id);return <div className="toc-row" key={lesson.id}><button className="toc-link" onClick={()=>onLesson(lesson.id)}><span>{index+1}.{allItems.indexOf(lesson)+1}</span><span>{lesson.title}</span>{done&&<Check size={14} aria-label="Đã hoàn thành"/>}</button><button className={`icon-button toc-bookmark ${saved?"bookmarked":""}`} onClick={()=>onBookmark(lesson.id)} aria-label={saved?`Bỏ lưu ${lesson.title}`:`Lưu ${lesson.title}`}><Bookmark size={14} fill={saved?"currentColor":"none"}/></button></div>;})}</div></div>
+   <div id={`toc-${module.id}`} className={`toc-collapse ${isOpen?"is-open":""}`} inert={!isOpen} aria-hidden={!isOpen}><div>{items.map(lesson=>{const saved=progress.bookmarks.includes(lesson.id);const done=progress.completed.includes(lesson.id);return <div className="toc-row" key={lesson.id}><Link href={routeHref(`bai-hoc/${lesson.id}`)} prefetch={false} className="toc-link" onNavigate={()=>onVisit(lesson.id)}><span>{index+1}.{allItems.indexOf(lesson)+1}</span><span>{lesson.title}</span>{done&&<Check size={14} aria-label="Đã hoàn thành"/>}</Link><button className={`icon-button toc-bookmark ${saved?"bookmarked":""}`} onClick={()=>onBookmark(lesson.id)} aria-label={saved?`Bỏ lưu ${lesson.title}`:`Lưu ${lesson.title}`}><Bookmark size={14} fill={saved?"currentColor":"none"}/></button></div>;})}</div></div>
   </section>;})}{!visible.length&&<div className="course-empty"><EmptyState title="Không có bài phù hợp">Thử tìm “ownership”, “async” hoặc “Cargo”.</EmptyState></div>}</div>
   <footer className="course-reference"><a href="https://doc.rust-lang.org/book/" target="_blank" rel="noreferrer">The Rust Book ↗</a><a href="https://doc.rust-lang.org/std/" target="_blank" rel="noreferrer">Thư viện chuẩn ↗</a></footer>
  </section>;

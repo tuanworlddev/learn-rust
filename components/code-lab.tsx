@@ -137,8 +137,8 @@ export function CodeLab({ initialCode, storageKey, expectedOutput, onPass, title
       setResult({
         success: false, stdout: "", stderr: "", elapsedMs: 0,
         error: controller.signal.aborted
-          ? "Quá thời gian chờ. Bạn có thể chạy lại hoặc mở mã trong Rust Playground."
-          : "Chưa kết nối được trình biên dịch. Kiểm tra kết nối mạng hoặc mở mã trong Rust Playground.",
+          ? "Quá thời gian chờ. Hãy chạy lại."
+          : "Chưa kết nối được trình biên dịch. Hãy kiểm tra kết nối mạng rồi thử lại.",
       });
     } finally {
       clearTimeout(timeout);
@@ -241,13 +241,13 @@ export function CodeLab({ initialCode, storageKey, expectedOutput, onPass, title
             const { scrollTop, scrollLeft } = event.currentTarget;
             if (highlight.current) highlight.current.style.transform = `translate(${-scrollLeft}px, ${-scrollTop}px)`;
             if (gutter.current) gutter.current.style.transform = `translateY(${-scrollTop}px)`;
-          }} spellCheck={false} autoCapitalize="off" autoCorrect="off" aria-describedby={`${editorId}-keyboard ${editorId}-hint`} wrap="off" className="cl-textarea" />
+          }} spellCheck={false} autoCapitalize="off" autoCorrect="off" aria-describedby={`${editorId}-keyboard`} wrap="off" className="cl-textarea" />
         </div>
         <p id={`${editorId}-keyboard`} className={editorFocused ? "cl-keyboard-help" : "cl-sr-only"}>Tab: thụt lề · Esc rồi Tab: rời trình soạn thảo · Ctrl/⌘ + Enter: chạy</p>
         <div className="cl-actions">
           <button type="button" onClick={() => void execute(false)} disabled={!!busy || !code.trim()} className="cl-run-button transition-[background-color,filter] duration-150 motion-reduce:transition-none" title="Chạy mã (Ctrl/⌘ + Enter)">{busy === "run" ? <LoaderCircle size={16} className="cl-spin" /> : <Play size={15} fill="currentColor" />}<span>{busy === "run" ? "Đang biên dịch…" : "Chạy mã"}</span></button>
           {hasCheck && <button type="button" onClick={() => void execute(true)} disabled={!!busy || !code.trim()} className="cl-check-button transition-colors duration-150 motion-reduce:transition-none">{busy === "check" ? <LoaderCircle size={16} className="cl-spin" /> : <CheckCircle2 size={16} />}{busy === "check" ? "Đang kiểm tra…" : checkLabel}</button>}
-          <span className={`cl-save-state ${storageAvailable ? "" : "cl-save-unavailable"}`} title={storageAvailable ? "Bản nháp được lưu trên trình duyệt này" : "Trình duyệt không cho phép lưu bản nháp"}>{storageAvailable ? <><Check size={12} />Tự động lưu</> : <><CircleAlert size={13} />Không lưu được</>}</span>
+          {!storageAvailable && <span className="cl-save-state cl-save-unavailable" role="status"><CircleAlert size={13} />Không lưu được bản nháp</span>}
         </div>
         <div className="cl-terminal">
           <div className="cl-terminal-title"><span><Terminal size={14} /> Kết quả</span><span>{result && !result.error ? `${(result.elapsedMs / 1000).toFixed(2)} giây` : ""}</span></div>
@@ -266,16 +266,15 @@ export function CodeLab({ initialCode, storageKey, expectedOutput, onPass, title
           </div>
         </div>
       </div>
-      {verdict === "pass" && !dirty && <div className="cl-verdict cl-pass animate-[cl-reveal_150ms_ease-out] motion-reduce:animate-none" role="status"><CheckCircle2 size={17} /><div><strong>Đã vượt qua kiểm tra mẫu.</strong><p>Đầu ra khớp mẫu. Hãy thử thêm trường hợp khác khi phù hợp.</p></div></div>}
+      {verdict === "pass" && !dirty && <div className="cl-verdict cl-pass animate-[cl-reveal_150ms_ease-out] motion-reduce:animate-none" role="status"><CheckCircle2 size={17} /><strong>Đã vượt qua kiểm tra mẫu.</strong></div>}
       {verdict === "fail" && !dirty && <div className="cl-verdict cl-fail animate-[cl-reveal_150ms_ease-out] motion-reduce:animate-none" role="status"><CircleAlert size={17} /><div><strong>{result?.success ? "Đầu ra chưa khớp." : "Hãy sửa lỗi chương trình."}</strong><p>Đầu ra mong đợi:</p><pre>{expectedOutput || "(Không có đầu ra)"}</pre></div></div>}
       {(hints.length > 0 || solutionCode) && <div className="cl-learning-tools">
         {hints.length > 0 && <button type="button" className="transition-colors duration-150 motion-reduce:transition-none" onClick={() => setHintCount(Math.min(hintCount + 1, hints.length))} disabled={hintCount >= hints.length}><Lightbulb size={15} />{`Gợi ý (${hintCount}/${hints.length})`}</button>}
         {solutionCode && <button type="button" aria-expanded={showSolution} aria-controls={`${editorId}-solution`} className="transition-colors duration-150 motion-reduce:transition-none" onClick={() => setShowSolution(!showSolution)}><Eye size={15} />{showSolution ? "Ẩn lời giải" : "Xem lời giải"}</button>}
       </div>}
       {hintCount > 0 && <div className="cl-hints animate-[cl-reveal_150ms_ease-out] motion-reduce:animate-none">{hints.slice(0, hintCount).map((hint, i) => <p key={i}><strong>Gợi ý {i + 1}.</strong> {hint}</p>)}</div>}
-      {showSolution && solutionCode && <div id={`${editorId}-solution`} className="cl-solution animate-[cl-reveal_150ms_ease-out] motion-reduce:animate-none"><div><strong>Lời giải tham khảo</strong><button type="button" className="transition-colors duration-150 motion-reduce:transition-none" disabled={!!busy} onClick={() => { changeCode(solutionCode); setShowSolution(false); textarea.current?.focus(); setFeedback("Đã đưa lời giải vào trình soạn thảo. Hãy giải thích từng bước rồi tự viết lại để kiểm tra hiểu biết."); }}>Dùng lời giải <ChevronRight size={14} /></button></div><pre><CodeHighlight code={solutionCode} /></pre></div>}
+      {showSolution && solutionCode && <div id={`${editorId}-solution`} className="cl-solution animate-[cl-reveal_150ms_ease-out] motion-reduce:animate-none"><div><strong>Lời giải tham khảo</strong><button type="button" className="transition-colors duration-150 motion-reduce:transition-none" disabled={!!busy} onClick={() => { changeCode(solutionCode); setShowSolution(false); textarea.current?.focus(); setFeedback("Đã chèn lời giải."); }}>Dùng lời giải <ChevronRight size={14} /></button></div><pre><CodeHighlight code={solutionCode} /></pre></div>}
       {feedback && <p className="cl-feedback" role="status">{feedback}</p>}
-      <p className="cl-service-note" id={`${editorId}-hint`}>Biên dịch qua <a href="https://play.rust-lang.org/" target="_blank" rel="noreferrer">Rust Playground</a>. Không nhập dữ liệu bí mật.</p>
     </section>
   );
 }

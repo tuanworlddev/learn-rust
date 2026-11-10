@@ -18,7 +18,23 @@ npm run build:local
 npm run start:local
 ```
 
-`dev:local`, `build:local` và `start:local` sử dụng Next.js trực tiếp. Các script `dev`, `build`, `start` có sẵn được giữ cho môi trường Sites cũ; không dùng để khởi chạy local theo hướng dẫn này.
+`dev`/`build` chạy Next.js; `start` và `start:local` khởi chạy bản standalone sau khi chép tài nguyên cần thiết và đọc môi trường của project. Dev/start local chỉ mở loopback; bản Docker lắng nghe trong mạng nội bộ của Compose, phía sau Caddy.
+
+## Cấu hình Supabase và triển khai VPS
+
+- [Cấu hình Supabase](docs/supabase.md): biến môi trường, migration SQL, RLS, Auth và kiểm tra kết nối.
+- [Triển khai VPS](docs/deploy-vps.md): Docker Compose, Caddy HTTPS, health check, cập nhật và rollback.
+- [Cấu hình SEO](docs/seo.md): tên miền, canonical, sitemap, trạng thái lập chỉ mục và nghiệm thu.
+
+Mẫu VPS nằm ở `deploy/env.example`. Sao chép thành `deploy/.env`, điền `DOMAIN` và `SITE_URL`; giữ `SITE_INDEXABLE=false` khi nghiệm thu. Supabase là tùy chọn: nếu chưa có Project URL và publishable key, website vẫn học và lưu tiến độ cục bộ bình thường. Không đưa service_role/secret key vào frontend.
+
+```bash
+node --env-file-if-exists=deploy/.env scripts/check-config.mjs --production
+docker compose --env-file deploy/.env build
+docker compose --env-file deploy/.env up -d
+```
+
+Các đường dẫn bài học là `/bai-hoc/<id>`, dự án là `/du-an/<id>`, phỏng vấn là `/phong-van`. Link cũ dạng `/#bai-hoc/...` và `/#di-lam` vẫn được chuyển sang URL mới. Mỗi bài có nội dung HTML từ máy chủ, metadata riêng và canonical theo `SITE_URL`. Mặc định không cho lập chỉ mục cho tới khi cấu hình tên miền HTTPS chính thức và bật `SITE_INDEXABLE=true`.
 
 ## Lộ trình
 
@@ -45,7 +61,7 @@ npm run start:local
 19. Thiết kế & Hiệu năng
 20. Dự án tổng hợp
 
-Mỗi bài có lý thuyết, ví dụ, mục tiêu, bài tập với mã khởi đầu, lời giải, gợi ý, kết quả mong đợi, câu hỏi và liên kết tài liệu Rust chính thức. Mục Dự án có ba bài tập tổng hợp một tệp trên web; các dự án nhiều tệp nằm trong mục Đi làm.
+Mỗi bài có lý thuyết, ví dụ, mục tiêu, bài tập với mã khởi đầu, lời giải, gợi ý, kết quả mong đợi, câu hỏi và liên kết tài liệu Rust chính thức. Mục Dự án có ba bài tập tổng hợp một tệp trên web; các dự án nhiều tệp nằm trong mục Phỏng vấn.
 
 Các bài Cargo/rustup/workspace/Clippy/doctest trình bày quy trình thực tế trên máy. Bài tập của chúng trên web được giới hạn và ghi rõ phạm vi một tệp. Ví dụ I/O và CLI dùng dữ liệu mẫu; phần async giải thích Future/Waker/Pin/executor bằng thư viện chuẩn, không giả định có Tokio hay hệ thống I/O bất đồng bộ trên web.
 
@@ -75,7 +91,7 @@ React 19, TypeScript, Next.js 16 và Tailwind CSS 4 qua PostCSS. Không dùng Ta
 
 ## Từ nền tảng đến phỏng vấn và dự án
 
-Mục **Đi làm** (`/#di-lam`) bổ sung lộ trình thực hành theo giai đoạn, câu hỏi phỏng vấn mở, đặc tả dự án và tiêu chí tự đánh giá có bằng chứng. Đây là định hướng Rust backend ở mức đầu vào/junior; các chuyên ngành embedded, game engine, hệ thống phân tán hay FFI trên mobile cần lộ trình riêng.
+Mục **Phỏng vấn** (`/phong-van`) bổ sung lộ trình thực hành theo giai đoạn, câu hỏi phỏng vấn mở, đặc tả dự án và tiêu chí tự đánh giá có bằng chứng. Đây là định hướng Rust backend ở mức đầu vào/junior; các chuyên ngành embedded, game engine, hệ thống phân tán hay FFI trên mobile cần lộ trình riêng.
 
 80 bài trên web giúp học ngôn ngữ và thử từng khái niệm. Tỷ lệ hoàn thành, đáp án mẫu và kết quả so sánh stdout không chứng minh khả năng làm việc độc lập. Hãy tự triển khai bài mới, viết test, xử lý lỗi, review thiết kế và trình bày lựa chọn của mình trước khi đánh dấu một tiêu chí đã đạt.
 
@@ -88,7 +104,7 @@ Các báo cáo review nằm trong thư mục [reports](reports): UX/UI, kiến t
 
 ## Dữ liệu người học
 
-Tiến độ, câu trả lời, bài lưu, ghi chú và bản nháp lưu trong localStorage trên từng trình duyệt và từng origin. `localhost:3000`, `127.0.0.1:3000` và website đã xuất bản có vùng dữ liệu riêng. Chưa có tài khoản/đồng bộ nhiều thiết bị.
+Tiến độ, câu trả lời, bài lưu, ghi chú và bản nháp lưu trong localStorage trên từng trình duyệt và từng origin. `localhost:3000`, `127.0.0.1:3000` và website đã xuất bản có vùng dữ liệu riêng. Khi cấu hình Supabase, mục Cài đặt cho phép đăng ký/đăng nhập, lưu tiến độ vào tài khoản và xem trước để khôi phục trên thiết bị khác. Thao tác lưu/khôi phục là chủ động; không tự hợp nhất dữ liệu giữa các thiết bị. Bản nháp mã và bằng chứng tự đánh giá trong mục Phỏng vấn vẫn ở từng trình duyệt.
 
 Các storage key `rustviet-learning-v1`, `rustviet-code-*` và `rustviet-playground-*` được giữ để không làm mất dữ liệu đã có ở cùng origin khi đổi thương hiệu. Theme dùng `learn-rust-theme`.
 
