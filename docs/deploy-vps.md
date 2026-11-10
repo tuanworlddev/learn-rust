@@ -1,8 +1,8 @@
 # Triển khai Learn Rust lên VPS
 
-Bộ cấu hình này chạy Next.js bằng Docker, đặt Caddy phía trước để cấp HTTPS và chuyển tiếp yêu cầu. Supabase là dịch vụ bên ngoài, được bật bằng biến môi trường lúc chạy. Web vẫn hoạt động khi chưa cấu hình Supabase.
+Bộ cấu hình này chạy Next.js bằng Docker, đặt Caddy phía trước để cấp HTTPS và chuyển tiếp yêu cầu. Supabase là dịch vụ bên ngoài, được bật bằng biến môi trường lúc chạy. Chế độ `bundled` hoạt động khi chưa cấu hình Supabase; chế độ `supabase` yêu cầu kết nối hợp lệ và một bản giáo trình đã xuất bản.
 
-Chưa có tên miền, VPS hay thông tin Supabase thật trong repository. Hoàn thành các bước dưới đây trên máy chủ của bạn; việc có sẵn cấu hình không có nghĩa ứng dụng đã được triển khai.
+Repository không kèm file môi trường hoặc thông tin đăng nhập VPS. Tên miền sản xuất chưa được cấu hình. Hoàn thành các bước dưới đây trên máy chủ của bạn; việc có sẵn cấu hình không có nghĩa ứng dụng đã được triển khai.
 
 ## 1. Chuẩn bị máy chủ
 
@@ -34,8 +34,9 @@ Sửa `deploy/.env` bằng trình soạn thảo trên VPS:
 | `SITE_URL` | URL gốc HTTPS dùng chính `DOMAIN`, không có đường dẫn. Đây là URL canonical cho SEO. |
 | `SITE_INDEXABLE` | Giữ `false` lúc nghiệm thu; đặt `true` sau khi tên miền công khai chính thức đã sẵn sàng. |
 | `APP_VERSION` | Tag image riêng cho lần phát hành, ví dụ mã commit; tránh dùng lại cùng tag cho nhiều bản. |
-| `SUPABASE_URL` | Project URL; để trống nếu chưa dùng tài khoản. |
-| `SUPABASE_PUBLISHABLE_KEY` | Publishable key cùng project; để trống nếu chưa dùng tài khoản. |
+| `COURSE_CONTENT_SOURCE` | `supabase` để đọc giáo trình đã xuất bản; `bundled` để dùng nội dung trong bản build. |
+| `SUPABASE_URL` | Project URL; bắt buộc khi đọc giáo trình hoặc đồng bộ tiến độ qua Supabase. |
+| `SUPABASE_PUBLISHABLE_KEY` | Publishable key cùng project; bắt buộc khi dùng Supabase. |
 | `SUPABASE_ANON_KEY` | Chỉ cần cho legacy anon key nếu không dùng publishable key. |
 
 Đặt `APP_VERSION` theo `git rev-parse --short HEAD` giúp đối chiếu image với mã nguồn. Giữ lại tag đang chạy trước khi đổi sang bản mới. Không sử dụng secret key hoặc service role key cho ứng dụng web. Làm theo [thiết lập Supabase](./supabase.md) để tạo schema, chính sách RLS và cấu hình Auth trước khi bật đồng bộ.
@@ -81,7 +82,8 @@ Kiểm tra web từ máy bên ngoài VPS bằng tên miền thật:
 - `/api/health` trả HTTP 200 với `{"status":"ok"}`. Endpoint này chỉ xác nhận web đang phản hồi, không gọi Supabase hoặc Rust Playground.
 - Trang chủ và một URL bài học mở trực tiếp được, font/CSS/JavaScript tải thành công, sáng/tối hoạt động.
 - Chạy một đoạn Rust đơn giản, sửa thành chương trình lỗi và kiểm tra phản hồi phù hợp.
-- Nếu bật Supabase: đăng nhập, đồng bộ tiến độ và tải lại trên trình duyệt khác; hoàn tất kiểm tra RLS theo tài liệu Supabase.
+- Khi đọc giáo trình Supabase: chạy `docker compose --env-file deploy/.env exec app node scripts/check-course-content.mjs`, kiểm tra một bài chuyên sâu và tải ZIP của một lab.
+- Nếu dùng tài khoản: đăng nhập, đồng bộ tiến độ và tải lại trên trình duyệt khác; hoàn tất kiểm tra RLS theo tài liệu Supabase.
 - `/robots.txt`, `/sitemap.xml` và canonical trong HTML dùng đúng tên miền. Khi còn `SITE_INDEXABLE=false`, kiểm tra trạng thái chặn lập chỉ mục theo thiết kế.
 
 Sau nghiệm thu, sửa `SITE_INDEXABLE=true`, rồi áp dụng lại app:

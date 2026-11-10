@@ -1,0 +1,15 @@
+{
+  "checkedAt": "2026-11-10T22:52:41.770Z",
+  "projectRef": "gsytmwgwitbtqesvjzhm",
+  "releaseId": "50242413-ad42-4336-95ce-6898213bd57a",
+  "revision": 1,
+  "modules": 33,
+  "lessons": 158,
+  "specializations": 13,
+  "labs": 29,
+  "catalogSha256": "e5c6046dde4197f145360345e42a7cbe3916ab51626324644050b0b6075b2ad2",
+  "publiclyVisibleReleases": 1,
+  "privateHistoryStatus": 401,
+  "importParts": 3,
+  "credentials": "publishable key only; no secret/admin key used for website"
+}

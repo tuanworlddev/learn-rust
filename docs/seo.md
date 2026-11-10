@@ -37,7 +37,7 @@ docker compose --env-file deploy/.env up -d --no-build --force-recreate app
 
 Biến được đọc lúc chạy; không cần build lại image chỉ để đổi cờ SEO. Hostname nội bộ, IP, domain ví dụ hoặc URL không đạt định dạng công khai sẽ không được phép bật lập chỉ mục.
 
-Sitemap hiện có **86 URL**: mục lục, 80 bài học, danh sách dự án, ba dự án và phỏng vấn. `/thuc-hanh` và `/so-tay` vẫn noindex và không nằm trong sitemap. Tổng cộng có 88 trang HTML chuẩn.
+Với catalog đầy đủ hiện tại, sitemap có **178 URL**: mục lục cơ bản, 158 bài học, trang chọn hướng chuyên sâu, 13 lộ trình, danh sách dự án, ba dự án và phỏng vấn. `/thuc-hanh` và `/so-tay` vẫn noindex và không nằm trong sitemap; file ZIP có `X-Robots-Tag: noindex`. Tổng cộng có 180 trang HTML chuẩn. Số URL được tính từ catalog đang xuất bản, không gắn cứng vào dữ liệu đi kèm code.
 
 ## 3. Kiểm tra HTTP và metadata
 
@@ -63,7 +63,7 @@ Sau khi bật index, bài `ownership` cần có title đúng bài, `index, follo
 2. Khi `SITE_INDEXABLE=true` và sitemap truy cập công khai được, mở **Sitemaps**, nhập URL `https://<domain-cua-ban>/sitemap.xml` rồi gửi. Theo dõi trạng thái và lỗi trong [báo cáo Sitemaps](https://support.google.com/webmasters/answer/7451001).
 3. Dùng **URL Inspection** cho trang chủ và một URL bài học. Kiểm tra Google có lấy được trang, thấy đúng canonical và không còn noindex trên trang công khai. [Hướng dẫn URL Inspection](https://support.google.com/webmasters/answer/9012289/).
 
-Không cần tạo sitemap thủ công khi thêm bài vào dữ liệu khóa học: ứng dụng sinh danh sách từ curriculum và projects. Khi thay đổi route, giữ redirect cho URL cũ và kiểm tra lại bản phát hành.
+Không cần tạo sitemap thủ công khi thêm bài vào dữ liệu khóa học: ứng dụng sinh danh sách từ catalog đang dùng và projects. Khi chọn Supabase, title, canonical, JSON-LD và sitemap đều theo bản nội dung đã xuất bản. Khi thay đổi route, giữ redirect cho URL cũ và kiểm tra lại bản phát hành.
 
 Gửi sitemap không bảo đảm Google sẽ thu thập hoặc lập chỉ mục mọi URL; cấu hình này cũng không cam kết thứ hạng. [Google giải thích vai trò của sitemap tại đây](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap).
 

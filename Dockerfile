@@ -24,6 +24,8 @@ COPY --from=builder --chown=node:node /app/.next/static ./.next/static
 COPY --from=builder --chown=node:node /app/public ./public
 COPY --from=builder --chown=node:node /app/scripts/check-config.mjs ./scripts/check-config.mjs
 COPY --from=builder --chown=node:node /app/scripts/check-supabase.mjs ./scripts/check-supabase.mjs
+COPY --from=builder --chown=node:node /app/scripts/check-course-content.mjs ./scripts/check-course-content.mjs
+COPY --from=builder --chown=node:node /app/lib/content ./lib/content
 COPY --from=builder --chown=node:node /app/lib/supabase/config.mjs ./lib/supabase/config.mjs
 RUN mkdir -p .next/cache && chown node:node .next/cache
 

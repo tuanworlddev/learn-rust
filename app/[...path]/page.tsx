@@ -7,7 +7,7 @@ async function resolveRoute({ params }: Props) {
   const route = (await params).path.join("/");
   if (route === "di-lam") permanentRedirect("/phong-van");
   if (route === "lo-trinh" || route === "tong-quan") permanentRedirect("/");
-  if (!getPageInfo(route)) notFound();
+  if (!await getPageInfo(route)) notFound();
   return route;
 }
 export async function generateMetadata(props: Props) { return pageMetadata(await resolveRoute(props)); }

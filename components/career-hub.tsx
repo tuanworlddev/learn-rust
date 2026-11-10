@@ -3,6 +3,7 @@
 import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { ArrowUpRight, Check, ChevronDown, Download, Search } from "lucide-react";
 import { careerProjects, careerStages, interviewQuestions, readinessGates, type CareerSource } from "@/src/data/career";
+import { AnimatedDisclosure } from "./animated-disclosure";
 import "./career-hub.css";
 
 const STORE = "learn-rust-career-evidence-v1";
@@ -54,6 +55,8 @@ export default function CareerHub() {
       if (raw) {
         const parsed: unknown = JSON.parse(raw);
         if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new Error("Invalid evidence data");
+        // Client-only evidence is restored after SSR; this effect never writes storage.
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setEvidence(readEvidence(parsed));
       }
     } catch {
@@ -66,6 +69,8 @@ export default function CareerHub() {
     if (!loaded || !hasChanges.current) return;
     try {
       localStorage.setItem(STORE, JSON.stringify(evidence));
+      // Reflect the result of this external storage write in the save indicator.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSaveState("saved");
       setStorageError("");
     } catch {
@@ -83,7 +88,7 @@ export default function CareerHub() {
     else return;
     event.preventDefault();
     setTab(tabs[next].id);
-    tabRefs.current[next]?.focus();
+    tabRefs.current[next]?.focus({ preventScroll: true });
   }
   function exportEvidence() {
     const exported = {
@@ -140,23 +145,23 @@ export default function CareerHub() {
         <label className="career-category"><span className="sr-only">Nhóm câu hỏi</span><select aria-label="Nhóm câu hỏi" value={category} onChange={event => setCategory(event.target.value)}>{categories.map(item => <option key={item}>{item}</option>)}</select></label>
       </div>
       <p className="career-result-count" role="status">{questions.length} câu hỏi{category !== "Tất cả" ? ` · ${category}` : ""}</p>
-      <div className="career-question-list">{questions.map(question => <details className="career-question" key={question.id}>
-        <summary><span className="career-question-number">{String(interviewQuestions.indexOf(question) + 1).padStart(2, "0")}</span><span>{question.question}<small>{question.category}</small></span><ChevronDown size={17} aria-hidden="true" /></summary>
+      <div className="career-question-list">{questions.map(question => <AnimatedDisclosure className="career-question" key={question.id}
+        title={<><span className="career-question-number">{String(interviewQuestions.indexOf(question) + 1).padStart(2, "0")}</span><span>{question.question}<small>{question.category}</small></span><ChevronDown size={17} aria-hidden="true" /></>}>
         <div className="career-answer">
           <h3>Những ý cần giải thích</h3><ul>{question.answer.map(item => <li key={item}>{item}</li>)}</ul>
           <h3>Câu hỏi tiếp</h3><p>{question.followUp}</p>
           <h3>Điểm dễ nhầm</h3><p>{question.pitfall}</p>
           <Sources sources={[question.source]} />
         </div>
-      </details>)}</div>
+      </AnimatedDisclosure>)}</div>
       {!questions.length && <p className="career-empty">Không có câu phù hợp. Thử từ khóa ngắn hơn hoặc chọn tất cả nhóm.</p>}
-      <details className="career-rubric"><summary>Tự chấm câu trả lời<ChevronDown size={16} aria-hidden="true" /></summary><dl><div><dt>0 · Chưa giải thích được</dt><dd>Quay lại bài nền tảng, viết ví dụ nhỏ rồi thử trả lời lại.</dd></div><div><dt>1 · Hiểu khái niệm</dt><dd>Nêu đúng định nghĩa nhưng chưa đưa được ví dụ hoặc ca lỗi.</dd></div><div><dt>2 · Áp dụng được</dt><dd>Viết ví dụ đúng, giải thích lựa chọn và kiểm tra một trường hợp biên.</dd></div><div><dt>3 · Bảo vệ được thiết kế</dt><dd>So sánh phương án, nhận ra giới hạn và trả lời được câu hỏi tiếp.</dd></div></dl></details>
+      <AnimatedDisclosure className="career-rubric" title={<><span>Tự chấm câu trả lời</span><ChevronDown size={16} aria-hidden="true" /></>}><dl><div><dt>0 · Chưa giải thích được</dt><dd>Quay lại bài nền tảng, viết ví dụ nhỏ rồi thử trả lời lại.</dd></div><div><dt>1 · Hiểu khái niệm</dt><dd>Nêu đúng định nghĩa nhưng chưa đưa được ví dụ hoặc ca lỗi.</dd></div><div><dt>2 · Áp dụng được</dt><dd>Viết ví dụ đúng, giải thích lựa chọn và kiểm tra một trường hợp biên.</dd></div><div><dt>3 · Bảo vệ được thiết kế</dt><dd>So sánh phương án, nhận ra giới hạn và trả lời được câu hỏi tiếp.</dd></div></dl></AnimatedDisclosure>
     </section>
 
     <section id={`${uid}-panel-projects`} role="tabpanel" aria-labelledby={`${uid}-tab-projects`} hidden={tab !== "projects"} tabIndex={0} className="career-panel">
       <div className="career-section-heading"><h2>Dự án với Cargo</h2></div>
-      <div className="career-project-list">{careerProjects.map((project, index) => <details className="career-project" key={project.id}>
-        <summary><span className="career-question-number">{String(index + 1).padStart(2, "0")}</span><span>{project.title}<small>{project.description}</small></span><ChevronDown size={17} aria-hidden="true" /></summary>
+      <div className="career-project-list">{careerProjects.map((project, index) => <AnimatedDisclosure className="career-project" key={project.id}
+        title={<><span className="career-question-number">{String(index + 1).padStart(2, "0")}</span><span>{project.title}<small>{project.description}</small></span><ChevronDown size={17} aria-hidden="true" /></>}>
         <div className="career-project-body"><p className="career-prerequisites"><strong>Kiến thức cần có:</strong> {project.prerequisites}</p>
           {project.starter && <a className="button button-secondary career-lab-link" href={project.starter} target="_blank" rel="noreferrer">Mở lab Task API và hướng dẫn<ArrowUpRight size={15} aria-hidden="true" /></a>}
           <h3>Cấu trúc gợi ý</h3><ul className="career-file-list">{project.files.map(file => <li key={file}>{file}</li>)}</ul>
@@ -166,7 +171,7 @@ export default function CareerHub() {
           <h3>Câu hỏi khi code review</h3><ul>{project.review.map(item => <li key={item}>{item}</li>)}</ul>
           <Sources sources={project.sources} />
         </div>
-      </details>)}</div>
+      </AnimatedDisclosure>)}</div>
     </section>
 
     <section id={`${uid}-panel-evidence`} role="tabpanel" aria-labelledby={`${uid}-tab-evidence`} hidden={tab !== "evidence"} tabIndex={0} className="career-panel">

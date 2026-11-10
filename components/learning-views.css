@@ -9,6 +9,7 @@
   letter-spacing: normal;
 }
 .lv-workspace-switch { display: none; }
+.button.lv-mobile-editor-action { display: none; }
 .lv-exercise-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
 .lv-article[hidden], .lv-notebook-view > [role="tabpanel"][hidden] { display: none; }
 .lv-article:focus-visible, .lv-notebook-view > [role="tabpanel"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
@@ -19,7 +20,9 @@
   border-right: 1px solid var(--line);
   scrollbar-width: thin;
   scrollbar-gutter: stable;
+  overflow-anchor: none;
 }
+.lv-reading-flow, .lv-reading-body { display: flow-root; }
 .lv-practice-column {
   min-width: 0;
   overflow-y: auto;
@@ -128,8 +131,8 @@
   color: var(--muted);
   font-size: 14px;
 }
-.lv-objectives summary { cursor: pointer; line-height: 1.6; font-weight: 500; }
-.lv-objectives summary:hover { color: var(--ink); }
+.lv-objectives .disclosure-trigger { line-height: 1.6; font-weight: 500; }
+.lv-objectives .disclosure-trigger:hover { color: var(--ink); }
 .lv-objectives ul { margin: 11px 0 0; padding-left: 21px; }
 .lv-objectives li { margin: 5px 0; }
 .lv-theory-section { margin-bottom: 25px; }
@@ -241,7 +244,8 @@
 .lv-feedback-correct { border-left-color: var(--accent); }
 .lv-completion { margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--line); }
 .lv-completion-checks { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-bottom: 12px; }
-.lv-completion-checks > span { display: flex; gap: 6px; align-items: center; color: var(--muted); font-size: 13px; }
+.lv-completion-checks > button { display: flex; gap: 6px; align-items: center; padding: 0; color: var(--muted); font-size: 13px; }
+.lv-completion-checks > button:hover { color: var(--ink); }
 .lv-completion-checks > .lv-status { color: var(--accent); }
 .lv-completion button:disabled { cursor: default; opacity: .55; }
 .lv-lesson-pagination {
@@ -338,6 +342,18 @@
 .lv-cheatsheet-card h2 { margin: 0 0 7px; color: var(--ink); font-size: 18px; line-height: 1.5; font-weight: 600; letter-spacing: normal; }
 .lv-cheatsheet-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
 .lv-cheatsheet-card .lv-sample-code { margin-top: 13px; }
+.lv-local-lab { margin: 20px 0; padding: 12px 14px; border: 1px solid var(--line); border-radius: 5px; }
+.lv-local-lab > .disclosure-trigger { font-size: 14px; font-weight: 600; }
+.lv-local-lab-body { padding-top: 18px; }
+.lv-local-lab-body > ul { padding-left: 20px; list-style: disc; }
+.lv-local-lab-body > ul > li { margin: 7px 0; font-size: 14px; }
+.lv-lab-file { margin: 16px 0; }
+.lv-lab-file-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 12px; }
+.lv-lab-file-heading code { min-width: 0; overflow-wrap: anywhere; }
+.lv-lab-file-heading button { display: inline-flex; align-items: center; gap: 5px; flex-shrink: 0; color: var(--muted); padding: 4px 0; }
+.lv-lab-file-heading button:hover { color: var(--accent); }
+.lv-lab-file > .lv-sample-code { margin-top: 6px; }
+.lv-lab-file > p { margin-top: 6px; font-size: 12px; color: var(--muted); }
 
 @media (min-width: 1500px) {
   .lv-reading-column { padding-right: 30px; padding-left: 30px; }
@@ -351,14 +367,15 @@
   .lv-lesson-meta { gap: 9px; }
 }
 @media (max-width: 900px) {
-  .lv-learning-layout { grid-template-columns: minmax(0, 1fr); height: auto; min-height: 0; }
+  .lv-learning-layout { grid-template-columns: minmax(0, 1fr); height: auto; min-height: 0; align-content: start; }
+  .button.lv-mobile-editor-action { display: inline-flex; }
   .lv-workspace-switch { display: flex; position: sticky; top: 60px; z-index: 3; gap: 8px; padding: 8px 16px; background: var(--surface); border-bottom: 1px solid var(--line); scroll-margin-top: 60px; }
   .lv-workspace-switch button { display: inline-flex; align-items: center; justify-content: center; gap: 7px; flex: 1; min-height: 36px; padding: 5px 10px; border: 1px solid transparent; border-radius: 4px; color: var(--ink); font-size: 13px; transition: color 150ms ease, background-color 150ms ease; }
   .lv-workspace-switch button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent); border-color: var(--line); font-weight: 600; }
   .lv-learning-layout[data-mobile-pane="reading"] > .lv-practice-column,
   .lv-learning-layout[data-mobile-pane="code"] > .lv-reading-column { display: none; }
   .lv-reading-column { overflow: visible; border-right: 0; scrollbar-gutter: auto; padding: 0 24px 24px; }
-  .lv-panel-toolbar { position: static; }
+  .lv-panel-toolbar { position: sticky; top: 112px; }
   .lv-practice-column { overflow: visible; border-top: 0; scroll-margin-top: 120px; }
   .lv-project-row { grid-template-columns: 24px minmax(0, 1fr); gap: 14px; }
   .lv-project-row > .button { grid-column: 2; justify-self: start; margin-top: 0; }
@@ -402,3 +419,9 @@
   .lv-quiz-option:active { transform: none; }
   .lv-notes-editor textarea { transition: none; }
 }
+
+.lv-lab-download { margin: 12px 0 18px; }
+.lv-lab-download a { display: inline-flex; align-items: center; gap: 6px; padding: 7px 10px; font-size: 12px; font-weight: 500; color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 5px; transition: background-color 180ms ease, border-color 180ms ease; }
+.lv-lab-download a:hover { background: var(--accent-soft); border-color: var(--accent); }
+.lv-lab-download a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .lv-lab-download a { transition: none; } }

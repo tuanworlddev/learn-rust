@@ -30,3 +30,5 @@ html[data-theme="dark"]{
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
 
 .progress-save-warning{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 20px;background:var(--accent-soft);color:var(--ink);border-bottom:1px solid var(--line);font-size:13px}.progress-save-warning .button{flex-shrink:0}@media(max-width:600px){.progress-save-warning{align-items:flex-start;flex-direction:column;padding:10px 16px}}
+
+.toc-collapse>div{transition:padding-top 220ms ease}.chapter-collapse,.toc-collapse{overflow-anchor:none}@media(prefers-reduced-motion:reduce){.toc-collapse>div{transition:none}}

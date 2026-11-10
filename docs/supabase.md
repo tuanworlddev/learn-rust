@@ -1,6 +1,8 @@
 # Cấu hình Supabase cho Learn Rust
 
-Supabase là tính năng tùy chọn. Khi chưa có cấu hình, trang học vẫn hoạt động với tiến độ trên trình duyệt và phần tài khoản không xuất hiện. Khi cấu hình xong, người học mở **Cài đặt → Tài khoản** để đăng ký, đăng nhập và lưu hoặc khôi phục tiến độ.
+Supabase quản lý hai phần riêng: **nội dung khóa học** và **tiến độ theo tài khoản**. Nội dung có bản nháp, phát hành nguyên tử và khôi phục bản trước; tiến độ vẫn được lưu theo từng người học bằng RLS. Khi chưa cấu hình, trang chạy nội dung đi kèm source và tiến độ trên trình duyệt. Xem [quy trình nhập và xuất bản nội dung](course-content.md) trước khi bật `COURSE_CONTENT_SOURCE=supabase`.
+
+Khi cấu hình tài khoản xong, người học mở **Cài đặt → Tài khoản** để đăng ký, đăng nhập và lưu hoặc khôi phục tiến độ.
 
 ## 1. Tạo project và bảng dữ liệu
 
@@ -8,6 +10,7 @@ Tạo một project Supabase. Trong **SQL Editor**, chạy toàn bộ file:
 
 ```text
 supabase/migrations/20261110000000_learning_progress.sql
+supabase/migrations/20261111000000_course_content.sql
 ```
 
 Migration chạy trong một transaction và chỉ cần áp dụng một lần cho mỗi project. Nếu quản lý migration bằng Supabase CLI, đưa file này vào cùng lịch sử migration của project rồi áp dụng bằng quy trình CLI hiện có.
@@ -52,13 +55,15 @@ Nếu project đang dùng khóa cũ, có thể thay dòng publishable key bằng
 SUPABASE_ANON_KEY=your_legacy_anon_jwt
 ```
 
+Để website đọc giáo trình đã xuất bản trên Supabase, thêm `COURSE_CONTENT_SOURCE=supabase` vào cùng file môi trường sau khi hoàn tất [stage và publish nội dung](course-content.md). Nếu mới cấu hình tài khoản, có thể giữ `COURSE_CONTENT_SOURCE=bundled` cho tới khi bản nội dung đầu tiên được xuất bản.
+
 Ưu tiên publishable key. Nếu cả hai biến khóa cùng có giá trị, `SUPABASE_PUBLISHABLE_KEY` được dùng. Để tắt tài khoản, để trống cả URL và các khóa. Cấu hình thiếu một nửa hoặc sai định dạng bị coi là không hợp lệ.
 
 Các biến này được đọc khi server chạy. Không cần tiền tố `NEXT_PUBLIC_`, không cần đưa khóa vào lệnh build, và không cần build lại Docker image khi đổi project. Sau khi sửa file môi trường, khởi động lại server/container để tải giá trị mới.
 
 Endpoint `GET /api/public-config` trả URL và **public key** cho trình duyệt với `Cache-Control: private, no-store`. Đây là thiết kế có chủ đích: public key không phải bí mật; quyền dữ liệu được bảo vệ bằng phiên đăng nhập, quyền bảng và RLS. Endpoint không trả lý do lỗi cấu hình hay nội dung các biến môi trường khác.
 
-**Không điền `sb_secret_...` hoặc JWT `service_role` vào các biến trên.** Bộ kiểm tra từ chối hai loại khóa này. Không commit `.env.local` hay file môi trường production. Ứng dụng không cần `SUPABASE_SECRET_KEY`, database password hoặc service-role key. HTTPS bắt buộc cho Supabase từ xa; HTTP chỉ được chấp nhận với `localhost`, `127.0.0.1` và `[::1]` để phát triển local.
+**Không điền `sb_secret_...` hoặc JWT `service_role` vào các biến trên.** Bộ kiểm tra từ chối hai loại khóa này. Không commit `.env.local` hay file môi trường production. Web server và trình duyệt không cần secret key, database password hoặc service-role key. Riêng công cụ nhập nội dung dùng `SUPABASE_CONTENT_ADMIN_KEY` trong file môi trường quản trị tách biệt; không chuyển khóa đó vào container web. HTTPS bắt buộc cho Supabase từ xa; HTTP chỉ được chấp nhận với `localhost`, `127.0.0.1` và `[::1]` để phát triển local.
 
 Nếu dùng Supabase self-hosted, URL phải truy cập được từ trình duyệt người học. Hostname nội bộ của Docker sẽ không thay thế được URL công khai. Trình duyệt gọi Auth và Data API trực tiếp.
 

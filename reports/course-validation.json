@@ -1,0 +1,1333 @@
+{
+  "verifiedAt": "2026-11-10T22:42:45.486Z",
+  "host": "darwin arm64",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "catalogSha256": "e5c6046dde4197f145360345e42a7cbe3916ab51626324644050b0b6075b2ad2",
+  "modules": 33,
+  "specializations": 13,
+  "solutions": {
+    "total": 158,
+    "passed": 158,
+    "edition": "2024",
+    "results": [
+      {
+        "id": "hello-rust",
+        "sourceSha256": "fdd50f921fb8d22b07cbf531928c15e6595fa2d6d84d70b84380656649493567",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "installation",
+        "sourceSha256": "3c1f595c3edb13b91c9030389be48535b32b752e02adc5e9cbcf457beef24ecf",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "cargo-basics",
+        "sourceSha256": "558e2ef5ac892f87b2b96764776c08845b8838d69b77362321d432538251710a",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "compiler-errors",
+        "sourceSha256": "2b0c64ab061df10f3d90f781ed38c0e895faec13fdef2b043f1522b882ae6936",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "variables",
+        "sourceSha256": "d82283061fa506ac7029c9792b1dce7f5c0b9a115d22082e9d5e132a6bbb6cba",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "scalar-types",
+        "sourceSha256": "96cbcd8301e7267bc4de9c55446a087936cdb7c0066814c3ec5c3a8eb6fa5bdf",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "constants-shadowing",
+        "sourceSha256": "651f1865150f4ca2eb37547cbdad7a04ba72e97bb1a4541c0a284ac0f5719bfa",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "conversions",
+        "sourceSha256": "94dc7c490441f2367f17ec0235e87eff8f96a1c847c3bcf0a82ba010d2afa393",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "functions",
+        "sourceSha256": "d05685ab1fd9e94846a99353085a8d51a8bd381cf505e2be84f2ca4b6e62fdcb",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "expressions-scope",
+        "sourceSha256": "d642b9c8c5ae4547c19869adebc4b3ee54c4c56d53e0a130f117a0b0d12ea15f",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "control-flow",
+        "sourceSha256": "36a4aaaca9685bd68be373120d87bbcaf093b62cb6a2d2c3cda604d6201fe842",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "loops",
+        "sourceSha256": "658cf68e6167d5449490fc25d4c6fec18e346691eebc78afc1229e73dea59d90",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "ownership",
+        "sourceSha256": "8ad064a7733e460d02b2d715b71247ac9ed6dffce77bf84d3b11629d627aef6a",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "borrowing",
+        "sourceSha256": "7cc506216d93f98b1202fb1d8a9e88b696f17a730b2697356429a714548f2be2",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "slices",
+        "sourceSha256": "c6ed5b7a199c21fe8c1b62ca5d8ddd92d187503dfc311b2aa1d772011fc41ce8",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "lifetimes",
+        "sourceSha256": "ffe863ec5d962e98c98defcc33802d8e075ec20bd19a17082fa5d6982b15e982",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "structs",
+        "sourceSha256": "3d89911bd733707ebf0e585b6b2afbfbd6ff8ef854a587564e8e9aaabb7c3cfa",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "methods",
+        "sourceSha256": "d45de697b773370a68a8ed0e88638cabb8c70e1b09fbb64910bfdb9356843a2b",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "enums",
+        "sourceSha256": "48920f5985b015426bc2f9feaf59b8229bf78ddcd5cb3a10b0333a2e2c4627a4",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "pattern-matching",
+        "sourceSha256": "331646889434d7abf56e1f571d3a14d569473372814407e259489029acebc298",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "vectors",
+        "sourceSha256": "46a4d3df9f0afe495fc34f8eb8de6ac2239b96877be3496e5b7cfb66365deb09",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "strings",
+        "sourceSha256": "4b9f6db00f734f5768cca2fcde5837176424c03f7c0360d68735cbbf6104caf6",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "hashmaps",
+        "sourceSha256": "e2c3494b45d97173668a7399b96b2eb69fb073243fe0fbb469551bfdf2881a99",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "hashsets",
+        "sourceSha256": "a25a472a75f7a42ff39ea5bfa67b7a306b626a5abd97e0c50ebd407137614c31",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "option",
+        "sourceSha256": "ce567361fb8c36e310e0976f30def74754b113f4ad17ddbf8ef9cdee18577190",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "result",
+        "sourceSha256": "385f33e7da3af337c9457692994d76c7860948c76ed0a10c0b5b1e246c2f3f0d",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "question-mark",
+        "sourceSha256": "ce5cb42b268d0e8012453bab25416b3b6be06d075337cffe57ed8d295d0c45e8",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "custom-errors",
+        "sourceSha256": "47697902606e3b25e09c1c1cb8cfa4127c29a8c7e4a71496b28aea9e026dafdf",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "modules",
+        "sourceSha256": "2c17e08335980d8241845f734f09e45f920e85bd32a07e66833a2cc88bd719c2",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "visibility",
+        "sourceSha256": "794a42b96ae43831527bde32d9600f4a6c80938947bed822fdaba390ecc0fe93",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "crates-dependencies",
+        "sourceSha256": "9984400d5b88e061fac03f1104982c627511c10f46c3485434a0b96e35979439",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "workspaces",
+        "sourceSha256": "9413e59aa1e18dc63e3987716883868424634079e958d868033d5c1c24b26512",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "generics",
+        "sourceSha256": "56a4e2f92c2d35158beb28235df1bab937649a29173aa3b0e4f48ce7d959a944",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "traits",
+        "sourceSha256": "0a6189fcb693c29d1795f49114b1ce23d120f5e72ac90a1c04b541575b9dceb9",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "trait-bounds",
+        "sourceSha256": "ca0469551206122a8f8783b250d89b5c591693cbdac1311b8e7ff7ce4d77efc8",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "associated-types",
+        "sourceSha256": "1ca8f877e5b99bdb6f1025c873f28a4902e01fd9f5aed351835d326f4524fac1",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "closures",
+        "sourceSha256": "f7710256bafa1c657d0d35872cef2533536e9b2149fffa05b2e3cd6c53084131",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "iterators",
+        "sourceSha256": "bff5d27e74f13f1d2af6f89926abb7ace131c9fe41cbe5c8dfa91ae49769be6c",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "iterator-ownership",
+        "sourceSha256": "fd88f0bde29d0abdfdb2d1b6a43ae3eeee3b78ce33d736301e70c4a5269b7e4a",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "custom-iterator",
+        "sourceSha256": "ddcf732eec27ff224c807324917a23fc7e0a35d916bad949567cb04c19c269fa",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "box",
+        "sourceSha256": "41bea8840f2480eb11781ff2fd86d7b77eb9828d524b99637e2e6c3bad99493e",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "rc",
+        "sourceSha256": "e0d5635a6377b9c04a0bec901a55c3413f0ed2935458e6b3cdaefe443fec78eb",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "refcell",
+        "sourceSha256": "654ebb4b17c9ee66188cba99688dce38d07bb4bb36636c192a09dd718d383494",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "weak",
+        "sourceSha256": "3d530743aaa4e801fa6b5314b086b5c08495feff593dabd8ba7d24681e5650dd",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "lifetime-struct",
+        "sourceSha256": "ab94da47f50a960cd748a78d0f6b65b672b9a71a9cd03d60bae304b2273768ee",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "static-lifetime",
+        "sourceSha256": "d5ca39a8fb75a812d6210cf0156df5c2e65fb6bf859e718f9b250a1ff0024f05",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "cow",
+        "sourceSha256": "aee35792aabb7f89b6ec33972c4ccda6141429242929ba062311450c93da918b",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "drop",
+        "sourceSha256": "7c090cb4b232e3a954e0dcf91dc8437a73760ee9c5eef03bc68cbb26d777a7a8",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "testing",
+        "sourceSha256": "834d70e7bed88277fc3eb82dbb3dbbb7f2265a796f26c269507043643ba66c3c",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "integration-tests",
+        "sourceSha256": "2b7dddb86802c5aec5753960e5599e49b1be6a1a62ff00148d2ed32f17017749",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "doc-tests",
+        "sourceSha256": "19494cbfa11261fb9c615d7504964169c18d177bad8f18c0ca8fd810a2b16b49",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "clippy-format",
+        "sourceSha256": "d6d4bd26e638a68c97e9192b80261f5d3183437f25905450a222e73f87fdd1e9",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "io-files",
+        "sourceSha256": "2a5659283f2b1b22c554b3ed416918abaf2e56f314f686958c1605396688834b",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "buffered-io",
+        "sourceSha256": "c01486b30337cbc9f881f875cee564ebd82ad21d59e771a2e0e67cf501b26833",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "cli-args",
+        "sourceSha256": "17bf27108020350265068c64fc2f772781834d30c6aee4a78c2457ad1775e960",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "cli-errors",
+        "sourceSha256": "f11defac0e8872b602b583782f9461cb284b506a67ab21ccfc2ecee711bf94f7",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "threads",
+        "sourceSha256": "c13d64587b2cce3ee11df78a4e0510c3e1c40a1c08f72c09a0f2508d00bfee35",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "channels",
+        "sourceSha256": "a161e32b15055fd7fd4b19b8a86077ee0f4341dd194c8692412815a15f2c37e8",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "mutex-arc",
+        "sourceSha256": "5c8ab057883820def0a612c5578f0ee3821343d0809ec590476fb6ee7dfe5215",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "send-sync",
+        "sourceSha256": "c9225198fa348e0b4c353da10d23fcba65d6aa657724f1900aacec6ce2a89d1f",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "async-await",
+        "sourceSha256": "e62d74cab91e81c60e8c8ca65a439c6a941bbeed12f1441dc11e886189304f8a",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "futures-poll",
+        "sourceSha256": "79daf8338ab730d8555c8b86c74d2770c3eab23dc82ad471bc614ad87206be68",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "pin-unpin",
+        "sourceSha256": "d3273a3df05b506ed0e629eaf1e6b37e1e5c0b0b73dd15139904143baceed1f2",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "async-runtime",
+        "sourceSha256": "9b6270985806b89f88f3f70631dd05e1dbae1bbb1793ece06a4cac870ff8f73f",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "macro-rules",
+        "sourceSha256": "4e4058d9e3117aebd1c9cec6d08210b363bff4e3e0f080c7f0fb449fc38b2343",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "macro-repetition",
+        "sourceSha256": "64ba05da479cfb8097b05e025331326ef7c482adab2f34c8341232b2d5606945",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "derive-traits",
+        "sourceSha256": "cbbae66bae6a9e188d21bbaf0cba53716c7470c2a87f285de3f179004fd9321b",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "cfg-attributes",
+        "sourceSha256": "dd98446b13dde813877009191571073e269e90fe4b9e3256851673a6c2c0a5a9",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "trait-objects",
+        "sourceSha256": "258540b12d0a9a2dcf3a0f6e0dea30a9ef12d49fabc7fea0c804be8475547b77",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "advanced-patterns",
+        "sourceSha256": "5381008557074106fc0287f1dd539ceab8c10cfdb46c862e9ad73905ed13e468",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "unsafe-basics",
+        "sourceSha256": "1c446cae950e5ce485986e24cd7c76348432242c06dbd8df02477098037d75ee",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "ffi-layout",
+        "sourceSha256": "ed040a1733b1b5ec6ebb770120d73655b95453c02753f3b97f51787a2605190b",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "newtype",
+        "sourceSha256": "ef499cf64248f3296703ef6ff00f7d12d7682e721c2b943b3d6d6200c9e18796",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "typestate",
+        "sourceSha256": "1c7bf077960f4f5480dba477c44e7fa2601847a94e95adf3c3f80d8e9479923f",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "allocation",
+        "sourceSha256": "b1a5d264d51adb6585ec0f4e5475040dec63423d1abcde3eb8dd1e5949d1de1a",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "benchmarking",
+        "sourceSha256": "8dc7a130146506532f5cfa4fb4e539e659e70e9296e5421e721e9db7ef2f63ed",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "mini-project",
+        "sourceSha256": "dcc09d6ecc432b8ddc2fee7172c972a61c73f84e15657d667a0a9121ccf5285b",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "cli-search",
+        "sourceSha256": "074a9762c54ed011d2ebb4c6f335453f62b366acdd70f2939e03e53c01a73c48",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "parser-project",
+        "sourceSha256": "f9f917e7b11fb1993762c853334c1bf1c7024d606fdb4ee6175294baadd4e360",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "concurrent-project",
+        "sourceSha256": "ce8a2565f8ecf778ddd966cc26de5fcd3e69f3e4f1d664803997c617774bf9a0",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "backend-runtime",
+        "sourceSha256": "e650ea85c071e912898da0831e2429204191666b8e7e38029ffca5a1425a04d9",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "backend-http",
+        "sourceSha256": "479c897d7be5a42102595a4792e01e6f4657caf2b1db28c7aad36012707e182e",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "backend-transactions",
+        "sourceSha256": "9b8b4fc0113ed1b314a48a4f3f70b9c00c26bc940d03ecccd90d227d1c15cb14",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "backend-authorization",
+        "sourceSha256": "5bf2cc71d50a7effde235bb1efc06e796aa7cc389755186d27dfa26af0aeb727",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "backend-streaming",
+        "sourceSha256": "66a1cec0b13341bf3cd0dd31f1966802aa063c3f3e98a965dd39946b335bc169",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "backend-production",
+        "sourceSha256": "b860e2c04ee9f9c1124836ba10129dcd404e4fefcb78d109279593e890807ec3",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "systems-resource-ownership",
+        "sourceSha256": "b825eedcd2084d7836df2cf605522337bc0a25146ce0d853cf105677ff3993c4",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "systems-processes-io",
+        "sourceSha256": "5cd3fc3132fd465c953e36853e279eb18ac670df7121bf90dbb1855522912dfc",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "systems-memory-layout",
+        "sourceSha256": "2ac5400f70ecc543814d1132553f55ddd3f629bf149dcc3f6f036437771f0e7b",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "systems-concurrency-ordering",
+        "sourceSha256": "680c69ffa90dcff4451cf6fd0fb4f572c0fb0f5b9177bbd0500d04c689d707a0",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "systems-os-boundaries",
+        "sourceSha256": "631eb65292c1afad60a0d6b282a57c3559eba45ebc48f523bad030da5559409b",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "systems-kernel-path",
+        "sourceSha256": "4b01ca35677998fee3f150549e72ca96589d29417227b5eb27edf18320c77107",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "embedded-no-std",
+        "sourceSha256": "18eb1ec38345095ff20a18314ec32b2b97fc80d845f4e3b0f6a69156a49b5750",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "embedded-gpio",
+        "sourceSha256": "9e9c1e3b7a5b09321250bdef0f7314d88b7ef79c4b1f1170ed82a7c9151ef855",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "embedded-sensors",
+        "sourceSha256": "6b26f691cc810ce5d4db2e2557dff9e088110aa089226d5496f80298b4a317cd",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "embedded-async",
+        "sourceSha256": "5299db6141a18fc524a8ee4aad7988d485882d37964159e4e4cff71f7155597a",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "embedded-memory",
+        "sourceSha256": "d2eed0fc6d441b12b0f3674e5695813bb37ed3414fbd40b07dec942c43b74411",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "embedded-reliability",
+        "sourceSha256": "483a7cc5ea662d7a6061137b38382e65801ec2539031b394f58a1c3f8cdb45ca",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "desktop-ipc",
+        "sourceSha256": "670118981638f0a1c7582dbfa749f57e0249866c0ed9330d16611dc5e9d380b3",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "desktop-state",
+        "sourceSha256": "e8515796279b074f065ba6c9dc2f33350f3ec1e2684d405c69a843bb05c1234e",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "desktop-files",
+        "sourceSha256": "a33705184e9fe8b9fed3a638b0b09ebdc25634856ffb3578e7d4253c5653f917",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "desktop-capabilities",
+        "sourceSha256": "4c1cf2558256a911eeb037256aa4affea962a8d40804dc5604f81d76f89e0c7e",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "desktop-release",
+        "sourceSha256": "606873a2c384a28cffdab1aad6492f16a15a56a9357b061d168796d2f89428bc",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "desktop-quality",
+        "sourceSha256": "a8b6881e18f6f0174d3e7c6ca749ee691e43f87aab1d659e29fba0ae1f0f9add",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "mobile-core-boundary",
+        "sourceSha256": "84cc79fc67bb47eac044affcda90a6ece268d0b48b18580bc0f13c589da9c439",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "mobile-uniffi-contract",
+        "sourceSha256": "5b949224ad4f475f2978ceaff08c15303ba98b952e727d68e31a9303c554709e",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "mobile-targets-bindings",
+        "sourceSha256": "7f91558e2c05b5b709824c9f090900db5190a5ac6061762198f87499c9cbf653",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "mobile-lifecycle-async",
+        "sourceSha256": "4eea294c11721b3c41e643dd5c8f5250e8a5c939756ae812600bd788a3c89234",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "mobile-storage-adapters",
+        "sourceSha256": "1897e5579719a21d5b25e40b5ce6e019f075bef261a5845666f24d47f96b76f6",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "mobile-release-performance",
+        "sourceSha256": "d16ac7c7a794df1b2e0897e7bc503cac8e55350491000b95384457b568040ff4",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "cli-arguments",
+        "sourceSha256": "b9e854f6945556fb13a06e23c02266a320caf80c9b76b79869271bc00e503de8",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "cli-streaming",
+        "sourceSha256": "267ed039ffb31624f07488918accd0adde2aab8e96b63f086c60f17dadab3aaa",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "cli-filesystem",
+        "sourceSha256": "4db3de0eb577fcc1d1b0f3528d68ca8c6ec27d667ac7f31c194f6f5ede77a9d8",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "cli-pipes",
+        "sourceSha256": "2dc583cbf95e30ff60a1892bcba4f6c11972cb02f317e173b7bd2830f83bd033",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "cli-parallelism",
+        "sourceSha256": "9215583a529c3c76e95597ca7d652ec06089d178360108bae47dbcddbe04632d",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "cli-shipping",
+        "sourceSha256": "275ad4488d92ed9d9a6eda1b22b58eac07c5f8ffe100951c705c6c61546e314c",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "wasm-runtime",
+        "sourceSha256": "a110d90c64353232941c20861e3255b5d8f7cd30ba2ade6dee197a0418aefda7",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "wasm-bindings",
+        "sourceSha256": "b8dee03a02a4a711b956141cdc99a6946022b959abd1ddb6743374f3a4457e6c",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "wasm-memory",
+        "sourceSha256": "2e12205d567acb5987209359f7463191b3d11753b8a0275db4e56ac72453b6c3",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "wasm-workers",
+        "sourceSha256": "f16f4d524a74f3fae29abb670756d15e00dc02f9bb2a2c5832d513de801ac2ef",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "wasm-performance",
+        "sourceSha256": "7b8c5b78ccac98716f65d9aeae9ff29224fd81b87904f2b46319d2c9273e313d",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "wasm-release",
+        "sourceSha256": "0bbfd84203224a1e260c01bd0e612ffa2a6025a4cb470ed8f7c18a4e72c076ca",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "compiler-lexer-spans",
+        "sourceSha256": "964f203ccfdd9ae11d698546398b5da03b65e0d99f1fe93fa48a1707aa23d0e0",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "compiler-parser-precedence",
+        "sourceSha256": "bb84344fc87547591fa56542c92c82c38c752d54a3575ac0d9bb34d87f60e915",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "compiler-name-resolution",
+        "sourceSha256": "4063233e97687a5b6ad29584ca4facdc8217fcc69590bf9d9f8eae10bf7db47a",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "compiler-type-diagnostics",
+        "sourceSha256": "021438771c99cd1dd7735fb0ee9a205496af4fcce6cb21658a25d27fe9fb4645",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "compiler-ir-execution",
+        "sourceSha256": "94d41063330a17e09165a4ec1fd0722a0f56f1a382dd05254b6c7c260fb8cea6",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "compiler-incremental-tools",
+        "sourceSha256": "8624798f2edf59b7630b821de1ed0c3ea7647903f65acfe9a323c79afe6eeef9",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "security-input-boundaries",
+        "sourceSha256": "0f81c7ffe8dd1f4fadab9cfae01d1c7822aa5fda91af9258f0b9682e915904e7",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "security-object-metadata",
+        "sourceSha256": "0fb63c33c5ae3050be740ba5ebc136f1f64364c9b25f1009abc534fa3e87a8b0",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "security-endian-budgets",
+        "sourceSha256": "059882ed25db529a22e42e72cd27c8eb3f39cd9c6c11f9bfcec792942729baa1",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "security-property-fuzzing",
+        "sourceSha256": "737aa8eca17867786f6fd26a8ba703f7e651265923c3d4e59543bc40cf0dd72b",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "security-debugger-invariants",
+        "sourceSha256": "8a72c4605c096836d012577b07c28176167b47bb55b66c2894beac58dcc1be7d",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "security-triage-delivery",
+        "sourceSha256": "fb83f43a777a786456d503d07be36a9ecea778934a366e24456f6b9798fc5918",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "game-ecs",
+        "sourceSha256": "5fd15a18e36e5ef90b26bdecde679767dd452eecb847fdf0dd1547b937c331d4",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "game-scheduling",
+        "sourceSha256": "144c58c0c55de1fe907244edbc747911cb27c30575097b864acdcb2aa17da2da",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "game-timestep",
+        "sourceSha256": "9605c53189b9a243d0fcd1b7068b18f726fea52c2df36ff74ceb5ab06567c00a",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "game-assets-coordinates",
+        "sourceSha256": "adbf5dcd7cfe0522c4a6c043af087be9b999cbf3226d5d048c84a357fb892379",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "game-input-performance",
+        "sourceSha256": "0e6581e50c480200604d77ae71011a3df57c358ea492f444b1b093b2db054165",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "game-testing-release",
+        "sourceSha256": "0f6d1025a5ed51b733a78258288e07cc9fa9e2669e9429814b00e6dc03245c12",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "data-columnar",
+        "sourceSha256": "2dffb10d01ca70e10ccd94dd5e08a482b09b6f512bfd20f13ac00b485a920b9c",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "data-polars",
+        "sourceSha256": "62f4ab91fea225e128a427fa138e8c24c3a6e3af19a773d89591d498e5b974cf",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "data-joins",
+        "sourceSha256": "cbbca4a3c3f1dee80667c6e740930fe02a9870e5c63a9417c6c1af50ad1af7d2",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "data-datafusion",
+        "sourceSha256": "911745cb177194a453210380ed13c7f307f3a7c754d24a5699b798797100bf25",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "data-streaming",
+        "sourceSha256": "7e37cb5fd10c4a50c70a811c9bb6260038ab985a2d3f3de967d0d2e771732e1c",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "data-production",
+        "sourceSha256": "e3a18cb5591845cdaa49d6afe0db080aa305d51c81186f6193decbff3519245c",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "ai-tensors",
+        "sourceSha256": "b18487704ffcfaa93c18275f3f068c5c11804a56d3cdd47edc4cf4601f57fd6a",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "ai-data-pipeline",
+        "sourceSha256": "5b7c08f8fbe4aac6b313be0d6836ce0fdb006928414ce13434b0212c48011cf1",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "ai-burn-training",
+        "sourceSha256": "1f4b53242e1b4a166fbde7e866c7d4067982301ddbfb6738f3bffaa2c6d35497",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "ai-candle-inference",
+        "sourceSha256": "afe7a8ff2a9b679a59e32d49132255de16cfcd7f87536efa5fc9e2b84ae2bc31",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "ai-evaluation",
+        "sourceSha256": "00ca87a3959f81cae46570a858b052480b4f8a77f0c78eefc3fecffbbcd841ee",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "ai-serving",
+        "sourceSha256": "05a05ed71f2acd62c91f17fe5b5250183e3afad557ff28c31c42b1ef71153fb1",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "blockchain-accounts",
+        "sourceSha256": "0f2faa9d9d2ee5f41547c103a467f56116f54f3e09f21e8a206b157e52a4611e",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "blockchain-pda",
+        "sourceSha256": "9c84c8fb8914cedfc3a42e2dd18cb9c55bdca856f80aad5e860120d280ac210b",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "blockchain-anchor-state",
+        "sourceSha256": "af52f14edafcc094e505205cc0790004a26cdfa9555e2648d0d9e8490817e27f",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "blockchain-cpi",
+        "sourceSha256": "7b32fced7131d0593638512789d704736fe8414274d8d960f41f7ccc37d5884e",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "blockchain-transactions",
+        "sourceSha256": "21805d6f648afbd596bccc62c8f996d449fd0da2d303fd7b2141e2b91c58b493",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      },
+      {
+        "id": "blockchain-testing-release",
+        "sourceSha256": "93d49ef1b79e66c80a3220a26bfd4be7e8623b68ecabe1f858cd439517b66003",
+        "compiled": true,
+        "ran": true,
+        "outputMatches": true
+      }
+    ]
+  },
+  "labs": {
+    "total": 29,
+    "passed": 29,
+    "tests": 88,
+    "command": "cargo test --all-targets",
+    "scope": "Host compilation/tests. Native windows, embedded hardware, mobile bindings on devices, browser Wasm, GPU rendering, SVM execution, signing and deployments are separate checks.",
+    "results": [
+      {
+        "id": "backend-http",
+        "status": "passed",
+        "files": 2,
+        "tests": 1,
+        "sourceSha256": "7b130e35f46ec132787a950e4ef5088fd5ac994121247a07dc705c4cdf81867b"
+      },
+      {
+        "id": "backend-transactions",
+        "status": "passed",
+        "files": 2,
+        "tests": 0,
+        "sourceSha256": "ef10a96d7eaa1d88d7b233f843221935952187f0bbe99b07deaa08e4fd77a042"
+      },
+      {
+        "id": "systems-processes-io",
+        "status": "passed",
+        "files": 2,
+        "tests": 2,
+        "sourceSha256": "06225215be011de3f6c1114f94ac1817ce0221531fa1d65ef7ec65a3a3d33dec"
+      },
+      {
+        "id": "systems-concurrency-ordering",
+        "status": "passed",
+        "files": 2,
+        "tests": 0,
+        "sourceSha256": "9abd328d458183a1db1e73f8de5f1b78a84210bbe583cfc0dc09489d680f05a6"
+      },
+      {
+        "id": "systems-os-boundaries",
+        "status": "passed",
+        "files": 2,
+        "tests": 0,
+        "sourceSha256": "93696fa5d38c134f9cb54ed76a1e078d1b5fac703546e7647f90bd98d87c6b35"
+      },
+      {
+        "id": "systems-kernel-path",
+        "status": "passed",
+        "files": 2,
+        "tests": 2,
+        "sourceSha256": "d3f824a5a2bcdd8a9e7bb01a9d6dbaf7a415eb3099a79e181fb537d09b0b5b3b"
+      },
+      {
+        "id": "embedded-no-std",
+        "status": "passed",
+        "files": 2,
+        "tests": 2,
+        "sourceSha256": "b924fcbd5f303aa5f729161fa1d6e1736b25d73588451d3b58a127bd3b2834cf"
+      },
+      {
+        "id": "embedded-sensors",
+        "status": "passed",
+        "files": 2,
+        "tests": 2,
+        "sourceSha256": "d552ff048885a280148a74c675ab10751575eb6dd0b0210cff8788a9cc72afbe"
+      },
+      {
+        "id": "desktop-ipc",
+        "status": "passed",
+        "files": 8,
+        "tests": 1,
+        "sourceSha256": "e3176863560e3ef07158e787da81d9d970399749639b1dc390f846e90edb2937"
+      },
+      {
+        "id": "desktop-state",
+        "status": "passed",
+        "files": 2,
+        "tests": 2,
+        "sourceSha256": "d9ec9a3f5c4e2e9ed2fd7c4227560b2646b43386e23b181cb20cc77043597c75"
+      },
+      {
+        "id": "mobile-core-boundary",
+        "status": "passed",
+        "files": 2,
+        "tests": 3,
+        "sourceSha256": "e62e298df92bcf51d29b13bc6e2ffd6705394a90d1df4aa729c6e0bded1e13c5"
+      },
+      {
+        "id": "mobile-uniffi-contract",
+        "status": "passed",
+        "files": 3,
+        "tests": 2,
+        "sourceSha256": "0bf217cde65b6be7ae8d417e4d75d82207c5222bee7523a4687132f84e244b32"
+      },
+      {
+        "id": "cli-arguments",
+        "status": "passed",
+        "files": 2,
+        "tests": 4,
+        "sourceSha256": "71e00270ff0b70db648548c699361f075643a62a41f7666f35776e782770ee09"
+      },
+      {
+        "id": "cli-streaming",
+        "status": "passed",
+        "files": 4,
+        "tests": 5,
+        "sourceSha256": "e6ad23712020d3ba2950ca815dece51a497bff2676f51c801fc03e59256dad7c"
+      },
+      {
+        "id": "cli-filesystem",
+        "status": "passed",
+        "files": 2,
+        "tests": 2,
+        "sourceSha256": "02b9d0b23374b75ef2ce28fad13cd2cb6e95d0e029e548f88034c5e408edb142"
+      },
+      {
+        "id": "wasm-bindings",
+        "status": "passed",
+        "files": 5,
+        "tests": 2,
+        "sourceSha256": "9ec4430fc5c78eb1129014310bcee67c9980e84b2a1fd5f93d42102b6e52994f"
+      },
+      {
+        "id": "wasm-performance",
+        "status": "passed",
+        "files": 2,
+        "tests": 3,
+        "sourceSha256": "a465edd8abb731485000bea138239d41c068a92094ed095497ec9c8240c23134"
+      },
+      {
+        "id": "compiler-lexer-spans",
+        "status": "passed",
+        "files": 3,
+        "tests": 4,
+        "sourceSha256": "ee976b74a1c7e153dc1e50f29f38b9229c95fb72693eb090f895930efc3ed77f"
+      },
+      {
+        "id": "compiler-parser-precedence",
+        "status": "passed",
+        "files": 5,
+        "tests": 5,
+        "sourceSha256": "a27e398e66faa0798c84e2da01f765725e749054f648817416f210b80b840dab"
+      },
+      {
+        "id": "security-object-metadata",
+        "status": "passed",
+        "files": 2,
+        "tests": 2,
+        "sourceSha256": "3d8fd2e697fbff9869016197111c40f71b612ac694600eae0fd07db9c0493d2f"
+      },
+      {
+        "id": "security-property-fuzzing",
+        "status": "passed",
+        "files": 5,
+        "tests": 3,
+        "sourceSha256": "cdf9ef2a4e67657aa4168a140f99433a06f38eea866d8952c5519720414afd1f"
+      },
+      {
+        "id": "game-ecs",
+        "status": "passed",
+        "files": 3,
+        "tests": 3,
+        "sourceSha256": "5641d281ce82c442aca4b321303be65de42a6a0f06eaa262f6d897e7e2744b73"
+      },
+      {
+        "id": "game-timestep",
+        "status": "passed",
+        "files": 3,
+        "tests": 7,
+        "sourceSha256": "2986bb52fd4398e11918d33c0fac5d401a349fc7dee0fd8db493ac42518251fb"
+      },
+      {
+        "id": "data-polars",
+        "status": "passed",
+        "files": 4,
+        "tests": 4,
+        "sourceSha256": "0879e7c9c57fcd07d8441d5518e1ffb451dffe74a2e97907c2a20c232be74fd9"
+      },
+      {
+        "id": "data-datafusion",
+        "status": "passed",
+        "files": 4,
+        "tests": 5,
+        "sourceSha256": "eb2294d89030b0eb9bfeabd52982da43babcb0aa1d214e796b80a2dd97d17912"
+      },
+      {
+        "id": "ai-burn-training",
+        "status": "passed",
+        "files": 4,
+        "tests": 5,
+        "sourceSha256": "1a32591dea0074d276d3820e81032d55d88413026c4112dd6a6acc125a9ec80a"
+      },
+      {
+        "id": "ai-candle-inference",
+        "status": "passed",
+        "files": 4,
+        "tests": 6,
+        "sourceSha256": "a9c2b5aa9e998df00354ce406303c8be886f81b7008c63e3cb1f30b91fafe88b"
+      },
+      {
+        "id": "blockchain-pda",
+        "status": "passed",
+        "files": 4,
+        "tests": 4,
+        "sourceSha256": "be36cd6ab5c20baaa5cdfb3024484a0e47ea118f83ae635807efe51aa726a75d"
+      },
+      {
+        "id": "blockchain-anchor-state",
+        "status": "passed",
+        "files": 4,
+        "tests": 7,
+        "sourceSha256": "430ec5303457226919ec6dcb3b09129710d40119a0a06b07da8ad3f10b1999b7"
+      }
+    ]
+  }
+}

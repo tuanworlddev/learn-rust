@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
-import { Play, RotateCcw, Copy, Download, Check, CheckCircle2, CircleAlert, Terminal, Lightbulb, Eye, ExternalLink, LoaderCircle, ChevronRight, Code2 } from "lucide-react";
+import { Play, RotateCcw, Copy, Download, Check, CheckCircle2, CircleAlert, Terminal, Lightbulb, Eye, ExternalLink, LoaderCircle, ChevronRight, ChevronDown, Code2 } from "lucide-react";
 import { CodeHighlight } from "./code-highlight";
+import { AnimatedDisclosure } from "./animated-disclosure";
 import "./code-lab.css";
 
 type ExecutionResult = {
@@ -59,6 +60,8 @@ export function CodeLab({ initialCode, storageKey, expectedOutput, onPass, title
     try {
       const stored = localStorage.getItem(storageKey);
       if (stored !== null) next = stored;
+      // Restore the selected exercise draft after SSR and reset its transient editor state.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setStorageAvailable(true);
     } catch {
       setStorageAvailable(false);
@@ -259,7 +262,7 @@ export function CodeLab({ initialCode, storageKey, expectedOutput, onPass, title
               {result.stdout && <pre className="cl-stdout">{result.stdout}</pre>}
               {!result.success && <><p className="cl-compile-error"><CircleAlert size={15} /> Chương trình còn lỗi.</p><pre className="cl-stderr">{result.stderr || "Chương trình kết thúc với lỗi nhưng không có thông báo chi tiết."}</pre></>}
               {result.success && !result.stdout && <p className="cl-no-output">Chương trình chạy thành công, không có đầu ra.</p>}
-              {result.success && result.stderr && <details className="cl-diagnostics"><summary>Thông tin biên dịch</summary><pre>{result.stderr}</pre></details>}
+              {result.success && result.stderr && <AnimatedDisclosure className="cl-diagnostics" title={<><span>Thông tin biên dịch</span><ChevronDown size={13} /></>}><pre>{result.stderr}</pre></AnimatedDisclosure>}
               {result.success && !hasCheck && <div className="cl-run-ok"><CheckCircle2 size={14} /> Chạy thành công</div>}
             </>}
             {dirty && !busy && <p className="cl-dirty">Mã đã thay đổi. Cần chạy lại.</p>}
@@ -273,7 +276,7 @@ export function CodeLab({ initialCode, storageKey, expectedOutput, onPass, title
         {solutionCode && <button type="button" aria-expanded={showSolution} aria-controls={`${editorId}-solution`} className="transition-colors duration-150 motion-reduce:transition-none" onClick={() => setShowSolution(!showSolution)}><Eye size={15} />{showSolution ? "Ẩn lời giải" : "Xem lời giải"}</button>}
       </div>}
       {hintCount > 0 && <div className="cl-hints animate-[cl-reveal_150ms_ease-out] motion-reduce:animate-none">{hints.slice(0, hintCount).map((hint, i) => <p key={i}><strong>Gợi ý {i + 1}.</strong> {hint}</p>)}</div>}
-      {showSolution && solutionCode && <div id={`${editorId}-solution`} className="cl-solution animate-[cl-reveal_150ms_ease-out] motion-reduce:animate-none"><div><strong>Lời giải tham khảo</strong><button type="button" className="transition-colors duration-150 motion-reduce:transition-none" disabled={!!busy} onClick={() => { changeCode(solutionCode); setShowSolution(false); textarea.current?.focus(); setFeedback("Đã chèn lời giải."); }}>Dùng lời giải <ChevronRight size={14} /></button></div><pre><CodeHighlight code={solutionCode} /></pre></div>}
+      {solutionCode && <div className="disclosure cl-solution-disclosure" data-open={showSolution}><div id={`${editorId}-solution`} className="disclosure-panel" aria-hidden={!showSolution} inert={!showSolution}><div className="disclosure-content"><div className="cl-solution"><div><strong>Lời giải tham khảo</strong><button type="button" className="transition-colors duration-150 motion-reduce:transition-none" disabled={!!busy} onClick={() => { changeCode(solutionCode); setShowSolution(false); textarea.current?.focus({ preventScroll: true }); setFeedback("Đã chèn lời giải."); }}>Dùng lời giải <ChevronRight size={14} /></button></div><pre><CodeHighlight code={solutionCode} /></pre></div></div></div></div>}
       {feedback && <p className="cl-feedback" role="status">{feedback}</p>}
     </section>
   );

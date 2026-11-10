@@ -1,0 +1,35 @@
+.disclosure { overflow-anchor: none; }
+.disclosure-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.disclosure-trigger:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.disclosure-trigger > svg:last-child { flex-shrink: 0; transition: transform 240ms ease; }
+.disclosure[data-open="true"] > .disclosure-trigger > svg:last-child { transform: rotate(180deg); }
+.disclosure-panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-rows 260ms cubic-bezier(.22, 1, .36, 1), opacity 180ms ease, visibility 0s linear 260ms;
+}
+.disclosure[data-open="true"] > .disclosure-panel {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+.disclosure-content { min-height: 0; overflow: hidden; }
+@media (prefers-reduced-motion: reduce) {
+  .disclosure-panel, .disclosure-trigger > svg:last-child { transition: none; }
+}

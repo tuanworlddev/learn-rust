@@ -1,0 +1,1275 @@
+{
+  "checkedAt": "2026-11-10T22:59:16.835Z",
+  "base": "http://127.0.0.1:3000",
+  "canonical": null,
+  "indexable": false,
+  "pages": 180,
+  "lessons": 158,
+  "specializations": 13,
+  "projects": 3,
+  "sitemapUrls": 0,
+  "image": "1200x630 PNG",
+  "status": "passed",
+  "routes": [
+    {
+      "path": "/",
+      "title": "Học Rust bằng tiếng Việt · Learn Rust",
+      "heading": "Học Rust",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/advanced-patterns",
+      "title": "Pattern nâng cao: guard, range và @ · Learn Rust",
+      "heading": "Pattern nâng cao: guard, range và @",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/ai-burn-training",
+      "title": "Huấn luyện với Burn và autodiff · Learn Rust",
+      "heading": "Huấn luyện với Burn và autodiff",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/ai-candle-inference",
+      "title": "Suy luận và artifact với Candle · Learn Rust",
+      "heading": "Suy luận và artifact với Candle",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/ai-data-pipeline",
+      "title": "Pipeline dữ liệu và tránh rò rỉ · Learn Rust",
+      "heading": "Pipeline dữ liệu và tránh rò rỉ",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/ai-evaluation",
+      "title": "Đánh giá mô hình và chọn ngưỡng · Learn Rust",
+      "heading": "Đánh giá mô hình và chọn ngưỡng",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/ai-serving",
+      "title": "Phục vụ mô hình, đo tải và phát hành · Learn Rust",
+      "heading": "Phục vụ mô hình, đo tải và phát hành",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/ai-tensors",
+      "title": "Tensor: shape, dtype và thiết bị · Learn Rust",
+      "heading": "Tensor: shape, dtype và thiết bị",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/allocation",
+      "title": "Cấp phát bộ nhớ có chủ đích · Learn Rust",
+      "heading": "Cấp phát bộ nhớ có chủ đích",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/associated-types",
+      "title": "Associated type: Kiểu đi cùng một trait · Learn Rust",
+      "heading": "Associated type: Kiểu đi cùng một trait",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/async-await",
+      "title": "Async và await: Mô tả công việc chưa xong · Learn Rust",
+      "heading": "Async và await: Mô tả công việc chưa xong",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/async-runtime",
+      "title": "Executor: Ai thực sự chạy Future? · Learn Rust",
+      "heading": "Executor: Ai thực sự chạy Future?",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/backend-authorization",
+      "title": "Danh tính, phân quyền và cách ly workspace · Learn Rust",
+      "heading": "Danh tính, phân quyền và cách ly workspace",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/backend-http",
+      "title": "Axum: hợp đồng HTTP và lớp nghiệp vụ · Learn Rust",
+      "heading": "Axum: hợp đồng HTTP và lớp nghiệp vụ",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/backend-production",
+      "title": "Quan sát, kiểm thử tải và triển khai dịch vụ · Learn Rust",
+      "heading": "Quan sát, kiểm thử tải và triển khai dịch vụ",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/backend-runtime",
+      "title": "Tokio: vòng đời yêu cầu và giới hạn tải · Learn Rust",
+      "heading": "Tokio: vòng đời yêu cầu và giới hạn tải",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/backend-streaming",
+      "title": "WebSocket, gRPC và hợp đồng sự kiện · Learn Rust",
+      "heading": "WebSocket, gRPC và hợp đồng sự kiện",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/backend-transactions",
+      "title": "SQLx: giao dịch và cập nhật đồng thời · Learn Rust",
+      "heading": "SQLx: giao dịch và cập nhật đồng thời",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/benchmarking",
+      "title": "Đo hiệu năng mà không tự đánh lừa mình · Learn Rust",
+      "heading": "Đo hiệu năng mà không tự đánh lừa mình",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/blockchain-accounts",
+      "title": "Account, instruction và quyền thay đổi trạng thái · Learn Rust",
+      "heading": "Account, instruction và quyền thay đổi trạng thái",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/blockchain-anchor-state",
+      "title": "Anchor: ràng buộc account và cập nhật trạng thái · Learn Rust",
+      "heading": "Anchor: ràng buộc account và cập nhật trạng thái",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/blockchain-cpi",
+      "title": "CPI: truyền đúng account và giới hạn quyền · Learn Rust",
+      "heading": "CPI: truyền đúng account và giới hạn quyền",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/blockchain-pda",
+      "title": "PDA, seed và danh tính ổn định của dữ liệu · Learn Rust",
+      "heading": "PDA, seed và danh tính ổn định của dữ liệu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/blockchain-testing-release",
+      "title": "Kiểm thử SVM, migration và phát hành có thể kiểm chứng · Learn Rust",
+      "heading": "Kiểm thử SVM, migration và phát hành có thể kiểm chứng",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/blockchain-transactions",
+      "title": "Client, xác nhận giao dịch và xử lý yêu cầu lặp · Learn Rust",
+      "heading": "Client, xác nhận giao dịch và xử lý yêu cầu lặp",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/borrowing",
+      "title": "Borrowing & Tham chiếu · Learn Rust",
+      "heading": "Borrowing & Tham chiếu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/box",
+      "title": "Box: Sở hữu dữ liệu trên heap · Learn Rust",
+      "heading": "Box: Sở hữu dữ liệu trên heap",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/buffered-io",
+      "title": "Đọc dữ liệu theo dòng với BufRead · Learn Rust",
+      "heading": "Đọc dữ liệu theo dòng với BufRead",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/cargo-basics",
+      "title": "Cargo: Tạo, kiểm tra và chạy dự án · Learn Rust",
+      "heading": "Cargo: Tạo, kiểm tra và chạy dự án",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/cfg-attributes",
+      "title": "Attribute và biên dịch có điều kiện · Learn Rust",
+      "heading": "Attribute và biên dịch có điều kiện",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/channels",
+      "title": "Channel: Trao đổi dữ liệu giữa luồng · Learn Rust",
+      "heading": "Channel: Trao đổi dữ liệu giữa luồng",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/cli-args",
+      "title": "Nhận và phân tích tham số dòng lệnh · Learn Rust",
+      "heading": "Nhận và phân tích tham số dòng lệnh",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/cli-arguments",
+      "title": "clap: thiết kế giao diện dòng lệnh · Learn Rust",
+      "heading": "clap: thiết kế giao diện dòng lệnh",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/cli-errors",
+      "title": "Thông báo lỗi và mã thoát của CLI · Learn Rust",
+      "heading": "Thông báo lỗi và mã thoát của CLI",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/cli-filesystem",
+      "title": "Tệp, đường dẫn và xuất bản kết quả · Learn Rust",
+      "heading": "Tệp, đường dẫn và xuất bản kết quả",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/cli-parallelism",
+      "title": "Song song có giới hạn và kết quả ổn định · Learn Rust",
+      "heading": "Song song có giới hạn và kết quả ổn định",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/cli-pipes",
+      "title": "Pipes, mã thoát và dừng có trật tự · Learn Rust",
+      "heading": "Pipes, mã thoát và dừng có trật tự",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/cli-search",
+      "title": "Dự án: công cụ tìm kiếm văn bản · Learn Rust",
+      "heading": "Dự án: công cụ tìm kiếm văn bản",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/cli-shipping",
+      "title": "Kiểm thử, đóng gói và phát hành CLI · Learn Rust",
+      "heading": "Kiểm thử, đóng gói và phát hành CLI",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/cli-streaming",
+      "title": "Xử lý dòng dữ liệu lớn và Unicode · Learn Rust",
+      "heading": "Xử lý dòng dữ liệu lớn và Unicode",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/clippy-format",
+      "title": "Định dạng mã và kiểm tra với Clippy · Learn Rust",
+      "heading": "Định dạng mã và kiểm tra với Clippy",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/closures",
+      "title": "Closure: Hàm mang theo ngữ cảnh · Learn Rust",
+      "heading": "Closure: Hàm mang theo ngữ cảnh",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/compiler-errors",
+      "title": "Đọc lỗi trình biên dịch · Learn Rust",
+      "heading": "Đọc lỗi trình biên dịch",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/compiler-incremental-tools",
+      "title": "Phân tích tăng dần, LSP và kiến trúc rustc · Learn Rust",
+      "heading": "Phân tích tăng dần, LSP và kiến trúc rustc",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/compiler-ir-execution",
+      "title": "Lowering, IR và máy thực thi · Learn Rust",
+      "heading": "Lowering, IR và máy thực thi",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/compiler-lexer-spans",
+      "title": "Lexer và vị trí trong mã UTF-8 · Learn Rust",
+      "heading": "Lexer và vị trí trong mã UTF-8",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/compiler-name-resolution",
+      "title": "Phân giải tên và phạm vi khai báo · Learn Rust",
+      "heading": "Phân giải tên và phạm vi khai báo",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/compiler-parser-precedence",
+      "title": "Pratt parser và cây biểu thức · Learn Rust",
+      "heading": "Pratt parser và cây biểu thức",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/compiler-type-diagnostics",
+      "title": "Kiểm tra kiểu và phục hồi sau lỗi · Learn Rust",
+      "heading": "Kiểm tra kiểu và phục hồi sau lỗi",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/concurrent-project",
+      "title": "Dự án: tổng hợp dữ liệu song song · Learn Rust",
+      "heading": "Dự án: tổng hợp dữ liệu song song",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/constants-shadowing",
+      "title": "Hằng số, shadowing & Tên biến · Learn Rust",
+      "heading": "Hằng số, shadowing & Tên biến",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/control-flow",
+      "title": "Điều kiện & Vòng lặp · Learn Rust",
+      "heading": "Điều kiện & Vòng lặp",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/conversions",
+      "title": "Chuyển kiểu có kiểm soát · Learn Rust",
+      "heading": "Chuyển kiểu có kiểm soát",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/cow",
+      "title": "Cow: Chỉ sở hữu khi cần thay đổi · Learn Rust",
+      "heading": "Cow: Chỉ sở hữu khi cần thay đổi",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/crates-dependencies",
+      "title": "Crate, package & Dependency · Learn Rust",
+      "heading": "Crate, package & Dependency",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/custom-errors",
+      "title": "Thiết kế kiểu lỗi riêng · Learn Rust",
+      "heading": "Thiết kế kiểu lỗi riêng",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/custom-iterator",
+      "title": "Tự triển khai Iterator · Learn Rust",
+      "heading": "Tự triển khai Iterator",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/data-columnar",
+      "title": "Dữ liệu cột, schema và giá trị thiếu · Learn Rust",
+      "heading": "Dữ liệu cột, schema và giá trị thiếu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/data-datafusion",
+      "title": "DataFusion: từ SQL đến RecordBatch · Learn Rust",
+      "heading": "DataFusion: từ SQL đến RecordBatch",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/data-joins",
+      "title": "Join, khóa trùng và ngữ nghĩa SQL · Learn Rust",
+      "heading": "Join, khóa trùng và ngữ nghĩa SQL",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/data-polars",
+      "title": "Polars: expressions và kế hoạch lazy · Learn Rust",
+      "heading": "Polars: expressions và kế hoạch lazy",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/data-production",
+      "title": "Kiểm thử, benchmark và công bố dataset · Learn Rust",
+      "heading": "Kiểm thử, benchmark và công bố dataset",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/data-streaming",
+      "title": "Streaming, Parquet và giới hạn bộ nhớ · Learn Rust",
+      "heading": "Streaming, Parquet và giới hạn bộ nhớ",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/derive-traits",
+      "title": "Sinh trait với #[derive] · Learn Rust",
+      "heading": "Sinh trait với #[derive]",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/desktop-capabilities",
+      "title": "Capability, CSP và nội dung không đáng tin · Learn Rust",
+      "heading": "Capability, CSP và nội dung không đáng tin",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/desktop-files",
+      "title": "Tệp, hộp thoại và phạm vi truy cập · Learn Rust",
+      "heading": "Tệp, hộp thoại và phạm vi truy cập",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/desktop-ipc",
+      "title": "Tauri: ranh giới giữa giao diện và Rust · Learn Rust",
+      "heading": "Tauri: ranh giới giữa giao diện và Rust",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/desktop-quality",
+      "title": "Kiểm thử, hiệu năng và trải nghiệm desktop · Learn Rust",
+      "heading": "Kiểm thử, hiệu năng và trải nghiệm desktop",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/desktop-release",
+      "title": "Đóng gói, ký ứng dụng và cập nhật · Learn Rust",
+      "heading": "Đóng gói, ký ứng dụng và cập nhật",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/desktop-state",
+      "title": "Trạng thái, tác vụ nền và kết quả đến muộn · Learn Rust",
+      "heading": "Trạng thái, tác vụ nền và kết quả đến muộn",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/doc-tests",
+      "title": "Tài liệu có thể kiểm thử · Learn Rust",
+      "heading": "Tài liệu có thể kiểm thử",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/drop",
+      "title": "Drop: Dọn tài nguyên theo phạm vi · Learn Rust",
+      "heading": "Drop: Dọn tài nguyên theo phạm vi",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/embedded-async",
+      "title": "Ngắt, Embassy và thời gian của thiết bị · Learn Rust",
+      "heading": "Ngắt, Embassy và thời gian của thiết bị",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/embedded-gpio",
+      "title": "GPIO, quyền sở hữu peripheral và chống dội nút · Learn Rust",
+      "heading": "GPIO, quyền sở hữu peripheral và chống dội nút",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/embedded-memory",
+      "title": "RAM hữu hạn, hàng đợi và năng lượng · Learn Rust",
+      "heading": "RAM hữu hạn, hàng đợi và năng lượng",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/embedded-no-std",
+      "title": "no_std: phần mềm bắt đầu từ bo mạch · Learn Rust",
+      "heading": "no_std: phần mềm bắt đầu từ bo mạch",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/embedded-reliability",
+      "title": "Kiểm thử, nạp và phục hồi firmware · Learn Rust",
+      "heading": "Kiểm thử, nạp và phục hồi firmware",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/embedded-sensors",
+      "title": "Driver cảm biến: bus, dữ liệu và lỗi · Learn Rust",
+      "heading": "Driver cảm biến: bus, dữ liệu và lỗi",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/enums",
+      "title": "Enum & Option · Learn Rust",
+      "heading": "Enum & Option",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/expressions-scope",
+      "title": "Biểu thức khối & Phạm vi biến · Learn Rust",
+      "heading": "Biểu thức khối & Phạm vi biến",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/ffi-layout",
+      "title": "FFI và repr(C): Hiểu bố cục dữ liệu · Learn Rust",
+      "heading": "FFI và repr(C): Hiểu bố cục dữ liệu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/functions",
+      "title": "Hàm & Biểu thức · Learn Rust",
+      "heading": "Hàm & Biểu thức",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/futures-poll",
+      "title": "Future, Poll và Waker · Learn Rust",
+      "heading": "Future, Poll và Waker",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/game-assets-coordinates",
+      "title": "Tài nguyên, camera và tọa độ 2D · Learn Rust",
+      "heading": "Tài nguyên, camera và tọa độ 2D",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/game-ecs",
+      "title": "ECS: dữ liệu, truy vấn và vòng cập nhật · Learn Rust",
+      "heading": "ECS: dữ liệu, truy vấn và vòng cập nhật",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/game-input-performance",
+      "title": "Điều khiển, resource và hiệu năng gameplay · Learn Rust",
+      "heading": "Điều khiển, resource và hiệu năng gameplay",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/game-scheduling",
+      "title": "Lịch hệ thống, trạng thái và thông điệp · Learn Rust",
+      "heading": "Lịch hệ thống, trạng thái và thông điệp",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/game-testing-release",
+      "title": "Kiểm thử headless và phát hành game · Learn Rust",
+      "heading": "Kiểm thử headless và phát hành game",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/game-timestep",
+      "title": "Fixed timestep, replay và nội suy · Learn Rust",
+      "heading": "Fixed timestep, replay và nội suy",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/generics",
+      "title": "Generic: Một ý tưởng, nhiều kiểu · Learn Rust",
+      "heading": "Generic: Một ý tưởng, nhiều kiểu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/hashmaps",
+      "title": "HashMap: Dữ liệu theo khóa · Learn Rust",
+      "heading": "HashMap: Dữ liệu theo khóa",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/hashsets",
+      "title": "HashSet & Dữ liệu không trùng · Learn Rust",
+      "heading": "HashSet & Dữ liệu không trùng",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/hello-rust",
+      "title": "Xin chào, Rust! · Learn Rust",
+      "heading": "Xin chào, Rust!",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/installation",
+      "title": "Cài đặt Rust & Hiểu bộ công cụ · Learn Rust",
+      "heading": "Cài đặt Rust & Hiểu bộ công cụ",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/integration-tests",
+      "title": "Integration test qua API công khai · Learn Rust",
+      "heading": "Integration test qua API công khai",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/io-files",
+      "title": "Đọc, ghi và xử lý lỗi I/O · Learn Rust",
+      "heading": "Đọc, ghi và xử lý lỗi I/O",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/iterator-ownership",
+      "title": "Ownership qua iter, iter_mut và into_iter · Learn Rust",
+      "heading": "Ownership qua iter, iter_mut và into_iter",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/iterators",
+      "title": "Iterator: Lọc, biến đổi, thu kết quả · Learn Rust",
+      "heading": "Iterator: Lọc, biến đổi, thu kết quả",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/lifetime-struct",
+      "title": "Lifetime trong struct chứa tham chiếu · Learn Rust",
+      "heading": "Lifetime trong struct chứa tham chiếu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/lifetimes",
+      "title": "Lifetime: Tham chiếu sống bao lâu? · Learn Rust",
+      "heading": "Lifetime: Tham chiếu sống bao lâu?",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/loops",
+      "title": "loop, while, break & continue · Learn Rust",
+      "heading": "loop, while, break & continue",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/macro-repetition",
+      "title": "Macro nhận nhiều đối số · Learn Rust",
+      "heading": "Macro nhận nhiều đối số",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/macro-rules",
+      "title": "Viết macro với macro_rules! · Learn Rust",
+      "heading": "Viết macro với macro_rules!",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/methods",
+      "title": "Method & Khối impl · Learn Rust",
+      "heading": "Method & Khối impl",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/mini-project",
+      "title": "Dự án nhỏ: Sổ chi tiêu · Learn Rust",
+      "heading": "Dự án nhỏ: Sổ chi tiêu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/mobile-core-boundary",
+      "title": "Tách lõi Rust khỏi giao diện iOS và Android · Learn Rust",
+      "heading": "Tách lõi Rust khỏi giao diện iOS và Android",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/mobile-lifecycle-async",
+      "title": "Vòng đời, tác vụ nền và hủy qua FFI · Learn Rust",
+      "heading": "Vòng đời, tác vụ nền và hủy qua FFI",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/mobile-release-performance",
+      "title": "Tương thích, phát hành và đo chi phí qua FFI · Learn Rust",
+      "heading": "Tương thích, phát hành và đo chi phí qua FFI",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/mobile-storage-adapters",
+      "title": "Lưu trữ có phiên bản và adapter nền tảng · Learn Rust",
+      "heading": "Lưu trữ có phiên bản và adapter nền tảng",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/mobile-targets-bindings",
+      "title": "Từ binding đến thư viện đúng cho từng thiết bị · Learn Rust",
+      "heading": "Từ binding đến thư viện đúng cho từng thiết bị",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/mobile-uniffi-contract",
+      "title": "UniFFI: record, enum và lỗi có kiểu · Learn Rust",
+      "heading": "UniFFI: record, enum và lỗi có kiểu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/modules",
+      "title": "Module & Tổ chức dự án · Learn Rust",
+      "heading": "Module & Tổ chức dự án",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/mutex-arc",
+      "title": "Arc và Mutex: Cùng sở hữu, sửa có khóa · Learn Rust",
+      "heading": "Arc và Mutex: Cùng sở hữu, sửa có khóa",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/newtype",
+      "title": "Newtype: đặt ý nghĩa vào kiểu dữ liệu · Learn Rust",
+      "heading": "Newtype: đặt ý nghĩa vào kiểu dữ liệu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/option",
+      "title": "Option: Biến đổi giá trị có thể vắng · Learn Rust",
+      "heading": "Option: Biến đổi giá trị có thể vắng",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/ownership",
+      "title": "Ownership: Ai sở hữu dữ liệu? · Learn Rust",
+      "heading": "Ownership: Ai sở hữu dữ liệu?",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/parser-project",
+      "title": "Dự án: bộ đọc cấu hình đơn giản · Learn Rust",
+      "heading": "Dự án: bộ đọc cấu hình đơn giản",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/pattern-matching",
+      "title": "Pattern Matching · Learn Rust",
+      "heading": "Pattern Matching",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/pin-unpin",
+      "title": "Pin và Unpin: Giữ vị trí dữ liệu · Learn Rust",
+      "heading": "Pin và Unpin: Giữ vị trí dữ liệu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/question-mark",
+      "title": "Toán tử ? & Luồng truyền lỗi · Learn Rust",
+      "heading": "Toán tử ? & Luồng truyền lỗi",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/rc",
+      "title": "Rc: Nhiều nơi cùng sở hữu · Learn Rust",
+      "heading": "Rc: Nhiều nơi cùng sở hữu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/refcell",
+      "title": "RefCell: Kiểm tra việc mượn khi chạy · Learn Rust",
+      "heading": "RefCell: Kiểm tra việc mượn khi chạy",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/result",
+      "title": "Result & Xử lý lỗi · Learn Rust",
+      "heading": "Result & Xử lý lỗi",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/scalar-types",
+      "title": "Kiểu scalar & Phép toán số · Learn Rust",
+      "heading": "Kiểu scalar & Phép toán số",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/security-debugger-invariants",
+      "title": "Debugger, sanitizer và bất biến unsafe · Learn Rust",
+      "heading": "Debugger, sanitizer và bất biến unsafe",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/security-endian-budgets",
+      "title": "Endian, offset và ngân sách tài nguyên · Learn Rust",
+      "heading": "Endian, offset và ngân sách tài nguyên",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/security-input-boundaries",
+      "title": "Mô hình đầu vào và ranh giới parser · Learn Rust",
+      "heading": "Mô hình đầu vào và ranh giới parser",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/security-object-metadata",
+      "title": "Đọc ELF, PE và Mach-O bằng object · Learn Rust",
+      "heading": "Đọc ELF, PE và Mach-O bằng object",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/security-property-fuzzing",
+      "title": "Property test và fuzzing có mục tiêu · Learn Rust",
+      "heading": "Property test và fuzzing có mục tiêu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/security-triage-delivery",
+      "title": "Triage, hồi quy và phát hành công cụ · Learn Rust",
+      "heading": "Triage, hồi quy và phát hành công cụ",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/send-sync",
+      "title": "Send và Sync: Hợp đồng giữa các luồng · Learn Rust",
+      "heading": "Send và Sync: Hợp đồng giữa các luồng",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/slices",
+      "title": "Slice: Mượn một phần dữ liệu · Learn Rust",
+      "heading": "Slice: Mượn một phần dữ liệu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/static-lifetime",
+      "title": "Hiểu đúng lifetime 'static · Learn Rust",
+      "heading": "Hiểu đúng lifetime 'static",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/strings",
+      "title": "Chuỗi & Unicode tiếng Việt · Learn Rust",
+      "heading": "Chuỗi & Unicode tiếng Việt",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/structs",
+      "title": "Struct: Gom dữ liệu có ý nghĩa · Learn Rust",
+      "heading": "Struct: Gom dữ liệu có ý nghĩa",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/systems-concurrency-ordering",
+      "title": "Đồng thời, backpressure và memory ordering · Learn Rust",
+      "heading": "Đồng thời, backpressure và memory ordering",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/systems-kernel-path",
+      "title": "Từ no_std đến Rust for Linux · Learn Rust",
+      "heading": "Từ no_std đến Rust for Linux",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/systems-memory-layout",
+      "title": "Bố cục bộ nhớ và hợp đồng unsafe · Learn Rust",
+      "heading": "Bố cục bộ nhớ và hợp đồng unsafe",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/systems-os-boundaries",
+      "title": "API hệ điều hành và tính khả chuyển · Learn Rust",
+      "heading": "API hệ điều hành và tính khả chuyển",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/systems-processes-io",
+      "title": "Tiến trình con, descriptor và luồng I/O · Learn Rust",
+      "heading": "Tiến trình con, descriptor và luồng I/O",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/systems-resource-ownership",
+      "title": "RAII và vòng đời tài nguyên hệ thống · Learn Rust",
+      "heading": "RAII và vòng đời tài nguyên hệ thống",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/testing",
+      "title": "Kiểm thử: Đúng cả trường hợp biên · Learn Rust",
+      "heading": "Kiểm thử: Đúng cả trường hợp biên",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/threads",
+      "title": "Thread & Chuyển dữ liệu an toàn · Learn Rust",
+      "heading": "Thread & Chuyển dữ liệu an toàn",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/trait-bounds",
+      "title": "Trait bound & Mệnh đề where · Learn Rust",
+      "heading": "Trait bound & Mệnh đề where",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/trait-objects",
+      "title": "Trait object: Nhiều kiểu, một giao diện · Learn Rust",
+      "heading": "Trait object: Nhiều kiểu, một giao diện",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/traits",
+      "title": "Trait: Chung hành vi, khác dữ liệu · Learn Rust",
+      "heading": "Trait: Chung hành vi, khác dữ liệu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/typestate",
+      "title": "Typestate: trạng thái nằm trong kiểu · Learn Rust",
+      "heading": "Typestate: trạng thái nằm trong kiểu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/unsafe-basics",
+      "title": "Unsafe: Hợp đồng nhỏ, chứng minh rõ · Learn Rust",
+      "heading": "Unsafe: Hợp đồng nhỏ, chứng minh rõ",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/variables",
+      "title": "Biến & Kiểu dữ liệu · Learn Rust",
+      "heading": "Biến & Kiểu dữ liệu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/vectors",
+      "title": "Vec: Danh sách có thể mở rộng · Learn Rust",
+      "heading": "Vec: Danh sách có thể mở rộng",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/visibility",
+      "title": "Visibility & Ranh giới API · Learn Rust",
+      "heading": "Visibility & Ranh giới API",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/wasm-bindings",
+      "title": "Hợp đồng Rust–JavaScript với wasm-bindgen · Learn Rust",
+      "heading": "Hợp đồng Rust–JavaScript với wasm-bindgen",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/wasm-memory",
+      "title": "TypedArray, sao chép và vòng đời bộ nhớ · Learn Rust",
+      "heading": "TypedArray, sao chép và vòng đời bộ nhớ",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/wasm-performance",
+      "title": "Đo hiệu năng từ giao diện đến Wasm · Learn Rust",
+      "heading": "Đo hiệu năng từ giao diện đến Wasm",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/wasm-release",
+      "title": "Đóng gói, kiểm thử và phát hành module Wasm · Learn Rust",
+      "heading": "Đóng gói, kiểm thử và phát hành module Wasm",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/wasm-runtime",
+      "title": "WebAssembly: module, bộ nhớ và môi trường chạy · Learn Rust",
+      "heading": "WebAssembly: module, bộ nhớ và môi trường chạy",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/wasm-workers",
+      "title": "Async, Worker và kết quả đến muộn · Learn Rust",
+      "heading": "Async, Worker và kết quả đến muộn",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/weak",
+      "title": "Weak: Tham chiếu không giữ dữ liệu sống · Learn Rust",
+      "heading": "Weak: Tham chiếu không giữ dữ liệu sống",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/bai-hoc/workspaces",
+      "title": "Cargo Workspace: Nhiều package cùng làm việc · Learn Rust",
+      "heading": "Cargo Workspace: Nhiều package cùng làm việc",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/chuyen-sau",
+      "title": "Các hướng chuyên sâu Rust · Learn Rust",
+      "heading": "Chuyên sâu Rust",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/chuyen-sau/ai",
+      "title": "AI và Machine Learning · Learn Rust",
+      "heading": "AI và Machine Learning",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/chuyen-sau/backend",
+      "title": "Backend và dịch vụ mạng · Learn Rust",
+      "heading": "Backend và dịch vụ mạng",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/chuyen-sau/blockchain",
+      "title": "Blockchain với Solana và Anchor · Learn Rust",
+      "heading": "Blockchain với Solana và Anchor",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/chuyen-sau/cli",
+      "title": "CLI và công cụ tự động hóa · Learn Rust",
+      "heading": "CLI và công cụ tự động hóa",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/chuyen-sau/compiler",
+      "title": "Compiler và công cụ phát triển · Learn Rust",
+      "heading": "Compiler và công cụ phát triển",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/chuyen-sau/data",
+      "title": "Dữ liệu và engine phân tích · Learn Rust",
+      "heading": "Dữ liệu và engine phân tích",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/chuyen-sau/desktop",
+      "title": "Ứng dụng desktop · Learn Rust",
+      "heading": "Ứng dụng desktop",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/chuyen-sau/embedded",
+      "title": "Nhúng và IoT · Learn Rust",
+      "heading": "Nhúng và IoT",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/chuyen-sau/game",
+      "title": "Game, đồ họa và mô phỏng · Learn Rust",
+      "heading": "Game, đồ họa và mô phỏng",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/chuyen-sau/mobile",
+      "title": "Mobile và thư viện dùng chung · Learn Rust",
+      "heading": "Mobile và thư viện dùng chung",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/chuyen-sau/security",
+      "title": "Bảo mật và phân tích nhị phân · Learn Rust",
+      "heading": "Bảo mật và phân tích nhị phân",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/chuyen-sau/systems",
+      "title": "Lập trình hệ thống với Rust · Learn Rust",
+      "heading": "Lập trình hệ thống với Rust",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/chuyen-sau/wasm",
+      "title": "WebAssembly cho ứng dụng web · Learn Rust",
+      "heading": "WebAssembly cho ứng dụng web",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/du-an",
+      "title": "Dự án thực hành Rust · Learn Rust",
+      "heading": "Dự án",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/du-an/expense-tracker",
+      "title": "Sổ tay chi tiêu · Learn Rust",
+      "heading": "Sổ tay chi tiêu",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/du-an/task-manager",
+      "title": "Một ngày có kế hoạch · Learn Rust",
+      "heading": "Một ngày có kế hoạch",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/du-an/text-analyzer",
+      "title": "Khám phá một đoạn văn · Learn Rust",
+      "heading": "Khám phá một đoạn văn",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/phong-van",
+      "title": "Phỏng vấn Rust · Learn Rust",
+      "heading": "Phỏng vấn Rust",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/so-tay",
+      "title": "Sổ tay Rust · Learn Rust",
+      "heading": "Sổ tay",
+      "indexable": false,
+      "status": 200
+    },
+    {
+      "path": "/thuc-hanh",
+      "title": "Thực hành Rust · Learn Rust",
+      "heading": "Thực hành Rust",
+      "indexable": false,
+      "status": 200
+    }
+  ]
+}

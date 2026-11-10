@@ -23,6 +23,7 @@ npm run start:local
 ## Cấu hình Supabase và triển khai VPS
 
 - [Cấu hình Supabase](docs/supabase.md): biến môi trường, migration SQL, RLS, Auth và kiểm tra kết nối.
+- [Xuất bản giáo trình](docs/course-content.md): lưu nháp, xuất bản, rollback và tải lab từ nội dung Supabase.
 - [Triển khai VPS](docs/deploy-vps.md): Docker Compose, Caddy HTTPS, health check, cập nhật và rollback.
 - [Cấu hình SEO](docs/seo.md): tên miền, canonical, sitemap, trạng thái lập chỉ mục và nghiệm thu.
 
@@ -38,7 +39,7 @@ Các đường dẫn bài học là `/bai-hoc/<id>`, dự án là `/du-an/<id>`,
 
 ## Lộ trình
 
-20 chương, 80 bài học. Trang mục lục hiển thị toàn bộ các bài và cho phép lọc theo tên hoặc khái niệm.
+**158 bài học**: 80 bài nền tảng trong 20 chương, cùng 78 bài thuộc 13 hướng chuyên sâu. Mục lục cơ bản và các hướng chuyên sâu có trang riêng, tìm kiếm và tiến độ theo lộ trình.
 
 1. Bắt đầu & Công cụ
 2. Biến & Kiểu dữ liệu
@@ -61,9 +62,33 @@ Các đường dẫn bài học là `/bai-hoc/<id>`, dự án là `/du-an/<id>`,
 19. Thiết kế & Hiệu năng
 20. Dự án tổng hợp
 
-Mỗi bài có lý thuyết, ví dụ, mục tiêu, bài tập với mã khởi đầu, lời giải, gợi ý, kết quả mong đợi, câu hỏi và liên kết tài liệu Rust chính thức. Mục Dự án có ba bài tập tổng hợp một tệp trên web; các dự án nhiều tệp nằm trong mục Phỏng vấn.
+Mỗi bài có lý thuyết, ví dụ, mục tiêu, bài tập với mã khởi đầu, lời giải, gợi ý, kết quả mong đợi, câu hỏi và liên kết tài liệu Rust chính thức. Mục Dự án có ba bài tập tổng hợp một tệp trên web. Các hướng chuyên sâu có lab Cargo nhiều tệp tải thành ZIP và dự án cuối lộ trình với tiêu chí nghiệm thu; mục Phỏng vấn có câu hỏi mở và tiêu chí tự đánh giá.
 
 Các bài Cargo/rustup/workspace/Clippy/doctest trình bày quy trình thực tế trên máy. Bài tập của chúng trên web được giới hạn và ghi rõ phạm vi một tệp. Ví dụ I/O và CLI dùng dữ liệu mẫu; phần async giải thích Future/Waker/Pin/executor bằng thư viện chuẩn, không giả định có Tokio hay hệ thống I/O bất đồng bộ trên web.
+
+## Hướng chuyên sâu
+
+Trang `/chuyen-sau` giúp chọn lĩnh vực. Mỗi hướng có sáu bài liên tiếp, kiến thức cần có, bài tập chạy trên web, lab Cargo và một dự án cuối lộ trình.
+
+| Hướng | Công nghệ và nội dung chính |
+| --- | --- |
+| Backend và dịch vụ mạng | Tokio, Axum, SQLx, giao dịch, gRPC/WebSocket, vận hành |
+| Lập trình hệ thống | Process, file descriptor, bộ nhớ, đồng thời, no_std, Rust for Linux |
+| Nhúng và IoT | embedded-hal, esp-hal, Embassy, cảm biến, firmware |
+| Desktop | Tauri, IPC, capability, tác vụ nền, đóng gói |
+| Mobile và thư viện dùng chung | UniFFI, Swift/Kotlin, vòng đời, adapter, phát hành |
+| CLI và tự động hóa | clap, luồng dữ liệu, pipe, filesystem, phân phối |
+| WebAssembly | wasm-bindgen, JavaScript, bộ nhớ, worker, profiling |
+| Compiler và công cụ phát triển | Lexer, AST, parser, type checker, IR, LSP |
+| Bảo mật và phân tích nhị phân | object, parser giới hạn, cargo-fuzz, debugger, triage |
+| Game, đồ họa và mô phỏng | Bevy, ECS, scheduling, fixed timestep, replay |
+| Dữ liệu và engine phân tích | Polars, Arrow, DataFusion, SQL, pipeline |
+| AI và Machine Learning | Burn, Candle, tensor, huấn luyện, đánh giá, serving |
+| Blockchain | Solana, Anchor, account, PDA, CPI, kiểm thử trạng thái |
+
+Các bài tập trên web luyện từng quyết định và thuật toán bằng thư viện chuẩn. **29 lab Cargo** dùng cấu trúc dự án và dependency thật; nút **Tải dự án** giữ đầy đủ đường dẫn tệp và hướng dẫn. Kiểm thử host không thay thế nghiệm thu trên thiết bị, GPU, WebView, trình duyệt Wasm hoặc runtime blockchain; từng bài nêu rõ phần cần chạy trên môi trường đích.
+
+Bốn hình minh họa gốc gắn với backend, nhúng, desktop và mô phỏng. Ownership, borrowing, Result và vòng đời Future có mô hình tương tác bằng giao diện, dùng văn bản rõ ràng thay vì nhúng quy tắc vào hình.
 
 ## Thực hành và chấm bài
 
@@ -84,14 +109,14 @@ React 19, TypeScript, Next.js 16 và Tailwind CSS 4 qua PostCSS. Không dùng Ta
 - Font hệ thống hỗ trợ tiếng Việt, không giãn ký tự. Nội dung bài 15px, code 13px.
 - Sidebar chương/bài; trang mục lục đầy đủ; hai cột bài học/editor trên desktop.
 - Mobile dùng nút Nội dung / Viết mã để chuyển nhanh giữa bài học và editor, giữ nguyên bản nháp; mục lục mở dạng drawer.
-- Chuyển trang/tab nhẹ 160–180ms, mở chương 220ms, nút 150ms; tôn trọng `prefers-reduced-motion`.
+- Chuyển trang/tab nhẹ, giữ vị trí đọc theo tab; cuộn ngắn có thể ngắt bằng thao tác người dùng. Accordion mở và đóng trong 260ms, nút phản hồi 150–180ms; tôn trọng `prefers-reduced-motion`.
 - Nút sáng/tối lưu tùy chọn. Lần đầu theo giao diện hệ thống.
 - Search, drawer và settings hỗ trợ bàn phím, Escape và focus trap. Tab bài học/sổ tay dùng phím mũi tên, Home, End; điều hướng cập nhật tiêu đề và focus nội dung.
 - Sidebar sáng dùng chữ gần đen; sidebar tối dùng chữ sáng. Lỗi lưu tiến độ được thông báo kèm nút xuất bản sao.
 
 ## Từ nền tảng đến phỏng vấn và dự án
 
-Mục **Phỏng vấn** (`/phong-van`) bổ sung lộ trình thực hành theo giai đoạn, câu hỏi phỏng vấn mở, đặc tả dự án và tiêu chí tự đánh giá có bằng chứng. Đây là định hướng Rust backend ở mức đầu vào/junior; các chuyên ngành embedded, game engine, hệ thống phân tán hay FFI trên mobile cần lộ trình riêng.
+Mục **Phỏng vấn** (`/phong-van`) bổ sung lộ trình thực hành theo giai đoạn, câu hỏi phỏng vấn mở, đặc tả dự án và tiêu chí tự đánh giá có bằng chứng. Phần này giúp chuẩn bị phỏng vấn và dự án ở mức đầu vào/junior. Các lĩnh vực khác có lộ trình riêng trong mục Chuyên sâu.
 
 80 bài trên web giúp học ngôn ngữ và thử từng khái niệm. Tỷ lệ hoàn thành, đáp án mẫu và kết quả so sánh stdout không chứng minh khả năng làm việc độc lập. Hãy tự triển khai bài mới, viết test, xử lý lỗi, review thiết kế và trình bày lựa chọn của mình trước khi đánh dấu một tiêu chí đã đạt.
 
@@ -114,7 +139,14 @@ Các storage key `rustviet-learning-v1`, `rustviet-code-*` và `rustviet-playgro
 node scripts/validate-curriculum.mjs
 ```
 
-Script biên dịch riêng từng lời giải bằng `rustc --edition=2024`, chạy các assertion và so sánh stdout. Kiểm tra 80 bài + 3 dự án. Kết quả được ghi vào `reports/curriculum-validation.json`. Các tệp chạy thử nằm trong thư mục tạm và được dọn sau khi kiểm tra.
+Script trên kiểm tra 80 bài nền tảng + 3 dự án. Để kiểm tra toàn bộ 158 bài và các lab chuyên sâu:
+
+```bash
+node scripts/validate-course-rust.mjs --all
+node scripts/validate-course-labs.mjs
+```
+
+Các script biên dịch bằng Rust thật, chạy assertions/host tests và đối chiếu stdout. Lab dùng dependency lớn được phép build tối đa 900 giây mỗi dự án; dùng `--tracks data,ai` và `--timeout-seconds` để giới hạn một đợt kiểm tra. Kết quả được ghi vào `reports/curriculum-validation.json`. Các tệp chạy thử nằm trong thư mục tạm và được dọn sau khi kiểm tra.
 
 ```bash
 npx tsc --noEmit
@@ -131,6 +163,9 @@ npx tsc --noEmit
 - `src/data/curriculum-systems.ts`: 18 bài bộ nhớ/concurrency/async/nâng cao.
 - `src/data/curriculum-practice.ts`: 18 bài công cụ/I/O/macro/thiết kế/dự án.
 - `src/data/projects.ts`: 3 dự án riêng.
+- `src/data/specializations/`: 13 hướng chuyên sâu, nguồn biên tập của bản giáo trình.
+- `lib/course-content.ts`: đọc catalog từ bản Supabase đang xuất bản hoặc chế độ bundled đã chọn.
+- `app/api/lessons/[id]/lab/route.ts`: tải dự án Cargo từ nội dung đã kiểm tra.
 - `app/api/execute/route.ts`: proxy Rust Playground.
 
 Nội dung lý thuyết được viết bằng tiếng Việt, có nguồn chính thức theo từng bài. Bố cục mục lục lấy cảm hứng từ LearnCpp và màn hình thực hành tham khảo Angular tutorial; không sao chép nội dung khóa học C++ hoặc Angular.

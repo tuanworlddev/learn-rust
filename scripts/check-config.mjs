@@ -75,6 +75,10 @@ if (indexable === "true" && !parsedUrl) {
 }
 
 const supabase = readSupabaseConfig(env);
+const contentSource = (env.COURSE_CONTENT_SOURCE || "bundled").trim();
+if (!["bundled", "supabase"].includes(contentSource)) errors.push("COURSE_CONTENT_SOURCE chỉ nhận bundled hoặc supabase.");
+if (contentSource === "supabase" && !supabase.enabled) errors.push("Nguồn bài học Supabase cần SUPABASE_URL và publishable/anon key hợp lệ.");
+notes.push(`Nội dung khóa học: ${contentSource}.`);
 for (const name of ["SUPABASE_PUBLISHABLE_KEY", "SUPABASE_ANON_KEY"]) {
   const value = env[name]?.trim();
   if (value && !isPublicSupabaseKey(value)) {

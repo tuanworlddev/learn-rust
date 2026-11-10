@@ -1,16 +1,21 @@
 "use client";
 
-import { useId, useRef, useState, type ReactNode } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import {
   ArrowLeft, ArrowRight, Bookmark, BookOpen, Check, CheckCircle2,
-  Circle, CircleAlert, Code2, Download, ExternalLink, FileText, FolderCode, Lightbulb,
+  ChevronDown, Circle, CircleAlert, Code2, Copy, Download, ExternalLink, FileText, FolderCode, Lightbulb,
   ListTodo, Terminal, Wallet,
 } from "lucide-react";
-import { lessons, modules, type Lesson } from "@/src/data/curriculum";
+import type { Lesson } from "@/src/data/curriculum";
 import { projects, type RustProject } from "@/src/data/projects";
 import { CodeLab } from "./code-lab";
+import { LessonVisual } from "./lesson-visual";
+import { LocalLabDownload } from "./local-lab-download";
 import { CodeHighlight } from "./code-highlight";
+import { AnimatedDisclosure } from "./animated-disclosure";
+import { useCourse } from "./course-context";
+import { scrollWithMotion } from "./learning-motion";
 import type { Progress } from "./learning-shared";
 import "./learning-views.css";
 
@@ -37,7 +42,7 @@ function ViewTabs({ id, items, value, onChange, label }: {
         else return;
         event.preventDefault();
         onChange(items[next].id);
-        buttons.current[next]?.focus();
+        buttons.current[next]?.focus({ preventScroll: true });
       }}>
       {item.title}
     </button>)}
@@ -45,15 +50,75 @@ function ViewTabs({ id, items, value, onChange, label }: {
 }
 
 function WorkspaceSwitch({ pane, onChange }: { pane: "reading" | "code"; onChange: (pane: "reading" | "code") => void }) {
-  const switchRef = useRef<HTMLDivElement>(null);
-  const selectPane = (next: "reading" | "code") => {
-    onChange(next);
-    if (next !== pane) requestAnimationFrame(() => switchRef.current?.scrollIntoView({ block: "start" }));
-  };
-  return <div ref={switchRef} className="lv-workspace-switch" role="group" aria-label="Chọn khu vực học">
-    <button type="button" aria-pressed={pane === "reading"} onClick={() => selectPane("reading")}><BookOpen size={16} />Nội dung</button>
-    <button type="button" aria-pressed={pane === "code"} onClick={() => selectPane("code")}><Code2 size={16} />Viết mã</button>
+  return <div className="lv-workspace-switch" role="group" aria-label="Chọn khu vực học">
+    <button type="button" aria-pressed={pane === "reading"} onClick={() => onChange("reading")}><BookOpen size={16} />Nội dung</button>
+    <button type="button" aria-pressed={pane === "code"} onClick={() => onChange("code")}><Code2 size={16} />Viết mã</button>
   </div>;
+}
+
+function useWorkspacePane() {
+  const [pane, setPane] = useState<"reading" | "code">("reading");
+  const root = useRef<HTMLElement>(null);
+  const positions = useRef<Partial<Record<"reading" | "code", number>>>({});
+  const pending = useRef(false);
+  const cancelScroll = useRef<(() => void) | null>(null);
+  useEffect(() => () => cancelScroll.current?.(), []);
+  const select = (next: "reading" | "code") => {
+    if (next === pane) return;
+    cancelScroll.current?.();
+    if (root.current && window.matchMedia("(max-width: 900px)").matches) {
+      positions.current[pane] = window.scrollY;
+      root.current.style.minHeight = `${root.current.getBoundingClientRect().height}px`;
+      pending.current = true;
+    }
+    setPane(next);
+  };
+  useLayoutEffect(() => {
+    const element = root.current;
+    if (!pending.current || !element) return;
+    pending.current = false;
+    const visible = element.querySelector<HTMLElement>(pane === "reading" ? ".lv-reading-column" : ".lv-practice-column");
+    const switchHeight = element.querySelector<HTMLElement>(".lv-workspace-switch")?.offsetHeight ?? 0;
+    const naturalHeight = (visible?.offsetHeight ?? 0) + switchHeight;
+    const max = Math.max(0, document.documentElement.scrollHeight - element.offsetHeight + naturalHeight - window.innerHeight);
+    const start = window.scrollY + element.getBoundingClientRect().top - 60;
+    const top = Math.max(0, Math.min(max, positions.current[pane] ?? start));
+    cancelScroll.current = scrollWithMotion(window, top, () => { element.style.minHeight = ""; });
+  }, [pane]);
+  return { pane, select, root };
+}
+
+function LocalLabFile({ path, content }: { path: string; content: string }) {
+  const [copied, setCopied] = useState(false);
+  const [failed, setFailed] = useState(false);
+  async function copy() {
+    try {
+      await navigator.clipboard.writeText(content);
+      setCopied(true);
+      setFailed(false);
+    } catch { setFailed(true); }
+  }
+  return <div className="lv-lab-file">
+    <div className="lv-lab-file-heading"><code>{path}</code><button type="button" onClick={copy}
+      aria-label={`Sao chép ${path}`}><Copy size={13} />{copied ? "Đã chép" : "Sao chép"}</button></div>
+    <pre className="lv-sample-code" tabIndex={0}>{content}</pre>
+    {failed && <p role="status">Hãy chọn mã để sao chép.</p>}
+  </div>;
+}
+
+function LocalLab({ lab, lessonId }: { lab: NonNullable<Lesson["localLab"]>; lessonId: string }) {
+  return <AnimatedDisclosure className="lv-local-lab" title={<><span>Dự án Cargo</span><ChevronDown size={16} /></>}>
+    <div className="lv-local-lab-body">
+      <h2>{lab.title}</h2>
+      <p>{lab.instructions}</p>
+      <LocalLabDownload lessonId={lessonId} lab={lab} />
+      {lab.files.map(file => <LocalLabFile key={file.path} {...file} />)}
+      <h3>Chạy dự án</h3>
+      <pre className="lv-sample-code" tabIndex={0}>{lab.commands.join("\n")}</pre>
+      <h3>Kiểm tra kết quả</h3>
+      <ul>{lab.checks.map(check => <li key={check}>{check}</li>)}</ul>
+    </div>
+  </AnimatedDisclosure>;
 }
 
 function ViewHeading({ title, description, children }: { title: string; description?: string; children?: ReactNode }) {
@@ -86,18 +151,54 @@ type LessonViewProps = {
 };
 
 export function LessonView({ lesson, progress, onBookmark, onQuiz, onPass, onComplete, onNavigate, onBack }: LessonViewProps) {
+  const { lessons: catalogLessons } = useCourse();
+  const lessons = catalogLessons.filter(item => lesson.moduleId.startsWith("track-") ? item.moduleId === lesson.moduleId : !item.moduleId.startsWith("track-"));
   const [tab, setTab] = useState("theory");
   const tabsId = useId();
-  const [mobilePane, setMobilePane] = useState<"reading" | "code">("reading");
+  const { pane: mobilePane, select: selectPane, root: workspaceRef } = useWorkspacePane();
   const practiceRef = useRef<HTMLElement>(null);
-  const openTab = (next: string) => {
+  const readingRef = useRef<HTMLDivElement>(null);
+  const flowRef = useRef<HTMLDivElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
+  const tabPositions = useRef<Record<string, number>>({});
+  const pendingTab = useRef<{ fromFooter: boolean } | null>(null);
+  const cancelScroll = useRef<(() => void) | null>(null);
+  useEffect(() => () => cancelScroll.current?.(), []);
+  const openTab = (next: string, fromFooter = false) => {
+    if (next === tab) return;
+    cancelScroll.current?.();
+    const mobile = window.matchMedia("(max-width: 900px)").matches;
+    tabPositions.current[`${mobile ? "mobile" : "desktop"}-${tab}`] = mobile ? window.scrollY : readingRef.current?.scrollTop ?? 0;
+    if (flowRef.current) flowRef.current.style.minHeight = `${flowRef.current.getBoundingClientRect().height}px`;
+    pendingTab.current = { fromFooter };
     setTab(next);
-    requestAnimationFrame(() => document.getElementById(`${tabsId}-${next}-panel`)?.focus());
   };
+  useLayoutEffect(() => {
+    const pending = pendingTab.current;
+    const reading = readingRef.current;
+    const flow = flowRef.current;
+    const body = bodyRef.current;
+    if (!pending || !reading || !flow || !body) return;
+    pendingTab.current = null;
+    const mobile = window.matchMedia("(max-width: 900px)").matches;
+    const panel = document.getElementById(`${tabsId}-${tab}-panel`);
+    const scroller = mobile ? window : reading;
+    const previous = tabPositions.current[`${mobile ? "mobile" : "desktop"}-${tab}`];
+    const naturalHeight = mobile
+      ? document.documentElement.scrollHeight - flow.offsetHeight + body.offsetHeight
+      : reading.scrollHeight - flow.offsetHeight + body.offsetHeight;
+    const max = Math.max(0, naturalHeight - (mobile ? window.innerHeight : reading.clientHeight));
+    const panelTop = panel ? (mobile
+      ? window.scrollY + panel.getBoundingClientRect().top - 170
+      : reading.scrollTop + panel.getBoundingClientRect().top - reading.getBoundingClientRect().top - 64) : 0;
+    const start = mobile ? window.scrollY + reading.getBoundingClientRect().top - 112 : 0;
+    const target = Math.max(0, Math.min(max, pending.fromFooter ? panelTop : previous ?? start));
+    if (pending.fromFooter) panel?.focus({ preventScroll: true });
+    cancelScroll.current = scrollWithMotion(scroller, target, () => { flow.style.minHeight = ""; });
+  }, [tab, tabsId]);
   const openEditor = () => {
-    setMobilePane("code");
+    selectPane("code");
     requestAnimationFrame(() => {
-      practiceRef.current?.scrollIntoView({ block: "nearest" });
       practiceRef.current?.querySelector("textarea")?.focus({ preventScroll: true });
     });
   };
@@ -111,11 +212,11 @@ export function LessonView({ lesson, progress, onBookmark, onQuiz, onPass, onCom
   const previous = lessons[lessonIndex - 1];
   const next = lessons[lessonIndex + 1];
 
-  return <section className="lv-lesson-view lv-learning-layout grid min-w-0" data-mobile-pane={mobilePane}>
-    <WorkspaceSwitch pane={mobilePane} onChange={setMobilePane} />
-    <div className="lv-reading-column">
+  return <section ref={workspaceRef} className="lv-lesson-view lv-learning-layout grid min-w-0" data-mobile-pane={mobilePane}>
+    <WorkspaceSwitch pane={mobilePane} onChange={selectPane} />
+    <div ref={readingRef} className="lv-reading-column">
       <div className="lv-panel-toolbar flex items-center">
-        <ViewTabs id={tabsId} label="Nội dung bài học" value={tab} onChange={setTab} items={[
+        <ViewTabs id={tabsId} label="Nội dung bài học" value={tab} onChange={openTab} items={[
           { id: "theory", title: "Lý thuyết" },
           { id: "exercise", title: "Bài tập" },
           { id: "quiz", title: "Câu hỏi" },
@@ -128,6 +229,7 @@ export function LessonView({ lesson, progress, onBookmark, onQuiz, onPass, onCom
         </button>
       </div>
 
+      <div ref={flowRef} className="lv-reading-flow"><div ref={bodyRef} className="lv-reading-body">
       <header className="lv-lesson-heading">
         <div className="lv-lesson-meta"><span>Bài {lessonIndex + 1}</span><span>{lesson.duration} phút</span>
           {complete && <span className="lv-status"><CheckCircle2 size={14} />Đã hoàn thành</span>}
@@ -137,20 +239,21 @@ export function LessonView({ lesson, progress, onBookmark, onQuiz, onPass, onCom
       </header>
 
       <article id={`${tabsId}-theory-panel`} role="tabpanel" aria-labelledby={`${tabsId}-theory-tab`} tabIndex={0} hidden={tab !== "theory"} className="lv-article">
-          <details className="lv-objectives">
-            <summary>Mục tiêu bài học</summary>
+          <AnimatedDisclosure className="lv-objectives" title={<><span>Mục tiêu bài học</span><ChevronDown size={15} /></>}>
             <ul>{lesson.objectives.map(objective => <li key={objective}>{objective}</li>)}</ul>
-          </details>
-          {lesson.sections.map(section => <section className="lv-theory-section" key={section.title}>
+          </AnimatedDisclosure>
+          {lesson.sections.map((section, sectionIndex) => <section className="lv-theory-section" key={section.title}>
             <h2>{section.title}</h2>
             {section.text.split("\n\n").map((paragraph, index) => <p key={index}>{paragraph}</p>)}
             {section.code && <SampleCode code={section.code} />}
+            {sectionIndex === 0 && <LessonVisual lesson={lesson} />}
           </section>)}
           <div className="lv-note"><Lightbulb size={17} /><p>{lesson.tip}</p></div>
           <a className="lv-reference" href={lesson.reference.url} target="_blank" rel="noreferrer">
             {lesson.reference.label}<ExternalLink size={14} />
           </a>
-          <button className="button button-primary transition-colors duration-150 motion-reduce:transition-none" onClick={() => openTab("exercise")}>Làm bài tập<ArrowRight size={16} /></button>
+          {lesson.localLab && <LocalLab lab={lesson.localLab} lessonId={lesson.id} />}
+          <button className="button button-primary transition-colors duration-150 motion-reduce:transition-none" onClick={() => openTab("exercise", true)}>Làm bài tập<ArrowRight size={16} /></button>
       </article>
 
       <article id={`${tabsId}-exercise-panel`} role="tabpanel" aria-labelledby={`${tabsId}-exercise-tab`} tabIndex={0} hidden={tab !== "exercise"} className="lv-article">
@@ -159,10 +262,9 @@ export function LessonView({ lesson, progress, onBookmark, onQuiz, onPass, onCom
           <h3>Yêu cầu</h3>
           <ol className="lv-requirements">{lesson.exercise.requirements.map(requirement => <li key={requirement}>{requirement}</li>)}</ol>
           <ExpectedOutput output={lesson.expectedOutput} />
-          {solved && <p className="lv-inline-status"><CheckCircle2 size={17} />Đã từng vượt qua kiểm tra mẫu.</p>}
           <div className="lv-exercise-actions">
-            <button className="button button-primary" onClick={openEditor}><Code2 size={16} />Viết mã</button>
-            <button className="button button-secondary transition-colors duration-150 motion-reduce:transition-none" onClick={() => openTab("quiz")}>Trả lời câu hỏi<ArrowRight size={16} /></button>
+            <button className="button button-primary lv-mobile-editor-action" onClick={openEditor}><Code2 size={16} />Viết mã</button>
+            <button className="button button-secondary transition-colors duration-150 motion-reduce:transition-none" onClick={() => openTab("quiz", true)}>Trả lời câu hỏi<ArrowRight size={16} /></button>
           </div>
       </article>
 
@@ -185,8 +287,8 @@ export function LessonView({ lesson, progress, onBookmark, onQuiz, onPass, onCom
 
       <section className="lv-completion" aria-label="Hoàn thành bài học">
         <div className="lv-completion-checks">
-          <span className={solved ? "lv-status" : ""}>{solved ? <CheckCircle2 size={15} /> : <Circle size={15} />}Bài tập {solved ? "đã đạt" : "chưa đạt"}</span>
-          <span className={quizCorrect ? "lv-status" : ""}>{quizCorrect ? <CheckCircle2 size={15} /> : <Circle size={15} />}Câu hỏi {quizCorrect ? "đã đạt" : "chưa đạt"}</span>
+          <button type="button" className={solved ? "lv-status" : ""} onClick={() => openTab("exercise", true)} aria-label={`Bài tập ${solved ? "đã hoàn thành" : "chưa hoàn thành"}`}>{solved ? <CheckCircle2 size={15} /> : <Circle size={15} />}Bài tập</button>
+          <button type="button" className={quizCorrect ? "lv-status" : ""} onClick={() => openTab("quiz", true)} aria-label={`Câu hỏi ${quizCorrect ? "đã hoàn thành" : "chưa hoàn thành"}`}>{quizCorrect ? <CheckCircle2 size={15} /> : <Circle size={15} />}Câu hỏi</button>
         </div>
         <button className={`button ${complete ? "button-secondary" : "button-primary"}`}
           disabled={!canComplete || complete} onClick={onComplete}>
@@ -203,6 +305,7 @@ export function LessonView({ lesson, progress, onBookmark, onQuiz, onPass, onCom
           <span>Bài tiếp theo</span><ArrowRight size={16} />
         </button> : <button onClick={onBack}><span>Lộ trình</span><ArrowRight size={16} /></button>}
       </nav>
+      </div></div>
     </div>
 
     <aside ref={practiceRef} className="lv-practice-column" aria-label="Trình soạn thảo Rust">
@@ -266,9 +369,9 @@ export function ProjectWorkspace({ project, progress, go, onPass }: {
   project: RustProject; progress: Progress; go: (route: string) => void; onPass: () => void;
 }) {
   const finished = progress.finishedProjects.includes(project.id);
-  const [mobilePane, setMobilePane] = useState<"reading" | "code">("reading");
-  return <section className="lv-project-workspace lv-learning-layout grid min-w-0" data-mobile-pane={mobilePane}>
-    <WorkspaceSwitch pane={mobilePane} onChange={setMobilePane} />
+  const { pane: mobilePane, select: selectPane, root: workspaceRef } = useWorkspacePane();
+  return <section ref={workspaceRef} className="lv-project-workspace lv-learning-layout grid min-w-0" data-mobile-pane={mobilePane}>
+    <WorkspaceSwitch pane={mobilePane} onChange={selectPane} />
     <div className="lv-reading-column">
       <div className="lv-panel-toolbar lv-project-toolbar flex items-center">
         <button className="lv-back-link" onClick={() => go("du-an")}><ArrowLeft size={16} />Dự án</button>
@@ -279,14 +382,13 @@ export function ProjectWorkspace({ project, progress, go, onPass }: {
         <h1>{project.title}</h1><p>{project.description}</p>
       </header>
       <article className="lv-article">
-        <details className="lv-objectives"><summary>Kiến thức thực hành</summary>
+        <AnimatedDisclosure className="lv-objectives" title={<><span>Kiến thức thực hành</span><ChevronDown size={15} /></>}>
           <ul>{project.objectives.map(objective => <li key={objective}>{objective}</li>)}</ul>
-        </details>
+        </AnimatedDisclosure>
         <h2>Yêu cầu</h2>
         <ol className="lv-requirements">{project.instructions.map(instruction => <li key={instruction}>{instruction}</li>)}</ol>
         <ExpectedOutput output={project.expectedOutput} />
         <div className="lv-note"><Lightbulb size={17} /><p>Giữ các assertion trong mã mẫu để kiểm tra cả những trường hợp ngoài đầu ra minh họa.</p></div>
-        {finished && <p className="lv-inline-status"><CheckCircle2 size={17} />Đã từng vượt qua kiểm tra mẫu.</p>}
       </article>
     </div>
     <aside className="lv-practice-column" aria-label="Trình soạn thảo dự án">
@@ -309,6 +411,7 @@ const cheatSheets = [
 export function Notebook({ progress, onLesson, onBookmark, onNotes }: {
   progress: Progress; onLesson: (id: string) => void; onBookmark: (id: string) => void; onNotes: (notes: string) => void;
 }) {
+  const { lessons, modules } = useCourse();
   const [tab, setTab] = useState("bookmarks");
   const tabsId = useId();
   const saved = lessons.filter(lesson => progress.bookmarks.includes(lesson.id));

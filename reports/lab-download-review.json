@@ -1,0 +1,1132 @@
+{
+  "checkedAt": "2026-11-10T22:59:49.415Z",
+  "baseUrl": "http://127.0.0.1:3110",
+  "sourceCatalogSha256": "e5c6046dde4197f145360345e42a7cbe3916ab51626324644050b0b6075b2ad2",
+  "method": "HTTP download; fflate in-memory ZIP parsing; every authored file compared byte-for-byte to validated source. No extraction to filesystem and no lab execution.",
+  "catalog": {
+    "modules": 33,
+    "lessons": 158,
+    "specializations": 13
+  },
+  "totals": {
+    "labs": 29,
+    "passed": 29,
+    "failed": 0,
+    "authoredFiles": 91,
+    "archiveBytes": 72408,
+    "negativeCases": 2
+  },
+  "results": [
+    {
+      "lessonId": "backend-http",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 1949,
+      "archiveSha256": "929e1db6b16b14dd4047021b7c7bb7a0dc41a74a70d7a85767eb17adbf06f0fe",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"backend-http.zip\"",
+        "content-length": "1949",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 314,
+          "sha256": "382fdf123308111affea138e2bf916889975befe2c6fecd34952c2d821ba1406",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 1675,
+          "sha256": "8e657394ddbfa333b2e9001406c7fad24045a46c074b462b5b6c54136959cd05",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "backend-transactions",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 1779,
+      "archiveSha256": "77b97d6aab890ff29877d9be4d7d1c7012e2d7b094632df286c3cc07ce6c19cb",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"backend-transactions.zip\"",
+        "content-length": "1779",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 251,
+          "sha256": "c9c04b5d1dded7231b92dd811bc13fec3f3ca8d965b3ca66bd320c498eb117cf",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 1751,
+          "sha256": "00358ad1e335ea86c71e4f0e00bc76bb59617fcaa3fb49e55e02d30a47513123",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "systems-processes-io",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 1489,
+      "archiveSha256": "888fb893fda92c31100cd4c31e6c0398be4690440a4a25f9ed00d7b2688c2d27",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"systems-processes-io.zip\"",
+        "content-length": "1489",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 96,
+          "sha256": "27cae2f9f51e44c5e8a64f179c29a7b5f5ca0f5e6fe270df7f277f464c1edb70",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 935,
+          "sha256": "3903f7b8feb7905cc3dbbc8233dd55060a817f59e54b72f9e6517f1f111f7526",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "systems-concurrency-ordering",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 1470,
+      "archiveSha256": "e2203a15eacf3add76c9dae169f2a630577b01e4f1a579d15f9e6a28ed76ad7d",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"systems-concurrency-ordering.zip\"",
+        "content-length": "1470",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 94,
+          "sha256": "517491d7b58272750fc20be09a114b8d39848c776f007e430c00902f866d2b0f",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 839,
+          "sha256": "8c09715bb20e3a72b828b9209b9684c6ec3165e3963bf0189f1a96a252adc746",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "systems-os-boundaries",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 1448,
+      "archiveSha256": "88071a6ff3527f39f8797470945e88c1104d1019db6b881c5c5ffb6608af50d4",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"systems-os-boundaries.zip\"",
+        "content-length": "1448",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 91,
+          "sha256": "9f437c0e02fd1639a14b85d0a0fe7bfca19cb05e067b27cf6834d7f365205cb1",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 743,
+          "sha256": "d255bd3f4f28cac417cd906dea97a80e2577eaffa830b40355472feae66c235e",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "systems-kernel-path",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 1387,
+      "archiveSha256": "d13e7c3f400f9d437b84c3ab977d29e6e2ea4eec3cf213114250d982460fff23",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"systems-kernel-path.zip\"",
+        "content-length": "1387",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 96,
+          "sha256": "2fcf7da568987bb6cc55237ac2a0b5ffd6c996f5067e74fa25b3a668215a55c4",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 914,
+          "sha256": "1b9871cbf793b0799dfd77362ebede20dfcfd51b39eeb239f49f0a713a17d93d",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "embedded-no-std",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 1288,
+      "archiveSha256": "a281abe31bba92af7d0f78000bf6cbcc9ee040b886c5947708c965e6d80b007f",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"embedded-no-std.zip\"",
+        "content-length": "1288",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 93,
+          "sha256": "838c4a575d21bda11fd973b535b05a12a91f11750d5b058f48d3cca65e57e422",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 758,
+          "sha256": "b2b9019abf3e778a872e3351cfe8ec5ae0d3121cad8e657313b13b8eac7977a5",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "embedded-sensors",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 1816,
+      "archiveSha256": "e0135cbcddf87969f691eed52fead5e47be535208f4f6b3cd2d6d7f2ad7d24db",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"embedded-sensors.zip\"",
+        "content-length": "1816",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 110,
+          "sha256": "7bac3fda1aa9c7b7b08595299dbd9ebc9e769a4e0b2cec0f0876619ecc1ef3b0",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 1782,
+          "sha256": "e2654466ea0f698ed6cfdf1069a573b7d2e31173a8b70d86a6586158a36b5466",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "desktop-ipc",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 4193,
+      "archiveSha256": "4b6024bd8c5f9c01e198037ba8772f1f692a13d6e6d3646a5ecd71d7349bd094",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"desktop-ipc.zip\"",
+        "content-length": "4193",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 149,
+          "sha256": "69613ab69e5cfc8c011799eff99abd891ff99042d3c26f0677c011503016a155",
+          "matches": true
+        },
+        {
+          "path": "build.rs",
+          "bytes": 1484,
+          "sha256": "fa4db406bfb50b9292831903cffbddc9a67a849b692102aaddb9a62fa833a685",
+          "matches": true
+        },
+        {
+          "path": "tauri.conf.json",
+          "bytes": 517,
+          "sha256": "012fa1b1c61f973f6e50bd81eada90d2062e1dc198746e720ddc97dcca388015",
+          "matches": true
+        },
+        {
+          "path": "permissions/validate.toml",
+          "bytes": 142,
+          "sha256": "d10bd219110be862b77f251a9761245506cea7d57b4620e5ee9b87925147f625",
+          "matches": true
+        },
+        {
+          "path": "capabilities/main.json",
+          "bytes": 142,
+          "sha256": "d2475f18992a03a4ce48612439f6d44026573bf811c419312506a3e131bba94c",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 893,
+          "sha256": "7b47dccc4ab4f318da6cd4434ddbb194b80762f53d2de91b78d3367f3bb489f0",
+          "matches": true
+        },
+        {
+          "path": "ui/index.html",
+          "bytes": 428,
+          "sha256": "eef18d097908efe3ac1440ca11b954877bf1670ba4e3b3302dec803610772a43",
+          "matches": true
+        },
+        {
+          "path": "ui/app.js",
+          "bytes": 706,
+          "sha256": "ed44b5c16c1b17bccc229b038e90925d9c2fd9e98b23bacf7ba3a2944ff7a5d9",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "desktop-state",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 1522,
+      "archiveSha256": "b98ba7ad86ade4a943964396b2415d307e7966f65a8dcbd3868b2b62e98182a9",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"desktop-state.zip\"",
+        "content-length": "1522",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 73,
+          "sha256": "dc2436a153bc12035e38a6a01f7f05a2f05656fdeb69cd75132ce7172933a0dd",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 1213,
+          "sha256": "c8479107a74714543604d195482c3e5ca980733b4954fea0ed0d835c0ec0117d",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "mobile-core-boundary",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 1554,
+      "archiveSha256": "18c4a59f90deada85bb4867b5b1c2c29d90e6ee1f22502774f7a5b8b4a7649f5",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"mobile-core-boundary.zip\"",
+        "content-length": "1554",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 89,
+          "sha256": "683f48e9bb35784a0f1e2767381d8679a36bc53f94893307d11dfa529a23b467",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 1564,
+          "sha256": "7dbdba714907c79884c6669af2e8cff167cac2ddeee16ac9519535e2f7411929",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "mobile-uniffi-contract",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 2142,
+      "archiveSha256": "2c2f42961f32f835274f353190ff0b2d2bcafd1178a09f53a46a9805ec185372",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"mobile-uniffi-contract.zip\"",
+        "content-length": "2142",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 292,
+          "sha256": "521908e693ef8bb25f4636fc2754080844f0ca3a363da1a5f7927025a3675b4c",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 1372,
+          "sha256": "7b935d060b137314ab19262fd1e73d1c91791ded1c862c434b35a4eba117dfa5",
+          "matches": true
+        },
+        {
+          "path": "src/bin/uniffi-bindgen.rs",
+          "bytes": 49,
+          "sha256": "f7a2dd11fb370e9595bdfa6c32fc41a9b67a60bbab06ec711cb7a03eb873ffa6",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "cli-arguments",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 1813,
+      "archiveSha256": "af7410b6294a04f31136e48b5c5ac84f016ea6db780f1350b0e0bb232f417ac5",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"cli-arguments.zip\"",
+        "content-length": "1813",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 136,
+          "sha256": "4ccda0110ff60e38961d4030307cd0671012e9a044e017156b2852dd6a22e28c",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 1809,
+          "sha256": "68f84b99254ecb06429adac712a139397bac12b3a7b898ac6d41fb2dbeff661b",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "cli-streaming",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 2898,
+      "archiveSha256": "9d2879c777955fd9079373ab6e015f06c7571461572e1c6e38f42ef13538e11e",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"cli-streaming.zip\"",
+        "content-length": "2898",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 63,
+          "sha256": "929e986d531c0d62f7dd35d7504117b8b94b9130771dcd38d197549626e71431",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 1973,
+          "sha256": "23f2c8d1ea83a8925c91516d6ebf4b784939442088df7175e5e7238ed8248d7f",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 806,
+          "sha256": "93a5ea0fb491b7dc5be11b40eccd1a6dc2681eaead55a428b7c065ba9f072ec4",
+          "matches": true
+        },
+        {
+          "path": "tests/cli.rs",
+          "bytes": 858,
+          "sha256": "85bee5bd3d53c161df8c5485c309ab3731e176efbb687f7414c5f7283bfc4a8c",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "cli-filesystem",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 1748,
+      "archiveSha256": "b696ac8100379f5217f7f5e7cd08bcc3451d73872ad6e1e99d6c8495905daf13",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"cli-filesystem.zip\"",
+        "content-length": "1748",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 70,
+          "sha256": "630ecf3f25c2051440c4e983fdbb2d20fb7af7c369db13c11e05b64523fab86a",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 1913,
+          "sha256": "e9d700d4023182b5cc38b3d849c3ae8e8cfc49a2f2f096c85ed8334d9c638989",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "wasm-bindings",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 3292,
+      "archiveSha256": "f0e6b26db3b01c89eedafb130643862e64aa87641e3082db0cca7a78af7880a4",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"wasm-bindings.zip\"",
+        "content-length": "3292",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 297,
+          "sha256": "3f862521581d72ad89efd943bb4756f8b403f4075ee0596d5bde0b8e096f1c3c",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 1473,
+          "sha256": "d0de4db5ee2a9904ca1cecef593e8341888dfadf55fd672d41e0d7f0689cfe69",
+          "matches": true
+        },
+        {
+          "path": "tests/browser.rs",
+          "bytes": 409,
+          "sha256": "168b6cb39562ce2468cd9d6674de8601b80ba349eedfa382631fa352cbd2beb7",
+          "matches": true
+        },
+        {
+          "path": "index.html",
+          "bytes": 446,
+          "sha256": "d80722f3dcb82b2c0cf38723ce5bb29bb825e097d1e1856f25ff76ac57f1b4a1",
+          "matches": true
+        },
+        {
+          "path": "app.js",
+          "bytes": 906,
+          "sha256": "ecd9921469edb58dbb06b3cbbeb829e9e6a5f0f55f0c340c2ca157c7f774567a",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "wasm-performance",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 1734,
+      "archiveSha256": "ae0c0f47adc0b689fa9f07df16b48af5e34e6a1a724945f5c146973ae246d7f1",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"wasm-performance.zip\"",
+        "content-length": "1734",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 74,
+          "sha256": "370c849f139dc10c8ba981c17c7aa7a4d985a45eed9091c4f86566e0fa707786",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 2049,
+          "sha256": "3239abed50e9ced648e7081a645dc4d07a68045f71cbc6749c2195455ef06dc2",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "compiler-lexer-spans",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 2267,
+      "archiveSha256": "f55f48fc31e0d87c62fc88a748924d716bbbf70e7226188b47bdcb455c6576ee",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"compiler-lexer-spans.zip\"",
+        "content-length": "2267",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 79,
+          "sha256": "d793b385b1e42ac822af3df87dc0db4722cc603d66a9fa26651e928f38b2c9f9",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 1918,
+          "sha256": "db8780a5e021ae9e900f44db3ecb93a691b49aa5d56b51217197cdc4bd1d7791",
+          "matches": true
+        },
+        {
+          "path": "tests/lexer.rs",
+          "bytes": 1090,
+          "sha256": "e2c1478d7d8c28095634c7b04ac75d6d46d5ac9ac87ea5305b4621cb767c8df1",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "compiler-parser-precedence",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 4472,
+      "archiveSha256": "0a82a933e47f4c3dc1931b12d9f777aa5098b587923b1b01713b993e04744365",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"compiler-parser-precedence.zip\"",
+        "content-length": "4472",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 80,
+          "sha256": "f6098f74f8dd53ce9ca73d092d1d9209d91b2b4230e7cd3b464fd6635102251c",
+          "matches": true
+        },
+        {
+          "path": "src/lexer.rs",
+          "bytes": 1918,
+          "sha256": "db8780a5e021ae9e900f44db3ecb93a691b49aa5d56b51217197cdc4bd1d7791",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 3859,
+          "sha256": "e4441a597d11b143bddd030bcc9755f70212b1972ed4cc9bd7f12216d6479d50",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 394,
+          "sha256": "f8802d637e783ba559a6e92b9163aa94f84a90f0a0dc725cf47d6028c47a2bad",
+          "matches": true
+        },
+        {
+          "path": "tests/pipeline.rs",
+          "bytes": 1571,
+          "sha256": "2945fd3f2cd95e7f38f8410da5309e52248539a418b630e066f48b744d915e62",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "security-object-metadata",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 2572,
+      "archiveSha256": "586f417a292ae930333012c069dff0134de5ee9b77b89720f8a26045e8693405",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"security-object-metadata.zip\"",
+        "content-length": "2572",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 106,
+          "sha256": "17c3a6846b2eed25b0ec2f835d939063ff8473dc206d19912f37d61f4fb0d6e6",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 2658,
+          "sha256": "8b3bc5c636ab9b932c1efd5a51f1fcb159c40eb806ba06964c8e0cffc2685b77",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "security-property-fuzzing",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 3642,
+      "archiveSha256": "e5893be4bac61f783feac6eb856721993473014a8c2b5a3d79fac9f7c26329d4",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"security-property-fuzzing.zip\"",
+        "content-length": "3642",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 69,
+          "sha256": "8e057e9f6647c0ada71582d642e3080953c70f3e52b356d97dcd3a8513a187bd",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 2304,
+          "sha256": "6726e9e11871114c50cff1ecac6e9cfebcbbce6369508c68e4dce757b8a617cc",
+          "matches": true
+        },
+        {
+          "path": "examples/seed_corpus.rs",
+          "bytes": 371,
+          "sha256": "c97180537cb9dd9c20d3a1882f552e95cec21e9befe88e4af06bb79e0ef1ca9f",
+          "matches": true
+        },
+        {
+          "path": "fuzz/Cargo.toml",
+          "bytes": 334,
+          "sha256": "63629e06ad976e0869da08e80e344070c9c79a1633d5b8bba63be9cee1c557db",
+          "matches": true
+        },
+        {
+          "path": "fuzz/fuzz_targets/parse_frame.rs",
+          "bytes": 343,
+          "sha256": "c656e590de6de172a2fe647975f15d656f0a3e637479acf0b844b10d0fa1e3e5",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "game-ecs",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 2037,
+      "archiveSha256": "e9682a6435418e0657b089c84ba04764c621be4b532fc6438973a128302315e7",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"game-ecs.zip\"",
+        "content-length": "2037",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 245,
+          "sha256": "bf5f8077b322f3b7e01c7ed8c4fbf123fc9472bc82abdbf0aceeba2e7cffa70a",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 1942,
+          "sha256": "5352d3477a70fc9e82759e3bf294b9402d7c996097173e6999b5873456040fc9",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 337,
+          "sha256": "7824436853d6bc89d4601370616648fd7012e81b9d0e6f928c92b478725c0c7c",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "game-timestep",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 2904,
+      "archiveSha256": "eba17ccda67a34a9c8338cb9cfce44cb36fdc8465ba36363b46e64d8bd7248f3",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"game-timestep.zip\"",
+        "content-length": "2904",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 84,
+          "sha256": "4628af9e8d1bee69dbcd37c3b275c3df9a776c4179c2bcf899d4803114cc50a3",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 4253,
+          "sha256": "cef566511fad4035ff2a2827d2a898daddbd8571dc0b9286f5f2f5b15705a005",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 229,
+          "sha256": "1290f7933df9d9fa3fa6a47fc01c2ef877e4a753b8d3805763409fed99a2421f",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "data-polars",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 2479,
+      "archiveSha256": "dcf0eb5d4478dc6f450d8d3fd42ada92a43ba3aef07fe19cc611c95d5d38fcb6",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"data-polars.zip\"",
+        "content-length": "2479",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 215,
+          "sha256": "a34519a7b5d6a8ffc4eab8c3efb3b2d2901db969aaf1303955facce193fdefc9",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 510,
+          "sha256": "22ce70f716f6f94dbf80e98a2e8ec461383260e9cc272176b8afb9aea2ed6324",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 511,
+          "sha256": "401902b356311e7646cd46654af5a695145f3a21ec521e38e0134189cfac9060",
+          "matches": true
+        },
+        {
+          "path": "tests/report.rs",
+          "bytes": 1284,
+          "sha256": "9bf856e920a685884b6867d6db4c9e61f8bda9b00913533d4a14c2583404614e",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "data-datafusion",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 3161,
+      "archiveSha256": "f325be724555552a17f1809dbea4a9b8fcdc7ca25e3aa86e376a4b3c7b5a8bd2",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"data-datafusion.zip\"",
+        "content-length": "3161",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 318,
+          "sha256": "77f6ac4f2aabc63d0c1a2c5fbf886518d48c16713305bd491a2594666cc3746f",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 1209,
+          "sha256": "77cc9b7a6705a3f7cf3db37814b1de060ce5802713db4a25c14784c48fc8f26b",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 351,
+          "sha256": "9db2479940a266a9727f885743c0168b6b7e47d670789655a362a5fd30fdfcae",
+          "matches": true
+        },
+        {
+          "path": "tests/query.rs",
+          "bytes": 2347,
+          "sha256": "a270a7c99db8b787b2effbc69251855ddd9a4f18138ae4d467366ce3c78b9368",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "ai-burn-training",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 3307,
+      "archiveSha256": "60a4823fabd28f37360e060013e73497c657b8f4f47adc89e2d6408af52b247a",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"ai-burn-training.zip\"",
+        "content-length": "3307",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 203,
+          "sha256": "67095694a40922bfcc80955bce4d99d9cc0e52e1b3f00edc2149982b48d86371",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 3048,
+          "sha256": "ab7f2e667854126d8850d5e6718669672b1c5ee6c9f6863f0067afe4f16c3c96",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 243,
+          "sha256": "5cb9d253dd1bf632f01da318212f9e37f54ce9315f314823783d754287e84958",
+          "matches": true
+        },
+        {
+          "path": "tests/training.rs",
+          "bytes": 1649,
+          "sha256": "b539a8c5ddee859907bd95df858e94f62f8b6f0fd037d1c1ccd63744082c7d0e",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "ai-candle-inference",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 4386,
+      "archiveSha256": "ce715a4d1ca60eb890e80337a8cec92a22a90d319651d21c3794ba1f67a2d834",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"ai-candle-inference.zip\"",
+        "content-length": "4386",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 155,
+          "sha256": "f533b9490f255d0bf38dbb51ab35bba210aaf0c05da792c84fb3bfd6caa2b41b",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 3512,
+          "sha256": "64582999c20aa80ce1d6406c1499e39c2df54cfdb5dfaf465750c988f933daeb",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 477,
+          "sha256": "631fd82143f17ae8ed1f02d6b9ceb4e0e991e9636d56cdcdc0e2e84bdf8d0804",
+          "matches": true
+        },
+        {
+          "path": "tests/inference.rs",
+          "bytes": 3429,
+          "sha256": "1d2d05225f7504265fd212a33f187aef12b2270ad4f93c4ccf49d3ebf97575cd",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "blockchain-pda",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 2993,
+      "archiveSha256": "37f135d042b6a8597f1577c30cc94f098eb802df49f49946e0df64cbe1565363",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"blockchain-pda.zip\"",
+        "content-length": "2993",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 173,
+          "sha256": "373bae0bbb8f6916f8e321d3556e23a57c2a4582f4d2c8c3cfa54c2430ae48ce",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 1183,
+          "sha256": "e614aa3966b6f31c4ce76f12186d59eb9ac1e930dea92f483f0d5e6e52e8de51",
+          "matches": true
+        },
+        {
+          "path": "src/main.rs",
+          "bytes": 532,
+          "sha256": "8beefdfecfa98d2df70ead2669aaa3ed31a926443e87d93f565f795ce81a03a7",
+          "matches": true
+        },
+        {
+          "path": "tests/address.rs",
+          "bytes": 2606,
+          "sha256": "86d422d7afacf08763b9b1cec39947abe2e11d63cc6ce76915810eeefd082c28",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    },
+    {
+      "lessonId": "blockchain-anchor-state",
+      "status": "passed",
+      "httpStatus": 200,
+      "archiveBytes": 4666,
+      "archiveSha256": "b09d11eef6f965dc66128a456a06e421c7b13a6a7cc3ca71ef2a3ff329a39fe7",
+      "headers": {
+        "content-type": "application/zip",
+        "content-disposition": "attachment; filename=\"blockchain-anchor-state.zip\"",
+        "content-length": "4666",
+        "cache-control": "private, no-store",
+        "x-robots-tag": "noindex, nofollow",
+        "x-content-type-options": "nosniff"
+      },
+      "authoredFiles": [
+        {
+          "path": "Cargo.toml",
+          "bytes": 476,
+          "sha256": "ca785e2814d1a79c1d3f27269b5ff509cfca0de8c3811e703d8dd3176fae4fc1",
+          "matches": true
+        },
+        {
+          "path": "src/lib.rs",
+          "bytes": 2455,
+          "sha256": "51903f941c89f21d1d5b4cf85c38308f328dcbf8f71d9537a5cef1b2ddd69d10",
+          "matches": true
+        },
+        {
+          "path": "tests/host.rs",
+          "bytes": 3026,
+          "sha256": "a0bef6dcbb4d9fe530e0ada2017ec62ec3e55551670653928a68844f329cfcbc",
+          "matches": true
+        },
+        {
+          "path": "README.md",
+          "bytes": 1475,
+          "sha256": "f2538c78f06a73a17250ab34312718843fb4c1f7c7ba2ae93536e3d255956bdd",
+          "matches": true
+        }
+      ],
+      "guideMatches": true,
+      "errors": []
+    }
+  ],
+  "negativeCases": [
+    {
+      "name": "known lesson without a lab",
+      "id": "hello-rust",
+      "httpStatus": 404,
+      "status": "passed"
+    },
+    {
+      "name": "unknown lesson",
+      "id": "not-a-real-lesson-download-review",
+      "httpStatus": 404,
+      "status": "passed"
+    }
+  ]
+}

@@ -27,6 +27,14 @@ export type Lesson = {
   hints: string[];
   quiz: { question: string; options: string[]; correct: number; explanation: string };
   reference: { label: string; url: string };
+  localLab?: {
+    title: string;
+    instructions: string;
+    files: { path: string; content: string }[];
+    commands: string[];
+    checks: string[];
+  };
+  illustration?: { src: string; alt: string; caption: string };
 };
 
 export const modules: CourseModule[] = [

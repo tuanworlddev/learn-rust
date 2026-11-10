@@ -69,7 +69,16 @@ async function checkPage(path, shouldIndex = indexable) {
 
 const root = await checkPage("/");
 const lessonPaths = unique(tags(root, "a").map(item => item.href).filter(href => /^\/bai-hoc\/[^/?#]+$/.test(href ?? "")));
-assert.equal(lessonPaths.length, 80, "All 80 lessons linked in initial HTML");
+assert.ok(lessonPaths.length > 0, "Foundation lessons linked in initial HTML");
+const tracks = await checkPage("/chuyen-sau");
+const trackPaths = unique(tags(tracks, "a").map(item => item.href).filter(href => /^\/chuyen-sau\/[^/?#]+$/.test(href ?? "")));
+assert.ok(trackPaths.length > 0, "Specializations linked in initial HTML");
+for (const path of trackPaths) {
+  const html = await checkPage(path);
+  const paths = unique(tags(html, "a").map(item => item.href).filter(href => /^\/bai-hoc\/[^/?#]+$/.test(href ?? "")));
+  assert.ok(paths.length > 0, `${path}: lessons linked in initial HTML`);
+  for (const lesson of paths) if (!lessonPaths.includes(lesson)) lessonPaths.push(lesson);
+}
 const projects = await checkPage("/du-an");
 const projectPaths = unique(tags(projects, "a").map(item => item.href).filter(href => /^\/du-an\/[^/?#]+$/.test(href ?? "")));
 assert.equal(projectPaths.length, 3, "All 3 practice projects linked in initial HTML");
@@ -84,7 +93,7 @@ for (const [oldPath, destination] of [["/di-lam", "/phong-van"], ["/lo-trinh", "
   assert.equal(response.status, 308, `${oldPath}: permanent redirect`);
   assert.equal(new URL(response.headers.get("location"), base).pathname, destination);
 }
-for (const path of ["/bai-hoc/seo-check-missing-lesson", "/constructor", "/toString", "/__proto__"]) {
+for (const path of ["/bai-hoc/seo-check-missing-lesson", "/chuyen-sau/seo-check-missing-track", "/constructor", "/toString", "/__proto__"]) {
   const missing = await fetchPage(path);
   assert.equal(missing.status, 404, `${path}: missing route returns HTTP 404`);
   const missingHtml = await missing.text();
@@ -103,6 +112,6 @@ assert.match(image.headers.get("content-type") ?? "", /^image\/png/, "Social ima
 const imageData = Buffer.from(await image.arrayBuffer());
 assert.equal(imageData.readUInt32BE(16), 1200, "Social image width");
 assert.equal(imageData.readUInt32BE(20), 630, "Social image height");
-const report = { checkedAt: new Date().toISOString(), base, canonical: canonical || null, indexable, pages: results.length, lessons: lessonPaths.length, projects: projectPaths.length, sitemapUrls: urls.length, image: "1200x630 PNG", status: "passed", routes: results.sort((a, b) => a.path.localeCompare(b.path)) };
+const report = { checkedAt: new Date().toISOString(), base, canonical: canonical || null, indexable, pages: results.length, lessons: lessonPaths.length, specializations: trackPaths.length, projects: projectPaths.length, sitemapUrls: urls.length, image: "1200x630 PNG", status: "passed", routes: results.sort((a, b) => a.path.localeCompare(b.path)) };
 if (output) await writeFile(output, `${JSON.stringify(report, null, 2)}\n`);
 console.log(`SEO HTTP checks passed: ${report.pages} pages, ${report.lessons} lessons, ${report.projects} projects, ${report.sitemapUrls} sitemap URLs; redirects, 404, SSR, metadata and social image.`);

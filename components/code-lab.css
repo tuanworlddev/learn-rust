@@ -190,7 +190,7 @@
 .cl-service-error p svg { flex-shrink: 0; margin-top: 2px; }
 .cl-service-error a { display: inline-flex; align-items: center; gap: 6px; margin: 7px 0; color: var(--cl-accent); text-decoration: underline; text-underline-offset: 3px; }
 .cl-diagnostics { margin-top: 8px; color: var(--cl-muted); font-size: 11px; }
-.cl-diagnostics summary { cursor: pointer; }
+.cl-diagnostics .disclosure-trigger { cursor: pointer; }
 .cl-diagnostics pre { padding: 8px 0 0 !important; border: 0 !important; background: transparent !important; color: var(--cl-muted) !important; font: inherit; white-space: pre-wrap; overflow-wrap: anywhere; }
 .cl-run-ok { display: flex; align-items: center; gap: 5px; margin-top: 8px; color: var(--cl-positive); font-size: 11px; }
 .cl-dirty { color: var(--cl-warning); font-size: 11px; }
@@ -224,7 +224,7 @@
 @keyframes cl-reveal { from { opacity: 0; transform: translateY(-3px); } to { opacity: 1; transform: translateY(0); } }
 .code-lab button:focus-visible,
 .code-lab a:focus-visible,
-.cl-diagnostics summary:focus-visible { outline: 2px solid var(--cl-accent); outline-offset: 3px; }
+.cl-diagnostics .disclosure-trigger:focus-visible { outline: 2px solid var(--cl-accent); outline-offset: 3px; }
 
 .lv-practice-column > .code-lab .cl-editor-shell { border: 0; border-bottom: 1px solid var(--cl-line); border-radius: 0; }
 .lv-practice-column > .code-lab .cl-editor { height: clamp(300px, 52vh, 560px); }
@@ -232,7 +232,7 @@
 .lv-practice-column > .code-lab > .cl-feedback { margin-right: 12px; margin-left: 12px; }
 .lv-practice-column > .code-lab > .cl-verdict,
 .lv-practice-column > .code-lab > .cl-hints,
-.lv-practice-column > .code-lab > .cl-solution { margin-right: 12px; margin-left: 12px; }
+.lv-practice-column > .code-lab > .cl-solution-disclosure { margin-right: 12px; margin-left: 12px; }
 @media (max-width: 900px) {
   .lv-practice-column > .code-lab .cl-editor { height: 320px; }
 }
