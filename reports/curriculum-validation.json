@@ -1,0 +1,682 @@
+{
+  "checkedAt": "2026-11-10T19:16:45.889Z",
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "edition": "2024",
+  "sourceHashes": {
+    "curriculum": "896b347d7587d8b90f9599f491d6ac1b00f445882f2ad85360f267de95c05386",
+    "curriculum-foundations": "1523920f3dc6ce3b58970605ef9a8127220b3f299eb0e38890c8192ee9bae3f5",
+    "curriculum-systems": "4cf38a59566408168eca390190e416d85ec93a90b9ba963ec1b7586b73a9949c",
+    "curriculum-practice": "111b37c5ff3a2a5fb257182da1d1a3fb951e243daf6b00d5aabd96099d6f5380",
+    "projects": "6d5ff7792584280d431c18088260317de55eb6372f49e28629065dcd03d54a75"
+  },
+  "method": "Each unmodified solution compiled as its own executable; embedded assertions execute; stdout compared after newline normalization and trim.",
+  "total": 83,
+  "passed": 83,
+  "allPassed": true,
+  "outcomes": [
+    {
+      "kind": "lesson",
+      "id": "hello-rust",
+      "passed": true,
+      "expected": "Xin chào, Rust!\n",
+      "actual": "Xin chào, Rust!\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "installation",
+      "passed": true,
+      "expected": "Điều kiện sẵn sàng: true\n",
+      "actual": "Điều kiện sẵn sàng: true\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "cargo-basics",
+      "passed": true,
+      "expected": "Bản phát hành: target/release\n",
+      "actual": "Bản phát hành: target/release\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "compiler-errors",
+      "passed": true,
+      "expected": "Kết quả: 6\n",
+      "actual": "Kết quả: 6\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "variables",
+      "passed": true,
+      "expected": "Tổng tiền: 360000 VND\n",
+      "actual": "Tổng tiền: 360000 VND\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "scalar-types",
+      "passed": true,
+      "expected": "2 phút 5 giây\n",
+      "actual": "2 phút 5 giây\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "constants-shadowing",
+      "passed": true,
+      "expected": "2 KiB = 2048 byte\n",
+      "actual": "2 KiB = 2048 byte\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "conversions",
+      "passed": true,
+      "expected": "Byte hợp lệ: 200\n",
+      "actual": "Byte hợp lệ: 200\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "functions",
+      "passed": true,
+      "expected": "Diện tích: 24\n",
+      "actual": "Diện tích: 24\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "expressions-scope",
+      "passed": true,
+      "expected": "Phí thành viên: 15000 VND\n",
+      "actual": "Phí thành viên: 15000 VND\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "control-flow",
+      "passed": true,
+      "expected": "Tổng số chẵn: 30\n",
+      "actual": "Tổng số chẵn: 30\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "loops",
+      "passed": true,
+      "expected": "Tổng chữ số: 10\n",
+      "actual": "Tổng chữ số: 10\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "ownership",
+      "passed": true,
+      "expected": "Rust | Rust\n",
+      "actual": "Rust | Rust\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "borrowing",
+      "passed": true,
+      "expected": "Xin chào, Rust!\n",
+      "actual": "Xin chào, Rust!\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "slices",
+      "passed": true,
+      "expected": "Tổng lát cắt: 18\n",
+      "actual": "Tổng lát cắt: 18\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "lifetimes",
+      "passed": true,
+      "expected": "Ownership\n",
+      "actual": "Ownership\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "structs",
+      "passed": true,
+      "expected": "Sách Rust: 180000 VND\n",
+      "actual": "Sách Rust: 180000 VND\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "methods",
+      "passed": true,
+      "expected": "Diện tích: 24, chu vi: 20\n",
+      "actual": "Diện tích: 24, chu vi: 20\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "enums",
+      "passed": true,
+      "expected": "Giá trị đầu tiên: 7\n",
+      "actual": "Giá trị đầu tiên: 7\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "pattern-matching",
+      "passed": true,
+      "expected": "Xếp loại: Tốt\n",
+      "actual": "Xếp loại: Tốt\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "vectors",
+      "passed": true,
+      "expected": "Điểm đạt: [7, 9, 5]\n",
+      "actual": "Điểm đạt: [7, 9, 5]\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "strings",
+      "passed": true,
+      "expected": "Số từ: 4\n",
+      "actual": "Số từ: 4\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "hashmaps",
+      "passed": true,
+      "expected": "rust: 3 lần\n",
+      "actual": "rust: 3 lần\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "hashsets",
+      "passed": true,
+      "expected": "Duy nhất: [1, 2, 3, 5]\n",
+      "actual": "Duy nhất: [1, 2, 3, 5]\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "option",
+      "passed": true,
+      "expected": "Số lượng: 12\n",
+      "actual": "Số lượng: 12\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "result",
+      "passed": true,
+      "expected": "Kết quả: 5\n",
+      "actual": "Kết quả: 5\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "question-mark",
+      "passed": true,
+      "expected": "Diện tích: 42\n",
+      "actual": "Diện tích: 42\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "custom-errors",
+      "passed": true,
+      "expected": "Tên hợp lệ: Minh\n",
+      "actual": "Tên hợp lệ: Minh\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "modules",
+      "passed": true,
+      "expected": "Thành tiền: 300000 VND\n",
+      "actual": "Thành tiền: 300000 VND\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "visibility",
+      "passed": true,
+      "expected": "Bộ đếm: 2\n",
+      "actual": "Bộ đếm: 2\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "crates-dependencies",
+      "passed": true,
+      "expected": "Điểm hợp lệ: 10\n",
+      "actual": "Điểm hợp lệ: 10\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "workspaces",
+      "passed": true,
+      "expected": "3 dòng nội dung\n",
+      "actual": "3 dòng nội dung\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "generics",
+      "passed": true,
+      "expected": "Lớn hơn: 12\n",
+      "actual": "Lớn hơn: 12\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "traits",
+      "passed": true,
+      "expected": "Rust Việt: 24 bài học\n",
+      "actual": "Rust Việt: 24 bài học\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "trait-bounds",
+      "passed": true,
+      "expected": "Lớn nhất: 42\n",
+      "actual": "Lớn nhất: 42\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "associated-types",
+      "passed": true,
+      "expected": "Mục đầu: 8\n",
+      "actual": "Mục đầu: 8\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "closures",
+      "passed": true,
+      "expected": "Điểm sau thưởng: 9\n",
+      "actual": "Điểm sau thưởng: 9\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "iterators",
+      "passed": true,
+      "expected": "Kết quả: [4, 16, 36]\n",
+      "actual": "Kết quả: [4, 16, 36]\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "iterator-ownership",
+      "passed": true,
+      "expected": "AN!, BINH!\n",
+      "actual": "AN!, BINH!\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "custom-iterator",
+      "passed": true,
+      "expected": "Đếm ngược: [3, 2, 1]\n",
+      "actual": "Đếm ngược: [3, 2, 1]\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "box",
+      "passed": true,
+      "expected": "Tổng danh sách: 10\n",
+      "actual": "Tổng danh sách: 10\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "rc",
+      "passed": true,
+      "expected": "Số chủ sở hữu: 2\n",
+      "actual": "Số chủ sở hữu: 2\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "refcell",
+      "passed": true,
+      "expected": "Tổng điểm: 10\n",
+      "actual": "Tổng điểm: 10\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "weak",
+      "passed": true,
+      "expected": "Nút cha còn tồn tại: false\n",
+      "actual": "Nút cha còn tồn tại: false\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "lifetime-struct",
+      "passed": true,
+      "expected": "Từ đầu: Rust\n",
+      "actual": "Từ đầu: Rust\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "static-lifetime",
+      "passed": true,
+      "expected": "Chào, An! — Learn Rust\n",
+      "actual": "Chào, An! — Learn Rust\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "cow",
+      "passed": true,
+      "expected": "Đường dẫn: hoc-rust\n",
+      "actual": "Đường dẫn: hoc-rust\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "drop",
+      "passed": true,
+      "expected": "Dọn dẹp: trong, ngoài\n",
+      "actual": "Dọn dẹp: trong, ngoài\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "testing",
+      "passed": true,
+      "expected": "5 kiểm tra đều đạt\n",
+      "actual": "5 kiểm tra đều đạt\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "integration-tests",
+      "passed": true,
+      "expected": "API công khai: 4 tình huống đạt\n",
+      "actual": "API công khai: 4 tình huống đạt\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "doc-tests",
+      "passed": true,
+      "expected": "Nhãn: rust\n",
+      "actual": "Nhãn: rust\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "clippy-format",
+      "passed": true,
+      "expected": "Đầu tiên: Rust\n",
+      "actual": "Đầu tiên: Rust\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "io-files",
+      "passed": true,
+      "expected": "Nội dung: Học Rust\n",
+      "actual": "Nội dung: Học Rust\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "buffered-io",
+      "passed": true,
+      "expected": "Tổng: 30\n",
+      "actual": "Tổng: 30\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "cli-args",
+      "passed": true,
+      "expected": "Từ khóa: rust\nKhông phân biệt hoa thường: true\n",
+      "actual": "Từ khóa: rust\nKhông phân biệt hoa thường: true\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "cli-errors",
+      "passed": true,
+      "expected": "Lỗi: Thiếu cổng\nCổng hợp lệ: 8080\n",
+      "actual": "Lỗi: Thiếu cổng\nCổng hợp lệ: 8080\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "threads",
+      "passed": true,
+      "expected": "Tổng từ thread: 15\n",
+      "actual": "Tổng từ thread: 15\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "channels",
+      "passed": true,
+      "expected": "Tổng nhận: 12\n",
+      "actual": "Tổng nhận: 12\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "mutex-arc",
+      "passed": true,
+      "expected": "Bộ đếm: 120\n",
+      "actual": "Bộ đếm: 120\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "send-sync",
+      "passed": true,
+      "expected": "Số ký tự: [4, 4, 2]\n",
+      "actual": "Số ký tự: [4, 4, 2]\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "async-await",
+      "passed": true,
+      "expected": "Tổng: 365000 VND\n",
+      "actual": "Tổng: 365000 VND\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "futures-poll",
+      "passed": true,
+      "expected": "Future: Sẵn sàng\n",
+      "actual": "Future: Sẵn sàng\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "pin-unpin",
+      "passed": true,
+      "expected": "Kết quả Future: 24\n",
+      "actual": "Kết quả Future: 24\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "async-runtime",
+      "passed": true,
+      "expected": "Executor trả về: 42\n",
+      "actual": "Executor trả về: 42\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "macro-rules",
+      "passed": true,
+      "expected": "Kết quả: 14\n",
+      "actual": "Kết quả: 14\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "macro-repetition",
+      "passed": true,
+      "expected": "Rust | 42 | true\n",
+      "actual": "Rust | 42 | true\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "derive-traits",
+      "passed": true,
+      "expected": "An: 8\nBinh: 8\nChi: 9\n",
+      "actual": "An: 8\nBinh: 8\nChi: 9\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "cfg-attributes",
+      "passed": true,
+      "expected": "Tệp: rust.txt\n",
+      "actual": "Tệp: rust.txt\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "trait-objects",
+      "passed": true,
+      "expected": "Người học: An | Bài học: Ownership\n",
+      "actual": "Người học: An | Bài học: Ownership\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "advanced-patterns",
+      "passed": true,
+      "expected": "Phím: k\n[2] Rust\n",
+      "actual": "Phím: k\n[2] Rust\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "unsafe-basics",
+      "passed": true,
+      "expected": "Phần tử đầu: 9\n",
+      "actual": "Phần tử đầu: 9\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "ffi-layout",
+      "passed": true,
+      "expected": "Gói tin: [1, 2, 1, 2]\n",
+      "actual": "Gói tin: [1, 2, 1, 2]\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "newtype",
+      "passed": true,
+      "expected": "Quãng đường: 3000 m\n",
+      "actual": "Quãng đường: 3000 m\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "typestate",
+      "passed": true,
+      "expected": "250 g -> Hà Nội\n",
+      "actual": "250 g -> Hà Nội\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "allocation",
+      "passed": true,
+      "expected": "Học Rust mỗi ngày\n",
+      "actual": "Học Rust mỗi ngày\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "benchmarking",
+      "passed": true,
+      "expected": "Kết quả kiểm tra: 38500\n",
+      "actual": "Kết quả kiểm tra: 38500\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "mini-project",
+      "passed": true,
+      "expected": "Khoản đầu: Cà phê\nTổng chi: 200000 VND\nTrên 50000 VND: 2 khoản\n",
+      "actual": "Khoản đầu: Cà phê\nTổng chi: 200000 VND\nTrên 50000 VND: 2 khoản\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "cli-search",
+      "passed": true,
+      "expected": "1: Rust an toàn\n2: Mình học rust\n",
+      "actual": "1: Rust an toàn\n2: Mình học rust\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "parser-project",
+      "passed": true,
+      "expected": "host=localhost\nmode=dev\nport=8080\n",
+      "actual": "host=localhost\nmode=dev\nport=8080\n",
+      "warnings": ""
+    },
+    {
+      "kind": "lesson",
+      "id": "concurrent-project",
+      "passed": true,
+      "expected": "Tổng song song: 5050\n",
+      "actual": "Tổng song song: 5050\n",
+      "warnings": ""
+    },
+    {
+      "kind": "project",
+      "id": "expense-tracker",
+      "passed": true,
+      "expected": "Tổng chi: 350000 đ\nCòn lại: 150000 đ\năn uống: 250000 đ\nđi lại: 100000 đ\n",
+      "actual": "Tổng chi: 350000 đ\nCòn lại: 150000 đ\năn uống: 250000 đ\nđi lại: 100000 đ\n",
+      "warnings": ""
+    },
+    {
+      "kind": "project",
+      "id": "text-analyzer",
+      "passed": true,
+      "expected": "Số từ: 7\nTừ khác nhau: 5\nPhổ biến nhất: rust (3)\nKý tự (Unicode): 33\n",
+      "actual": "Số từ: 7\nTừ khác nhau: 5\nPhổ biến nhất: rust (3)\nKý tự (Unicode): 33\n",
+      "warnings": ""
+    },
+    {
+      "kind": "project",
+      "id": "task-manager",
+      "passed": true,
+      "expected": "Công việc: 3\nĐã xong: 1\n[ ] #2 Làm bài tập Vec\n[ ] #3 Viết dự án đầu tay\n",
+      "actual": "Công việc: 3\nĐã xong: 1\n[ ] #2 Làm bài tập Vec\n[ ] #3 Viết dự án đầu tay\n",
+      "warnings": ""
+    }
+  ]
+}
