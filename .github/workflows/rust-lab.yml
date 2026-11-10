@@ -1,0 +1,28 @@
+name: Rust task API lab
+
+on:
+  push:
+    paths: ['labs/task-api/**', '.github/workflows/rust-lab.yml']
+  pull_request:
+    paths: ['labs/task-api/**', '.github/workflows/rust-lab.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: labs/task-api
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install stable Rust components
+        run: |
+          rustup toolchain install stable --profile minimal --component rustfmt --component clippy
+          rustup override set stable
+      - run: cargo fmt --all -- --check
+      - run: cargo check --locked --all-targets
+      - run: cargo test --locked --all-targets
+      - run: cargo clippy --locked --all-targets -- -D warnings

@@ -1,13 +1,13 @@
 {
-  "checkedAt": "2026-11-10T19:16:45.889Z",
+  "checkedAt": "2026-11-10T19:48:53.985Z",
   "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
   "edition": "2024",
   "sourceHashes": {
-    "curriculum": "896b347d7587d8b90f9599f491d6ac1b00f445882f2ad85360f267de95c05386",
-    "curriculum-foundations": "1523920f3dc6ce3b58970605ef9a8127220b3f299eb0e38890c8192ee9bae3f5",
-    "curriculum-systems": "4cf38a59566408168eca390190e416d85ec93a90b9ba963ec1b7586b73a9949c",
-    "curriculum-practice": "111b37c5ff3a2a5fb257182da1d1a3fb951e243daf6b00d5aabd96099d6f5380",
-    "projects": "6d5ff7792584280d431c18088260317de55eb6372f49e28629065dcd03d54a75"
+    "curriculum": "0d9a7d1bc5d912af36e74160b431b35df8711e7678b2f240876d48b9a1df202c",
+    "curriculum-foundations": "36a2618f3848fcfafaf4fbdf877f2e5619b47eb6a0ccc3a49a5bd965ce847725",
+    "curriculum-systems": "2c2a28c13070edfa19a799b56c77456c2717df562f0452f9cd7f9586ef06f3d7",
+    "curriculum-practice": "02c9007057e858ad9a33eb8e42972f5bc3aadb7b8db9393286c22c442f3d7009",
+    "projects": "389000494d71f252fc92631a524f667e8fe523d8da2bd64fb9bf6d05eea7cb18"
   },
   "method": "Each unmodified solution compiled as its own executable; embedded assertions execute; stdout compared after newline normalization and trim.",
   "total": 83,
@@ -282,8 +282,8 @@
       "kind": "lesson",
       "id": "traits",
       "passed": true,
-      "expected": "Rust Việt: 24 bài học\n",
-      "actual": "Rust Việt: 24 bài học\n",
+      "expected": "Learn Rust: 80 bài học\n",
+      "actual": "Learn Rust: 80 bài học\n",
       "warnings": ""
     },
     {
@@ -666,8 +666,8 @@
       "kind": "project",
       "id": "text-analyzer",
       "passed": true,
-      "expected": "Số từ: 7\nTừ khác nhau: 5\nPhổ biến nhất: rust (3)\nKý tự (Unicode): 33\n",
-      "actual": "Số từ: 7\nTừ khác nhau: 5\nPhổ biến nhất: rust (3)\nKý tự (Unicode): 33\n",
+      "expected": "Số từ: 7\nTừ khác nhau: 5\nPhổ biến nhất: rust (3)\nUnicode scalar: 33\n",
+      "actual": "Số từ: 7\nTừ khác nhau: 5\nPhổ biến nhất: rust (3)\nUnicode scalar: 33\n",
       "warnings": ""
     },
     {

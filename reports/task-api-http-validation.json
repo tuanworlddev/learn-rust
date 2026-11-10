@@ -1,0 +1,54 @@
+{
+  "allPassed": true,
+  "method": "Real loopback HTTP; isolated temporary SQLite file; two owned server processes; SIGTERM and restart.",
+  "checks": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/tasks",
+      "status": 201
+    },
+    {
+      "method": "GET",
+      "path": "/tasks?limit=1&after=0",
+      "status": 200
+    },
+    {
+      "method": "PATCH",
+      "path": "/tasks/1",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "path": "/tasks",
+      "status": 400
+    },
+    {
+      "check": "SIGTERM exits cleanly and closes pool",
+      "passed": true
+    },
+    {
+      "method": "GET",
+      "path": "/tasks/1",
+      "status": 200
+    },
+    {
+      "check": "Persisted data survives process restart",
+      "passed": true
+    },
+    {
+      "method": "DELETE",
+      "path": "/tasks/1",
+      "status": 204
+    },
+    {
+      "method": "GET",
+      "path": "/tasks/1",
+      "status": 404
+    }
+  ]
+}

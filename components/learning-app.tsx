@@ -6,6 +6,7 @@ import {projects} from "@/src/data/projects";
 import {Brand,EmptyState,initialProgress,navItems,todayKey,type Progress} from "./learning-shared";
 import {Roadmap} from "./learning-dashboard";
 import {LessonView,Notebook,Playground,ProjectsView,ProjectWorkspace} from "./learning-views";
+import CareerHub from "./career-hub";
 
 const STORE="rustviet-learning-v1";
 const normalize=(s:string)=>s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/đ/g,"d");
@@ -38,13 +39,15 @@ export default function LearningApp(){
  const [searchOpen,setSearchOpen]=useState(false); const [query,setQuery]=useState("");
  const [settingsOpen,setSettingsOpen]=useState(false); const [resetConfirm,setResetConfirm]=useState(false);
  const [toast,setToast]=useState("");
+ const [progressSaveError,setProgressSaveError]=useState(false);
  const [expandedChapters,setExpandedChapters]=useState<string[]>([modules[0].id]);
  const [theme,setTheme]=useState<"light"|"dark">("light"); const [themeReady,setThemeReady]=useState(false);
  const sidebarRef=useRef<HTMLElement>(null);
+ const previousRoute=useRef<string|null>(null);
  const searchRef=useRef<HTMLInputElement>(null); const modalReturnFocus=useRef<HTMLElement|null>(null); const searchDialogRef=useRef<HTMLElement>(null); const settingsDialogRef=useRef<HTMLElement>(null); const mainRef=useRef<HTMLElement>(null); const lastActive=useRef(Date.now());
  useEffect(()=>{try{setProgress(readProgress(JSON.parse(localStorage.getItem(STORE)||"null")));}catch{}
   const sync=()=>{try{const hash=decodeURIComponent(location.hash.slice(1));setRoute(!hash||hash==="tong-quan"?"lo-trinh":hash);}catch{setRoute("lo-trinh");}setSidebarOpen(false);window.scrollTo({top:0});};sync();setReady(true);window.addEventListener("hashchange",sync);return()=>window.removeEventListener("hashchange",sync);},[]);
- useEffect(()=>{if(ready)try{localStorage.setItem(STORE,JSON.stringify(progress));}catch{}},[progress,ready]);
+ useEffect(()=>{if(ready)try{localStorage.setItem(STORE,JSON.stringify(progress));setProgressSaveError(false);}catch{setProgressSaveError(true);}},[progress,ready]);
  useEffect(()=>{const handler=(e:KeyboardEvent)=>{if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==="k"){e.preventDefault();const active=document.activeElement;if(active instanceof HTMLElement&&!active.closest('[role="dialog"]'))modalReturnFocus.current=active;setSettingsOpen(false);setSearchOpen(v=>!v);}if(e.key==="Escape"){setSearchOpen(false);setSettingsOpen(false);setSidebarOpen(false);}};window.addEventListener("keydown",handler);return()=>window.removeEventListener("keydown",handler);},[]);
  useEffect(()=>{
   const dialog = searchOpen ? searchDialogRef.current : settingsOpen ? settingsDialogRef.current : sidebarOpen ? sidebarRef.current : null;
@@ -91,6 +94,14 @@ export default function LearningApp(){
  const activeNav=currentLesson?"lo-trinh":currentProject?"du-an":route;const label=navItems.find(n=>n.id===activeNav)?.label||"Bài học";
  const results=useMemo(()=>lessons.filter(l=>normalize(`${l.title} ${l.description} ${l.objectives.join(" ")}`).includes(normalize(query))).slice(0,10),[query]);
  const currentModule=modules.find(m=>m.id===currentLesson?.moduleId);
+ const pageTitle=currentLesson?.title||currentProject?.title||label;
+ useEffect(()=>{
+  if(!ready)return;
+  document.title=`${pageTitle} · Learn Rust`;
+  const changed=previousRoute.current!==null&&previousRoute.current!==route;
+  previousRoute.current=route;
+  if(changed){const frame=requestAnimationFrame(()=>mainRef.current?.focus({preventScroll:true}));return()=>cancelAnimationFrame(frame);}
+ },[route,ready,pageTitle]);
  useEffect(()=>{if(currentLesson)setExpandedChapters(p=>p.includes(currentLesson.moduleId)?p:[...p,currentLesson.moduleId]);},[currentLesson]);
  const exportProgress=()=>{const u=URL.createObjectURL(new Blob([JSON.stringify(progress,null,2)],{type:"application/json"}));const a=document.createElement("a");a.href=u;a.download="learn-rust-progress.json";a.click();URL.revokeObjectURL(u);};
  return <div className="app-shell">
@@ -120,12 +131,14 @@ export default function LearningApp(){
    <div className="sidebar-bottom"><span>{progress.completed.length}/{lessons.length} bài hoàn thành</span><a href="https://doc.rust-lang.org/book/" target="_blank" rel="noreferrer" aria-label="The Rust Book — tài liệu chính thức" title="The Rust Book"><ExternalLink size={15}/></a></div>
   </aside>
   <div className="app-main" inert={searchOpen||settingsOpen||sidebarOpen}>
-   <main key={route} id="main-content" ref={mainRef} tabIndex={-1} className={`page-content motion-safe:animate-[page-in_180ms_ease-out_both] ${currentLesson||currentProject?"page-content-learning":""}`}>
+   {progressSaveError&&<div className="progress-save-warning" role="alert"><span>Chưa lưu được tiến độ và ghi chú. Hãy tải bản sao trước khi đóng trang.</span><button className="button button-secondary" onClick={exportProgress}><Download size={15}/>Tải bản sao</button></div>}
+   <main key={route} id="main-content" ref={mainRef} tabIndex={-1} aria-label={pageTitle} className={`page-content motion-safe:animate-[page-in_180ms_ease-out_both] ${currentLesson||currentProject?"page-content-learning":""}`}>
     {route==="lo-trinh"&&<Roadmap progress={progress} resume={resume} initialModule={null} onLesson={openLesson} onBookmark={bookmark}/>}
-    {currentLesson&&<LessonView key={currentLesson.id} lesson={currentLesson} progress={progress} onBookmark={()=>bookmark(currentLesson.id)} onQuiz={answer=>setProgress(p=>({...p,quizzes:{...p.quizzes,[currentLesson.id]:answer}}))} onPass={()=>{setProgress(p=>({...p,solved:[...new Set([...p.solved,currentLesson.id])]}));setToast("Bài thực hành chính xác.");}} onComplete={()=>{setProgress(p=>({...p,completed:[...new Set([...p.completed,currentLesson.id])]}));setToast("Đã hoàn thành bài học.");}} onNavigate={openLesson} onBack={()=>go("lo-trinh")}/>}
+    {currentLesson&&<LessonView key={currentLesson.id} lesson={currentLesson} progress={progress} onBookmark={()=>bookmark(currentLesson.id)} onQuiz={answer=>setProgress(p=>({...p,quizzes:{...p.quizzes,[currentLesson.id]:answer}}))} onPass={()=>{setProgress(p=>({...p,solved:[...new Set([...p.solved,currentLesson.id])]}));setToast("Bài thực hành đã qua kiểm tra kết quả mẫu.");}} onComplete={()=>{setProgress(p=>({...p,completed:[...new Set([...p.completed,currentLesson.id])]}));setToast("Đã hoàn thành bài học.");}} onNavigate={openLesson} onBack={()=>go("lo-trinh")}/>}
     {route==="thuc-hanh"&&<Playground go={go}/>}
+    {route==="di-lam"&&<CareerHub/>}
     {route==="du-an"&&<ProjectsView progress={progress} go={go}/>}
-    {currentProject&&<ProjectWorkspace project={currentProject} progress={progress} go={go} onPass={()=>{setProgress(p=>({...p,finishedProjects:[...new Set([...p.finishedProjects,currentProject.id])]}));setToast("Đã hoàn thành dự án.");}}/>}
+    {currentProject&&<ProjectWorkspace project={currentProject} progress={progress} go={go} onPass={()=>{setProgress(p=>({...p,finishedProjects:[...new Set([...p.finishedProjects,currentProject.id])]}));setToast("Dự án đã qua kiểm tra kết quả mẫu.");}}/>}
     {route==="so-tay"&&<Notebook progress={progress} onLesson={openLesson} onBookmark={bookmark} onNotes={notes=>setProgress(p=>({...p,notes}))}/>}
     {!navItems.some(n=>n.id===route)&&!currentLesson&&!currentProject&&<EmptyState title="Không tìm thấy bài học"><button className="text-link" onClick={()=>go("lo-trinh")}>Mở lộ trình</button></EmptyState>}
    </main>

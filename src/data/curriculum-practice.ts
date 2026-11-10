@@ -146,6 +146,10 @@ export const practiceLessons: Lesson[] = [
       {
         "title": "Kiểm tra I/O bằng Cursor",
         "text": "Cursor bọc một bộ đệm trong RAM và giữ vị trí đọc ghi hiện tại. Sau khi ghi xong, cần đặt lại vị trí về 0 trước khi đọc từ đầu. Bài thực hành dùng Cursor<Vec<u8>>: đây là tệp giả trong bộ nhớ của lần chạy trên máy chủ, không phải tệp trên máy của bạn và không được lưu bền giữa các lần chạy."
+      },
+      {
+        "title": "Giới hạn bộ nhớ và lỗi ghi",
+        "text": "Đọc cả nguồn bằng read_to_string có thể cấp phát rất nhiều bộ nhớ. Với tệp lớn hoặc dữ liệu ngoài hệ thống, đặt giới hạn kích thước và chọn xử lý theo dòng hoặc theo chunk. Khi dùng BufWriter, xử lý flush hoặc into_inner nếu cần quan sát lỗi ghi; việc drop không trả Result để bạn báo lỗi. write_all hoàn thành ghi vào writer không tự có nghĩa dữ liệu đã bền vững trên đĩa. Hợp đồng lưu tệp cần nói rõ mức bảo đảm mong muốn."
       }
     ],
     "tip": "Không dùng read_to_string cho dữ liệu nhị phân tùy ý; khi đó hãy đọc vào Vec<u8> và xử lý định dạng rõ ràng.",
@@ -760,7 +764,7 @@ export const practiceLessons: Lesson[] = [
       ]
     },
     "starterCode": "use std::marker::PhantomData;\nstruct Unaddressed;\nstruct Addressed;\nstruct Parcel<State> {\n    weight: u32,\n    address: String,\n    state: PhantomData<State>,\n}\nimpl Parcel<Unaddressed> {\n    fn new(weight: u32) -> Self {\n        Self { weight, address: String::new(), state: PhantomData }\n    }\n    fn address_to(self, address: &str) -> Result<Parcel<Addressed>, &'static str> {\n        todo!(\"Kiểm tra địa chỉ và chuyển trạng thái\")\n    }\n}\nimpl Parcel<Addressed> {\n    fn label(&self) -> String { format!(\"{} g -> {}\", self.weight, self.address) }\n}\nfn main() {\n    assert!(Parcel::new(250).address_to(\"\").is_err());\n    assert!(Parcel::new(250).address_to(\"   \").is_err());\n    let parcel = Parcel::new(250).address_to(\"  Hà Nội  \").unwrap();\n    assert_eq!(parcel.label(), \"250 g -> Hà Nội\");\n    let other = Parcel::new(500).address_to(\"Huế\").unwrap();\n    assert_eq!(other.label(), \"500 g -> Huế\");\n    println!(\"{}\", parcel.label());\n}\n",
-    "solutionCode": "use std::marker::PhantomData;\nstruct Unaddressed;\nstruct Addressed;\nstruct Parcel<State> {\n    weight: u32,\n    address: String,\n    state: PhantomData<State>,\n}\nimpl Parcel<Unaddressed> {\n    fn new(weight: u32) -> Self {\n        Self { weight, address: String::new(), state: PhantomData }\n    }\n    fn address_to(self, address: &str) -> Result<Parcel<Addressed>, &'static str> {\n        let address = address.trim();\nif address.is_empty() { return Err(\"Thiếu địa chỉ\"); }\nOk(Parcel { weight: self.weight, address: address.to_owned(), state: PhantomData })\n    }\n}\nimpl Parcel<Addressed> {\n    fn label(&self) -> String { format!(\"{} g -> {}\", self.weight, self.address) }\n}\nfn main() {\n    assert!(Parcel::new(250).address_to(\"\").is_err());\n    assert!(Parcel::new(250).address_to(\"   \").is_err());\n    let parcel = Parcel::new(250).address_to(\"  Hà Nội  \").unwrap();\n    assert_eq!(parcel.label(), \"250 g -> Hà Nội\");\n    let other = Parcel::new(500).address_to(\"Huế\").unwrap();\n    assert_eq!(other.label(), \"500 g -> Huế\");\n    println!(\"{}\", parcel.label());\n}\n",
+    "solutionCode": "use std::marker::PhantomData;\nstruct Unaddressed;\nstruct Addressed;\nstruct Parcel<State> {\n    weight: u32,\n    address: String,\n    state: PhantomData<State>,\n}\nimpl Parcel<Unaddressed> {\n    fn new(weight: u32) -> Self {\n        Self { weight, address: String::new(), state: PhantomData }\n    }\n    fn address_to(self, address: &str) -> Result<Parcel<Addressed>, &'static str> {\n        let address = address.trim();\n        if address.is_empty() { return Err(\"Thiếu địa chỉ\"); }\n        Ok(Parcel { weight: self.weight, address: address.to_owned(), state: PhantomData })\n    }\n}\nimpl Parcel<Addressed> {\n    fn label(&self) -> String { format!(\"{} g -> {}\", self.weight, self.address) }\n}\nfn main() {\n    assert!(Parcel::new(250).address_to(\"\").is_err());\n    assert!(Parcel::new(250).address_to(\"   \").is_err());\n    let parcel = Parcel::new(250).address_to(\"  Hà Nội  \").unwrap();\n    assert_eq!(parcel.label(), \"250 g -> Hà Nội\");\n    let other = Parcel::new(500).address_to(\"Huế\").unwrap();\n    assert_eq!(other.label(), \"500 g -> Huế\");\n    println!(\"{}\", parcel.label());\n}\n",
     "expectedOutput": "250 g -> Hà Nội\n",
     "hints": [
       "Kiểm tra address.trim() trước khi tạo giá trị mới.",
@@ -807,6 +811,10 @@ export const practiceLessons: Lesson[] = [
       {
         "title": "Tối ưu phần có căn cứ",
         "text": "Nhận &[&str] cho phép mượn các chuỗi đầu vào; chỉ kết quả mới cần sở hữu bộ đệm. Cấp trước đủ dung lượng rồi push_str từng phần có thể tránh việc phải tăng bộ đệm trong quá trình nối. Đây là kỹ thuật để hiểu cấp phát; trong sản phẩm, words.join(\" \") thường diễn đạt ý định gọn hơn. Chỉ chọn cách tự viết khi cần kiểm soát hoặc đã đo được lợi ích."
+      },
+      {
+        "title": "Tránh kết luận từ một bộ dữ liệu",
+        "text": "reserve hay with_capacity giảm số lần tăng bộ đệm khi bạn ước lượng đúng; chúng không giảm tổng lượng dữ liệu cần lưu. Với đầu vào lớn, phép tính dung lượng cũng cần checked_add và giới hạn của ứng dụng; có thể dùng try_reserve để xử lý lỗi cấp phát mà API cho phép. Cân nhắc mượn, tái sử dụng buffer và xử lý từng phần trước khi thêm clone. Bài này dùng các chuỗi nhỏ để tập trung vào đơn vị byte và cấu trúc nối."
       }
     ],
     "tip": "Đừng in hoặc kiểm tra một con số capacity chính xác nếu API chỉ cam kết dung lượng ít nhất bằng mức yêu cầu.",
@@ -866,12 +874,16 @@ export const practiceLessons: Lesson[] = [
       {
         "title": "Bài web chỉ luyện cấu trúc phép đo",
         "text": "Thời gian hiện trên runner còn chịu ảnh hưởng của mạng, hàng chờ và biên dịch; không dùng nó để kết luận vòng lặp hay iterator nhanh hơn. Bài này hoàn thiện cách tính bằng iterator, đo một vòng chạy minh họa nhưng không in số thời gian. Đầu ra chỉ là checksum xác định để kiểm tra đúng sai, không phải kết quả benchmark của hai phương án."
+      },
+      {
+        "title": "Bằng chứng cần có khi đề xuất tối ưu",
+        "text": "Hãy lưu input, lệnh build, cấu hình máy, số lần lặp và phân bố kết quả cùng thay đổi mã. Đo đúng phần ảnh hưởng người dùng: độ trễ, thông lượng hoặc lượng bộ nhớ, rồi kiểm tra lại tính đúng. Với dịch vụ, cải thiện microbenchmark chưa chứng minh request nhanh hơn nếu nút thắt ở I/O. Trong phỏng vấn, giải thích giả thuyết, cách loại công việc ngoài phạm vi đo và trade-off của phương án đã chọn đáng tin hơn một con số chạy duy nhất."
       }
     ],
     "tip": "Không đặt assertion rằng một phiên bản luôn nhanh hơn phiên bản khác: nhiễu hệ thống có thể làm kiểm thử hiệu năng thiếu ổn định.",
     "exercise": {
       "title": "Kiểm tra trước khi đo",
-      "instructions": "Hoàn thiện sum_squares_iter để tính tổng bình phương giống phiên bản vòng lặp. main kiểm tra rồi chạy minh họa với black_box.",
+      "instructions": "Hoàn thiện sum_squares_iter để tính tổng bình phương giống phiên bản vòng lặp. main kiểm tra rồi chạy minh họa với black_box. Dữ liệu của bài này được giới hạn để các phép tính số nguyên không tràn; khi nhận dữ liệu tùy ý, cần thiết kế kiểm tra giới hạn hoặc dùng checked_*.",
       "requirements": [
         "Dùng iter, map và sum; dữ liệu mẫu đủ nhỏ để không tràn u64",
         "Giữ mọi assertion so sánh kết quả",

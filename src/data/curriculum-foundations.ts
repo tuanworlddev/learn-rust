@@ -210,6 +210,11 @@ export const foundationLessons: Lesson[] = [
         "title": "Bool và char không phải số tùy ý",
         "text": "bool chỉ có true và false, dùng trực tiếp cho điều kiện. char được viết trong dấu nháy đơn và biểu diễn một Unicode scalar value; chuỗi dùng dấu nháy kép. Một chữ hiển thị có thể gồm nhiều scalar, nên char không đồng nghĩa với toàn bộ một cụm ký tự có dấu kết hợp.\n\nBài tập cần trả hai số cùng lúc nên dùng tuple. Kiểu (u32, u32) chứa hai số u32; viết (2, 5) để tạo một giá trị. let (minutes, seconds) = (2, 5); tách hai thành phần thành hai biến. Đây là kiểu ghép dữ liệu, khác với các kiểu scalar ở trên.",
         "code": "let enabled: bool = true;\nlet letter: char = 'ệ';\nlet text: &str = \"Học Rust\";\nassert!(enabled);\nassert_eq!(letter.len_utf8(), 3);"
+      },
+      {
+        "title": "Tuple, mảng và phạm vi tính toán",
+        "text": "Tuple có thể ghép các kiểu khác nhau; mảng [T; N] có N phần tử cùng kiểu và N là một phần của kiểu. Chỉ số bắt đầu từ 0. Một mảng [u8; 4] khác kiểu với [u8; 8]; khi cần nhận nhiều độ dài, dùng slice ở chương Ownership. Với cộng/trừ/nhân số nguyên, debug và release mặc định có thể xử lý tràn khác nhau. Chọn rõ checked_*, saturating_* hoặc wrapping_* theo hợp đồng, đừng dựa vào bản build để quyết định nghiệp vụ.",
+        "code": "let position: (i32, bool) = (12, true);\nlet scores: [u8; 3] = [8, 9, 10];\nassert_eq!(position.0, 12);\nassert_eq!(scores[1], 9);\nassert_eq!(255u8.checked_add(1), None);\nassert_eq!(255u8.saturating_add(1), 255);\nassert_eq!(255u8.wrapping_add(1), 0);"
       }
     ],
     "tip": "Nếu muốn 5 / 2 ra 2.5, cần dùng kiểu số thực. Chuyển kết quả 2 sang f64 sau khi chia không khôi phục được phần lẻ.",
@@ -703,6 +708,10 @@ export const foundationLessons: Lesson[] = [
         "title": "Kiểm thử hành vi riêng với cách hiển thị",
         "text": "So enum bằng assert_eq để xác nhận đúng nguyên nhân; kiểm tra to_string riêng nếu thông báo cũng thuộc yêu cầu. Bài này đếm Unicode scalar bằng chars, không tuyên bố đếm grapheme hiển thị. Chọn đơn vị độ dài rõ ràng sẽ làm quy tắc kiểm tra tên không mơ hồ.",
         "code": "assert_eq!(NameError::Empty.to_string(), \"Tên đang trống\");\nlet error = NameError::TooShort { min: 3, actual: 2 };\nassert!(matches!(error, NameError::TooShort { actual: 2, .. }));"
+      },
+      {
+        "title": "Quyết định hợp đồng lỗi ở ranh giới",
+        "text": "Ở thư viện, enum lỗi cho phép bên gọi match từng trường hợp; ở tầng ứng dụng, một kiểu lỗi tổng hợp có thể thuận tiện khi chỉ cần báo cáo. Giữ nguyên nhân qua Error::source khi bọc lỗi I/O hoặc parse, bổ sung ngữ cảnh nơi hiểu nghiệp vụ. Đừng biến mọi lỗi thành một String rồi buộc nơi khác phân tích câu chữ. Khi review API, hãy hỏi: lỗi nào có thể thử lại, lỗi nào do dữ liệu sai, và thông tin nào được phép đưa ra người dùng?"
       }
     ],
     "tip": "Đừng để giao diện phải phân tích chuỗi lỗi để biết cần sửa trường nào; enum và dữ liệu có cấu trúc phù hợp hơn.",

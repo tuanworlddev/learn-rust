@@ -45,7 +45,7 @@ npm run start:local
 19. Thiết kế & Hiệu năng
 20. Dự án tổng hợp
 
-Mỗi bài có ba phần lý thuyết, ví dụ, mục tiêu, bài tập với mã khởi đầu, lời giải, gợi ý, kết quả mong đợi, câu hỏi và liên kết tài liệu Rust chính thức. Ba dự án thực hành riêng vẫn có trong mục Dự án.
+Mỗi bài có lý thuyết, ví dụ, mục tiêu, bài tập với mã khởi đầu, lời giải, gợi ý, kết quả mong đợi, câu hỏi và liên kết tài liệu Rust chính thức. Mục Dự án có ba bài tập tổng hợp một tệp trên web; các dự án nhiều tệp nằm trong mục Đi làm.
 
 Các bài Cargo/rustup/workspace/Clippy/doctest trình bày quy trình thực tế trên máy. Bài tập của chúng trên web được giới hạn và ghi rõ phạm vi một tệp. Ví dụ I/O và CLI dùng dữ liệu mẫu; phần async giải thích Future/Waker/Pin/executor bằng thư viện chuẩn, không giả định có Tokio hay hệ thống I/O bất đồng bộ trên web.
 
@@ -67,10 +67,24 @@ React 19, TypeScript, Next.js 16 và Tailwind CSS 4 qua PostCSS. Không dùng Ta
 - Nhãn sản phẩm: Learn Rust.
 - Font hệ thống hỗ trợ tiếng Việt, không giãn ký tự. Nội dung bài 15px, code 13px.
 - Sidebar chương/bài; trang mục lục đầy đủ; hai cột bài học/editor trên desktop.
-- Mobile chuyển thành một cột và mục lục dạng drawer.
+- Mobile dùng nút Nội dung / Viết mã để chuyển nhanh giữa bài học và editor, giữ nguyên bản nháp; mục lục mở dạng drawer.
 - Chuyển trang/tab nhẹ 160–180ms, mở chương 220ms, nút 150ms; tôn trọng `prefers-reduced-motion`.
 - Nút sáng/tối lưu tùy chọn. Lần đầu theo giao diện hệ thống.
-- Search, drawer và settings hỗ trợ bàn phím, Escape và focus trap.
+- Search, drawer và settings hỗ trợ bàn phím, Escape và focus trap. Tab bài học/sổ tay dùng phím mũi tên, Home, End; điều hướng cập nhật tiêu đề và focus nội dung.
+- Sidebar sáng dùng chữ gần đen; sidebar tối dùng chữ sáng. Lỗi lưu tiến độ được thông báo kèm nút xuất bản sao.
+
+## Từ nền tảng đến phỏng vấn và dự án
+
+Mục **Đi làm** (`/#di-lam`) bổ sung lộ trình thực hành theo giai đoạn, câu hỏi phỏng vấn mở, đặc tả dự án và tiêu chí tự đánh giá có bằng chứng. Đây là định hướng Rust backend ở mức đầu vào/junior; các chuyên ngành embedded, game engine, hệ thống phân tán hay FFI trên mobile cần lộ trình riêng.
+
+80 bài trên web giúp học ngôn ngữ và thử từng khái niệm. Tỷ lệ hoàn thành, đáp án mẫu và kết quả so sánh stdout không chứng minh khả năng làm việc độc lập. Hãy tự triển khai bài mới, viết test, xử lý lỗi, review thiết kế và trình bày lựa chọn của mình trước khi đánh dấu một tiêu chí đã đạt.
+
+Lab [Task API](labs/task-api/README.md) dùng Cargo nhiều tệp, Axum, Tokio và SQLx/SQLite. Chạy trên máy local theo README của lab, không dán cả dự án vào editor một tệp. Mã cơ sở phục vụ học tập; các yêu cầu auth, phân quyền và vận hành production nằm trong phần nâng cấp và cần được thực hiện trước khi triển khai cho người dùng thật.
+
+Các báo cáo review nằm trong thư mục [reports](reports): UX/UI, kiến thức Rust và mức độ chuẩn bị dự án. Báo cáo nêu rõ phần đã sửa, cách kiểm tra và giới hạn; không phải chứng nhận tuyển dụng.
+
+
+Để kiểm tra binary qua HTTP thật, chạy `cargo build --locked --manifest-path labs/task-api/Cargo.toml`, sau đó `python3 scripts/smoke-task-api.py` từ thư mục gốc. Script dùng database tạm và cổng loopback tự cấp, thử CRUD, dừng sạch và dữ liệu sau restart; không chạm server hay database đang có của bạn.
 
 ## Dữ liệu người học
 

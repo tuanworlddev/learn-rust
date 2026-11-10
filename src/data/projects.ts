@@ -31,19 +31,27 @@ fn main() {
     ];
 
     // Đơn vị là đồng: dùng số nguyên để tránh sai số thập phân.
-    assert_eq!(total_expenses(&[]), 0);
-    assert_eq!(total_expenses(&expenses), 350_000);
-    assert!(totals_by_category(&[]).is_empty());
-    let categories = totals_by_category(&expenses);
+    assert_eq!(total_expenses(&[]), Ok(0));
+    assert_eq!(total_expenses(&expenses), Ok(350_000));
+    assert!(totals_by_category(&[]).unwrap().is_empty());
+    let categories = totals_by_category(&expenses).unwrap();
     assert_eq!(categories.len(), 2);
     assert_eq!(categories.get("ăn uống"), Some(&250_000));
     assert_eq!(categories.get("đi lại"), Some(&100_000));
-    assert_eq!(remaining_budget(500_000, &expenses), Some(150_000));
-    assert_eq!(remaining_budget(350_000, &expenses), Some(0));
-    assert_eq!(remaining_budget(300_000, &expenses), None);
+    assert_eq!(remaining_budget(500_000, &expenses), Ok(Some(150_000)));
+    assert_eq!(remaining_budget(350_000, &expenses), Ok(Some(0)));
+    assert_eq!(remaining_budget(300_000, &expenses), Ok(None));
+    let overflowing = [
+        Expense { category: "giới hạn".into(), amount: u64::MAX },
+        Expense { category: "giới hạn".into(), amount: 1 },
+    ];
+    assert_eq!(total_expenses(&overflowing[..1]), Ok(u64::MAX));
+    assert_eq!(total_expenses(&overflowing), Err("Tổng chi vượt giới hạn"));
+    assert_eq!(totals_by_category(&overflowing), Err("Tổng danh mục vượt giới hạn"));
+    assert_eq!(remaining_budget(u64::MAX, &overflowing), Err("Tổng chi vượt giới hạn"));
 
-    println!("Tổng chi: {} đ", total_expenses(&expenses));
-    println!("Còn lại: {} đ", remaining_budget(500_000, &expenses).unwrap());
+    println!("Tổng chi: {} đ", total_expenses(&expenses).unwrap());
+    println!("Còn lại: {} đ", remaining_budget(500_000, &expenses).unwrap().unwrap());
     for (category, amount) in categories {
         println!("{category}: {amount} đ");
     }
@@ -75,7 +83,7 @@ fn main() {
     println!("Số từ: {}", words.len());
     println!("Từ khác nhau: {}", counts.len());
     println!("Phổ biến nhất: {word} ({count})");
-    println!("Ký tự (Unicode): {}", text.chars().count());
+    println!("Unicode scalar: {}", text.chars().count());
 }
 `;
 
@@ -98,6 +106,10 @@ fn main() {
     let mut list = TaskList::default();
     assert!(list.pending().is_empty());
     assert_eq!(list.add("   "), Err("Tên việc không được để trống"));
+    let mut exhausted = TaskList { tasks: Vec::new(), next_id: u32::MAX };
+    assert_eq!(exhausted.add("Việc mới"), Err("Đã hết ID công việc"));
+    assert_eq!(exhausted.next_id, u32::MAX);
+    assert!(exhausted.tasks.is_empty());
 
     let first = list.add("  Đọc về ownership  ").unwrap();
     let second = list.add("Làm bài tập Vec").unwrap();
@@ -128,33 +140,33 @@ export const projects: RustProject[] = [
       "Biến những khoản chi hằng ngày thành một báo cáo rõ ràng. Tính tổng, nhóm danh mục và kiểm tra ngân sách bằng Rust.",
     level: "Cơ bản",
     estimate: "40–60 phút",
-    tags: ["Struct", "Vec", "BTreeMap", "Option"],
+    tags: ["Struct", "Vec", "BTreeMap", "Result & Option"],
     objectives: [
       "Mô hình hóa một khoản chi bằng struct và xử lý một danh sách qua slice.",
       "Dùng BTreeMap để cộng dồn theo danh mục, đồng thời giữ thứ tự đầu ra ổn định.",
-      "Biểu diễn tình huống vượt ngân sách bằng Option thay vì trừ số nguyên không an toàn.",
+      "Phân biệt lỗi tràn số bằng Result với tình huống vượt ngân sách bằng Option.",
     ],
     instructions: [
-      "Hoàn thiện total_expenses: trả về tổng amount của mọi khoản chi; danh sách rỗng phải trả về 0. Số tiền được lưu bằng u64, đơn vị đồng, với dữ liệu mẫu nằm trong giới hạn kiểu số.",
-      "Hoàn thiện totals_by_category: cộng các khoản có cùng category vào một BTreeMap<String, u64>. Không thay đổi danh sách đầu vào.",
-      "Hoàn thiện remaining_budget: trả Some(số tiền còn lại) khi tổng chi không vượt ngân sách; trả None nếu vượt. Gợi ý: checked_sub xử lý phép trừ này.",
-      "Giữ các assert_eq! trong main và chạy thử cả danh sách rỗng, ngân sách vừa đủ, ngân sách bị vượt. Chương trình cuối cùng cần in đúng báo cáo mẫu.",
+      "Hoàn thiện total_expenses: trả Ok(tổng amount), danh sách rỗng trả Ok(0). Dùng checked_add; nếu tổng vượt u64 thì trả Err(\"Tổng chi vượt giới hạn\"). Số tiền tính bằng VND nguyên.",
+      "Hoàn thiện totals_by_category: trả Ok(BTreeMap<String, u64>) với tổng từng danh mục. Nếu một danh mục tràn, trả Err(\"Tổng danh mục vượt giới hạn\"). Không thay đổi đầu vào.",
+      "Hoàn thiện remaining_budget: truyền lỗi từ total_expenses bằng ?; khi tổng hợp lệ, trả Ok(Some(phần còn lại)) hoặc Ok(None) nếu vượt ngân sách. checked_sub xử lý phép trừ. Tràn số và vượt ngân sách là hai tình huống khác nhau.",
+      "Giữ các assertion cho danh sách rỗng, ngân sách vừa đủ, ngân sách bị vượt và tổng tại u64::MAX. unwrap ở main chỉ dành cho dữ liệu mẫu đã được xác nhận; API nhận dữ liệu ngoài phải trả Result.",
     ],
     starterCode:
       expensePrelude +
       `
-fn total_expenses(expenses: &[Expense]) -> u64 {
-    // TODO: Cộng amount của tất cả khoản chi.
+fn total_expenses(expenses: &[Expense]) -> Result<u64, &'static str> {
+    // TODO: Cộng bằng checked_add, trả lỗi nếu tổng vượt u64.
     todo!("Tính tổng chi tiêu")
 }
 
-fn totals_by_category(expenses: &[Expense]) -> BTreeMap<String, u64> {
-    // TODO: Nhóm các khoản chi theo category.
+fn totals_by_category(expenses: &[Expense]) -> Result<BTreeMap<String, u64>, &'static str> {
+    // TODO: Nhóm theo category, kiểm tra tràn cho mỗi tổng.
     todo!("Lập báo cáo theo danh mục")
 }
 
-fn remaining_budget(budget: u64, expenses: &[Expense]) -> Option<u64> {
-    // TODO: Trả None nếu chi nhiều hơn ngân sách.
+fn remaining_budget(budget: u64, expenses: &[Expense]) -> Result<Option<u64>, &'static str> {
+    // TODO: Truyền lỗi tổng; Ok(None) nếu chi nhiều hơn ngân sách.
     todo!("Kiểm tra ngân sách")
 }
 ` +
@@ -162,20 +174,23 @@ fn remaining_budget(budget: u64, expenses: &[Expense]) -> Option<u64> {
     solutionCode:
       expensePrelude +
       `
-fn total_expenses(expenses: &[Expense]) -> u64 {
-    expenses.iter().map(|expense| expense.amount).sum()
+fn total_expenses(expenses: &[Expense]) -> Result<u64, &'static str> {
+    expenses.iter().try_fold(0u64, |total, expense| {
+        total.checked_add(expense.amount).ok_or("Tổng chi vượt giới hạn")
+    })
 }
 
-fn totals_by_category(expenses: &[Expense]) -> BTreeMap<String, u64> {
+fn totals_by_category(expenses: &[Expense]) -> Result<BTreeMap<String, u64>, &'static str> {
     let mut totals = BTreeMap::new();
     for expense in expenses {
-        *totals.entry(expense.category.clone()).or_insert(0) += expense.amount;
+        let total = totals.entry(expense.category.clone()).or_insert(0u64);
+        *total = total.checked_add(expense.amount).ok_or("Tổng danh mục vượt giới hạn")?;
     }
-    totals
+    Ok(totals)
 }
 
-fn remaining_budget(budget: u64, expenses: &[Expense]) -> Option<u64> {
-    budget.checked_sub(total_expenses(expenses))
+fn remaining_budget(budget: u64, expenses: &[Expense]) -> Result<Option<u64>, &'static str> {
+    Ok(budget.checked_sub(total_expenses(expenses)?))
 }
 ` +
       expenseMain,
@@ -201,6 +216,7 @@ fn remaining_budget(budget: u64, expenses: &[Expense]) -> Option<u64> {
       "Hoàn thiện count_words: tạo BTreeMap<String, usize> chứa số lần xuất hiện của từng token. Không làm mất các chữ có dấu trong dữ liệu mẫu.",
       "Hoàn thiện most_frequent: trả Some((từ, số lần)) của từ xuất hiện nhiều nhất; nếu hòa, chọn từ đứng trước theo thứ tự so sánh chuỗi của Rust. Trả None khi map rỗng.",
       "Giữ các phép kiểm tra có sẵn và in báo cáo mẫu. chars().count() đếm Unicode scalar value; một ký tự hiển thị có thể gồm nhiều scalar value, nên đây chưa phải bộ đếm grapheme tổng quát.",
+      "Bộ tách token này không chuẩn hóa NFC/NFD và không thực hiện phân đoạn từ tiếng Việt đầy đủ. Dấu kết hợp có thể bị coi là dấu phân cách; hai chuỗi nhìn giống nhau chưa chắc cho cùng token. Một sản phẩm tìm kiếm thực tế cần quy định chuẩn hóa và kiểm thử riêng.",
     ],
     starterCode:
       textPrelude +
@@ -257,7 +273,7 @@ fn most_frequent(counts: &BTreeMap<String, usize>) -> Option<(&str, usize)> {
 ` +
       textMain,
     expectedOutput:
-      "Số từ: 7\nTừ khác nhau: 5\nPhổ biến nhất: rust (3)\nKý tự (Unicode): 33\n",
+      "Số từ: 7\nTừ khác nhau: 5\nPhổ biến nhất: rust (3)\nUnicode scalar: 33\n",
     accent: "blue",
   },
   {
@@ -274,7 +290,7 @@ fn most_frequent(counts: &BTreeMap<String, usize>) -> Option<(&str, usize)> {
       "Trả về danh sách tham chiếu tới việc chưa hoàn thành, không clone toàn bộ dữ liệu.",
     ],
     instructions: [
-      "Hoàn thiện add: trim tên việc; từ chối tên rỗng với Err(\"Tên việc không được để trống\"). ID hợp lệ bắt đầu từ 1 và tăng dần. Yêu cầu không hợp lệ không được tiêu thụ ID.",
+      "Hoàn thiện add: trim tên việc; từ chối tên rỗng với Err(\"Tên việc không được để trống\"). ID bắt đầu từ 1, tăng bằng checked_add. Khi hết u32, trả Err(\"Đã hết ID công việc\"); lỗi không được thay đổi next_id hoặc thêm Task.",
       "Hoàn thiện complete: tìm công việc theo ID và đặt done = true. Nếu không tìm thấy, trả Err(\"Không tìm thấy công việc\"). Đánh dấu một việc đã xong vẫn trả Ok(()).",
       "Hoàn thiện pending: trả Vec<&Task> gồm các việc có done = false theo đúng thứ tự được thêm; không thay đổi dữ liệu.",
       "Giữ các kiểm tra trong main cho danh sách rỗng, tên không hợp lệ, ID không tồn tại và việc đã xong. In báo cáo mẫu sau khi hoàn thành công việc đầu tiên.",
@@ -311,13 +327,14 @@ impl TaskList {
             return Err("Tên việc không được để trống");
         }
 
-        self.next_id += 1;
+        let id = self.next_id.checked_add(1).ok_or("Đã hết ID công việc")?;
         self.tasks.push(Task {
-            id: self.next_id,
+            id,
             title: title.to_owned(),
             done: false,
         });
-        Ok(self.next_id)
+        self.next_id = id;
+        Ok(id)
     }
 
     fn complete(&mut self, id: u32) -> Result<(), &'static str> {

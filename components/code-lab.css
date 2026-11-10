@@ -62,7 +62,8 @@
 .cl-icon-button:hover { background: var(--cl-bg) !important; color: var(--cl-text) !important; }
 .cl-icon-button:disabled { opacity: .45; cursor: not-allowed; }
 .cl-editor { position: relative; min-width: 0; height: 320px; background: var(--cl-bg); }
-.cl-editor-focus { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--cl-accent) 50%, transparent); }
+.cl-editor-focus { box-shadow: inset 0 0 0 2px var(--cl-accent); }
+.cl-keyboard-help { margin: 0; padding: 6px 12px; border-top: 1px solid var(--cl-line); color: var(--cl-text); background: var(--cl-panel); font-size: 11px; line-height: 1.6; }
 .cl-code-clip { position: absolute; inset: 0 0 0 43px; overflow: hidden; pointer-events: none; }
 .cl-code-clip pre,
 .cl-textarea {
@@ -243,8 +244,17 @@
   .cl-toolbar { padding-right: 8px; }
   .cl-edition { margin-right: 5px; font-size: 10px; }
   .cl-file-tab { font-size: 11px; }
-  .cl-icon-button { width: 28px; }
+  .cl-icon-button { width: 36px; height: 36px; }
+  .cl-run-button, .cl-check-button { min-height: 38px; }
   .cl-save-state { font-size: 10px; }
+  .cl-code-clip pre, .cl-textarea { font-size: 16px !important; }
+  .cl-gutter { font-size: 13px; line-height: 26.4px; }
+  .cl-gutter div { height: 26.4px; }
+}
+@media (forced-colors: active) {
+  .cl-code-clip { display: none; }
+  .cl-textarea { color: CanvasText !important; -webkit-text-fill-color: CanvasText !important; caret-color: CanvasText !important; }
+  .cl-editor-focus { outline: 2px solid Highlight; outline-offset: -2px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .cl-spin { animation-duration: 2s; }

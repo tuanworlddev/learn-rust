@@ -25,13 +25,13 @@ export const systemLessons: Lesson[] = [
       },
       {
         "title": "Mượn để duyệt",
-        "text": "Hàm nhận &Chain có thể dùng match để đọc từng nút. Với một nút Link, hãy cộng giá trị hiện tại và gọi lại hàm cho phần còn lại. Đệ quy phù hợp với ví dụ ngắn; danh sách rất sâu nên được duyệt lặp để tránh dùng quá nhiều stack."
+        "text": "Hàm nhận &Chain có thể match để đọc từng nút. Đệ quy phù hợp với ví dụ ngắn; cấu trúc rất sâu có thể làm đầy stack khi duyệt và cả khi hủy các nút theo đệ quy. Đổi riêng phép duyệt thành vòng lặp chưa giải quyết phần hủy. Trong sản phẩm, cân nhắc Vec hoặc thiết kế cả cách duyệt lẫn dọn dữ liệu có giới hạn."
       }
     ],
     "tip": "Box không làm mọi chương trình nhanh hơn. Chọn nó khi mô hình sở hữu hoặc kích thước kiểu cần một lớp gián tiếp.",
     "exercise": {
       "title": "Cộng một chuỗi nút",
-      "instructions": "Hoàn thiện sum để tính tổng các nút Link; End có tổng bằng 0. Không lấy quyền sở hữu của chuỗi.",
+      "instructions": "Hoàn thiện sum để tính tổng các nút Link; End có tổng bằng 0. Không lấy quyền sở hữu của chuỗi. Dữ liệu của bài này được giới hạn để các phép tính số nguyên không tràn; khi nhận dữ liệu tùy ý, cần thiết kế kiểm tra giới hạn hoặc dùng checked_*.",
       "requirements": [
         "Nhận &Chain",
         "Dùng match cho cả Link và End",
@@ -149,7 +149,7 @@ export const systemLessons: Lesson[] = [
     "tip": "Đừng giữ RefMut lâu hơn cần thiết. Guard nhỏ giúp tránh cả panic lẫn thiết kế khó hiểu.",
     "exercise": {
       "title": "Bảng điểm cập nhật qua &self",
-      "instructions": "Hoàn thiện add và total của ScoreBoard. Trường points đã dùng RefCell nên add không cần &mut self.",
+      "instructions": "Hoàn thiện add và total của ScoreBoard. Trường points đã dùng RefCell nên add không cần &mut self. Dữ liệu của bài này được giới hạn để các phép tính số nguyên không tràn; khi nhận dữ liệu tùy ý, cần thiết kế kiểm tra giới hạn hoặc dùng checked_*.",
       "requirements": [
         "add mượn sửa và thêm điểm",
         "total chỉ mượn đọc",
@@ -498,12 +498,16 @@ export const systemLessons: Lesson[] = [
       {
         "title": "Đừng dựa vào thứ tự nhiều worker",
         "text": "Lịch chạy giữa các luồng có thể đổi. Nếu cần kết quả có thứ tự, hãy gửi kèm chỉ số rồi sắp xếp; nếu chỉ cần tổng, phép cộng cho đầu ra xác định. recv và vòng iter ở đây có thể chặn luồng, không phải API async/await."
+      },
+      {
+        "title": "Giới hạn hàng đợi để tránh ngập dữ liệu",
+        "text": "std::sync::mpsc::channel không đặt trần cố định cho hàng đợi; bên gửi nhanh hơn bên nhận có thể làm bộ nhớ tăng. sync_channel(n) tạo hàng đợi có giới hạn và send chặn khi đầy; n = 0 yêu cầu bên gửi và bên nhận gặp nhau. Đây là backpressure. Đừng join bên gửi trước khi nhận nếu bên gửi có thể đang đợi chỗ trống. Bài mẫu tạo ít worker; ứng dụng thật còn cần giới hạn số công việc đang xử lý."
       }
     ],
     "tip": "Khi một vòng nhận treo, kiểm tra còn Sender nào sống trước khi thêm sleep hoặc timeout.",
     "exercise": {
       "title": "Gom kết quả các công việc",
-      "instructions": "Mỗi worker nhận một số và gửi lại gấp đôi số đó. Hoàn thiện sum_jobs để gom tổng, đóng Sender gốc và join mọi worker.",
+      "instructions": "Mỗi worker nhận một số và gửi lại gấp đôi số đó. Hoàn thiện sum_jobs để gom tổng, đóng Sender gốc và join mọi worker. Dữ liệu của bài này được giới hạn để các phép tính số nguyên không tràn; khi nhận dữ liệu tùy ý, cần thiết kế kiểm tra giới hạn hoặc dùng checked_*.",
       "requirements": [
         "Mỗi job chạy trong một thread",
         "Nhận cho đến khi mọi sender đóng",
@@ -551,18 +555,22 @@ export const systemLessons: Lesson[] = [
       },
       {
         "title": "Mutex bảo vệ vùng truy cập",
-        "text": "Mutex<T>::lock trả guard khi lấy được khóa. Guard cho phép truy cập T và mở khóa khi bị drop. Hãy giữ khóa trong thời gian ngắn. Nếu một luồng panic khi giữ khóa, trạng thái poisoning được báo qua Result để bên gọi quyết định xử lý.",
+        "text": "Mutex<T>::lock trả guard khi lấy được khóa; guard mở khóa khi bị drop. Nếu phát hiện một luồng panic khi giữ khóa, Mutex báo poisoning qua Result. Đây là tín hiệu cảnh báo về bất biến dữ liệu, không phải bảo đảm phát hiện mọi panic. Chỉ khôi phục qua into_inner sau khi biết cách kiểm tra hoặc sửa trạng thái; unsafe không được dựa vào poisoning để chứng minh an toàn bộ nhớ.",
         "code": "use std::sync::{Arc, Mutex};\nlet count = Arc::new(Mutex::new(0));\n{\n    let mut guard = count.lock().expect(\"Khóa hợp lệ\");\n    *guard += 1;\n}"
       },
       {
         "title": "Thiết kế để tránh deadlock",
         "text": "Không giữ khóa rồi chờ một worker cũng cần khóa đó. Khi có nhiều khóa, thứ tự lấy khóa cần nhất quán. Arc bảo vệ bộ đếm và Mutex bảo vệ truy cập dữ liệu; cả hai không tự chứng minh chương trình không thể deadlock."
+      },
+      {
+        "title": "Giữ khóa ngắn, đặc biệt trước await",
+        "text": "Trong chương trình async, không giữ std::sync::MutexGuard qua .await. Hãy tính hoặc lấy bản dữ liệu cần thiết trong một khối ngắn rồi nhả guard trước I/O. Mutex đồng bộ vẫn có thể hợp lý cho trạng thái nhỏ, ít tranh chấp, không có await trong vùng khóa. Khi cần giữ tài nguyên qua thao tác async, cân nhắc mutex async hoặc một task sở hữu tài nguyên và nhận lệnh qua channel. Đổi loại mutex không tự loại deadlock."
       }
     ],
     "tip": "Đọc kết quả sau khi join tất cả worker. Đọc quá sớm có thể thấy một giá trị hợp lệ nhưng chưa hoàn tất.",
     "exercise": {
       "title": "Bộ đếm nhiều worker",
-      "instructions": "Hoàn thiện concurrent_count. Mỗi worker tăng bộ đếm increments lần; cuối hàm trả kết quả sau khi join.",
+      "instructions": "Hoàn thiện concurrent_count. Mỗi worker tăng bộ đếm increments lần; cuối hàm trả kết quả sau khi join. Dữ liệu của bài này được giới hạn để các phép tính số nguyên không tràn; khi nhận dữ liệu tùy ý, cần thiết kế kiểm tra giới hạn hoặc dùng checked_*.",
       "requirements": [
         "Dùng Arc<Mutex<usize>>",
         "Mỗi lần tăng diễn ra khi giữ guard",
@@ -616,6 +624,10 @@ export const systemLessons: Lesson[] = [
       {
         "title": "Ưu tiên thiết kế sở hữu trước unsafe",
         "text": "Nếu worker cần một String, chuyển String vào closure move thường rõ ràng hơn cố chia sẻ một tham chiếu ngắn. Không tự thêm unsafe impl Send hoặc Sync để làm compiler im lặng: triển khai sai có thể phá vỡ bảo đảm bộ nhớ của mã dùng kiểu đó."
+      },
+      {
+        "title": "Đọc bound của kiểu bọc",
+        "text": "Arc<T> đáp ứng Send và Sync khi T đáp ứng cả hai; Arc<RefCell<T>> không trở nên an toàn để chia sẻ chỉ nhờ bộ đếm nguyên tử. Mutex<T> có thể Sync khi T là Send vì mỗi lần chỉ một bên tiếp cận T. Khi phỏng vấn, hãy chỉ ra phần nào bảo vệ dữ liệu và phần nào bảo vệ bộ đếm. Data race bị chặn trong safe Rust không có nghĩa các thao tác nghiệp vụ nhiều bước tự thành một giao dịch."
       }
     ],
     "tip": "Một lỗi Send/Sync thường chỉ ra rằng mô hình chia sẻ dữ liệu cần thay đổi, không phải thiếu một từ khóa.",
@@ -675,12 +687,16 @@ export const systemLessons: Lesson[] = [
       {
         "title": "Bài thực hành chỉ dùng Future sẵn sàng",
         "text": "std cung cấp Future nhưng không tích hợp một runtime đa dụng để chạy mọi IO async. Bài này dùng future::ready nên hoàn tất trong một lần poll; Waker::noop chỉ đủ cho tình huống đã biết đó. Helper poll_ready không phải executor cho Future có Pending."
+      },
+      {
+        "title": "Concurrency, blocking và hủy công việc",
+        "text": "Hai lời gọi a().await rồi b().await thực hiện theo thứ tự phụ thuộc; chỉ tạo hai Future chưa làm chúng chạy đồng thời. Khi chuyển sang runtime, dùng cơ chế phối hợp phù hợp và giới hạn công việc. Future chưa hoàn tất có thể bị drop tại điểm chờ: phần sau await có thể không chạy, còn tác dụng phụ đã xảy ra không tự hoàn tác. Do đó timeout hoặc hủy yêu cầu cần chính sách cho tài nguyên và trạng thái đã cập nhật, không chỉ thêm async."
       }
     ],
     "tip": "Không poll lại một Future sau khi đã nhận Ready. Tạo Future mới cho mỗi lần kiểm tra.",
     "exercise": {
       "title": "Tính tổng sau một bước async",
-      "instructions": "Hoàn thiện total_with_fee: await phí 5.000 từ future::ready rồi cộng với price nhân quantity.",
+      "instructions": "Hoàn thiện total_with_fee: await phí 5.000 từ future::ready rồi cộng với price nhân quantity. Dữ liệu của bài này được giới hạn để các phép tính số nguyên không tràn; khi nhận dữ liệu tùy ý, cần thiết kế kiểm tra giới hạn hoặc dùng checked_*.",
       "requirements": [
         "Giữ async fn và sử dụng await",
         "Không thêm crate hoặc runtime bên ngoài",
@@ -851,6 +867,10 @@ export const systemLessons: Lesson[] = [
       {
         "title": "Giới hạn được nêu rõ",
         "text": "Bài này chạy một Future trên luồng gọi block_on và chỉ minh họa wake/poll. Nó không có hàng đợi nhiều task, timer, driver mạng hay Tokio. Không đưa một Future cần dịch vụ runtime khác vào helper này và mong nó tự hoạt động."
+      },
+      {
+        "title": "Nối kiến thức nền với runtime thực tế",
+        "text": "Bài executor này giải thích cơ chế, chưa thay thế kinh nghiệm vận hành ứng dụng Tokio. Với tokio::spawn, Future và output phải đáp ứng các bound cần thiết; dữ liệu giữ qua await ảnh hưởng đến Send, còn static không có nghĩa giá trị sống mãi. Trong dự án, bạn cần thêm timeout, hủy, đóng channel, chờ task kết thúc và xử lý lỗi JoinHandle. Đọc chương Spawning và Graceful Shutdown của Tokio rồi thực hành trong Cargo với dependency thật; các việc đó không được kiểm chứng bằng helper một Future ở đây."
       }
     ],
     "tip": "Đừng giữ guard của cờ trong khi gọi poll: Future có thể gọi wake ngay trong poll và cần lấy cùng khóa.",
@@ -910,6 +930,10 @@ export const systemLessons: Lesson[] = [
         "title": "Trait cần tương thích với dyn",
         "text": "Không phải mọi trait đều dùng làm trait object được. Một method có tham số kiểu generic hoặc trả Self có thể cần giới hạn Self: Sized và không được gọi qua dyn. Trong ví dụ, summary(&self) -> String giữ hợp đồng rõ và có thể được gọi qua trait object.",
         "code": "trait Summary {\n    fn summary(&self) -> String;\n}\n// Có thể dùng Box<dyn Summary> cho giao diện này."
+      },
+      {
+        "title": "dyn không bắt buộc cấp phát heap",
+        "text": "&dyn Summary có thể mượn đối tượng đã tồn tại; Box<dyn Summary> thêm quyền sở hữu thông qua Box. Dynamic dispatch và heap allocation là hai quyết định riêng. Nếu đối tượng có tham chiếu, lifetime của trait object vẫn phải hợp lệ; ở nhiều vị trí kiểu, Box<dyn Trait> mặc định mang bound static. Khi dùng cho worker, trait object còn có thể cần + Send hoặc + Sync. Chọn enum nếu tập biến thể đóng, generic nếu biết kiểu lúc biên dịch, dyn khi cần che các kiểu khác nhau ở runtime."
       }
     ],
     "tip": "Nếu tập hợp biến thể đã cố định và bạn cần xử lý từng biến thể, enum cũng là một lựa chọn rõ ràng.",
@@ -968,6 +992,10 @@ export const systemLessons: Lesson[] = [
       {
         "title": "Đóng hợp đồng sau API an toàn",
         "text": "Wrapper có thể là hàm an toàn nếu nó tự kiểm tra đủ điều kiện trước unsafe. Trong mã sản phẩm, values.first().copied().unwrap_or(0) đã giải quyết ví dụ này mà không cần unsafe. Bài học nhằm đọc và chứng minh một đoạn unsafe, không khuyến khích thay mọi truy cập an toàn bằng pointer."
+      },
+      {
+        "title": "An toàn API phải đúng với mọi cách gọi hợp lệ",
+        "text": "Một wrapper safe phải giữ các bất biến unsafe cho mọi đầu vào mà chữ ký cho phép, không chỉ cho dữ liệu mẫu. Khi đọc pointer, kiểm tra vùng cấp phát, alignment, lifetime, khởi tạo và quy tắc alias; pointer không null vẫn có thể không hợp lệ. Tách phần unsafe nhỏ, mô tả Safety của API unsafe và kiểm thử cả ranh giới. Công cụ như Miri có thể phát hiện một số undefined behavior trong lần chạy, nhưng test qua hết không phải chứng minh soundness của thư viện."
       }
     ],
     "tip": "Chú thích SAFETY cần giải thích vì sao thao tác hợp lệ ở đây, không chỉ nói rằng nó là an toàn.",
@@ -1027,6 +1055,10 @@ export const systemLessons: Lesson[] = [
       {
         "title": "Wire format cần byte order rõ ràng",
         "text": "Không dump nguyên vùng nhớ của struct để tạo gói tin: padding và endianness không phải hợp đồng truyền dữ liệu. Hãy mã hóa từng trường, chẳng hạn length.to_le_bytes(). Bài này chỉ đo layout và mã hóa an toàn; không liên kết hoặc gọi thư viện C bên ngoài."
+      },
+      {
+        "title": "Ownership không đi theo ABI tự động",
+        "text": "Ở ranh giới C, hãy quy định bên nào cấp phát, bên nào giải phóng, bộ đệm có bao nhiêu byte và con trỏ được giữ bao lâu. Không để Rust panic vượt qua một ABI không cho unwind; chọn chính sách bắt/chuyển lỗi hoặc dừng phù hợp. repr(C) ở struct ngoài không tự đổi layout của mọi kiểu lồng bên trong. Bài này mới học biểu diễn và mã hóa; gọi thư viện C thật còn cần kiểm chứng ABI, link và hợp đồng an toàn riêng."
       }
     ],
     "tip": "Tương thích bố cục C trên một target không đồng nghĩa có cùng định dạng file trên mọi máy.",
