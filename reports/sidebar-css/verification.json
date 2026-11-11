@@ -1,0 +1,442 @@
+{
+  "verifiedAt": "2026-11-11T06:10:13.743Z",
+  "sourceBaseCommit": "d184da7cc7163e077be8c2f6ea6f8b7daf482b03",
+  "summary": "Restore shared sidebar styling on direct page loads after page-view code splitting.",
+  "rootCause": "Shared course navigation CSS was owned by a lazy course-view stylesheet. Direct notebook, practice and interview documents had inline, unstyled course links. Project and assessment modules also lacked their direct stylesheet imports.",
+  "changes": [
+    "Move sidebar course list and course title styles, including reduced motion, to the shared learning-app stylesheet.",
+    "Move the shared course back link, hover and mobile spacing styles to learning-app.css.",
+    "Import course and specialization styles directly in project list, project detail and assessment modules, after component imports."
+  ],
+  "sourcePaths": [
+    "components/learning-app.css",
+    "components/course-learning.css",
+    "components/specialization-views.css",
+    "components/course-projects-index.tsx",
+    "components/course-project.tsx",
+    "components/course-assessment.tsx"
+  ],
+  "build": {
+    "command": "COURSE_CONTENT_SOURCE=bundled npm run build:local",
+    "exitCode": 0,
+    "output": "\n> learn-rust@0.1.0 build:local\n> next build\n\n▲ Next.js 16.3.4 (Turbopack)\n✓ Running next.config.ts took 74ms\n\n  Creating an optimized production build ...\n(node:83995) [DEP0205] DeprecationWarning: `module.register()` is deprecated. Use `module.registerHooks()` instead.\n(Use `node --trace-deprecation ...` to show where the warning was created)\n✓ Compiled successfully in 1385ms\n  Running TypeScript ...\n  Finished TypeScript in 1689ms ...\n  Collecting page data using 9 workers ...\n  Generating static pages using 9 workers (0/3) ...\n✓ Generating static pages using 9 workers (3/3) in 106ms\n  Finalizing page optimization ...\n\nRoute (app)\n┌ ƒ /\n├ ƒ /_not-found\n├ ƒ /[...path]\n├ ƒ /api/execute\n├ ƒ /api/health\n├ ƒ /api/lessons/[id]/lab\n├ ƒ /api/public-config\n├ ƒ /auth/callback\n├ ○ /opengraph-image\n├ ƒ /robots.txt\n└ ƒ /sitemap.xml\n\n\n○  (Static)   prerendered as static content\nƒ  (Dynamic)  server-rendered on demand\n\n"
+  },
+  "staticChecks": {
+    "exitCode": 0,
+    "checks": [
+      "git diff --check",
+      "ESLint for the three updated TSX modules"
+    ]
+  },
+  "initialDocumentCSS": {
+    "buildId": "rYHq6HhmV1v9bqNcqogWB",
+    "routes": [
+      {
+        "path": "/so-tay",
+        "status": 200,
+        "stylesheets": 3,
+        "cssBytes": 154998,
+        "sharedSidebarCSS": true,
+        "specializationPageCSS": false
+      },
+      {
+        "path": "/thuc-hanh",
+        "status": 200,
+        "stylesheets": 3,
+        "cssBytes": 154998,
+        "sharedSidebarCSS": true,
+        "specializationPageCSS": false
+      },
+      {
+        "path": "/phong-van",
+        "status": 200,
+        "stylesheets": 3,
+        "cssBytes": 131234,
+        "sharedSidebarCSS": true,
+        "specializationPageCSS": false
+      },
+      {
+        "path": "/du-an",
+        "status": 200,
+        "stylesheets": 2,
+        "cssBytes": 137057,
+        "sharedSidebarCSS": true,
+        "specializationPageCSS": true
+      },
+      {
+        "path": "/du-an/backend-project-catalog",
+        "status": 200,
+        "stylesheets": 3,
+        "cssBytes": 137991,
+        "sharedSidebarCSS": true,
+        "specializationPageCSS": true
+      },
+      {
+        "path": "/khoa-hoc/backend/danh-gia",
+        "status": 200,
+        "stylesheets": 3,
+        "cssBytes": 137991,
+        "sharedSidebarCSS": true,
+        "specializationPageCSS": true
+      },
+      {
+        "path": "/khoa-hoc/nen-tang",
+        "status": 200,
+        "stylesheets": 1,
+        "cssBytes": 121173,
+        "sharedSidebarCSS": true,
+        "specializationPageCSS": false
+      }
+    ]
+  },
+  "browser": {
+    "surface": "Connected Chrome, local production build using Supabase content",
+    "before": [
+      {
+        "linkCount": 14,
+        "links": [
+          {
+            "display": "inline",
+            "fontSize": "15px",
+            "height": 17.5,
+            "text": "Kiến thức nền tảng",
+            "top": 319.765625
+          },
+          {
+            "display": "inline",
+            "fontSize": "15px",
+            "height": 17.5,
+            "text": "Backend",
+            "top": 344.515625
+          },
+          {
+            "display": "inline",
+            "fontSize": "15px",
+            "height": 17.5,
+            "text": "Hệ thống",
+            "top": 344.515625
+          },
+          {
+            "display": "inline",
+            "fontSize": "15px",
+            "height": 42.25,
+            "text": "Nhúng & IoT",
+            "top": 344.515625
+          }
+        ],
+        "navOverflow": "visible",
+        "uniqueHrefs": 14,
+        "url": "/so-tay"
+      }
+    ],
+    "notebookAfter": [
+      {
+        "allBlock": true,
+        "firstLink": {
+          "color": "rgb(36, 38, 43)",
+          "fontSize": "13px",
+          "lineHeight": "20.8px",
+          "padding": "9px 12px",
+          "text": "Kiến thức nền tảng"
+        },
+        "groupLabelDisplay": "block",
+        "heading": "Sổ tay",
+        "linkCount": 14,
+        "nav": {
+          "clientHeight": 370,
+          "clientWidth": 211,
+          "flexGrow": "1",
+          "overflow": "auto",
+          "scrollHeight": 583,
+          "scrollWidth": 211
+        },
+        "noHorizontalOverflow": true,
+        "path": "/so-tay",
+        "progress": "1/314 bài hoàn thành",
+        "separateRows": true,
+        "theme": "light",
+        "title": null,
+        "uniqueHrefs": 14
+      }
+    ],
+    "themePracticeInterview": [
+      {
+        "allBlock": true,
+        "firstLink": {
+          "color": "rgb(229, 231, 235)",
+          "fontSize": "13px",
+          "lineHeight": "20.8px",
+          "padding": "9px 12px",
+          "text": "Kiến thức nền tảng"
+        },
+        "groupLabelDisplay": "block",
+        "heading": "Sổ tay",
+        "linkCount": 14,
+        "nav": {
+          "clientHeight": 370,
+          "clientWidth": 211,
+          "flexGrow": "1",
+          "overflow": "auto",
+          "scrollHeight": 583,
+          "scrollWidth": 211
+        },
+        "noHorizontalOverflow": true,
+        "path": "/so-tay",
+        "progress": "1/314 bài hoàn thành",
+        "separateRows": true,
+        "theme": "dark",
+        "title": null,
+        "uniqueHrefs": 14
+      },
+      {
+        "allBlock": true,
+        "firstLink": {
+          "color": "rgb(36, 38, 43)",
+          "fontSize": "13px",
+          "lineHeight": "20.8px",
+          "padding": "9px 12px",
+          "text": "Kiến thức nền tảng"
+        },
+        "groupLabelDisplay": "block",
+        "heading": "Thực hành Rust",
+        "linkCount": 14,
+        "nav": {
+          "clientHeight": 370,
+          "clientWidth": 211,
+          "flexGrow": "1",
+          "overflow": "auto",
+          "scrollHeight": 583,
+          "scrollWidth": 211
+        },
+        "noHorizontalOverflow": true,
+        "path": "/thuc-hanh",
+        "progress": "1/314 bài hoàn thành",
+        "separateRows": true,
+        "theme": "light",
+        "title": null,
+        "uniqueHrefs": 14
+      },
+      {
+        "allBlock": true,
+        "firstLink": {
+          "color": "rgb(36, 38, 43)",
+          "fontSize": "13px",
+          "lineHeight": "20.8px",
+          "padding": "9px 12px",
+          "text": "Kiến thức nền tảng"
+        },
+        "groupLabelDisplay": "block",
+        "heading": "Phỏng vấn Rust",
+        "linkCount": 14,
+        "nav": {
+          "clientHeight": 370,
+          "clientWidth": 211,
+          "flexGrow": "1",
+          "overflow": "auto",
+          "scrollHeight": 583,
+          "scrollWidth": 211
+        },
+        "noHorizontalOverflow": true,
+        "path": "/phong-van",
+        "progress": "1/314 bài hoàn thành",
+        "separateRows": true,
+        "theme": "light",
+        "title": null,
+        "uniqueHrefs": 14
+      }
+    ],
+    "projectsIndex": [
+      {
+        "allBlock": true,
+        "firstLink": {
+          "color": "rgb(36, 38, 43)",
+          "fontSize": "13px",
+          "lineHeight": "20.8px",
+          "padding": "9px 12px",
+          "text": "Kiến thức nền tảng"
+        },
+        "groupLabelDisplay": "block",
+        "heading": "Dự án thực hành",
+        "linkCount": 14,
+        "nav": {
+          "clientHeight": 370,
+          "clientWidth": 211,
+          "flexGrow": "1",
+          "overflow": "auto",
+          "scrollHeight": 583,
+          "scrollWidth": 211
+        },
+        "noHorizontalOverflow": true,
+        "path": "/du-an",
+        "progress": "1/314 bài hoàn thành",
+        "separateRows": true,
+        "theme": "light",
+        "title": null,
+        "uniqueHrefs": 14
+      },
+      {
+        "cardCount": 42,
+        "gridDisplay": "grid",
+        "links": [
+          {
+            "href": "/du-an/expense-tracker",
+            "title": "Sổ tay chi tiêu"
+          },
+          {
+            "href": "/du-an/text-analyzer",
+            "title": "Khám phá một đoạn văn"
+          },
+          {
+            "href": "/du-an/task-manager",
+            "title": "Một ngày có kế hoạch"
+          },
+          {
+            "href": "/du-an/backend-project-catalog",
+            "title": "Catalog sản phẩm có API và lưu trữ"
+          },
+          {
+            "href": "/du-an/backend-project-orders",
+            "title": "Sổ đơn hàng và tồn kho"
+          },
+          {
+            "href": "/du-an/backend-project-team-service",
+            "title": "Team Tasks: dịch vụ nhiều workspace"
+          }
+        ],
+        "toolbarDisplay": "flex"
+      }
+    ],
+    "projectDetail": [
+      {
+        "allBlock": null,
+        "firstLink": null,
+        "groupLabelDisplay": null,
+        "heading": "Catalog sản phẩm có API và lưu trữ",
+        "linkCount": 0,
+        "nav": null,
+        "noHorizontalOverflow": true,
+        "path": "/du-an/backend-project-catalog",
+        "progress": "1/18 bài hoàn thành",
+        "separateRows": null,
+        "theme": "light",
+        "title": {
+          "fontSize": "14px",
+          "fontWeight": "600"
+        },
+        "uniqueHrefs": 0
+      },
+      {
+        "assessmentLink": "/khoa-hoc/backend/danh-gia",
+        "backDisplay": "inline-flex",
+        "kickerFontSize": "15px",
+        "maxWidth": "980px",
+        "sectionNavDisplay": "flex"
+      }
+    ],
+    "assessmentAndFoundation": [
+      {
+        "allBlock": null,
+        "firstLink": null,
+        "groupLabelDisplay": null,
+        "heading": "Đánh giá năng lực xây dựng dịch vụ Backend",
+        "linkCount": 0,
+        "nav": null,
+        "noHorizontalOverflow": true,
+        "path": "/khoa-hoc/backend/danh-gia",
+        "progress": "1/18 bài hoàn thành",
+        "separateRows": null,
+        "theme": "light",
+        "title": {
+          "fontSize": "14px",
+          "fontWeight": "600"
+        },
+        "uniqueHrefs": 0
+      },
+      {
+        "assessmentMaxWidth": "980px",
+        "backDisplay": "inline-flex",
+        "optionsDisplay": "grid",
+        "questions": 12,
+        "skillsDisplay": "grid"
+      },
+      {
+        "allBlock": null,
+        "firstLink": null,
+        "groupLabelDisplay": null,
+        "heading": "Kiến thức nền tảng",
+        "linkCount": 0,
+        "nav": null,
+        "noHorizontalOverflow": true,
+        "path": "/khoa-hoc/nen-tang",
+        "progress": "0/80 bài hoàn thành",
+        "separateRows": null,
+        "theme": "light",
+        "title": {
+          "fontSize": "14px",
+          "fontWeight": "600"
+        },
+        "uniqueHrefs": 0
+      },
+      {
+        "backDisplay": "inline-flex",
+        "backFontSize": "13px",
+        "backMargin": "24px"
+      }
+    ],
+    "softNavigation": [
+      {
+        "allBlock": true,
+        "firstLink": {
+          "color": "rgb(36, 38, 43)",
+          "fontSize": "13px",
+          "lineHeight": "20.8px",
+          "padding": "9px 12px",
+          "text": "Kiến thức nền tảng"
+        },
+        "groupLabelDisplay": "block",
+        "heading": "Sổ tay",
+        "linkCount": 14,
+        "nav": {
+          "clientHeight": 370,
+          "clientWidth": 211,
+          "flexGrow": "1",
+          "overflow": "auto",
+          "scrollHeight": 583,
+          "scrollWidth": 211
+        },
+        "noHorizontalOverflow": true,
+        "path": "/so-tay",
+        "progress": "1/314 bài hoàn thành",
+        "separateRows": true,
+        "theme": "light",
+        "title": null,
+        "uniqueHrefs": 14
+      },
+      {
+        "mainScrollTop": 0,
+        "navBounds": {
+          "height": 369.9375,
+          "width": 211,
+          "x": 10,
+          "y": 316.265625
+        },
+        "navScrollTop": 0
+      }
+    ],
+    "independentScrollAndConsole": [
+      {
+        "footerVisible": true,
+        "lastCourse": "Blockchain",
+        "lastCourseVisible": true,
+        "mainScrollTop": 0,
+        "navScrollTop": 213.5
+      },
+      {
+        "navScrollTop": 0
+      },
+      []
+    ],
+    "screenshot": "sidebar-after.jpg"
+  },
+  "scope": "CSS dependency regression only. No lesson content, progress data, database schema, router or persistent layout changes."
+}

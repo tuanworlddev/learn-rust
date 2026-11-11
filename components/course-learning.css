@@ -45,11 +45,6 @@
 .course-assessment-callout h2{font-size:19px;font-weight:600;line-height:1.5}
 .course-assessment-callout p{font-size:14px;line-height:1.7;color:var(--muted);margin-top:6px}
 .course-assessment-callout>.button{flex-shrink:0}
-.course-sidebar-title{font-weight:600;color:var(--ink);font-size:14px;line-height:1.5;margin:8px 12px 10px}
-.sidebar-course-list{padding:0 8px;overflow:auto;flex:1;min-height:0}
-.sidebar-course-list>a{display:block;padding:9px 12px;border-radius:5px;font-size:13px;line-height:1.6;color:var(--ink);transition:background-color .18s}
-.sidebar-course-list>a:hover{background:var(--surface-subtle)}
-.sidebar-course-list>span{display:block;padding:16px 12px 6px;color:var(--muted);font-size:11px;font-weight:600}
 .course-project-page,.course-assessment-page{max-width:980px;margin:0 auto}
 .course-project-page h1,.course-assessment-page h1{font-size:29px;font-weight:650;line-height:1.35;letter-spacing:normal}
 .course-project-page header>p,.course-assessment-page header>p{font-size:15px;line-height:1.75;color:var(--muted);margin:12px 0}
@@ -97,6 +92,6 @@
 .course-project-filter{width:min(100%,390px)}
 @media(max-width:1100px){.course-project-grid{grid-template-columns:1fr}.course-project-card{padding:17px}.course-project-card footer{margin-top:0}}
 @media(max-width:700px){.course-catalog-heading{flex-wrap:wrap}.course-catalog-heading h1{font-size:27px}.foundation-course-card{padding:16px}.course-chapter>.disclosure-trigger{gap:10px;font-size:15px}.course-chapter-intro{padding-left:30px}.course-chapter-lessons li>a{padding-left:16px;gap:9px}.course-chapter-lessons h3{font-size:14px}.course-assessment-callout{align-items:flex-start;flex-direction:column;gap:14px}.course-project-page h1,.course-assessment-page h1{font-size:25px}.course-section-nav{gap:10px 16px}.course-chapter-lessons div>span{font-size:11px}}
-@media(prefers-reduced-motion:reduce){.foundation-course-card,.course-chapter>.disclosure-trigger>svg,.course-chapter-lessons li>a,.course-project-card,.sidebar-course-list>a,.course-exam-options>label{transition:none}}
+@media(prefers-reduced-motion:reduce){.foundation-course-card,.course-chapter>.disclosure-trigger>svg,.course-chapter-lessons li>a,.course-project-card,.course-exam-options>label{transition:none}}
 
 .course-exam-question:focus-visible,.course-assessment-result:focus-visible{outline:2px solid var(--accent);outline-offset:4px}

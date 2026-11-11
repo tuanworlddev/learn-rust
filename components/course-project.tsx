@@ -7,6 +7,9 @@ import type { Progress } from "./learning-shared";
 import { projectCompletionKey, projectCriterionKey, reviewedProject } from "@/lib/course-assessment";
 import { AnimatedDisclosure } from "./animated-disclosure";
 
+import "./specialization-views.css";
+import "./course-learning.css";
+
 export function CourseProjectView({ track, project, progress, onAnswer, onComplete }: {
   track: Specialization;
   project: TrackProject;

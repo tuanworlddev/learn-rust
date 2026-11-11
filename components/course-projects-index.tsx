@@ -7,6 +7,9 @@ import { projects } from "@/src/data/projects";
 import { useCourse } from "./course-context";
 import type { Progress } from "./learning-shared";
 
+import "./specialization-views.css";
+import "./course-learning.css";
+
 export function CourseProjectsIndex({ progress }: { progress: Progress }) {
   const { specializations } = useCourse();
   const [query, setQuery] = useState("");

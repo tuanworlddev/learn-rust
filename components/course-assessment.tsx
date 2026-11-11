@@ -9,6 +9,9 @@ import { assessmentSubmissionKey, projectCompletionKey, questionAnswerKey, score
 import { useCourse } from "./course-context";
 import { AnimatedDisclosure } from "./animated-disclosure";
 
+import "./specialization-views.css";
+import "./course-learning.css";
+
 export function CourseAssessmentView({ track, progress, onAnswer }: {
   track: Specialization;
   progress: Progress;
