@@ -1,0 +1,35 @@
+{
+  "checkedAt": "2026-11-11T01:38:31.293Z",
+  "status": "passed",
+  "catalogSha256": "7159c3cba97d65732116d0ddaf92656b0cad5e5c20ea60fe697e9eadc2b2bc65",
+  "sourceBaseCommit": "7d4d1f206e4f4a90da130eed23ec46088101dd5a",
+  "native": {
+    "command": "COURSE_CONTENT_SOURCE=bundled NEXT_TELEMETRY_DISABLED=1 npm run build:local",
+    "processId": "e12e6d80-cc29-406e-89a5-74302091eb60",
+    "exitCode": 0,
+    "node": "26.13.0",
+    "next": "16.3.4",
+    "runtime": "http://127.0.0.1:3000",
+    "contentSource": "supabase",
+    "healthStatus": 200,
+    "rootStatus": 200
+  },
+  "docker": {
+    "command": "docker build --progress=plain -t learn-rust:course-expansion-20261111 .",
+    "processId": "b4695275-3bab-4277-98a2-e39153164bc4",
+    "exitCode": 0,
+    "imageId": "sha256:bd319f05a560113736d08687b0f95f6231e9c0d04c559d8acaf79fae9263d658",
+    "node": "24.22.2",
+    "runtime": "http://127.0.0.1:3002",
+    "health": "healthy",
+    "contentSource": "supabase",
+    "metadataOriginFixture": "https://learn-rust-review.vn",
+    "metadataOriginIsDeployment": false,
+    "platform": "linux/arm64",
+    "reviewContainerRemovedAfterChecks": true
+  },
+  "notes": [
+    "Both builds preceded only documentation, private SQL merge label handling and whitespace-only formatting changes; no later runtime or curriculum behavior change.",
+    "No VPS deployment or real-domain DNS/HTTPS verification is claimed."
+  ]
+}

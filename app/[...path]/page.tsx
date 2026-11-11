@@ -6,7 +6,8 @@ type Props = { params: Promise<{ path: string[] }> };
 async function resolveRoute({ params }: Props) {
   const route = (await params).path.join("/");
   if (route === "di-lam") permanentRedirect("/phong-van");
-  if (route === "lo-trinh" || route === "tong-quan") permanentRedirect("/");
+  if (["lo-trinh", "tong-quan", "bai-hoc", "chuyen-sau"].includes(route)) permanentRedirect("/");
+  if (route.startsWith("chuyen-sau/")) permanentRedirect("/khoa-hoc/" + route.slice("chuyen-sau/".length));
   if (!await getPageInfo(route)) notFound();
   return route;
 }

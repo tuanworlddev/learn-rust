@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-11-10T23:54:14.035Z",
+  "command": "cargo test --all-targets",
+  "scope": "Host tests only; device, browser, signing and deployment checks are separate.",
+  "results": [
+    {
+      "lesson": "backend-http",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/backend-http/validation.log"
+    },
+    {
+      "lesson": "backend-catalog-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/backend-catalog-project/validation.log"
+    },
+    {
+      "lesson": "backend-transactions",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/backend-transactions/validation.log"
+    },
+    {
+      "lesson": "backend-order-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/backend-order-project/validation.log"
+    },
+    {
+      "lesson": "backend-service-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/backend-service-project/validation.log"
+    },
+    {
+      "lesson": "desktop-ipc",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/desktop-ipc/validation.log"
+    },
+    {
+      "lesson": "desktop-atomic-save",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/desktop-atomic-save/validation.log"
+    },
+    {
+      "lesson": "desktop-state",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/desktop-state/validation.log"
+    },
+    {
+      "lesson": "desktop-search-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/desktop-search-project/validation.log"
+    },
+    {
+      "lesson": "desktop-workspace-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/desktop-workspace-project/validation.log"
+    }
+  ]
+}

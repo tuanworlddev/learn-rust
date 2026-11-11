@@ -4,13 +4,14 @@ import { useEffect, useId, useLayoutEffect, useRef, useState, type ReactNode } f
 import Link from "next/link";
 import {
   ArrowLeft, ArrowRight, Bookmark, BookOpen, Check, CheckCircle2,
-  ChevronDown, Circle, CircleAlert, Code2, Copy, Download, ExternalLink, FileText, FolderCode, Lightbulb,
+  ChevronDown, Circle, CircleAlert, Code2, Copy, Download, FileText, FolderCode, Lightbulb,
   ListTodo, Terminal, Wallet,
 } from "lucide-react";
 import type { Lesson } from "@/src/data/curriculum";
 import { projects, type RustProject } from "@/src/data/projects";
 import { CodeLab } from "./code-lab";
 import { LessonVisual } from "./lesson-visual";
+import { LessonSimulation } from "./lesson-simulation";
 import { LocalLabDownload } from "./local-lab-download";
 import { CodeHighlight } from "./code-highlight";
 import { AnimatedDisclosure } from "./animated-disclosure";
@@ -151,8 +152,16 @@ type LessonViewProps = {
 };
 
 export function LessonView({ lesson, progress, onBookmark, onQuiz, onPass, onComplete, onNavigate, onBack }: LessonViewProps) {
-  const { lessons: catalogLessons } = useCourse();
-  const lessons = catalogLessons.filter(item => lesson.moduleId.startsWith("track-") ? item.moduleId === lesson.moduleId : !item.moduleId.startsWith("track-"));
+  const { lessons: catalogLessons, modules, currentTrack } = useCourse();
+  const lessons = currentTrack ? currentTrack.lessonIds.flatMap(id => {
+    const item = catalogLessons.find(candidate => candidate.id === id);
+    return item ? [item] : [];
+  }) : catalogLessons.filter(item => !item.moduleId.startsWith("track-"));
+  const chapters = currentTrack?.chapters ?? modules.filter(item => !item.id.startsWith("track-")).map(item => ({
+    ...item, lessonIds: lessons.filter(candidate => candidate.moduleId === item.id).map(candidate => candidate.id),
+  }));
+  const chapterIndex = chapters.findIndex(chapter => chapter.lessonIds.includes(lesson.id));
+  const chapter = chapters[chapterIndex];
   const [tab, setTab] = useState("theory");
   const tabsId = useId();
   const { pane: mobilePane, select: selectPane, root: workspaceRef } = useWorkspacePane();
@@ -231,7 +240,7 @@ export function LessonView({ lesson, progress, onBookmark, onQuiz, onPass, onCom
 
       <div ref={flowRef} className="lv-reading-flow"><div ref={bodyRef} className="lv-reading-body">
       <header className="lv-lesson-heading">
-        <div className="lv-lesson-meta"><span>Bài {lessonIndex + 1}</span><span>{lesson.duration} phút</span>
+        <div className="lv-lesson-meta"><span>Bài {chapter ? `${chapterIndex + 1}.${chapter.lessonIds.indexOf(lesson.id) + 1}` : lessonIndex + 1}</span><span>{lesson.duration} phút</span>
           {complete && <span className="lv-status"><CheckCircle2 size={14} />Đã hoàn thành</span>}
         </div>
         <h1>{lesson.title}</h1>
@@ -246,12 +255,9 @@ export function LessonView({ lesson, progress, onBookmark, onQuiz, onPass, onCom
             <h2>{section.title}</h2>
             {section.text.split("\n\n").map((paragraph, index) => <p key={index}>{paragraph}</p>)}
             {section.code && <SampleCode code={section.code} />}
-            {sectionIndex === 0 && <LessonVisual lesson={lesson} />}
+            {sectionIndex === 0 && <><LessonVisual lesson={lesson} />{lesson.simulation && <LessonSimulation simulation={lesson.simulation} />}</>}
           </section>)}
-          <div className="lv-note"><Lightbulb size={17} /><p>{lesson.tip}</p></div>
-          <a className="lv-reference" href={lesson.reference.url} target="_blank" rel="noreferrer">
-            {lesson.reference.label}<ExternalLink size={14} />
-          </a>
+          {lesson.tip.trim() && <div className="lv-note"><Lightbulb size={17} /><p>{lesson.tip}</p></div>}
           {lesson.localLab && <LocalLab lab={lesson.localLab} lessonId={lesson.id} />}
           <button className="button button-primary transition-colors duration-150 motion-reduce:transition-none" onClick={() => openTab("exercise", true)}>Làm bài tập<ArrowRight size={16} /></button>
       </article>
@@ -455,7 +461,6 @@ export function Notebook({ progress, onLesson, onBookmark, onNotes }: {
       <div className="lv-cheatsheet-grid">{cheatSheets.map(sheet => <article className="lv-cheatsheet-card" key={sheet.title}>
         <h2>{sheet.title}</h2><p>{sheet.text}</p><SampleCode code={sheet.code} />
       </article>)}</div>
-      <a className="lv-reference" href="https://doc.rust-lang.org/rust-by-example/" target="_blank" rel="noreferrer">Rust by Example<ExternalLink size={14} /></a>
     </section>
   </section>;
 }

@@ -1,0 +1,95 @@
+{
+  "checkedAt": "2026-11-11T01:41:28.082Z",
+  "status": "passed",
+  "catalogSha256": "7159c3cba97d65732116d0ddaf92656b0cad5e5c20ea60fe697e9eadc2b2bc65",
+  "releaseId": "0a1d25ab-89c2-407e-88ba-1ef04eee78cb",
+  "revision": 2,
+  "counts": {
+    "lessons": 314,
+    "foundationLessons": 80,
+    "specializedCourses": 13,
+    "chapters": 98,
+    "specializedProjects": 39,
+    "totalProjects": 42,
+    "labs": 68,
+    "scenarioQuestions": 156,
+    "specializedSimulations": 26,
+    "foundationInteractiveModels": 4,
+    "images": 7
+  },
+  "evidence": [
+    {
+      "file": "content-depth.json",
+      "sha256": "0d654e8172805ebd702ec02b7188fdd31b32bd6da0ac185d01f2672633b4a4bf"
+    },
+    {
+      "file": "rust-solutions.json",
+      "sha256": "bce1e6b9318f6a9779ed41bce43ad2c34866cf1ad797e85e13a63dc0e9e34fed"
+    },
+    {
+      "file": "solution-fidelity.json",
+      "sha256": "a3b7f2db2fdfa50f204bb6045de639882b1d2deff202e9be846f33297c054e31"
+    },
+    {
+      "file": "all-labs.json",
+      "sha256": "eb8abd115882173f18d78018bc66457c7707fea66dc5fb1f5cb6f9f6d10fff03"
+    },
+    {
+      "file": "static-checks.json",
+      "sha256": "29498d7bd933ef3bd832d6d8dd0856587606359d7f9a96b2f8a8e8b84a8707d6"
+    },
+    {
+      "file": "backend-postgres.json",
+      "sha256": "94f6002453be9d1ed7073e9541356d5db2ff2b2cb9d515661bb16a39ebb9dcb0"
+    },
+    {
+      "file": "mobile-consumers.json",
+      "sha256": "8e17107bc303cf1fd1ab1a973da878e0cd9cdcfdc3024f32534c7732fdbc5621"
+    },
+    {
+      "file": "wasm-targets.json",
+      "sha256": "8eec2def4be8f5accf5d4284ccaa4452d6d15aece336142ef38b786421913d02"
+    },
+    {
+      "file": "blockchain-svm.json",
+      "sha256": "3d203cee0e3151d590f7c5dd6d6f589f684be42487207087a104b28277a88bf8"
+    },
+    {
+      "file": "game-native.json",
+      "sha256": "bbc8d455152d739a3eecc7c60a56f7f664062c2f5dc91cf5cb9cd6631efa5e97"
+    },
+    {
+      "file": "supabase-publication.json",
+      "sha256": "78063b218a0f25f27ac192d9a8f7af179d4c6619a1489bac400437f6062afa87"
+    },
+    {
+      "file": "seo-local.json",
+      "sha256": "47f2e0fa129fae80db485da0f5e8982682bceb9c193c5e65dc79f381da58c21b"
+    },
+    {
+      "file": "seo-docker.json",
+      "sha256": "7bfce74ec419d8f97d8a2ebbd29930398a9619ecd4824bb9f75873d8f00ea79f"
+    },
+    {
+      "file": "lab-archives.json",
+      "sha256": "8753f8ece638ff4701c524015795e000e418a6ebfc784bb32566b9ba14fab27c"
+    },
+    {
+      "file": "build-runtime.json",
+      "sha256": "b11cb2c106e94848621ea7022e9ea85cea322fdd5aaad4b1c515c69b9055cb66"
+    },
+    {
+      "file": "browser-production.json",
+      "sha256": "f33c2e18667b747a196b4569f6c3b7a454d02ae8da4df066ac01a0465f99e195"
+    }
+  ],
+  "git": {
+    "repository": "https://github.com/tuanworlddev/learn-rust.git",
+    "branch": "main",
+    "version": "Commit containing this report"
+  },
+  "limits": [
+    "Project rubrics are learner self-assessment, not automatic source grading or hiring certification.",
+    "Mobile viewport, device/hardware targets and VPS/domain deployment are not certified by these checks."
+  ]
+}

@@ -1,6 +1,7 @@
-/** Stable, shareable URLs. Legacy hash URLs are migrated by the client shell. */
+/** Stable lesson links and redirects preserve existing progress and bookmarks. */
 export function routeHref(route: string): string {
-  if (route === "lo-trinh" || route === "tong-quan" || !route) return "/";
+  if (["lo-trinh", "tong-quan", "bai-hoc", "chuyen-sau", ""].includes(route)) return "/";
   if (route === "di-lam") return "/phong-van";
-  return `/${route.split("/").map(encodeURIComponent).join("/")}`;
+  if (route.startsWith("chuyen-sau/")) route = "khoa-hoc/" + route.slice("chuyen-sau/".length);
+  return "/" + route.split("/").map(encodeURIComponent).join("/");
 }

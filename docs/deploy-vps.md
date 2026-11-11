@@ -67,6 +67,8 @@ Image dùng [Node 24 Bookworm slim chính thức](https://hub.docker.com/_/node)
 
 Supabase và `SITE_URL` được đọc khi chạy; không truyền chúng thành Docker build args hoặc `NEXT_PUBLIC_*`. Đổi cấu hình không cần build lại image, nhưng cần tạo lại container `app`.
 
+Khi dùng giáo trình v2, áp dụng migration `20261111100000_course_learning_structure.sql` sau hai migration trước, build/khởi chạy code tương thích v1/v2 rồi mới publish release mới. Không đổi con trỏ sang catalog v2 khi server còn chạy code chỉ đọc v1. Xem [quy trình nội dung](./course-content.md) để stage, kiểm tra revision và rollback.
+
 ## 4. Khởi chạy và nghiệm thu
 
 ```bash

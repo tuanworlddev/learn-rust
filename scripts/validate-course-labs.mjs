@@ -40,7 +40,7 @@ for (const lesson of selected) {
     continue;
   }
   console.log("Checking " + lesson.id);
-  const result = await run("cargo", ["test", "--all-targets"], directory);
+  const result = await run("cargo", ["test", "--workspace", "--all-targets"], directory);
   const logPath = join(directory, "validation.log");
   await writeFile(logPath, result.output);
   const passed = result.status === 0 && !result.timedOut;
@@ -48,6 +48,6 @@ for (const lesson of selected) {
   console.log((passed ? "PASS " : "FAIL ") + lesson.id);
   if (!passed) console.log(result.output.slice(-4500));
 }
-const report = { checkedAt: new Date().toISOString(), command: "cargo test --all-targets", scope: "Host tests only; device, browser, signing and deployment checks are separate.", results };
+const report = { checkedAt: new Date().toISOString(), command: "cargo test --workspace --all-targets", scope: "Host tests only; device, browser, signing and deployment checks are separate.", results };
 await writeFile(resolve(option("--output") ?? "reports/local-lab-validation.json"), JSON.stringify(report, null, 2) + "\n");
 if (results.some(result => result.status === "failed")) process.exitCode = 1;

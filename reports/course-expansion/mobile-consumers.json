@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-11-11T00:54:44.617416+00:00",
+  "scope": "Compiled Swift/macOS and Kotlin/JVM consumers calling real UniFFI dynamic libraries. This does not certify iOS/Android packaging or lifecycle.",
+  "results": [
+    {
+      "lesson": "mobile-expense-project",
+      "language": "swift",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/mobile-expense-project-swift-consumer.log"
+    },
+    {
+      "lesson": "mobile-expense-project",
+      "language": "kotlin",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/mobile-expense-project-kotlin-consumer.log"
+    },
+    {
+      "lesson": "mobile-catalog-project",
+      "language": "swift",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/mobile-catalog-project-swift-consumer.log"
+    },
+    {
+      "lesson": "mobile-catalog-project",
+      "language": "kotlin",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/mobile-catalog-project-kotlin-consumer.log"
+    }
+  ]
+}

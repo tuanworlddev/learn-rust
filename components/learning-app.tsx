@@ -4,14 +4,17 @@ import Link from "next/link";
 import {useRouter} from "next/navigation";
 import {routeHref} from "@/lib/routes";
 import AccountSettings from "./account-settings";
-import {ArrowUpRight, BookOpen, Check, ChevronDown, CircleCheck, Download, ExternalLink, Menu, Moon, Search, Settings2, Sun, X} from "lucide-react";
+import {ArrowUpRight, BookOpen, Check, ChevronDown, CircleCheck, Download, Menu, Moon, Search, Settings2, Sun, X} from "lucide-react";
 import {useCourse} from "./course-context";
 import type {LessonSummary} from "@/lib/course-types";
-import {SpecializationsView, SpecializationView} from "./specialization-views";
+import {CoursesView, SpecializationView} from "./specialization-views";
+import {CourseProjectView} from "./course-project";
+import {CourseAssessmentView} from "./course-assessment";
+import {CourseProjectsIndex} from "./course-projects-index";
 import {projects} from "@/src/data/projects";
 import {Brand,EmptyState,initialProgress,navItems,todayKey,type Progress} from "./learning-shared";
 import {Roadmap} from "./learning-dashboard";
-import {LessonView,Notebook,Playground,ProjectsView,ProjectWorkspace} from "./learning-views";
+import {LessonView,Notebook,Playground,ProjectWorkspace} from "./learning-views";
 import CareerHub from "./career-hub";
 
 const STORE="rustviet-learning-v1";
@@ -48,7 +51,7 @@ function readProgress(value: unknown): Progress {
 }
 export default function LearningApp({initialRoute="lo-trinh"}:{initialRoute?:string}){
  const router=useRouter();
- const {lessons,modules,specializations,currentLesson}=useCourse();
+ const {lessons,modules,specializations,currentLesson,currentTrack,currentProject:currentCourseProject}=useCourse();
  const route=initialRoute;
  const [progress,setProgress]=useState<Progress>(initialProgress);
  const [ready,setReady]=useState(false); const [sidebarOpen,setSidebarOpen]=useState(false);
@@ -77,15 +80,15 @@ export default function LearningApp({initialRoute="lo-trinh"}:{initialRoute?:str
   const migrateHash=()=>{
    try {
     const legacy=decodeURIComponent(location.hash.slice(1));
-    if (["lo-trinh","tong-quan","di-lam",...navItems.map(item=>item.id)].includes(legacy) ||
-        lessons.some(item=>legacy===`bai-hoc/${item.id}`) || projects.some(item=>legacy===`du-an/${item.id}`)) {
+    if (["lo-trinh","tong-quan","di-lam","chuyen-sau",...navItems.map(item=>item.id)].includes(legacy) ||
+        specializations.some(item=>legacy===`chuyen-sau/${item.id}`) || lessons.some(item=>legacy===`bai-hoc/${item.id}`) || projects.some(item=>legacy===`du-an/${item.id}`)) {
      router.replace(routeHref(legacy));
     }
    } catch { /* Keep normal anchors and malformed fragments out of app routing. */ }
   };
   migrateHash();window.addEventListener("hashchange",migrateHash);
   return()=>window.removeEventListener("hashchange",migrateHash);
- },[router,lessons]);
+ },[router,lessons,specializations]);
  // Report the outcome of persisting learner state; never overwrite an unreadable snapshot.
  // eslint-disable-next-line react-hooks/set-state-in-effect
  useEffect(()=>{if(ready&&!progressLoadError)try{localStorage.setItem(STORE,JSON.stringify(progress));setProgressSaveError(false);}catch{setProgressSaveError(true);}},[progress,ready,progressLoadError]);
@@ -136,17 +139,24 @@ export default function LearningApp({initialRoute="lo-trinh"}:{initialRoute?:str
  const bookmark=(id:string)=>setProgress(p=>({...p,bookmarks:p.bookmarks.includes(id)?p.bookmarks.filter(x=>x!==id):[...p.bookmarks,id]}));
  const currentProject=projects.find(p=>route===`du-an/${p.id}`);
  const lastLesson=lessons.find(lesson=>lesson.id===progress.lastLesson);
- const resumePath=lessons.filter(lesson=>lastLesson?.moduleId.startsWith("track-")?lesson.moduleId===lastLesson.moduleId:!lesson.moduleId.startsWith("track-"));
+ const lastTrack=specializations.find(track=>track.lessonIds.includes(lastLesson?.id??""));
+ const foundationLessons=lessons.filter(lesson=>!lesson.moduleId.startsWith("track-"));
+ const resumePath=lastTrack?lastTrack.lessonIds.flatMap(id=>{const lesson=lessons.find(item=>item.id===id);return lesson?[lesson]:[];}):foundationLessons;
  const lastIndex=resumePath.findIndex(lesson=>lesson.id===lastLesson?.id);
  const unfinished=(lesson:LessonSummary)=>!progress.completed.includes(lesson.id);
  const resume=lastLesson&&unfinished(lastLesson)?lastLesson:resumePath.slice(lastIndex+1).find(unfinished)||resumePath.find(unfinished)||resumePath[0]||lessons[0];
- const currentTrack=specializations.find(track=>route===`chuyen-sau/${track.id}`||currentLesson?.moduleId===`track-${track.id}`);
- const visibleModules=modules.filter(module=>currentTrack?module.id===`track-${currentTrack.id}`:!module.id.startsWith("track-"));
- const visibleLessons=lessons.filter(lesson=>visibleModules.some(module=>module.id===lesson.moduleId));
- const activeNav=currentTrack||route==="chuyen-sau"?"chuyen-sau":currentLesson?"lo-trinh":currentProject?"du-an":route;const label=navItems.find(n=>n.id===activeNav)?.label||"Bài học";
+ const foundationResume=foundationLessons.find(lesson=>lesson.id===progress.lastLesson&&unfinished(lesson))||foundationLessons.find(unfinished)||foundationLessons[0];
+ const isFoundation=route==="khoa-hoc/nen-tang"||Boolean(currentLesson&&!currentLesson.moduleId.startsWith("track-"));
+ const sidebarChapters=currentTrack?(currentTrack.chapters??[{id:"track-"+currentTrack.id,title:currentTrack.shortTitle,lessonIds:currentTrack.lessonIds}]):isFoundation?modules.filter(item=>!item.id.startsWith("track-")).map(item=>({id:item.id,title:item.title,lessonIds:foundationLessons.filter(lesson=>lesson.moduleId===item.id).map(lesson=>lesson.id)})):[];
+ const currentChapterId=sidebarChapters.find(chapter=>chapter.lessonIds.includes(currentLesson?.id??progress.lastLesson??""))?.id||sidebarChapters[0]?.id;
+ const visibleLessons=sidebarChapters.length?lessons.filter(lesson=>sidebarChapters.some(chapter=>chapter.lessonIds.includes(lesson.id))):lessons;
+ const activeNav=route.startsWith("du-an/")?"du-an":currentTrack||isFoundation||currentLesson?"lo-trinh":route;
+ const label=navItems.find(n=>n.id===activeNav)?.label||"Bài học";
+ const updateAnswer=(id:string,answer:number|null)=>setProgress(previous=>{const quizzes={...previous.quizzes};if(answer===null)delete quizzes[id];else quizzes[id]=answer;return {...previous,quizzes};});
+ const updateProject=(id:string,complete:boolean)=>setProgress(previous=>({...previous,finishedProjects:complete?[...new Set([...previous.finishedProjects,id])]:previous.finishedProjects.filter(item=>item!==id)}));
  const results=useMemo(()=>lessons.filter(l=>normalize(`${l.title} ${l.description} ${l.objectives.join(" ")}`).includes(normalize(query))).slice(0,10),[query,lessons]);
  const currentModule=modules.find(m=>m.id===currentLesson?.moduleId);
- const pageTitle=currentLesson?.title||currentTrack?.title||currentProject?.title||label;
+ const pageTitle=currentLesson?.title||currentCourseProject?.title||currentProject?.title||(route.endsWith("/danh-gia")?currentTrack?.assessment?.title:currentTrack?.title)||(isFoundation?"Kiến thức nền tảng":label);
  useEffect(()=>{
   if(!ready)return;
   const frame=requestAnimationFrame(()=>mainRef.current?.focus({preventScroll:true}));
@@ -154,7 +164,7 @@ export default function LearningApp({initialRoute="lo-trinh"}:{initialRoute?:str
  },[route,ready]);
  // Router changes, including browser navigation, reveal the active lesson in the sidebar.
  // eslint-disable-next-line react-hooks/set-state-in-effect
- useEffect(()=>{if(currentLesson)setExpandedChapters(p=>p.includes(currentLesson.moduleId)?p:[...p,currentLesson.moduleId]);},[currentLesson]);
+ useEffect(()=>{if(currentChapterId)setExpandedChapters(p=>p.includes(currentChapterId)?p:[...p,currentChapterId]);},[currentChapterId]);
  // Record direct URL and browser navigation only after saved progress has loaded.
  // eslint-disable-next-line react-hooks/set-state-in-effect
  useEffect(()=>{if(ready&&currentLesson)setProgress(p=>p.lastLesson===currentLesson.id?p:{...p,lastLesson:currentLesson.id});},[ready,currentLesson]);
@@ -164,9 +174,9 @@ export default function LearningApp({initialRoute="lo-trinh"}:{initialRoute?:str
   <header className="topbar" inert={searchOpen||settingsOpen||sidebarOpen}>
    <div className="flex min-w-0 items-center gap-3">
     <button className="icon-button mobile-menu" aria-label="Mở mục lục" aria-expanded={sidebarOpen} aria-controls="learning-sidebar" onClick={()=>{rememberFocus();setSidebarOpen(true);}}><Menu size={20}/></button>
-    <Link href="/" className="brand-button" aria-label="Learn Rust — Lộ trình" onNavigate={closeNavigation}><Brand/></Link>
+    <Link href="/" className="brand-button" aria-label="Learn Rust — Bài học" onNavigate={closeNavigation}><Brand/></Link>
     <span className="topbar-divider"/>
-    <span className="topbar-context">{currentModule?.title||label}</span>
+    <span className="topbar-context">{currentTrack?.shortTitle||(isFoundation?"Kiến thức nền tảng":currentModule?.title||label)}</span>
    </div>
    <div className="flex shrink-0 items-center gap-1 sm:gap-2">
     <button className="search-trigger" aria-label="Tìm kiếm bài học" onClick={openSearch}><Search size={17}/><span>Tìm kiếm</span><kbd>⌘ K</kbd></button>
@@ -178,26 +188,28 @@ export default function LearningApp({initialRoute="lo-trinh"}:{initialRoute?:str
   <aside id="learning-sidebar" ref={sidebarRef} tabIndex={-1} role={sidebarOpen?"dialog":undefined} aria-modal={sidebarOpen?true:undefined} aria-label="Mục lục khóa học" inert={searchOpen||settingsOpen} className={`sidebar ${sidebarOpen?"sidebar-open":""}`}>
    <div className="sidebar-mobile-heading"><Brand/><button className="icon-button" aria-label="Đóng mục lục" onClick={()=>setSidebarOpen(false)}><X size={20}/></button></div>
    <nav className="primary-nav" aria-label="Điều hướng chính">{navItems.map(({id,label,icon:Icon})=><Link key={id} href={routeHref(id)} prefetch={false} aria-current={activeNav===id&&!currentLesson?"page":undefined} className={`nav-item ${activeNav===id?"active":""}`} onNavigate={closeNavigation}><Icon size={17} strokeWidth={1.7}/><span>{label}</span></Link>)}</nav>
-   <div className="sidebar-course-label">{currentTrack?<Link href="/chuyen-sau" onNavigate={closeNavigation}>← Các hướng chuyên sâu</Link>:"Mục lục"}</div>
-   <nav className="chapter-nav" aria-label="Các chương Rust">{visibleModules.map((module,index)=>{const isOpen=expandedChapters.includes(module.id);const items=lessons.filter(l=>l.moduleId===module.id);return <div className="sidebar-chapter" key={module.id}>
-    <button className={`chapter-trigger ${currentModule?.id===module.id?"chapter-current":""}`} aria-expanded={isOpen} aria-controls={`sidebar-${module.id}`} onClick={()=>setExpandedChapters(p=>isOpen?p.filter(id=>id!==module.id):[...p,module.id])}><span className="chapter-number">{String(index+1).padStart(2,"0")}</span><span>{module.title}</span><ChevronDown size={14} className={`transition-transform duration-200 ${isOpen?"rotate-180":""}`}/></button>
-    <div id={`sidebar-${module.id}`} className={`chapter-collapse ${isOpen?"is-open":""}`} inert={!isOpen} aria-hidden={!isOpen}><div>{items.map((lesson,i)=><Link key={lesson.id} href={routeHref(`bai-hoc/${lesson.id}`)} prefetch={false} className={`chapter-lesson ${currentLesson?.id===lesson.id?"active":""}`} aria-current={currentLesson?.id===lesson.id?"page":undefined} onNavigate={()=>visitLesson(lesson.id)}><span>{progress.completed.includes(lesson.id)?<Check size={13}/>: `${index+1}.${i+1}`}</span><span>{lesson.title}</span></Link>)}</div></div>
-   </div>;})}</nav>
-   <div className="sidebar-bottom"><span>{visibleLessons.filter(lesson=>progress.completed.includes(lesson.id)).length}/{visibleLessons.length} bài hoàn thành</span><a href="https://doc.rust-lang.org/book/" target="_blank" rel="noreferrer" aria-label="The Rust Book — tài liệu chính thức" title="The Rust Book"><ExternalLink size={15}/></a></div>
+   <div className="sidebar-course-label">{sidebarChapters.length?<Link href="/" onNavigate={closeNavigation}>← Bài học</Link>:"Khóa học"}</div>
+   {sidebarChapters.length?<><Link href={currentTrack?"/khoa-hoc/"+currentTrack.id:"/khoa-hoc/nen-tang"} className="course-sidebar-title" onNavigate={closeNavigation}>{currentTrack?.shortTitle??"Kiến thức nền tảng"}</Link><nav className="chapter-nav" aria-label="Các chương Rust">{sidebarChapters.map((chapter,index)=>{const isOpen=expandedChapters.includes(chapter.id);return <div className="sidebar-chapter" key={chapter.id}>
+    <button className={"chapter-trigger "+(currentChapterId===chapter.id?"chapter-current":"")} aria-expanded={isOpen} aria-controls={"sidebar-"+chapter.id} onClick={()=>setExpandedChapters(previous=>isOpen?previous.filter(id=>id!==chapter.id):[...previous,chapter.id])}><span className="chapter-number">{String(index+1).padStart(2,"0")}</span><span>{chapter.title}</span><ChevronDown size={14} className={"transition-transform duration-200 "+(isOpen?"rotate-180":"")}/></button>
+    <div id={"sidebar-"+chapter.id} className={"chapter-collapse "+(isOpen?"is-open":"")} inert={!isOpen} aria-hidden={!isOpen}><div>{chapter.lessonIds.map((id,i)=>{const lesson=lessons.find(item=>item.id===id);return lesson?<Link key={id} href={"/bai-hoc/"+id} prefetch={false} className={"chapter-lesson "+(currentLesson?.id===id?"active":"")} aria-current={currentLesson?.id===id?"page":undefined} onNavigate={()=>visitLesson(id)}><span>{progress.completed.includes(id)?<Check size={13}/>:index+1+"."+(i+1)}</span><span>{lesson.title}</span></Link>:null;})}</div></div>
+   </div>;})}</nav></>:<nav className="sidebar-course-list" aria-label="Các khóa học"><Link href="/khoa-hoc/nen-tang" onNavigate={closeNavigation}>Kiến thức nền tảng</Link><span>Chuyên sâu</span>{specializations.map(track=><Link key={track.id} href={"/khoa-hoc/"+track.id} prefetch={false} onNavigate={closeNavigation}>{track.shortTitle}</Link>)}</nav>}
+   <div className="sidebar-bottom"><span>{visibleLessons.filter(lesson=>progress.completed.includes(lesson.id)).length}/{visibleLessons.length} bài hoàn thành</span></div>
   </aside>
   <div className="app-main" inert={searchOpen||settingsOpen||sidebarOpen}>
    {(progressSaveError||progressLoadError)&&<div className="progress-save-warning" role="alert"><span>{progressLoadError?"Chưa đọc được tiến độ đã lưu. Dữ liệu cũ vẫn được giữ.":"Chưa lưu được tiến độ và ghi chú. Hãy tải bản sao trước khi đóng trang."}</span>{(!progressLoadError||hasStoredProgress)&&<button className="button button-secondary" onClick={exportProgress}><Download size={15}/>Tải bản sao</button>}{progressLoadError&&<button className="button button-secondary" onClick={()=>window.location.reload()}>Tải lại trang</button>}</div>}
    <main key={route} id="main-content" ref={mainRef} tabIndex={-1} aria-label={pageTitle} className={`page-content motion-safe:animate-[page-in_180ms_ease-out_both] ${currentLesson||currentProject?"page-content-learning":""}`}>
-    {route==="lo-trinh"&&<Roadmap progress={progress} resume={resume} initialModule={null} onLesson={openLesson} onVisit={visitLesson} onBookmark={bookmark}/>}
-    {currentLesson&&<LessonView key={currentLesson.id} lesson={currentLesson} progress={progress} onBookmark={()=>bookmark(currentLesson.id)} onQuiz={answer=>setProgress(p=>({...p,quizzes:{...p.quizzes,[currentLesson.id]:answer}}))} onPass={()=>{setProgress(p=>({...p,solved:[...new Set([...p.solved,currentLesson.id])]}));}} onComplete={()=>{setProgress(p=>({...p,completed:[...new Set([...p.completed,currentLesson.id])]}));setToast("Đã hoàn thành bài học.");}} onNavigate={openLesson} onBack={()=>go(currentTrack?`chuyen-sau/${currentTrack.id}`:"lo-trinh")}/>}
-    {route==="chuyen-sau"&&<SpecializationsView progress={progress}/>}
-    {route.startsWith("chuyen-sau/")&&currentTrack&&<SpecializationView track={currentTrack} progress={progress}/>}
+    {route==="lo-trinh"&&<CoursesView progress={progress} resume={resume}/>}
+     {route==="khoa-hoc/nen-tang"&&<Roadmap progress={progress} resume={foundationResume} initialModule={null} onLesson={openLesson} onVisit={visitLesson} onBookmark={bookmark}/>}
+    {currentLesson&&<LessonView key={currentLesson.id} lesson={currentLesson} progress={progress} onBookmark={()=>bookmark(currentLesson.id)} onQuiz={answer=>setProgress(p=>({...p,quizzes:{...p.quizzes,[currentLesson.id]:answer}}))} onPass={()=>{setProgress(p=>({...p,solved:[...new Set([...p.solved,currentLesson.id])]}));}} onComplete={()=>{setProgress(p=>({...p,completed:[...new Set([...p.completed,currentLesson.id])]}));setToast("Đã hoàn thành bài học.");}} onNavigate={openLesson} onBack={()=>go(currentTrack?`khoa-hoc/${currentTrack.id}`:"khoa-hoc/nen-tang")}/>}
+    {currentTrack&&route===`khoa-hoc/${currentTrack.id}`&&<SpecializationView track={currentTrack} progress={progress}/>}
+    {currentTrack&&route===`khoa-hoc/${currentTrack.id}/danh-gia`&&<CourseAssessmentView track={currentTrack} progress={progress} onAnswer={updateAnswer}/>}
+    {currentTrack&&currentCourseProject&&<CourseProjectView track={currentTrack} project={currentCourseProject} progress={progress} onAnswer={updateAnswer} onComplete={updateProject}/>}
     {route==="thuc-hanh"&&<Playground go={go}/>}
     {route==="phong-van"&&<CareerHub/>}
-    {route==="du-an"&&<ProjectsView progress={progress} go={go}/>}
+    {route==="du-an"&&<CourseProjectsIndex progress={progress}/>}
     {currentProject&&<ProjectWorkspace project={currentProject} progress={progress} go={go} onPass={()=>{setProgress(p=>({...p,finishedProjects:[...new Set([...p.finishedProjects,currentProject.id])]}));}}/>}
     {route==="so-tay"&&<Notebook progress={progress} onLesson={openLesson} onBookmark={bookmark} onNotes={notes=>setProgress(p=>({...p,notes}))}/>}
-    {!navItems.some(n=>n.id===route)&&!currentLesson&&!currentProject&&!currentTrack&&<EmptyState title="Không tìm thấy bài học"><button className="text-link" onClick={()=>go("lo-trinh")}>Mở lộ trình</button></EmptyState>}
+    {!navItems.some(n=>n.id===route)&&!currentLesson&&!currentProject&&!currentTrack&&!isFoundation&&<EmptyState title="Không tìm thấy bài học"><button className="text-link" onClick={()=>go("lo-trinh")}>Mở bài học</button></EmptyState>}
    </main>
   </div>
   {searchOpen&&<div className="modal-backdrop" onClick={()=>setSearchOpen(false)}><section ref={searchDialogRef} tabIndex={-1} className="search-modal" role="dialog" aria-modal="true" aria-label="Tìm kiếm bài học" onClick={e=>e.stopPropagation()}><div className="search-modal-input"><Search size={20}/><input ref={searchRef} aria-label="Tìm bài học hoặc chủ đề Rust" placeholder="Tìm bài học hoặc chủ đề…" value={query} onChange={e=>setQuery(e.target.value)}/><button className="icon-button" onClick={()=>setSearchOpen(false)} aria-label="Đóng tìm kiếm"><X size={18}/></button></div><div className="search-results">{results.map(l=><button key={l.id} onClick={()=>openLesson(l.id)}><BookOpen size={17}/><span><strong>{l.title}</strong><small>{modules.find(m=>m.id===l.moduleId)?.title}</small></span><ArrowUpRight size={16}/></button>)}{!results.length&&<EmptyState title="Không có kết quả">Thử một từ khóa khác.</EmptyState>}</div></section></div>}

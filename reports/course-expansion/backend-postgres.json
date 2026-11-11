@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-11-11T01:13:42.945Z",
+  "status": "passed",
+  "engine": "PostgreSQL 17 in an isolated loopback-only Docker Compose project",
+  "testCommand": "cargo test -p team-tasks-adapters --test postgres -- --ignored --test-threads=1",
+  "passed": 3,
+  "failed": 0,
+  "ignored": 0,
+  "tests": [
+    "postgres_cursor_does_not_skip_an_earlier_uncommitted_event",
+    "postgres_multi_connection_version_rollback_and_permission",
+    "postgres_rpc_to_websocket_survives_transport_restart"
+  ],
+  "sourceProcess": "ad1091b6-0a80-4012-a9a3-0fb3c0b49041",
+  "scope": "Actual database transactions, concurrent connections and gRPC/WebSocket network calls. Fixture RSA keys and test data only; no production deployment or load SLA is asserted."
+}

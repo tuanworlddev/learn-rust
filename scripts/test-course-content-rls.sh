@@ -31,6 +31,8 @@ create role authenticated nologin;
 create role service_role nologin;
 SQL
 content_psql < "$CONTENT_REPO_ROOT/supabase/migrations/20261111000000_course_content.sql"
+content_psql < "$CONTENT_REPO_ROOT/supabase/migrations/20261111100000_course_learning_structure.sql"
 content_psql < "$CONTENT_REPO_ROOT/supabase/tests/course_content_rls.sql"
+node "$CONTENT_REPO_ROOT/scripts/generate-course-structure-test.mjs" | content_psql
 echo "PASS: immutable content releases, RLS, atomic publication, conflict handling and rollback."
 echo "This does not verify a live Supabase API gateway, credentials or deployment."

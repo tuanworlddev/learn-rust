@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-11-11T00:45:52.587Z",
+  "command": "cargo test --workspace --all-targets",
+  "scope": "Host tests only; device, browser, signing and deployment checks are separate.",
+  "results": [
+    {
+      "lesson": "security-object-metadata",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/security-object-metadata/validation.log"
+    },
+    {
+      "lesson": "security-inventory-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/security-inventory-project/validation.log"
+    },
+    {
+      "lesson": "security-property-fuzzing",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/security-property-fuzzing/validation.log"
+    },
+    {
+      "lesson": "security-parser-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/security-parser-project/validation.log"
+    },
+    {
+      "lesson": "security-audit-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/security-audit-project/validation.log"
+    }
+  ]
+}

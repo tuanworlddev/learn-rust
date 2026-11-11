@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-11-11T01:32:06.097Z",
+  "status": "passed",
+  "project": "gsytmwgwitbtqesvjzhm",
+  "source": "supabase",
+  "releaseId": "0a1d25ab-89c2-407e-88ba-1ef04eee78cb",
+  "previousReleaseId": "50242413-ad42-4336-95ce-6898213bd57a",
+  "revision": 2,
+  "schemaVersion": 2,
+  "catalogSha256": "7159c3cba97d65732116d0ddaf92656b0cad5e5c20ea60fe697e9eadc2b2bc65",
+  "sourceHashMatches": true,
+  "lessons": 314,
+  "courses": 13,
+  "labs": 68,
+  "publicReleaseCount": 1,
+  "historyStatus": 401,
+  "publication": "atomic compare-and-swap expected revision1 to2",
+  "migration": "20261111100000_course_learning_structure.sql"
+}

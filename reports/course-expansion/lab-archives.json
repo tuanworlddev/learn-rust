@@ -1,0 +1,485 @@
+{
+  "checkedAt": "2026-11-11T01:32:33.094Z",
+  "base": "http://127.0.0.1:3000",
+  "catalogSha256": "7159c3cba97d65732116d0ddaf92656b0cad5e5c20ea60fe697e9eadc2b2bc65",
+  "status": "passed",
+  "archives": 68,
+  "results": [
+    {
+      "lesson": "backend-http",
+      "files": 3,
+      "bytes": 1949,
+      "sha256": "88e7b8bb2d88b7928ac83d596fadd13970fc89ebfaab25b14f09dcd295015cb2",
+      "status": "passed"
+    },
+    {
+      "lesson": "backend-catalog-project",
+      "files": 7,
+      "bytes": 5398,
+      "sha256": "b69cdb521457e359c0eb3ef006fdb41b83f35ce369a948923d9a9dd93c35ab0b",
+      "status": "passed"
+    },
+    {
+      "lesson": "backend-transactions",
+      "files": 3,
+      "bytes": 1779,
+      "sha256": "4e2f8c64c70bc71bd6881ff0aff746c24fa7a98d0125eb22d2d3552bfc7456d6",
+      "status": "passed"
+    },
+    {
+      "lesson": "backend-order-project",
+      "files": 7,
+      "bytes": 4900,
+      "sha256": "142512188a8b1828c711939c4ca1194608110a39e3349efdf563dce1c5e8e7de",
+      "status": "passed"
+    },
+    {
+      "lesson": "backend-service-project",
+      "files": 33,
+      "bytes": 37587,
+      "sha256": "641033005224ddcf3ba7e105441f4653053467dbacb080e55760845764e6c618",
+      "status": "passed"
+    },
+    {
+      "lesson": "systems-processes-io",
+      "files": 3,
+      "bytes": 1489,
+      "sha256": "172ce1bb6e1accc71289936e9d56b82c0fd5a5619eff3551b5e706d6c785f1bd",
+      "status": "passed"
+    },
+    {
+      "lesson": "systems-supervisor-project",
+      "files": 6,
+      "bytes": 4685,
+      "sha256": "16e8543fc24b79f21c4744bb9b5eac8894b2c9c7cad69154282e59a2f256886f",
+      "status": "passed"
+    },
+    {
+      "lesson": "systems-file-journal-project",
+      "files": 5,
+      "bytes": 4484,
+      "sha256": "a53d33b927040cf8575f4d9f9c9617658decb1ddd6b697218e4e58374363bee6",
+      "status": "passed"
+    },
+    {
+      "lesson": "systems-concurrency-ordering",
+      "files": 3,
+      "bytes": 1470,
+      "sha256": "43a5ef3d6ec2aac220175c5b2ad160cc12055071d32f03637231b34d56a83a7d",
+      "status": "passed"
+    },
+    {
+      "lesson": "systems-os-boundaries",
+      "files": 3,
+      "bytes": 1448,
+      "sha256": "3c86e5d4bbde6df7c8b20c93a5a13246958415df97e7c742efba90bd93168387",
+      "status": "passed"
+    },
+    {
+      "lesson": "systems-daemon-project",
+      "files": 5,
+      "bytes": 5694,
+      "sha256": "ff6ceb1a19b2789b70c1fd1ba3d82f17f8e7d896bbf0afd14f94c4dca754d41d",
+      "status": "passed"
+    },
+    {
+      "lesson": "systems-kernel-path",
+      "files": 3,
+      "bytes": 1387,
+      "sha256": "95646367c16447d15bb4692f9e31f05b11c0c39a3a9320a72620f3d0a2accc90",
+      "status": "passed"
+    },
+    {
+      "lesson": "embedded-no-std",
+      "files": 3,
+      "bytes": 1288,
+      "sha256": "d3e73dada3cee34e2c8a000a11fbe88b829729dc4fada5f4bf708d7d50e515dd",
+      "status": "passed"
+    },
+    {
+      "lesson": "embedded-sensors",
+      "files": 3,
+      "bytes": 1816,
+      "sha256": "278937438ee2184ee3e088956a29be79624061b3be88fff48824739755642530",
+      "status": "passed"
+    },
+    {
+      "lesson": "embedded-driver-project",
+      "files": 5,
+      "bytes": 4336,
+      "sha256": "577b55fb16aef30257c0f904be5dfe2257d019c9f5bb3876511e0c34e9892f3e",
+      "status": "passed"
+    },
+    {
+      "lesson": "embedded-telemetry-project",
+      "files": 5,
+      "bytes": 4607,
+      "sha256": "e55fa8b2987cb89f61396928431bda9302c0984abf514e6118fda1365a489330",
+      "status": "passed"
+    },
+    {
+      "lesson": "embedded-station-project",
+      "files": 5,
+      "bytes": 5324,
+      "sha256": "fa4301cc5bb3cca1b89e5751cb26e9f38845edf2cf6d27a4f1a6baa642f7ca2c",
+      "status": "passed"
+    },
+    {
+      "lesson": "desktop-ipc",
+      "files": 9,
+      "bytes": 4193,
+      "sha256": "577b09156b6d0841035185a393a23715e3487667d87700cfca36ff97ca3f43d8",
+      "status": "passed"
+    },
+    {
+      "lesson": "desktop-atomic-save",
+      "files": 12,
+      "bytes": 7152,
+      "sha256": "e70a5433d30efba1085cf7b4a0d7ed7f6a9b59e2f01ff2757371d45319a2d47f",
+      "status": "passed"
+    },
+    {
+      "lesson": "desktop-state",
+      "files": 3,
+      "bytes": 1522,
+      "sha256": "58159fa310b42f1b3746459d836b249ef26993b8fa5548ea008ff6d1e5325b58",
+      "status": "passed"
+    },
+    {
+      "lesson": "desktop-search-project",
+      "files": 6,
+      "bytes": 3967,
+      "sha256": "7ec6fa71944d156b569ce305c69143f4c038bcc564e18eb6774c60d3b3a2187b",
+      "status": "passed"
+    },
+    {
+      "lesson": "desktop-workspace-project",
+      "files": 6,
+      "bytes": 4468,
+      "sha256": "19cdfa8e0004b5bf6cefb202ac03e23b8915ee8ac87591a5362fdd18dc20c4ab",
+      "status": "passed"
+    },
+    {
+      "lesson": "mobile-core-boundary",
+      "files": 3,
+      "bytes": 1554,
+      "sha256": "21f9c36060ab16c1e78fbe38d2c95c974bc1dc63911debe9dc2a691addef0a94",
+      "status": "passed"
+    },
+    {
+      "lesson": "mobile-uniffi-contract",
+      "files": 4,
+      "bytes": 2142,
+      "sha256": "e8fc7093b2e664d8207476edcd737125dc22425a95bdccf29878a5c703520632",
+      "status": "passed"
+    },
+    {
+      "lesson": "mobile-expense-project",
+      "files": 14,
+      "bytes": 12331,
+      "sha256": "aa3e83ca89ce2ffa9b27ec13bf8701e7185ed7e747d992344ea5fcbba3fbafd0",
+      "status": "passed"
+    },
+    {
+      "lesson": "mobile-outbox-project",
+      "files": 5,
+      "bytes": 5421,
+      "sha256": "212124a43f293de6d26b2a16dc92aa031a40d5eb397d5e62e19a3ea7790c6049",
+      "status": "passed"
+    },
+    {
+      "lesson": "mobile-catalog-project",
+      "files": 14,
+      "bytes": 13092,
+      "sha256": "719df94637bff926b34e965f013b58bfd155ea3ca74d61caf257bdbf53d2bbce",
+      "status": "passed"
+    },
+    {
+      "lesson": "cli-arguments",
+      "files": 3,
+      "bytes": 1813,
+      "sha256": "51414aa9355739e3305864a3d4a1d5d71a6aeb0b3d625af38d2d0dd28592e0e2",
+      "status": "passed"
+    },
+    {
+      "lesson": "cli-streaming",
+      "files": 5,
+      "bytes": 2898,
+      "sha256": "0e55da61624a781a0e2456a5bece760713a1e742ffbe568d4ae915615fa8e3a1",
+      "status": "passed"
+    },
+    {
+      "lesson": "cli-log-project",
+      "files": 7,
+      "bytes": 5003,
+      "sha256": "7dcde0a3c88b026e9c3f9af3430fd563e8fd88e3af5f45d0cd22d75f0cb34c50",
+      "status": "passed"
+    },
+    {
+      "lesson": "cli-filesystem",
+      "files": 3,
+      "bytes": 1748,
+      "sha256": "88f7a2cc89b5fa7535504bf70140b9f3c2078907a653a5ae1897f854f25d243f",
+      "status": "passed"
+    },
+    {
+      "lesson": "cli-manifest-project",
+      "files": 7,
+      "bytes": 5754,
+      "sha256": "302fd9e314e2674bef0db3715186cc3c90e6a351e00281fd71f95923638c760a",
+      "status": "passed"
+    },
+    {
+      "lesson": "cli-batch-project",
+      "files": 8,
+      "bytes": 6528,
+      "sha256": "073e226a653d87f965145858fd1e0066d00bc19b8235489dff0d998950d37348",
+      "status": "passed"
+    },
+    {
+      "lesson": "wasm-bindings",
+      "files": 6,
+      "bytes": 3292,
+      "sha256": "ba7dbdfb1a35fa4602d7ec05584e63ab8c526fb1fa9f396954bd18fa896b42d4",
+      "status": "passed"
+    },
+    {
+      "lesson": "wasm-image-project",
+      "files": 7,
+      "bytes": 4618,
+      "sha256": "27a8f75cf56e4c366aecb3453e0c20b996a9bc232ba9b4efb770227cb5883cc8",
+      "status": "passed"
+    },
+    {
+      "lesson": "wasm-search-project",
+      "files": 8,
+      "bytes": 5624,
+      "sha256": "0d216d838ca16b09d82ed7f2ee2f52e61acbe0ea8b523a32a933be09d28310d5",
+      "status": "passed"
+    },
+    {
+      "lesson": "wasm-performance",
+      "files": 3,
+      "bytes": 1734,
+      "sha256": "7673fd0541b2d81006c630f8da74fc22c0bf98d32aac9856fe6089a22109abc6",
+      "status": "passed"
+    },
+    {
+      "lesson": "wasm-report-project",
+      "files": 8,
+      "bytes": 7221,
+      "sha256": "4bb5c71c840218720817ef04864518155d13b03f5d2663e098033d8a86918d23",
+      "status": "passed"
+    },
+    {
+      "lesson": "compiler-lexer-spans",
+      "files": 4,
+      "bytes": 2267,
+      "sha256": "aa6d2baeef459462ddf216d5d587080715af79cfa64db0e64b2b7271f244d048",
+      "status": "passed"
+    },
+    {
+      "lesson": "compiler-parser-precedence",
+      "files": 6,
+      "bytes": 4472,
+      "sha256": "d55c6c4a0d0e8f3eedcfe9765f9d81ebed21c0823a7ae846311bcf5683eea56f",
+      "status": "passed"
+    },
+    {
+      "lesson": "compiler-expression-project",
+      "files": 7,
+      "bytes": 5958,
+      "sha256": "d48408f9deb4ab7624b5815d6bafc8db2dc60feced60d5f30e7a6499b7b5ff79",
+      "status": "passed"
+    },
+    {
+      "lesson": "compiler-vm-project",
+      "files": 7,
+      "bytes": 6837,
+      "sha256": "5bc35a0c715f613163059ae96167559c6054e5dac7d8d9c6d3486d617557d0f9",
+      "status": "passed"
+    },
+    {
+      "lesson": "compiler-tooling-project",
+      "files": 8,
+      "bytes": 9506,
+      "sha256": "dc2b363cbfeab53e5b8ee848cc08c4b945f412c3f3e63c5f8836cda19911c7d6",
+      "status": "passed"
+    },
+    {
+      "lesson": "security-object-metadata",
+      "files": 3,
+      "bytes": 2572,
+      "sha256": "3b44e62dbe50cdd7c6cccc8ddc23b462431906fa06312bf3c96f7119483b0af4",
+      "status": "passed"
+    },
+    {
+      "lesson": "security-inventory-project",
+      "files": 6,
+      "bytes": 4721,
+      "sha256": "59b5415ee33501d6a7b677b4ba57252ffcc174d50898663b3f2874df34141661",
+      "status": "passed"
+    },
+    {
+      "lesson": "security-property-fuzzing",
+      "files": 6,
+      "bytes": 3642,
+      "sha256": "800233a5d80e06c8f25b83a50703736783d5c5b60d9b6c54a75a395e22683c5e",
+      "status": "passed"
+    },
+    {
+      "lesson": "security-parser-project",
+      "files": 8,
+      "bytes": 5222,
+      "sha256": "73d8a9b260664c3d77c41bdc2a4c90e17308b82aca02c137f32ecbeb6c4878ab",
+      "status": "passed"
+    },
+    {
+      "lesson": "security-audit-project",
+      "files": 6,
+      "bytes": 5564,
+      "sha256": "2bda94dd290345cbed527e11b28235558a944ad380485084eb379d6c858b16b8",
+      "status": "passed"
+    },
+    {
+      "lesson": "game-ecs",
+      "files": 4,
+      "bytes": 2037,
+      "sha256": "8ee7e26627d5fccc9a8db3d6fa6739e02b5a4465415de9e97992b4631a43af16",
+      "status": "passed"
+    },
+    {
+      "lesson": "game-arena-project",
+      "files": 6,
+      "bytes": 3559,
+      "sha256": "e0ff124889083ff6873dd5de8c7debaca5fb366734eb7c409edf53acafcc55c1",
+      "status": "passed"
+    },
+    {
+      "lesson": "game-timestep",
+      "files": 4,
+      "bytes": 2904,
+      "sha256": "ab952e439bc910b6bc89baaa4730dcdacbc802a5d462050edb1ad7f510543182",
+      "status": "passed"
+    },
+    {
+      "lesson": "game-scene-project",
+      "files": 7,
+      "bytes": 3785,
+      "sha256": "c2eab73fa1fa5c7af07d33274dea34adf61b8efd4018d8ec3f64641ccf7367c9",
+      "status": "passed"
+    },
+    {
+      "lesson": "game-release-project",
+      "files": 7,
+      "bytes": 5942,
+      "sha256": "91b1aa8e4933ba8fa6dc245390df213d5d466b98cfbce42d989ef372af56e22b",
+      "status": "passed"
+    },
+    {
+      "lesson": "data-quality-project",
+      "files": 7,
+      "bytes": 4063,
+      "sha256": "3caa1a23b0706a6529854979e617adb6547aa23ce0aa1fb1d4afc7ea906c1fed",
+      "status": "passed"
+    },
+    {
+      "lesson": "data-polars",
+      "files": 5,
+      "bytes": 2479,
+      "sha256": "ed848ec8dc29b3d4e49b68a8f62ad8e5de5e56544a3498340f1c7b0290718348",
+      "status": "passed"
+    },
+    {
+      "lesson": "data-datafusion",
+      "files": 5,
+      "bytes": 3161,
+      "sha256": "64a1b964ccb008fea71e7a60e3c7526c562f8d8e388b72e48a88a236a5c3dd28",
+      "status": "passed"
+    },
+    {
+      "lesson": "data-query-project",
+      "files": 6,
+      "bytes": 6556,
+      "sha256": "32120199e34862f5d19a352f6fa4288ce33553768e1f22a899266c7ecdbd286a",
+      "status": "passed"
+    },
+    {
+      "lesson": "data-release-project",
+      "files": 8,
+      "bytes": 7545,
+      "sha256": "d8c9bb0d440979885f23d980a5944883164e19ba38849cbd2503ce08e2ef795d",
+      "status": "passed"
+    },
+    {
+      "lesson": "ai-data-project",
+      "files": 6,
+      "bytes": 3540,
+      "sha256": "1c5195c8af0f3cda4658102ff56c4a7fe10f39f542e7b1f33503084e97eeb169",
+      "status": "passed"
+    },
+    {
+      "lesson": "ai-burn-training",
+      "files": 5,
+      "bytes": 3307,
+      "sha256": "eb09a6f30db164529e63faa160fb1b1d5a32658ab9e281f7b1f530418a4501eb",
+      "status": "passed"
+    },
+    {
+      "lesson": "ai-training-project",
+      "files": 6,
+      "bytes": 3746,
+      "sha256": "b9342fc199ef46b62d3e32f7b227c9b50f99a9de623cce066297b6615fa580c8",
+      "status": "passed"
+    },
+    {
+      "lesson": "ai-candle-inference",
+      "files": 5,
+      "bytes": 4386,
+      "sha256": "888174cbbd0afa3a9e2d2cbd452f351d7ff2c7271b79ee97c80ff46c1f5fb266",
+      "status": "passed"
+    },
+    {
+      "lesson": "ai-deployment-project",
+      "files": 7,
+      "bytes": 6263,
+      "sha256": "9dae50ab18dfcced7acc7801eb8cb418d6ff46e5cd41c914407d0a8d61dc16a6",
+      "status": "passed"
+    },
+    {
+      "lesson": "blockchain-pda",
+      "files": 5,
+      "bytes": 2993,
+      "sha256": "022b2a78261e1da7b8eba239a28fe121a63c3b318c6c5be390c7351294adc485",
+      "status": "passed"
+    },
+    {
+      "lesson": "blockchain-registry-project",
+      "files": 6,
+      "bytes": 3576,
+      "sha256": "0c0757f4130103a58015e92c235b125d1787b5c183656e0a096554642c69609e",
+      "status": "passed"
+    },
+    {
+      "lesson": "blockchain-anchor-state",
+      "files": 5,
+      "bytes": 4666,
+      "sha256": "099675962485f55cca565c336504e3de65af0e9fc370b54af74c55621bb1fb19",
+      "status": "passed"
+    },
+    {
+      "lesson": "blockchain-anchor-project",
+      "files": 5,
+      "bytes": 4469,
+      "sha256": "713743e45ffa719f0125fa46f7ba815f73cc9efc9fbe3be9e6a576ea589a2e9d",
+      "status": "passed"
+    },
+    {
+      "lesson": "blockchain-release-project",
+      "files": 17,
+      "bytes": 21311,
+      "sha256": "1b6ea6695a39d1cc545a278c4a5e515db0cc888193200be1304b210747596cc3",
+      "status": "passed"
+    }
+  ]
+}

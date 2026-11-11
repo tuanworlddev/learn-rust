@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-11-11T00:28:56.100880+00:00",
+  "scope": "Real wasm32 build and generated JavaScript bindings under Node; browser UI tested separately.",
+  "results": [
+    {
+      "lesson": "wasm-image-project",
+      "task": "node-bindings",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/wasm-image-project-node-bindings.log"
+    },
+    {
+      "lesson": "wasm-image-project",
+      "task": "web-bundle",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/wasm-image-project-web-bundle.log"
+    },
+    {
+      "lesson": "wasm-search-project",
+      "task": "node-bindings",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/wasm-search-project-node-bindings.log"
+    },
+    {
+      "lesson": "wasm-search-project",
+      "task": "web-bundle",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/wasm-search-project-web-bundle.log"
+    },
+    {
+      "lesson": "wasm-report-project",
+      "task": "node-bindings",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/wasm-report-project-node-bindings.log"
+    },
+    {
+      "lesson": "wasm-report-project",
+      "task": "web-bundle",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/wasm-report-project-web-bundle.log"
+    }
+  ]
+}

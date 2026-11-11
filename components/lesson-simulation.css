@@ -1,0 +1,32 @@
+.lesson-simulation{margin:24px 0;padding:16px;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.lesson-simulation figcaption strong{font-size:15px;font-weight:650;color:var(--ink)}
+.lesson-simulation figcaption p{font-size:13px!important;line-height:1.65!important;margin:6px 0 14px!important;color:var(--muted)}
+.simulation-scenarios{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.simulation-scenarios button{border:1px solid var(--line);border-radius:6px;padding:6px 9px;font-size:12px;line-height:1.5;transition:background 180ms,border-color 180ms,color 180ms;text-align:left}
+.simulation-scenarios button[aria-pressed=true]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+.simulation-nodes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.simulation-node{display:grid;grid-template-columns:22px minmax(0,1fr);align-content:start;gap:4px 7px;position:relative;padding:10px;border:1px solid var(--line);border-radius:8px;transition:background 240ms,border-color 240ms,box-shadow 240ms;color:var(--muted)}
+.simulation-node strong{font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.simulation-node small{grid-column:2;font-size:11px;line-height:1.5}
+.simulation-node-index{width:20px;height:20px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;font-size:10px}
+.simulation-node.is-active{color:var(--ink);border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 3px 0 0 var(--accent)}
+.simulation-node.is-active .simulation-node-index{color:var(--accent);border-color:var(--accent)}
+.simulation-memory .simulation-node{border-radius:3px}
+.simulation-timeline .simulation-nodes{grid-template-columns:1fr}
+.simulation-trace{margin-top:16px;padding:14px 0 0;border-top:1px solid var(--line);min-height:184px}
+.simulation-step-label{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+.simulation-trace h3{margin:5px 0 6px!important;font-size:14px!important;line-height:1.5!important}
+.simulation-trace p{font-size:13px!important;line-height:1.65!important;margin:0 0 12px!important}
+.simulation-trace dl{display:flex;flex-wrap:wrap;gap:8px 18px;margin:0}
+.simulation-trace dl div{flex:1;min-width:110px}
+.simulation-trace dt{font-size:11px;color:var(--muted)}
+.simulation-trace dd{font-family:var(--font-mono),monospace;font-size:12px;line-height:1.6;margin:2px 0 0;color:var(--ink);overflow-wrap:anywhere}
+.simulation-controls{display:flex;justify-content:space-between;align-items:center;gap:8px;border-top:1px solid var(--line);margin-top:14px;padding-top:12px}
+.simulation-controls button{display:inline-flex;justify-content:center;align-items:center;gap:6px;min-width:32px;min-height:32px;padding:5px 8px;border:1px solid var(--line);border-radius:6px;font-size:12px;transition:background 180ms,transform 180ms}
+.simulation-controls button:hover:not(:disabled){background:var(--surface-subtle)}
+.simulation-controls button:active:not(:disabled){transform:scale(.97)}
+.simulation-controls button:disabled{opacity:.4;cursor:default}
+.simulation-controls .simulation-play{color:var(--accent);border-color:var(--accent);min-width:88px}
+.simulation-step-controls{display:flex;align-items:center;gap:8px;font-size:11px;font-variant-numeric:tabular-nums}
+@media(max-width:480px){.lesson-simulation{padding:12px}.simulation-nodes{grid-template-columns:1fr}.simulation-node small{grid-column:2}.simulation-trace{min-height:190px}}
+@media(prefers-reduced-motion:reduce){.lesson-simulation *{transition:none!important;animation:none!important}}

@@ -37,7 +37,7 @@ docker compose --env-file deploy/.env up -d --no-build --force-recreate app
 
 Biến được đọc lúc chạy; không cần build lại image chỉ để đổi cờ SEO. Hostname nội bộ, IP, domain ví dụ hoặc URL không đạt định dạng công khai sẽ không được phép bật lập chỉ mục.
 
-Với catalog đầy đủ hiện tại, sitemap có **178 URL**: mục lục cơ bản, 158 bài học, trang chọn hướng chuyên sâu, 13 lộ trình, danh sách dự án, ba dự án và phỏng vấn. `/thuc-hanh` và `/so-tay` vẫn noindex và không nằm trong sitemap; file ZIP có `X-Robots-Tag: noindex`. Tổng cộng có 180 trang HTML chuẩn. Số URL được tính từ catalog đang xuất bản, không gắn cứng vào dữ liệu đi kèm code.
+Với catalog mở rộng đầy đủ, sitemap có **373 URL**: danh mục Bài học, Kiến thức nền tảng, 13 khóa chuyên sâu, 314 bài, một trang danh sách Dự án, 42 trang dự án và Phỏng vấn. `/thuc-hanh`, `/so-tay` và 13 trang đánh giá năng lực vẫn noindex và không nằm trong sitemap; file ZIP có `X-Robots-Tag: noindex`. Tổng cộng có **388 trang HTML chuẩn**. `/chuyen-sau` chuyển 308 về `/`; `/chuyen-sau/<id>` chuyển 308 về `/khoa-hoc/<id>`. Các URL bài học cũ được giữ nguyên. Số URL được tính từ catalog đang xuất bản, không gắn cứng vào dữ liệu đi kèm code.
 
 ## 3. Kiểm tra HTTP và metadata
 
@@ -57,6 +57,21 @@ curl -sS -o /dev/null -w '%{http_code}\n' "$LEARN_RUST_URL/bai-hoc/khong-ton-tai
 
 Sau khi bật index, bài `ownership` cần có title đúng bài, `index, follow` và canonical trỏ về cùng URL HTTPS. Ảnh chia sẻ cần là PNG 1200 × 630. `/di-lam` cần redirect 308 sang `/phong-van`; bài không tồn tại cần trả 404. Các lệnh chỉ tải phản hồi, không gửi website tới công cụ tìm kiếm.
 
+Script kiểm toàn bộ catalog lấy URL bài/khóa/dự án từ HTML đang phục vụ. Với local chưa cấu hình `SITE_URL` và chưa bật index:
+
+```bash
+npm run check:seo -- --base http://127.0.0.1:3000 --output reports/seo-local-current.json
+```
+
+Đối với tên miền đang nghiệm thu với `SITE_INDEXABLE=false`, dùng URL đã đặt trong `LEARN_RUST_URL` ở trên:
+
+```bash
+npm run check:seo -- --base "$LEARN_RUST_URL" --canonical "$LEARN_RUST_URL" --output reports/seo-domain-current.json
+```
+
+Sau khi thực sự bật `SITE_INDEXABLE=true`, thêm `--indexable` vào lệnh tên miền. Script không tự đọc `SITE_URL`/`SITE_INDEXABLE` để suy ra tham số; `--base` là nơi gửi HTTP, `--canonical` là origin kỳ vọng trong metadata, còn `--indexable` là chính sách kỳ vọng. Nếu local dùng cổng khác, đổi `--base`; không bật index để làm phép thử local đạt. Báo cáo mới phải khớp catalog đang phục vụ, không dùng kết quả 80/158 bài cũ để xác nhận bản 314 bài.
+
+
 ## 4. Gửi sitemap trong Search Console
 
 1. Mở [Google Search Console](https://search.google.com/search-console/), thêm property cho domain chính và xác minh quyền sở hữu. Domain property dùng xác minh DNS; làm theo [hướng dẫn xác minh chính thức](https://support.google.com/webmasters/answer/9008080).
@@ -67,4 +82,4 @@ Không cần tạo sitemap thủ công khi thêm bài vào dữ liệu khóa h�
 
 Gửi sitemap không bảo đảm Google sẽ thu thập hoặc lập chỉ mục mọi URL; cấu hình này cũng không cam kết thứ hạng. [Google giải thích vai trò của sitemap tại đây](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap).
 
-Kết quả kiểm tra nguồn và các bước nghiệm thu đang theo dõi ở [báo cáo SEO](../reports/seo-review.md).
+Kết quả kiểm tra nguồn trước đây ở [báo cáo SEO](../reports/seo-review.md); trạng thái đợt mở rộng và bằng chứng SEO cuối được tổng hợp trong [báo cáo nghiệm thu](../reports/course-expansion/acceptance.md).

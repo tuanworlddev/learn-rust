@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-11-11T01:08:31.099Z",
+  "command": "cargo test --workspace --all-targets",
+  "scope": "Host tests only; device, browser, signing and deployment checks are separate.",
+  "results": [
+    {
+      "lesson": "blockchain-pda",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/blockchain-pda/validation.log"
+    },
+    {
+      "lesson": "blockchain-registry-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/blockchain-registry-project/validation.log"
+    },
+    {
+      "lesson": "blockchain-anchor-state",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/blockchain-anchor-state/validation.log"
+    },
+    {
+      "lesson": "blockchain-anchor-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/blockchain-anchor-project/validation.log"
+    },
+    {
+      "lesson": "blockchain-release-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/blockchain-release-project/validation.log"
+    }
+  ]
+}

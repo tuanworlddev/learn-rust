@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-11-11T00:57:37.465Z",
+  "command": "cargo test --workspace --all-targets",
+  "scope": "Host tests only; device, browser, signing and deployment checks are separate.",
+  "results": [
+    {
+      "lesson": "backend-http",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/backend-http/validation.log"
+    },
+    {
+      "lesson": "backend-catalog-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/backend-catalog-project/validation.log"
+    },
+    {
+      "lesson": "backend-transactions",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/backend-transactions/validation.log"
+    },
+    {
+      "lesson": "backend-order-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/backend-order-project/validation.log"
+    },
+    {
+      "lesson": "backend-service-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/backend-service-project/validation.log"
+    }
+  ]
+}

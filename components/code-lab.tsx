@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
-import { Play, RotateCcw, Copy, Download, Check, CheckCircle2, CircleAlert, Terminal, Lightbulb, Eye, ExternalLink, LoaderCircle, ChevronRight, ChevronDown, Code2 } from "lucide-react";
+import { Play, RotateCcw, Copy, Download, Check, CheckCircle2, CircleAlert, Terminal, Lightbulb, Eye, LoaderCircle, ChevronRight, ChevronDown, Code2 } from "lucide-react";
 import { CodeHighlight } from "./code-highlight";
 import { AnimatedDisclosure } from "./animated-disclosure";
 import "./code-lab.css";
@@ -50,7 +50,6 @@ export function CodeLab({ initialCode, storageKey, expectedOutput, onPass, title
   const hasCheck = expectedOutput !== undefined;
   const dirty = lastCode !== null && lastCode !== code;
   const lineCount = code.split("\n").length;
-  const playgroundHref = `https://play.rust-lang.org/?version=stable&mode=debug&edition=2024&code=${encodeURIComponent(code)}`;
 
   useEffect(() => {
     requestId.current += 1;
@@ -257,7 +256,7 @@ export function CodeLab({ initialCode, storageKey, expectedOutput, onPass, title
           <div className="cl-output" aria-live="polite" aria-atomic="true">
             {!result && !busy && <p className="cl-output-empty">Chạy mã để xem kết quả.</p>}
             {busy && <p className="cl-output-empty"><LoaderCircle size={16} className="cl-spin" /> Đang biên dịch…</p>}
-            {result?.error && <div className="cl-service-error"><p><CircleAlert size={16} /> {result.error}</p><a href={playgroundHref} target="_blank" rel="noreferrer">Mở mã trong Rust Playground <ExternalLink size={13} /></a></div>}
+            {result?.error && <div className="cl-service-error"><p><CircleAlert size={16} /> {result.error}</p><button type="button" onClick={() => execute()} disabled={busy !== null}>Thử lại</button></div>}
             {result && !result.error && <>
               {result.stdout && <pre className="cl-stdout">{result.stdout}</pre>}
               {!result.success && <><p className="cl-compile-error"><CircleAlert size={15} /> Chương trình còn lỗi.</p><pre className="cl-stderr">{result.stderr || "Chương trình kết thúc với lỗi nhưng không có thông báo chi tiết."}</pre></>}

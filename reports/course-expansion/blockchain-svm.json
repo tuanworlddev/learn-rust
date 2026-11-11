@@ -1,0 +1,155 @@
+{
+  "updatedAt": "2026-11-11T01:12:35.729613+00:00",
+  "track": "blockchain",
+  "lesson": "blockchain-release-project",
+  "sourceSha256": "fa40d01c0ac7df3e3731d50fd0ecb0938036740d1c96cbe4d2da3185b838d665",
+  "hostRust": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "cargoBuildSbf": "cargo-build-sbf 4.6.0\nDefault platform-tools: v1.58\nDefault Rust: 1.95.0",
+  "requestedArchitecture": "sBPF v2",
+  "requestedPlatformTools": "v1.58",
+  "resolvedCrates": {
+    "anchor-lang": [
+      "1.2.2"
+    ],
+    "litesvm": [
+      "0.16.0"
+    ],
+    "solana-account": [
+      "4.3.2"
+    ],
+    "solana-address": [
+      "1.1.0",
+      "2.6.1"
+    ],
+    "solana-instruction": [
+      "3.4.0"
+    ],
+    "solana-instruction-error": [
+      "2.4.0"
+    ],
+    "solana-keypair": [
+      "3.1.2"
+    ],
+    "solana-signer": [
+      "3.0.1"
+    ],
+    "solana-transaction": [
+      "4.1.5"
+    ],
+    "solana-transaction-error": [
+      "3.3.1"
+    ],
+    "solana-compute-budget-interface": [
+      "3.0.0"
+    ],
+    "solana-program-runtime": [
+      "4.2.2"
+    ],
+    "solana-svm-transaction": [
+      "4.2.0"
+    ]
+  },
+  "checks": {
+    "hostFiveLabs": {
+      "status": "pass",
+      "command": "node scripts/validate-course-labs.mjs --tracks blockchain"
+    },
+    "harnessCompile": {
+      "status": "pass",
+      "command": "cargo test --manifest-path svm/Cargo.toml --no-run",
+      "processId": "0c906ea2-125e-4337-97b7-930d951849b3",
+      "exitCode": 0
+    },
+    "sbfAndRuntime": {
+      "status": "pass",
+      "command": "CARGO_TARGET_DIR=/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/target bash scripts/run-svm.sh",
+      "processId": "975cc5b2-c2e8-493b-a0f0-c1a8196e1b25",
+      "exitCode": 0,
+      "programBuildSeconds": 19.81,
+      "gatewayBuildSeconds": 0.75,
+      "tests": {
+        "passed": 14,
+        "failed": 0,
+        "ignored": 0,
+        "seconds": 0.08,
+        "names": [
+          "cpi_target_is_allowlisted",
+          "cpi_without_signer_seeds_cannot_escalate_privilege",
+          "readonly_proposal_cannot_be_changed",
+          "a_modified_stored_bump_is_rejected",
+          "initialize_and_submit_execute_the_sbf_program",
+          "a_declared_account_without_signer_privilege_is_rejected",
+          "failure_after_successful_cpi_rolls_back_the_callee_write",
+          "cpi_uses_pda_signature_and_reloads_state",
+          "failed_second_instruction_rolls_back_the_first_instruction",
+          "valid_layout_at_the_wrong_pda_is_rejected",
+          "wrong_owner_does_not_mutate_the_proposal",
+          "tiny_compute_budget_fails_without_committing_state",
+          "cancellation_is_allowed_from_draft_or_submitted",
+          "reviewer_role_and_both_review_outcomes_are_enforced"
+        ]
+      },
+      "computeUnits": {
+        "directSubmitFixture": 3541,
+        "gatewayAndCpiFixture": 12369
+      }
+    }
+  },
+  "scope": "Local in-process LiteSVM fixtures. No RPC, cluster deployment, wallet or transfer of real assets.",
+  "limits": [
+    "Local in-process LiteSVM fixtures on macOS host; these do not verify public RPC, consensus or live finality.",
+    "No cluster deployment, production upgrade rehearsal, real wallet or asset transfer.",
+    "Compute units describe the pinned fixture/binary; they are not a production throughput or mainnet cost claim.",
+    "Root and SVM Cargo.lock graphs differ in compatible client/VM crates; instruction/address conversion crosses the boundary explicitly and was exercised by all runtime tests."
+  ],
+  "artifactManifest": {
+    "scope": "local LiteSVM fixtures; no cluster/RPC deployment",
+    "litesvm": "0.16.0",
+    "architecture": "sBPF v2",
+    "platform_tools": "v1.58",
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+    "cargo_build_sbf": "cargo-build-sbf 4.6.0\nDefault platform-tools: v1.58\nDefault Rust: 1.95.0",
+    "sha256": {
+      "target/deploy/review_program.so": "ee1782c9f8479ab2292485b8716aad99bad6c681a7bb35b042e6776f1bba1640",
+      "target/deploy/review_gateway.so": "d7583429d8b9e7d80724d9f7a014de9ea7536a03acce802b88adaa0e0f32eb53",
+      "Cargo.lock": "d6520e8f2d4ef7418ae8c418b53d989ae3908447c52891c6e5b977efbf3f7755",
+      "svm/Cargo.lock": "ecee0d5262bcf736bed5103bf550f8f5593c8e485dbe2e6859e45bad231b09bf",
+      "program/src/lib.rs": "eec209f45925f3ee546537dec45d71f64cd35383647d7761e506fa7f3a97f489",
+      "gateway/src/lib.rs": "bc48499623bf43f2acafcdefd4c376a4de1b7a9a45e3dfd87493258b45259d46",
+      "svm/tests/runtime.rs": "7eb5ea0ccf2d79c26fee7bea841536b3f9f8c5bd1a3ba5ffa8e5e5b3225b49df",
+      "target/svm-test.log": "0547a90445185d3d35c069ffeb4f855ef2f3154681c0f73a1604fff7dc568819"
+    }
+  },
+  "programResolvedCrates": {
+    "anchor-lang": [
+      "1.2.2"
+    ],
+    "solana-address": [
+      "1.1.0",
+      "2.9.0"
+    ],
+    "solana-pubkey": [
+      "3.0.0",
+      "4.4.0"
+    ],
+    "solana-instruction": [
+      "3.5.1",
+      "4.0.0"
+    ],
+    "solana-invoke": [
+      "0.5.1"
+    ]
+  },
+  "binaryArtifacts": [
+    {
+      "path": "work/course-labs/blockchain-release-project/target/deploy/review_program.so",
+      "bytes": 145424,
+      "sha256": "ee1782c9f8479ab2292485b8716aad99bad6c681a7bb35b042e6776f1bba1640"
+    },
+    {
+      "path": "work/course-labs/blockchain-release-project/target/deploy/review_gateway.so",
+      "bytes": 117784,
+      "sha256": "d7583429d8b9e7d80724d9f7a014de9ea7536a03acce802b88adaa0e0f32eb53"
+    }
+  ]
+}

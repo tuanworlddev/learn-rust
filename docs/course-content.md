@@ -1,6 +1,6 @@
 # Quản lý và xuất bản nội dung trên Supabase
 
-`COURSE_CONTENT_SOURCE=supabase` làm website đọc khóa học từ bản đang xuất bản trên Supabase. Danh mục, nội dung bài, bài tập, câu hỏi, chuyên sâu, dự án cuối lộ trình và thông tin hình minh họa nằm trong cùng một bản nội dung. Server chỉ chuyển danh mục và bài đang đọc xuống trình duyệt; việc cập nhật nội dung không yêu cầu sửa giao diện hay build lại website.
+`COURSE_CONTENT_SOURCE=supabase` làm website đọc khóa học từ bản đang xuất bản trên Supabase. Danh mục, nội dung bài, bài tập, câu hỏi, khóa chuyên sâu, dự án chuyên sâu/rubric và tham chiếu hình minh họa nằm trong cùng một bản nội dung. Server chỉ chuyển danh mục và bài đang đọc xuống trình duyệt; cập nhật trong schema mà loader hiện tại hỗ trợ không yêu cầu build lại website. Ba dự án nền tảng ở `src/data/projects.ts` vẫn được đóng gói cùng mã website, không thuộc snapshot Supabase; sửa chúng cần phát hành code.
 
 ## Mô hình dữ liệu
 
@@ -23,9 +23,12 @@ Trong Supabase SQL Editor hoặc quy trình migration của project, áp dụng:
 ```text
 supabase/migrations/20261110000000_learning_progress.sql
 supabase/migrations/20261111000000_course_content.sql
+supabase/migrations/20261111100000_course_learning_structure.sql
 ```
 
 Migration nội dung tạo bảng, constraints, RLS và hai RPC. `stage_course_release` thêm bản nháp; `publish_course_release` đổi con trỏ. Cả hai chỉ cấp EXECUTE cho `service_role`, dùng `SECURITY INVOKER` và `search_path` rỗng. Quyền mặc định của `PUBLIC`, `anon` và `authenticated` được thu hồi rõ ràng. Bản thân public key chỉ có SELECT qua RLS.
+
+Migration cấu trúc v2 bổ sung kiểm tra chương, thứ tự bài, dự án có lab, rubric, bài đánh giá và mô phỏng. Loader mới đọc được cả release v1 và v2 để rollback; code cũ chỉ hỗ trợ v1 không nên phục vụ release v2. Triển khai code tương thích trước rồi xuất bản nội dung mới. Quyền đọc/ghi và con trỏ xuất bản vẫn giữ như trước.
 
 ## 2. Chuẩn bị bản nội dung để xem xét
 
@@ -36,7 +39,7 @@ npm run content:export
 node scripts/import-course-content.mjs --file outputs/course-content.json
 ```
 
-Export đọc dữ liệu TypeScript đã biên tập trong `src/data`, gộp các lộ trình, kiểm tra hợp đồng dữ liệu và tạo `outputs/course-content.json`. File chứa `schemaVersion: 1`, thông tin nguồn và `catalog`. Folder `outputs` không được commit. Có thể chỉ định nơi xuất bằng `--out /duong-dan/course-content.json`.
+Export đọc dữ liệu TypeScript đã biên tập trong `src/data`, gộp các lộ trình, kiểm tra hợp đồng dữ liệu và tạo `outputs/course-content.json`. File chứa `schemaVersion: 2`, thông tin nguồn và `catalog`. Folder `outputs` không được commit. Có thể chỉ định nơi xuất bằng `--out /duong-dan/course-content.json`.
 
 Lệnh import mặc định là **dry-run**: kiểm tra toàn bộ file, in số chương/bài/hướng và SHA-256, không cần khóa, không gọi mạng và không ghi Supabase. Import kiểm tra ID trùng, tham chiếu thiếu, quiz không hợp lệ, kích thước, URL tài liệu/hình và đường dẫn file bài thực hành. Database kiểm tra thêm cấu trúc và liên kết chính trước khi nhận bản nháp. Bản canonical giới hạn 16 MiB; wrapper JSON đẹp tối đa 32 MiB.
 
@@ -98,10 +101,10 @@ Khởi động lại server/container rồi kiểm tra:
 
 ```bash
 node --env-file=.env.local scripts/check-course-content.mjs
-npm run check:seo
+npm run check:seo -- --base http://127.0.0.1:3000 --output reports/seo-local-current.json
 ```
 
-Trên VPS, chạy check tương ứng từ checkout có cấu hình hoặc dùng lệnh trong container nếu image đã đóng gói script kiểm tra. `/api/health` chỉ kiểm tra tiến trình web; nó không thay thế kiểm tra nội dung Supabase.
+Lệnh SEO ở trên dành cho local không có `SITE_URL` và chưa bật index. Khi website đã có canonical, truyền thêm `--canonical <SITE_URL>`; khi bật index thực sự, thêm `--indexable`. Script không tự suy ra hai cờ đó từ file env. Đổi `--base` nếu server dùng cổng/host khác; xem [hướng dẫn SEO](seo.md). Trên VPS, chạy kiểm nội dung từ checkout có cấu hình hoặc trong container có script. `/api/health` chỉ kiểm tiến trình web, không thay kiểm nội dung Supabase.
 
 Server giữ một snapshot đã kiểm tra tối đa 30 giây trong mỗi tiến trình và gộp các lần tải đồng thời. Sau khi cache hết hạn, request kế tiếp sẽ đọc bản publish/rollback mới; đây là TTL của cache, không phải cam kết mọi tab tự cập nhật trong 30 giây. Tab đang mở cần tải lại hoặc điều hướng để nhận nội dung mới. Có thể khởi động lại tiến trình để xóa cache ngay. Khi cache hết hạn, server đọc lại bằng public key; nếu đọc lỗi thì không phục vụ bản đã hết hạn. Lệnh GET có timeout 10 giây và giới hạn kích thước phản hồi; khóa quản trị không có trong loader. Nếu chọn `supabase` nhưng thiếu cấu hình, chưa xuất bản, dữ liệu hỏng hoặc dịch vụ không phản hồi, loader báo lỗi và **không âm thầm quay lại nội dung đi kèm source**. Điều này ngăn website hiển thị nhầm khóa học cũ trong production. Chế độ `bundled` là lựa chọn rõ ràng dành cho local hoặc sự cố có chủ động đổi cấu hình và khởi động lại.
 
@@ -110,6 +113,8 @@ Server giữ một snapshot đã kiểm tra tối đa 30 giây trong mỗi tiế
 Mỗi lesson có thể có `illustration: { src, alt, caption }`. `src` có thể là đường dẫn asset trong website hoặc HTTPS URL. Ảnh tại `public/` vẫn được đóng gói với release code; snapshot lưu tham chiếu, alt và chú thích. Khi dùng Supabase Storage, upload ảnh vào bucket phù hợp, lấy URL HTTPS ổn định rồi cập nhật bản nội dung. Không ghi đè asset đã được release cũ sử dụng: dùng tên/version mới để rollback phục hồi được cả nội dung lẫn hình.
 
 `localLab` lưu các file mẫu, lệnh chạy và tiêu chí kiểm tra. Nút **Tải dự án** tải ZIP của bài đang xuất bản, gồm đủ cấu trúc thư mục và hướng dẫn. Endpoint chỉ đóng gói các tệp thuộc catalog đã kiểm tra; không thực thi mã và không nhận đường dẫn hệ thống từ người dùng. Bản mẫu thuộc nội dung dạy học, không tự chạy trên server. Validator chỉ cho đường dẫn file tương đối, không cho `..`, đường dẫn tuyệt đối hoặc URL `javascript:`. Chạy mã Rust trong browser vẫn dùng runner hiện có; lưu nội dung trên Supabase không biến database thành dịch vụ thực thi mã.
+
+`chapters` chia mỗi khóa thành chương với thứ tự bài và mục tiêu. `projects` liên kết đến lesson có `localLab`; các mốc, ca kiểm thử, rubric và yêu cầu bàn giao cùng nằm trong snapshot. `assessment` chứa câu hỏi tình huống, giải thích, liên kết ôn bài và ma trận năng lực. `simulation` thuộc lesson, chứa node, tình huống và các bước/trạng thái để giao diện mô phỏng chính xác bằng chữ và chuyển động. Validator chặn tham chiếu sang nhầm khóa, bài trùng/thiếu chương và node mô phỏng không tồn tại.
 
 ## 7. Rollback và kiểm chứng
 
@@ -132,11 +137,12 @@ where id = 1;
 Chạy kiểm thử trước khi phát hành code hoặc thay migration:
 
 ```bash
-node --test lib/content/content.test.mjs
+node --test lib/content/content.test.mjs lib/course-assessment.test.mjs
+node scripts/check-course-depth.mjs
 bash scripts/test-course-content-rls.sh
 ```
 
-Node tests kiểm tra validator, đọc nội dung published, giới hạn dữ liệu, phân biệt loại khóa, dry-run không gọi mạng, thứ tự stage/publish và dừng khi có xung đột. SQL test tạo PostgreSQL 17 riêng trong Docker, không mở cổng, không mount thư mục máy, không kết nối project thật; kiểm tra quyền anon/authenticated/operator, nháp, immutability, idempotency, publication và rollback. Role `service_role` trong test cố ý không có BYPASSRLS để kiểm tra policy cấp quyền rõ ràng.
+Node tests kiểm tra validator, đọc nội dung published, giới hạn dữ liệu, phân biệt loại khóa, dry-run không gọi mạng, thứ tự stage/publish và dừng khi có xung đột; assessment tests kiểm tra câu trả lời, ngưỡng điểm, phiên bản tiêu chí và bằng chứng rubric. Depth gate đối chiếu số lượng/chương/dự án và các liên kết nội dung. SQL test tạo PostgreSQL 17 riêng trong Docker, không mở cổng, không mount thư mục máy, không kết nối project thật; kiểm tra quyền anon/authenticated/operator, nháp, immutability, idempotency, publication và rollback. Role `service_role` trong test cố ý không có BYPASSRLS để kiểm tra policy cấp quyền rõ ràng.
 
 Sau khi có project thật cần kiểm tra thêm: public key chỉ trả active release, publish/rollback qua Data API hoạt động, metadata bài lấy đúng bản đã đổi và ảnh Storage tải được trên tên miền chính. Bộ test local không xác nhận gateway, khóa thật, billing, email hay backup của Supabase. Chưa có job đồng bộ tự động hoặc UI biên tập nội dung; quy trình hiện tại là export → validate → stage → publish có kiểm soát.
 
@@ -145,3 +151,18 @@ Sau khi có project thật cần kiểm tra thêm: public key chỉ trả active
 - [Supabase: Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security) — kết hợp grants và RLS; secret key thuộc role quản trị, không đưa vào frontend.
 - [Supabase: Database functions](https://supabase.com/docs/guides/database/functions) — ưu tiên security invoker; quản lý EXECUTE và search path rõ ràng.
 - [Supabase: API keys](https://supabase.com/docs/guides/api/api-keys) — tách public key phục vụ website và secret key cho tác vụ quản trị.
+
+## Nhập bằng SQL Editor khi không có khóa CLI
+
+Chạy `node scripts/prepare-course-sql.mjs` từ gốc repository để tạo các phần nhỏ trong `work/course-sql-parts`: nền tảng và từng khóa là một catalog hợp lệ, kèm manifest và SHA canonical. Chỉ stage các phần đã hoàn thiện; không publish từng phần. Release chưa được chọn vẫn là nháp riêng tư. Lưu ID trả về cùng hash từng phần vào `work/course-staged-parts.json`, kiểm tra hash không thay đổi sau khi chỉnh nội dung, rồi ghép theo đúng thứ tự manifest thành một release đầy đủ. Xuất bản duy nhất release đầy đủ bằng `publish_course_release` với revision đã kiểm tra. Không dùng cách chia phần để bỏ qua validator hoặc RLS.
+
+Mỗi entry trong `work/course-staged-parts.json` dùng ID phần làm khóa (`foundation`, `backend`, ...), có `releaseId` và `canonicalSha256` khớp manifest. Stage lại catalog giống hệt trả cùng UUID theo `content_hash` và giữ **nhãn gốc** của release bất biến; nhãn mới trong manifest không sửa nhãn đã lưu. Khi tái sử dụng release, đọc nhãn thực trong database và ghi vào `actualLabel` của entry (chuỗi không rỗng, tối đa 200 ký tự). Script ghép dùng `actualLabel` nếu có, nếu không dùng nhãn manifest; kiểm SHA canonical, phần đã hoàn thiện và số bài vẫn giữ nguyên. Sau khi stage đủ các phần đã duyệt, tạo SQL ghép:
+
+```bash
+node scripts/merge-course-sql.mjs --parts work/course-sql-parts --staged work/course-staged-parts.json --output work/course-sql-parts/merged-release.sql
+```
+
+Lệnh chỉ tạo SQL, không gọi mạng và không publish. Chạy SQL ghép trong SQL Editor sẽ stage một release đầy đủ; kiểm ID/hash/số lượng rồi mới gọi RPC publish với revision đã xem. Nếu source thay đổi, script dừng để yêu cầu tạo lại/review phần tương ứng.
+
+
+Đợt mở rộng có 314 bài, 98 chương, 13 khóa chuyên sâu, 39 dự án chuyên sâu, 68 lab và 156 câu hỏi tình huống; cộng thêm 3 dự án nền tảng trong source. Có 26 mô phỏng chuyên sâu, 4 mô hình nền tảng và 7 ảnh bài học. [Báo cáo nghiệm thu](../reports/course-expansion/acceptance.md) liên kết các kết quả hiện hành; các báo cáo cũ giữ nguyên để phản ánh lịch sử kiểm thử. Các con số là nội dung đã biên soạn, không tự xác nhận đã publish lên Supabase.

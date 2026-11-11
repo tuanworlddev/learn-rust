@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-11-10T23:57:32.171Z",
+  "command": "cargo test --all-targets",
+  "scope": "Host tests only; device, browser, signing and deployment checks are separate.",
+  "results": [
+    {
+      "lesson": "data-quality-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/data-quality-project/validation.log"
+    },
+    {
+      "lesson": "data-polars",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/data-polars/validation.log"
+    },
+    {
+      "lesson": "data-datafusion",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/data-datafusion/validation.log"
+    },
+    {
+      "lesson": "data-query-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/data-query-project/validation.log"
+    },
+    {
+      "lesson": "data-release-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/data-release-project/validation.log"
+    }
+  ]
+}

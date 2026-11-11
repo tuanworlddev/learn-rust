@@ -1,0 +1,454 @@
+{
+  "checkedAt": "2026-11-11T01:13:45.263Z",
+  "status": "passed",
+  "catalogSha256": "7159c3cba97d65732116d0ddaf92656b0cad5e5c20ea60fe697e9eadc2b2bc65",
+  "foundations": 80,
+  "specializations": 13,
+  "lessons": 314,
+  "chapters": 98,
+  "specializedProjects": 39,
+  "downloadableLabs": 68,
+  "scenarioQuestions": 156,
+  "interactiveSpecializationSimulations": 26,
+  "images": [
+    "/images/lessons/backend-service.webp",
+    "/images/lessons/embedded-workbench.webp",
+    "/images/lessons/desktop-shared.webp",
+    "/images/lessons/compiler-workbench.webp",
+    "/images/lessons/game-simulation.webp",
+    "/images/lessons/data-workbench.webp",
+    "/images/lessons/ai-workbench.webp"
+  ],
+  "courses": [
+    {
+      "id": "backend",
+      "title": "Backend và dịch vụ mạng",
+      "chapters": 6,
+      "lessons": 18,
+      "projects": [
+        {
+          "id": "backend-project-catalog",
+          "title": "Catalog sản phẩm có API và lưu trữ",
+          "labLessonId": "backend-catalog-project",
+          "estimatedHours": 10
+        },
+        {
+          "id": "backend-project-orders",
+          "title": "Sổ đơn hàng và tồn kho",
+          "labLessonId": "backend-order-project",
+          "estimatedHours": 16
+        },
+        {
+          "id": "backend-project-team-service",
+          "title": "Team Tasks: dịch vụ nhiều workspace",
+          "labLessonId": "backend-service-project",
+          "estimatedHours": 48
+        }
+      ],
+      "scenarios": 12,
+      "skills": 6,
+      "simulations": [
+        "backend-idempotency",
+        "backend-outbox"
+      ],
+      "theoryWords": 8649
+    },
+    {
+      "id": "systems",
+      "title": "Lập trình hệ thống với Rust",
+      "chapters": 6,
+      "lessons": 18,
+      "projects": [
+        {
+          "id": "systems-project-supervisor",
+          "title": "Supervisor cho worker có hợp đồng",
+          "labLessonId": "systems-supervisor-project",
+          "estimatedHours": 10
+        },
+        {
+          "id": "systems-project-journal",
+          "title": "Journal có kiểm tra và phục hồi",
+          "labLessonId": "systems-file-journal-project",
+          "estimatedHours": 18
+        },
+        {
+          "id": "systems-project-daemon",
+          "title": "Dịch vụ IPC có trạng thái và vận hành",
+          "labLessonId": "systems-daemon-project",
+          "estimatedHours": 32
+        }
+      ],
+      "scenarios": 12,
+      "skills": 6,
+      "simulations": [
+        "systems-supervisor-project",
+        "systems-file-journal-project"
+      ],
+      "theoryWords": 7486
+    },
+    {
+      "id": "embedded",
+      "title": "Nhúng và IoT",
+      "chapters": 6,
+      "lessons": 18,
+      "projects": [
+        {
+          "id": "embedded-project-driver",
+          "title": "Driver cảm biến có hợp đồng",
+          "labLessonId": "embedded-driver-project",
+          "estimatedHours": 8
+        },
+        {
+          "id": "embedded-project-telemetry",
+          "title": "Thiết bị gửi telemetry khi mạng gián đoạn",
+          "labLessonId": "embedded-telemetry-project",
+          "estimatedHours": 16
+        },
+        {
+          "id": "embedded-project-station",
+          "title": "Trạm đo có cấu hình và phục hồi",
+          "labLessonId": "embedded-station-project",
+          "estimatedHours": 30
+        }
+      ],
+      "scenarios": 12,
+      "skills": 6,
+      "simulations": [
+        "embedded-driver-project",
+        "embedded-config-journal"
+      ],
+      "theoryWords": 8169
+    },
+    {
+      "id": "desktop",
+      "title": "Ứng dụng desktop",
+      "chapters": 6,
+      "lessons": 18,
+      "projects": [
+        {
+          "id": "desktop-project-notes",
+          "title": "Ứng dụng ghi chú có lưu trữ",
+          "labLessonId": "desktop-atomic-save",
+          "estimatedHours": 8
+        },
+        {
+          "id": "desktop-project-search",
+          "title": "Tìm kiếm nội dung workspace",
+          "labLessonId": "desktop-search-project",
+          "estimatedHours": 16
+        },
+        {
+          "id": "desktop-project-workspace",
+          "title": "Workspace Audit có giao diện và snapshot",
+          "labLessonId": "desktop-workspace-project",
+          "estimatedHours": 28
+        }
+      ],
+      "scenarios": 12,
+      "skills": 6,
+      "simulations": [
+        "desktop-atomic-save",
+        "desktop-cancel-progress"
+      ],
+      "theoryWords": 8433
+    },
+    {
+      "id": "mobile",
+      "title": "Mobile và thư viện dùng chung",
+      "chapters": 6,
+      "lessons": 18,
+      "projects": [
+        {
+          "id": "mobile-project-expenses",
+          "title": "Lõi chi tiêu cho hai giao diện",
+          "labLessonId": "mobile-expense-project",
+          "estimatedHours": 10
+        },
+        {
+          "id": "mobile-project-outbox",
+          "title": "Ghi chú lưu trước, đồng bộ sau",
+          "labLessonId": "mobile-outbox-project",
+          "estimatedHours": 18
+        },
+        {
+          "id": "mobile-project-catalog",
+          "title": "Ứng dụng danh mục có nhiều thiết bị",
+          "labLessonId": "mobile-catalog-project",
+          "estimatedHours": 32
+        }
+      ],
+      "scenarios": 12,
+      "skills": 6,
+      "simulations": [
+        "mobile-cancellation-protocol",
+        "mobile-outbox-project"
+      ],
+      "theoryWords": 8104
+    },
+    {
+      "id": "cli",
+      "title": "CLI và công cụ tự động hóa",
+      "chapters": 6,
+      "lessons": 18,
+      "projects": [
+        {
+          "id": "cli-project-logcheck",
+          "title": "Logcheck: lọc log trong pipeline",
+          "labLessonId": "cli-log-project",
+          "estimatedHours": 8
+        },
+        {
+          "id": "cli-project-assets",
+          "title": "Asset-audit: kiểm kê và so sánh tài sản",
+          "labLessonId": "cli-manifest-project",
+          "estimatedHours": 14
+        },
+        {
+          "id": "cli-project-batch",
+          "title": "Batch-audit: công cụ kiểm tra dữ liệu có recovery",
+          "labLessonId": "cli-batch-project",
+          "estimatedHours": 26
+        }
+      ],
+      "scenarios": 12,
+      "skills": 6,
+      "simulations": [
+        "cli-config-layers",
+        "cli-cancellation"
+      ],
+      "theoryWords": 8072
+    },
+    {
+      "id": "wasm",
+      "title": "WebAssembly cho ứng dụng web",
+      "chapters": 6,
+      "lessons": 18,
+      "projects": [
+        {
+          "id": "wasm-project-pixelkit",
+          "title": "Pixelkit: bộ lọc ảnh trong browser",
+          "labLessonId": "wasm-image-project",
+          "estimatedHours": 9
+        },
+        {
+          "id": "wasm-project-search",
+          "title": "Search-index: tìm kiếm nền theo phiên",
+          "labLessonId": "wasm-search-project",
+          "estimatedHours": 15
+        },
+        {
+          "id": "wasm-project-offline-report",
+          "title": "Offline-report: phân tích tệp và tải báo cáo",
+          "labLessonId": "wasm-report-project",
+          "estimatedHours": 28
+        }
+      ],
+      "scenarios": 12,
+      "skills": 6,
+      "simulations": [
+        "wasm-buffer-validation",
+        "wasm-worker-protocol"
+      ],
+      "theoryWords": 8444
+    },
+    {
+      "id": "compiler",
+      "title": "Compiler và công cụ phát triển",
+      "chapters": 6,
+      "lessons": 18,
+      "projects": [
+        {
+          "id": "compiler-project-rulecheck",
+          "title": "Rulecheck: DSL cho công thức nghiệp vụ",
+          "labLessonId": "compiler-expression-project",
+          "estimatedHours": 12
+        },
+        {
+          "id": "compiler-project-policy-vm",
+          "title": "Policy-VM: artifact quy tắc và máy ảo",
+          "labLessonId": "compiler-vm-project",
+          "estimatedHours": 20
+        },
+        {
+          "id": "compiler-project-rule-lsp",
+          "title": "Rule-LSP: công cụ hỗ trợ viết quy tắc",
+          "labLessonId": "compiler-tooling-project",
+          "estimatedHours": 30
+        }
+      ],
+      "scenarios": 12,
+      "skills": 6,
+      "simulations": [
+        "compiler-dataflow",
+        "compiler-bytecode-format"
+      ],
+      "theoryWords": 8005
+    },
+    {
+      "id": "security",
+      "title": "Bảo mật và phân tích nhị phân",
+      "chapters": 6,
+      "lessons": 18,
+      "projects": [
+        {
+          "id": "security-project-inventory",
+          "title": "Inventory artifact có nguồn gốc",
+          "labLessonId": "security-inventory-project",
+          "estimatedHours": 10
+        },
+        {
+          "id": "security-project-parser",
+          "title": "LearnRecord parser có corpus và fuzz target",
+          "labLessonId": "security-parser-project",
+          "estimatedHours": 18
+        },
+        {
+          "id": "security-project-audit",
+          "title": "Kiểm tra artifact trước phát hành",
+          "labLessonId": "security-audit-project",
+          "estimatedHours": 28
+        }
+      ],
+      "scenarios": 12,
+      "skills": 6,
+      "simulations": [
+        "security-budgeted-cursor",
+        "security-audit-project"
+      ],
+      "theoryWords": 7603
+    },
+    {
+      "id": "game",
+      "title": "Game, đồ họa và mô phỏng",
+      "chapters": 6,
+      "lessons": 18,
+      "projects": [
+        {
+          "id": "game-project-arena",
+          "title": "Arena ECS có luật và replay",
+          "labLessonId": "game-arena-project",
+          "estimatedHours": 10
+        },
+        {
+          "id": "game-project-levels",
+          "title": "Pipeline level có kiểm tra",
+          "labLessonId": "game-scene-project",
+          "estimatedHours": 14
+        },
+        {
+          "id": "game-project-release",
+          "title": "Game 2D có lưu tiến độ và phát hành",
+          "labLessonId": "game-release-project",
+          "estimatedHours": 30
+        }
+      ],
+      "scenarios": 12,
+      "skills": 6,
+      "simulations": [
+        "game-arena-project",
+        "game-scene-project"
+      ],
+      "theoryWords": 8335
+    },
+    {
+      "id": "data",
+      "title": "Dữ liệu và engine phân tích",
+      "chapters": 6,
+      "lessons": 18,
+      "projects": [
+        {
+          "id": "data-project-quality",
+          "title": "Cổng chất lượng đơn hàng",
+          "labLessonId": "data-quality-project",
+          "estimatedHours": 8
+        },
+        {
+          "id": "data-project-engine",
+          "title": "Engine báo cáo phân vùng",
+          "labLessonId": "data-query-project",
+          "estimatedHours": 14
+        },
+        {
+          "id": "data-project-release",
+          "title": "Pipeline dataset có phiên bản",
+          "labLessonId": "data-release-project",
+          "estimatedHours": 24
+        }
+      ],
+      "scenarios": 12,
+      "skills": 6,
+      "simulations": [
+        "data-query-plans",
+        "data-release-project"
+      ],
+      "theoryWords": 8749
+    },
+    {
+      "id": "ai",
+      "title": "AI và Machine Learning",
+      "chapters": 6,
+      "lessons": 18,
+      "projects": [
+        {
+          "id": "ai-project-features",
+          "title": "Cổng dữ liệu có hợp đồng",
+          "labLessonId": "ai-data-project",
+          "estimatedHours": 8
+        },
+        {
+          "id": "ai-project-training",
+          "title": "Thí nghiệm huấn luyện Burn có checkpoint",
+          "labLessonId": "ai-training-project",
+          "estimatedHours": 16
+        },
+        {
+          "id": "ai-project-serving",
+          "title": "Dịch vụ mô hình có phiên bản",
+          "labLessonId": "ai-deployment-project",
+          "estimatedHours": 28
+        }
+      ],
+      "scenarios": 12,
+      "skills": 6,
+      "simulations": [
+        "ai-training-project",
+        "ai-deployment-project"
+      ],
+      "theoryWords": 8527
+    },
+    {
+      "id": "blockchain",
+      "title": "Blockchain với Solana và Anchor",
+      "chapters": 6,
+      "lessons": 18,
+      "projects": [
+        {
+          "id": "blockchain-project-registry",
+          "title": "Registry tài liệu có namespace",
+          "labLessonId": "blockchain-registry-project",
+          "estimatedHours": 10
+        },
+        {
+          "id": "blockchain-project-review",
+          "title": "Quy trình duyệt tài liệu Anchor",
+          "labLessonId": "blockchain-anchor-project",
+          "estimatedHours": 18
+        },
+        {
+          "id": "blockchain-project-release",
+          "title": "Gói chương trình và client có kiểm chứng",
+          "labLessonId": "blockchain-release-project",
+          "estimatedHours": 32
+        }
+      ],
+      "scenarios": 12,
+      "skills": 6,
+      "simulations": [
+        "blockchain-anchor-project",
+        "blockchain-release-project"
+      ],
+      "theoryWords": 8394
+    }
+  ],
+  "scope": "Structural and source coverage gate. Passing does not certify learner competence or target-device/deployment behavior."
+}

@@ -35,6 +35,7 @@ export type Lesson = {
     checks: string[];
   };
   illustration?: { src: string; alt: string; caption: string };
+  simulation?: import("./specialization-types").LessonSimulation;
 };
 
 export const modules: CourseModule[] = [

@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-11-11T00:53:51.322Z",
+  "command": "cargo test --workspace --all-targets",
+  "scope": "Host tests only; device, browser, signing and deployment checks are separate.",
+  "results": [
+    {
+      "lesson": "mobile-core-boundary",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/mobile-core-boundary/validation.log"
+    },
+    {
+      "lesson": "mobile-uniffi-contract",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/mobile-uniffi-contract/validation.log"
+    },
+    {
+      "lesson": "mobile-expense-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/mobile-expense-project/validation.log"
+    },
+    {
+      "lesson": "mobile-outbox-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/mobile-outbox-project/validation.log"
+    },
+    {
+      "lesson": "mobile-catalog-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/mobile-catalog-project/validation.log"
+    },
+    {
+      "lesson": "data-quality-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/data-quality-project/validation.log"
+    },
+    {
+      "lesson": "data-polars",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/data-polars/validation.log"
+    },
+    {
+      "lesson": "data-datafusion",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/data-datafusion/validation.log"
+    },
+    {
+      "lesson": "data-query-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/data-query-project/validation.log"
+    },
+    {
+      "lesson": "data-release-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/data-release-project/validation.log"
+    }
+  ]
+}

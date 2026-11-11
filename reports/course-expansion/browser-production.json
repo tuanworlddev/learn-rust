@@ -1,0 +1,50 @@
+{
+  "checkedAt": "2026-11-11T01:38:31.293Z",
+  "status": "passed",
+  "base": "http://127.0.0.1:3000",
+  "contentSource": "supabase",
+  "releaseId": "0a1d25ab-89c2-407e-88ba-1ef04eee78cb",
+  "viewport": {
+    "width": 1494,
+    "height": 731
+  },
+  "checks": [
+    {
+      "case": "catalog",
+      "result": "Foundation +13 specializations,14 courses,314 lesson total; no horizontal overflow at verified viewport."
+    },
+    {
+      "case": "course navigation",
+      "result": "Sidebar Backend link navigates /khoa-hoc/backend;6 chapters,18 lessons,3 projects and assessment visible."
+    },
+    {
+      "case": "theme",
+      "result": "Light to dark toggles on course page; document scroll remains0; light catalog and dark course screenshots saved."
+    },
+    {
+      "case": "lesson navigation",
+      "result": "Chapter5 opens; Outbox lesson navigates through visible sidebar link; theory, exercise, question and editor panes present."
+    },
+    {
+      "case": "simulation",
+      "result": "Bước tiếp advances1/4 to2/4 and shows Đọc event and batch1."
+    },
+    {
+      "case": "redundant CTA",
+      "result": "0 visible/accessible Viết mã buttons with editor pane present."
+    },
+    {
+      "case": "console",
+      "result": "No warn/error entries after2026-11-11 T01:32:00 Z in observed production navigation."
+    }
+  ],
+  "priorAcceptance": "learner-audit.md",
+  "screenshots": [
+    "screenshots/lessons-light.jpg",
+    "screenshots/backend-dark.jpg"
+  ],
+  "limitations": [
+    "New layout at mobile width is not certified: requested viewport override did not change measured page width in earlier check.",
+    "No intermediate accordion animation-frame measurement."
+  ]
+}

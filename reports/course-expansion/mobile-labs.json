@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-11-11T00:18:15.966Z",
+  "command": "cargo test --all-targets",
+  "scope": "Host tests only; device, browser, signing and deployment checks are separate.",
+  "results": [
+    {
+      "lesson": "mobile-core-boundary",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/mobile-core-boundary/validation.log"
+    },
+    {
+      "lesson": "mobile-uniffi-contract",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/mobile-uniffi-contract/validation.log"
+    },
+    {
+      "lesson": "mobile-expense-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/mobile-expense-project/validation.log"
+    },
+    {
+      "lesson": "mobile-outbox-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/mobile-outbox-project/validation.log"
+    },
+    {
+      "lesson": "mobile-catalog-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/mobile-catalog-project/validation.log"
+    }
+  ]
+}

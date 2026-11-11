@@ -49,7 +49,7 @@ async function checkPage(path, shouldIndex = indexable) {
   if (canonical) {
     assert.equal(new URL(canonicalTags[0].href).href, new URL(`${canonical}${path}`).href, `${path}: canonical origin/path`);
     assert.equal(new URL(meta.find(item => item.property === "og:url")?.content).href, new URL(`${canonical}${path}`).href, `${path}: Open Graph URL`);
-    if (shouldIndex || !["/so-tay", "/thuc-hanh"].includes(path)) {
+    if (shouldIndex || !["/so-tay", "/thuc-hanh"].includes(path) && !path.endsWith("/danh-gia")) {
       const data = [...raw.matchAll(/<script[^>]+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].map(match => JSON.parse(match[1]));
       assert.ok(data.length > 0, `${path}: JSON-LD present`);
       assert.ok(data.flat().every(item => item["@context"] === "https://schema.org"), `${path}: valid JSON-LD context`);
@@ -58,6 +58,7 @@ async function checkPage(path, shouldIndex = indexable) {
   for (const phrase of ["Biên dịch qua", "Mỗi ví dụ có bản nháp riêng", "Không nhập dữ liệu bí mật", "chưa hỗ trợ stdin tương tác", ">Đi làm<"]) {
     assert.ok(!body.includes(phrase), `${path}: removed learner clutter (${phrase})`);
   }
+  for (const anchor of tags(body, "a")) assert.ok(!/^https?:\/\//.test(anchor.href ?? ""), path + ": learning navigation stays inside the site");
   const main = body.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] ?? "";
   if (path.startsWith("/bai-hoc/")) {
     assert.ok(textOnly(main).length > 500, `${path}: lesson text delivered without JavaScript`);
@@ -68,32 +69,36 @@ async function checkPage(path, shouldIndex = indexable) {
 }
 
 const root = await checkPage("/");
-const lessonPaths = unique(tags(root, "a").map(item => item.href).filter(href => /^\/bai-hoc\/[^/?#]+$/.test(href ?? "")));
-assert.ok(lessonPaths.length > 0, "Foundation lessons linked in initial HTML");
-const tracks = await checkPage("/chuyen-sau");
-const trackPaths = unique(tags(tracks, "a").map(item => item.href).filter(href => /^\/chuyen-sau\/[^/?#]+$/.test(href ?? "")));
-assert.ok(trackPaths.length > 0, "Specializations linked in initial HTML");
-for (const path of trackPaths) {
+const coursePaths = unique(tags(root, "a").map(item => item.href).filter(href => /^\/khoa-hoc\/[^/?#]+$/.test(href ?? "")));
+assert.ok(coursePaths.includes("/khoa-hoc/nen-tang"), "Foundation course linked in initial HTML");
+const trackPaths = coursePaths.filter(path => path !== "/khoa-hoc/nen-tang");
+assert.ok(trackPaths.length > 0, "Specialized courses linked under Lessons");
+const lessonPaths = [];
+const assessmentPaths = [];
+for (const path of coursePaths) {
   const html = await checkPage(path);
-  const paths = unique(tags(html, "a").map(item => item.href).filter(href => /^\/bai-hoc\/[^/?#]+$/.test(href ?? "")));
-  assert.ok(paths.length > 0, `${path}: lessons linked in initial HTML`);
+  const links = tags(html, "a").map(item => item.href);
+  const paths = unique(links.filter(href => /^\/bai-hoc\/[^/?#]+$/.test(href ?? "")));
+  assert.ok(paths.length > 0, path + ": lessons linked in initial HTML");
   for (const lesson of paths) if (!lessonPaths.includes(lesson)) lessonPaths.push(lesson);
+  for (const href of links) if (/^\/khoa-hoc\/[^/?#]+\/danh-gia$/.test(href ?? "") && !assessmentPaths.includes(href)) assessmentPaths.push(href);
 }
 const projects = await checkPage("/du-an");
 const projectPaths = unique(tags(projects, "a").map(item => item.href).filter(href => /^\/du-an\/[^/?#]+$/.test(href ?? "")));
-assert.equal(projectPaths.length, 3, "All 3 practice projects linked in initial HTML");
+assert.ok(projectPaths.length >= 3, "Practice projects linked in initial HTML");
 const queue = [...lessonPaths, ...projectPaths, "/phong-van"];
 // Bound concurrency so the check is safe to run on a small VPS.
 for (let i = 0; i < queue.length; i += 4) await Promise.all(queue.slice(i, i + 4).map(path => checkPage(path)));
+for (const path of assessmentPaths) await checkPage(path, false);
 await checkPage("/thuc-hanh", false);
 await checkPage("/so-tay", false);
 assert.equal(unique(results.map(row => row.title)).length, results.length, "Every content route has its own title");
-for (const [oldPath, destination] of [["/di-lam", "/phong-van"], ["/lo-trinh", "/"]]) {
+for (const [oldPath, destination] of [["/di-lam", "/phong-van"], ["/lo-trinh", "/"], ["/chuyen-sau", "/"], ["/bai-hoc", "/"], ...trackPaths.map(path => [path.replace("/khoa-hoc/", "/chuyen-sau/"), path])]) {
   const response = await fetchPage(oldPath, { redirect: "manual" });
   assert.equal(response.status, 308, `${oldPath}: permanent redirect`);
   assert.equal(new URL(response.headers.get("location"), base).pathname, destination);
 }
-for (const path of ["/bai-hoc/seo-check-missing-lesson", "/chuyen-sau/seo-check-missing-track", "/constructor", "/toString", "/__proto__"]) {
+for (const path of ["/bai-hoc/seo-check-missing-lesson", "/khoa-hoc/seo-check-missing-track", "/constructor", "/toString", "/__proto__"]) {
   const missing = await fetchPage(path);
   assert.equal(missing.status, 404, `${path}: missing route returns HTTP 404`);
   const missingHtml = await missing.text();
@@ -112,6 +117,6 @@ assert.match(image.headers.get("content-type") ?? "", /^image\/png/, "Social ima
 const imageData = Buffer.from(await image.arrayBuffer());
 assert.equal(imageData.readUInt32BE(16), 1200, "Social image width");
 assert.equal(imageData.readUInt32BE(20), 630, "Social image height");
-const report = { checkedAt: new Date().toISOString(), base, canonical: canonical || null, indexable, pages: results.length, lessons: lessonPaths.length, specializations: trackPaths.length, projects: projectPaths.length, sitemapUrls: urls.length, image: "1200x630 PNG", status: "passed", routes: results.sort((a, b) => a.path.localeCompare(b.path)) };
+const report = { checkedAt: new Date().toISOString(), base, canonical: canonical || null, indexable, pages: results.length, lessons: lessonPaths.length, specializations: trackPaths.length, assessments: assessmentPaths.length, projects: projectPaths.length, sitemapUrls: urls.length, image: "1200x630 PNG", status: "passed", routes: results.sort((a, b) => a.path.localeCompare(b.path)) };
 if (output) await writeFile(output, `${JSON.stringify(report, null, 2)}\n`);
 console.log(`SEO HTTP checks passed: ${report.pages} pages, ${report.lessons} lessons, ${report.projects} projects, ${report.sitemapUrls} sitemap URLs; redirects, 404, SSR, metadata and social image.`);

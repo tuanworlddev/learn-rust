@@ -1,0 +1,43 @@
+{
+  "checkedAt": "2026-11-11T00:08:21.070Z",
+  "command": "cargo test --all-targets",
+  "scope": "Host tests only; device, browser, signing and deployment checks are separate.",
+  "results": [
+    {
+      "lesson": "cli-arguments",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/cli-arguments/validation.log"
+    },
+    {
+      "lesson": "cli-streaming",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/cli-streaming/validation.log"
+    },
+    {
+      "lesson": "cli-log-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/cli-log-project/validation.log"
+    },
+    {
+      "lesson": "cli-filesystem",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/cli-filesystem/validation.log"
+    },
+    {
+      "lesson": "cli-manifest-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/cli-manifest-project/validation.log"
+    },
+    {
+      "lesson": "cli-batch-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/cli-batch-project/validation.log"
+    }
+  ]
+}

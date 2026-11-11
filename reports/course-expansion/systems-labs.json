@@ -1,0 +1,49 @@
+{
+  "checkedAt": "2026-11-11T00:30:19.332Z",
+  "command": "cargo test --all-targets",
+  "scope": "Host tests only; device, browser, signing and deployment checks are separate.",
+  "results": [
+    {
+      "lesson": "systems-processes-io",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/systems-processes-io/validation.log"
+    },
+    {
+      "lesson": "systems-supervisor-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/systems-supervisor-project/validation.log"
+    },
+    {
+      "lesson": "systems-file-journal-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/systems-file-journal-project/validation.log"
+    },
+    {
+      "lesson": "systems-concurrency-ordering",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/systems-concurrency-ordering/validation.log"
+    },
+    {
+      "lesson": "systems-os-boundaries",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/systems-os-boundaries/validation.log"
+    },
+    {
+      "lesson": "systems-daemon-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/systems-daemon-project/validation.log"
+    },
+    {
+      "lesson": "systems-kernel-path",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/systems-kernel-path/validation.log"
+    }
+  ]
+}

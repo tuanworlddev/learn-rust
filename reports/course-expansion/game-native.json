@@ -1,0 +1,9 @@
+{
+  "checkedAt": "2026-11-11T01:13:43.879Z",
+  "status": "passed",
+  "command": "cargo check --features native --bin native",
+  "lesson": "game-release-project",
+  "bevy": "0.20.1",
+  "sourceProcess": "24e4bd06-1746-4a86-8f9b-565a812f9aac",
+  "scope": "Native render/window build type check. No GPU playtest or release package certification."
+}

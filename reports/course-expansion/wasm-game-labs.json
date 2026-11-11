@@ -1,0 +1,67 @@
+{
+  "checkedAt": "2026-11-11T00:22:42.199Z",
+  "command": "cargo test --all-targets",
+  "scope": "Host tests only; device, browser, signing and deployment checks are separate.",
+  "results": [
+    {
+      "lesson": "wasm-bindings",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/wasm-bindings/validation.log"
+    },
+    {
+      "lesson": "wasm-image-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/wasm-image-project/validation.log"
+    },
+    {
+      "lesson": "wasm-search-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/wasm-search-project/validation.log"
+    },
+    {
+      "lesson": "wasm-performance",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/wasm-performance/validation.log"
+    },
+    {
+      "lesson": "wasm-report-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/wasm-report-project/validation.log"
+    },
+    {
+      "lesson": "game-ecs",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/game-ecs/validation.log"
+    },
+    {
+      "lesson": "game-arena-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/game-arena-project/validation.log"
+    },
+    {
+      "lesson": "game-timestep",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/game-timestep/validation.log"
+    },
+    {
+      "lesson": "game-scene-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/game-scene-project/validation.log"
+    },
+    {
+      "lesson": "game-release-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/game-release-project/validation.log"
+    }
+  ]
+}

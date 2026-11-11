@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-11-11T00:06:00.062Z",
+  "command": "cargo test --all-targets",
+  "scope": "Host tests only; device, browser, signing and deployment checks are separate.",
+  "results": [
+    {
+      "lesson": "embedded-no-std",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/embedded-no-std/validation.log"
+    },
+    {
+      "lesson": "embedded-sensors",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/embedded-sensors/validation.log"
+    },
+    {
+      "lesson": "embedded-driver-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/embedded-driver-project/validation.log"
+    },
+    {
+      "lesson": "embedded-telemetry-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/embedded-telemetry-project/validation.log"
+    },
+    {
+      "lesson": "embedded-station-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/embedded-station-project/validation.log"
+    }
+  ]
+}

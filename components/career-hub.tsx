@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from "react";
-import { ArrowUpRight, Check, ChevronDown, Download, Search } from "lucide-react";
-import { careerProjects, careerStages, interviewQuestions, readinessGates, type CareerSource } from "@/src/data/career";
+import { ArrowRight, Check, ChevronDown, Download, Search } from "lucide-react";
+import { careerProjects, careerStages, interviewQuestions, readinessGates } from "@/src/data/career";
 import { AnimatedDisclosure } from "./animated-disclosure";
 import "./career-hub.css";
 
@@ -28,9 +29,6 @@ function readEvidence(value: unknown): Evidence {
     result[gate.id] = { note, confirmed: item.confirmed === true && note.trim().length >= 40 };
   }
   return result;
-}
-function Sources({ sources }: { sources: CareerSource[] }) {
-  return <div className="career-sources">{sources.map(source => <a href={source.url} key={source.url} target="_blank" rel="noreferrer">{source.label}<ArrowUpRight size={13} aria-hidden="true" /></a>)}</div>;
 }
 
 export default function CareerHub() {
@@ -135,7 +133,7 @@ export default function CareerHub() {
         <p className="career-outcome">{stage.outcome}</p>
         <ul>{stage.tasks.map(task => <li key={task}>{task}</li>)}</ul>
         <div className="career-gate"><strong>Điều kiện chuyển bước</strong><p>{stage.gate}</p></div>
-        <div className="career-stage-footer"><a className="text-link" href={`/bai-hoc/${stage.lesson}`}>Ôn bài nền tảng<ArrowUpRight size={14} aria-hidden="true" /></a><Sources sources={stage.sources} /></div>
+        <div className="career-stage-footer"><Link className="text-link" href={`/bai-hoc/${stage.lesson}`}>Ôn bài nền tảng<ArrowRight size={14} aria-hidden="true" /></Link></div>
       </article>)}</div>
     </section>
 
@@ -151,7 +149,7 @@ export default function CareerHub() {
           <h3>Những ý cần giải thích</h3><ul>{question.answer.map(item => <li key={item}>{item}</li>)}</ul>
           <h3>Câu hỏi tiếp</h3><p>{question.followUp}</p>
           <h3>Điểm dễ nhầm</h3><p>{question.pitfall}</p>
-          <Sources sources={[question.source]} />
+
         </div>
       </AnimatedDisclosure>)}</div>
       {!questions.length && <p className="career-empty">Không có câu phù hợp. Thử từ khóa ngắn hơn hoặc chọn tất cả nhóm.</p>}
@@ -163,13 +161,13 @@ export default function CareerHub() {
       <div className="career-project-list">{careerProjects.map((project, index) => <AnimatedDisclosure className="career-project" key={project.id}
         title={<><span className="career-question-number">{String(index + 1).padStart(2, "0")}</span><span>{project.title}<small>{project.description}</small></span><ChevronDown size={17} aria-hidden="true" /></>}>
         <div className="career-project-body"><p className="career-prerequisites"><strong>Kiến thức cần có:</strong> {project.prerequisites}</p>
-          {project.starter && <a className="button button-secondary career-lab-link" href={project.starter} target="_blank" rel="noreferrer">Mở lab Task API và hướng dẫn<ArrowUpRight size={15} aria-hidden="true" /></a>}
+          {project.starter && <Link className="button button-secondary career-lab-link" href="/khoa-hoc/backend#course-projects">Dự án backend<ArrowRight size={15} aria-hidden="true" /></Link>}
           <h3>Cấu trúc gợi ý</h3><ul className="career-file-list">{project.files.map(file => <li key={file}>{file}</li>)}</ul>
           <h3>Các mốc thực hiện</h3><div className="career-milestones">{project.milestones.map(milestone => <section key={milestone.title}><h4>{milestone.title}</h4><ul>{milestone.tasks.map(task => <li key={task}>{task}</li>)}</ul></section>)}</div>
           <h3>Tiêu chí nghiệm thu</h3><ul>{project.acceptance.map(item => <li key={item}>{item}</li>)}</ul>
           <h3>Ca kiểm thử cần có</h3><ul>{project.tests.map(item => <li key={item}>{item}</li>)}</ul>
           <h3>Câu hỏi khi code review</h3><ul>{project.review.map(item => <li key={item}>{item}</li>)}</ul>
-          <Sources sources={project.sources} />
+
         </div>
       </AnimatedDisclosure>)}</div>
     </section>

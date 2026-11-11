@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-11-11T00:07:38.132Z",
+  "command": "cargo test --all-targets",
+  "scope": "Host tests only; device, browser, signing and deployment checks are separate.",
+  "results": [
+    {
+      "lesson": "ai-data-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/ai-data-project/validation.log"
+    },
+    {
+      "lesson": "ai-burn-training",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/ai-burn-training/validation.log"
+    },
+    {
+      "lesson": "ai-training-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/ai-training-project/validation.log"
+    },
+    {
+      "lesson": "ai-candle-inference",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/ai-candle-inference/validation.log"
+    },
+    {
+      "lesson": "ai-deployment-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/ai-deployment-project/validation.log"
+    }
+  ]
+}

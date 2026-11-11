@@ -1,0 +1,37 @@
+{
+  "checkedAt": "2026-11-11T00:38:21.414Z",
+  "command": "cargo test --workspace --all-targets",
+  "scope": "Host tests only; device, browser, signing and deployment checks are separate.",
+  "results": [
+    {
+      "lesson": "compiler-lexer-spans",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/compiler-lexer-spans/validation.log"
+    },
+    {
+      "lesson": "compiler-parser-precedence",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/compiler-parser-precedence/validation.log"
+    },
+    {
+      "lesson": "compiler-expression-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/compiler-expression-project/validation.log"
+    },
+    {
+      "lesson": "compiler-vm-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/compiler-vm-project/validation.log"
+    },
+    {
+      "lesson": "compiler-tooling-project",
+      "status": "passed",
+      "timedOut": false,
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/course-labs/compiler-tooling-project/validation.log"
+    }
+  ]
+}

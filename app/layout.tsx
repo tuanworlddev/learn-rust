@@ -12,4 +12,4 @@ export function generateMetadata(): Metadata {
     icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
   };
 }
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="vi"><body>{children}</body></html>; }
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="vi" data-scroll-behavior="smooth"><body>{children}</body></html>; }

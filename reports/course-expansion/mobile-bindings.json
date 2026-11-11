@@ -1,0 +1,42 @@
+{
+  "checkedAt": "2026-11-11T00:35:57.431529+00:00",
+  "scope": "Host dynamic library and generated Swift/Kotlin bindings, run from each Cargo project. Simulator/device apps and Android ABI loading are separate.",
+  "results": [
+    {
+      "lesson": "mobile-expense-project",
+      "task": "library",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/mobile-expense-project-library.log"
+    },
+    {
+      "lesson": "mobile-expense-project",
+      "task": "swift",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/mobile-expense-project-swift.log"
+    },
+    {
+      "lesson": "mobile-expense-project",
+      "task": "kotlin",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/mobile-expense-project-kotlin.log"
+    },
+    {
+      "lesson": "mobile-catalog-project",
+      "task": "library",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/mobile-catalog-project-library.log"
+    },
+    {
+      "lesson": "mobile-catalog-project",
+      "task": "swift",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/mobile-catalog-project-swift.log"
+    },
+    {
+      "lesson": "mobile-catalog-project",
+      "task": "kotlin",
+      "status": "passed",
+      "logPath": "/Users/rupphi/AIWorkspaces/mcp-lab/learn-rust/work/mobile-catalog-project-kotlin.log"
+    }
+  ]
+}
