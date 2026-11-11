@@ -1,0 +1,1117 @@
+{
+  "checkedAt": "2026-11-11T05:09:45.445Z",
+  "status": "passed",
+  "baseline": {
+    "report": "baseline.json",
+    "checkedAt": "2026-11-11T04:18:24.840Z",
+    "serverBuildId": "T2Y3CjQ9W2N5DahE14q0z",
+    "gitHead": "594a75907e0829a14a02fdd19c029bce22b2226d"
+  },
+  "after": {
+    "report": "after.json",
+    "checkedAt": "2026-11-11T05:08:42.779Z",
+    "serverBuildId": "iOQPdKY4IKUDQq02ucgt8",
+    "gitHead": "594a75907e0829a14a02fdd19c029bce22b2226d"
+  },
+  "methodology": {
+    "routes": 6,
+    "modes": [
+      "html",
+      "rsc"
+    ],
+    "warmupRequestsPerCase": 3,
+    "measuredRequestsPerCase": 8,
+    "sequential": true,
+    "sourceRoute": "/bai-hoc/backend-http",
+    "transport": "Node fetch on loopback; keep-alive; Accept-Encoding identity; no browser/network/CPU throttling",
+    "rsc": "RSC:1 + Next-Router-State-Tree serialized by the installed Next helper from the server's actual source route flight tree + Next-Url + installed Next cache-busting query helper",
+    "byteMeaning": "Raw response bytes are measured. Gzip level 6 and Brotli quality 4 are offline estimates, not observed browser wire bytes.",
+    "timingMeaning": "Warm loopback HTTP response timing only. Median and nearest-rank p95 over eight samples; not browser rendering, INP/LCP or a production SLO.",
+    "initialAssetsMeaning": "Unique JS/CSS assets referenced by the initial HTML. No browser cache, waterfall, executed-byte or parse-time measurement. Splitting increases reference count on some routes while reducing byte totals.",
+    "identity": "Checkout base is unchanged because code was uncommitted during measurement. Distinct server build IDs identify baseline and final runtime; the final run includes the focus and course-scope fixes."
+  },
+  "sharedLayoutEvidence": {
+    "sourceRouterTreeHasLearnGroup": true,
+    "baselineRscWithAllThreeUnrelatedSummaryMarkers": 6,
+    "afterRscWithAnyUnrelatedSummaryMarker": 0,
+    "checkedMarkers": [
+      "hello-rust",
+      "wasm-bindings",
+      "game-ecs"
+    ],
+    "catalogLessonCount": 314,
+    "sourceInspection": "LearningLayout owns CourseProvider and LearningApp. CoursePageProvider receives navigationVersion plus route-specific content; ordinary lessons set currentTrack to null. Navigation metadata is built in getCourseNavigation and cached by immutable catalog object identity.",
+    "conclusion": "For the six measured soft navigations with the actual source router tree, the shared course index is not serialized again. Marker absence is corroborated by reduced response sizes and layout/leaf data boundaries, not used as an exhaustive 314-ID scan.",
+    "exceptions": "Direct HTML entry or explicit router.refresh can include the shared index. CoursePageProvider requests a refresh when navigationVersion changes after publication; that deliberate refresh is outside this steady-publication benchmark.",
+    "sources": [
+      {
+        "path": "app/(learn)/layout.tsx",
+        "sha256": "dd077f91154e91c19715baf889829194db093a6b2b56f92b535d68a12d9ce4d5"
+      },
+      {
+        "path": "components/learning-page.tsx",
+        "sha256": "f9fac7de9f6341f045a0381c799084a1ba9032356ce17baa99f9aa630b9282dc"
+      },
+      {
+        "path": "lib/course-navigation.ts",
+        "sha256": "fe75568ad0ac79d9bd56ee34333a34e4e02b23b45edb4d00b9eac9b6dabb4ea7"
+      },
+      {
+        "path": "components/course-context.tsx",
+        "sha256": "33080494c3033a28dfeadb098735475dd004b3dd9f8f5993c6885fcf37856a90"
+      },
+      {
+        "path": "components/learning-content.tsx",
+        "sha256": "848adc47d9e594abe399fd1fcd269d1e944324d90a3ac6e7fd938e5590e149b6"
+      },
+      {
+        "path": "components/learning-app.tsx",
+        "sha256": "7267b09c6cfdb5f2bff3d40e4277c3e3a642e6a78ba492fdadfef160bb0b2b52"
+      }
+    ]
+  },
+  "results": [
+    {
+      "path": "/khoa-hoc/nen-tang",
+      "mode": "html",
+      "payload": {
+        "rawBytes": {
+          "before": 353533,
+          "after": 355815,
+          "change": 2282,
+          "reductionPercent": -0.65
+        },
+        "gzipBytes": {
+          "before": 68847,
+          "after": 69649,
+          "change": 802,
+          "reductionPercent": -1.16
+        },
+        "brotliBytes": {
+          "before": 67161,
+          "after": 67519,
+          "change": 358,
+          "reductionPercent": -0.53
+        }
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": {
+            "before": 8.79,
+            "after": 8.23,
+            "change": -0.56,
+            "reductionPercent": 6.37
+          },
+          "p95": {
+            "before": 12.57,
+            "after": 10.73,
+            "change": -1.84,
+            "reductionPercent": 14.64
+          }
+        },
+        "completeBody": {
+          "median": {
+            "before": 9.05,
+            "after": 8.47,
+            "change": -0.58,
+            "reductionPercent": 6.41
+          },
+          "p95": {
+            "before": 13.1,
+            "after": 11.27,
+            "change": -1.83,
+            "reductionPercent": 13.97
+          }
+        }
+      },
+      "serializedIndexMarkers": {
+        "before": [],
+        "after": []
+      }
+    },
+    {
+      "path": "/khoa-hoc/nen-tang",
+      "mode": "rsc",
+      "payload": {
+        "rawBytes": {
+          "before": 231288,
+          "after": 11605,
+          "change": -219683,
+          "reductionPercent": 94.98
+        },
+        "gzipBytes": {
+          "before": 57349,
+          "after": 2298,
+          "change": -55051,
+          "reductionPercent": 95.99
+        },
+        "brotliBytes": {
+          "before": 57434,
+          "after": 2264,
+          "change": -55170,
+          "reductionPercent": 96.06
+        }
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": {
+            "before": 2.2,
+            "after": 1.05,
+            "change": -1.15,
+            "reductionPercent": 52.27
+          },
+          "p95": {
+            "before": 3.07,
+            "after": 1.15,
+            "change": -1.92,
+            "reductionPercent": 62.54
+          }
+        },
+        "completeBody": {
+          "median": {
+            "before": 2.38,
+            "after": 1.11,
+            "change": -1.27,
+            "reductionPercent": 53.36
+          },
+          "p95": {
+            "before": 3.29,
+            "after": 1.2,
+            "change": -2.09,
+            "reductionPercent": 63.53
+          }
+        }
+      },
+      "serializedIndexMarkers": {
+        "before": [
+          "hello-rust",
+          "wasm-bindings",
+          "game-ecs"
+        ],
+        "after": []
+      }
+    },
+    {
+      "path": "/bai-hoc/ownership",
+      "mode": "html",
+      "payload": {
+        "rawBytes": {
+          "before": 300675,
+          "after": 303426,
+          "change": 2751,
+          "reductionPercent": -0.91
+        },
+        "gzipBytes": {
+          "before": 68838,
+          "after": 69525,
+          "change": 687,
+          "reductionPercent": -1
+        },
+        "brotliBytes": {
+          "before": 68071,
+          "after": 68511,
+          "change": 440,
+          "reductionPercent": -0.65
+        }
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": {
+            "before": 7.05,
+            "after": 5.99,
+            "change": -1.06,
+            "reductionPercent": 15.04
+          },
+          "p95": {
+            "before": 9.38,
+            "after": 7.02,
+            "change": -2.36,
+            "reductionPercent": 25.16
+          }
+        },
+        "completeBody": {
+          "median": {
+            "before": 7.33,
+            "after": 6.22,
+            "change": -1.11,
+            "reductionPercent": 15.14
+          },
+          "p95": {
+            "before": 9.59,
+            "after": 7.27,
+            "change": -2.32,
+            "reductionPercent": 24.19
+          }
+        }
+      },
+      "serializedIndexMarkers": {
+        "before": [],
+        "after": []
+      }
+    },
+    {
+      "path": "/bai-hoc/ownership",
+      "mode": "rsc",
+      "payload": {
+        "rawBytes": {
+          "before": 228890,
+          "after": 9317,
+          "change": -219573,
+          "reductionPercent": 95.93
+        },
+        "gzipBytes": {
+          "before": 58137,
+          "after": 3295,
+          "change": -54842,
+          "reductionPercent": 94.33
+        },
+        "brotliBytes": {
+          "before": 58483,
+          "after": 3373,
+          "change": -55110,
+          "reductionPercent": 94.23
+        }
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": {
+            "before": 2.04,
+            "after": 0.84,
+            "change": -1.2,
+            "reductionPercent": 58.82
+          },
+          "p95": {
+            "before": 2.91,
+            "after": 0.94,
+            "change": -1.97,
+            "reductionPercent": 67.7
+          }
+        },
+        "completeBody": {
+          "median": {
+            "before": 2.18,
+            "after": 0.92,
+            "change": -1.26,
+            "reductionPercent": 57.8
+          },
+          "p95": {
+            "before": 3.06,
+            "after": 1,
+            "change": -2.06,
+            "reductionPercent": 67.32
+          }
+        }
+      },
+      "serializedIndexMarkers": {
+        "before": [
+          "hello-rust",
+          "wasm-bindings",
+          "game-ecs"
+        ],
+        "after": []
+      }
+    },
+    {
+      "path": "/khoa-hoc/backend",
+      "mode": "html",
+      "payload": {
+        "rawBytes": {
+          "before": 312522,
+          "after": 315186,
+          "change": 2664,
+          "reductionPercent": -0.85
+        },
+        "gzipBytes": {
+          "before": 70982,
+          "after": 71693,
+          "change": 711,
+          "reductionPercent": -1
+        },
+        "brotliBytes": {
+          "before": 71214,
+          "after": 71626,
+          "change": 412,
+          "reductionPercent": -0.58
+        }
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": {
+            "before": 6.71,
+            "after": 6.18,
+            "change": -0.53,
+            "reductionPercent": 7.9
+          },
+          "p95": {
+            "before": 7.96,
+            "after": 7.75,
+            "change": -0.21,
+            "reductionPercent": 2.64
+          }
+        },
+        "completeBody": {
+          "median": {
+            "before": 6.84,
+            "after": 6.35,
+            "change": -0.49,
+            "reductionPercent": 7.16
+          },
+          "p95": {
+            "before": 8.13,
+            "after": 7.91,
+            "change": -0.22,
+            "reductionPercent": 2.71
+          }
+        }
+      },
+      "serializedIndexMarkers": {
+        "before": [],
+        "after": []
+      }
+    },
+    {
+      "path": "/khoa-hoc/backend",
+      "mode": "rsc",
+      "payload": {
+        "rawBytes": {
+          "before": 252403,
+          "after": 35514,
+          "change": -216889,
+          "reductionPercent": 85.93
+        },
+        "gzipBytes": {
+          "before": 64436,
+          "after": 10656,
+          "change": -53780,
+          "reductionPercent": 83.46
+        },
+        "brotliBytes": {
+          "before": 64701,
+          "after": 11121,
+          "change": -53580,
+          "reductionPercent": 82.81
+        }
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": {
+            "before": 1.98,
+            "after": 2.66,
+            "change": 0.68,
+            "reductionPercent": -34.34
+          },
+          "p95": {
+            "before": 2.29,
+            "after": 13.72,
+            "change": 11.43,
+            "reductionPercent": -499.13
+          }
+        },
+        "completeBody": {
+          "median": {
+            "before": 2.08,
+            "after": 2.88,
+            "change": 0.8,
+            "reductionPercent": -38.46
+          },
+          "p95": {
+            "before": 2.4,
+            "after": 13.83,
+            "change": 11.43,
+            "reductionPercent": -476.25
+          }
+        }
+      },
+      "serializedIndexMarkers": {
+        "before": [
+          "hello-rust",
+          "wasm-bindings",
+          "game-ecs"
+        ],
+        "after": []
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-domain-boundaries",
+      "mode": "html",
+      "payload": {
+        "rawBytes": {
+          "before": 320199,
+          "after": 295752,
+          "change": -24447,
+          "reductionPercent": 7.63
+        },
+        "gzipBytes": {
+          "before": 75514,
+          "after": 68714,
+          "change": -6800,
+          "reductionPercent": 9
+        },
+        "brotliBytes": {
+          "before": 74647,
+          "after": 67493,
+          "change": -7154,
+          "reductionPercent": 9.58
+        }
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": {
+            "before": 6.2,
+            "after": 5.15,
+            "change": -1.05,
+            "reductionPercent": 16.94
+          },
+          "p95": {
+            "before": 7.72,
+            "after": 6.95,
+            "change": -0.77,
+            "reductionPercent": 9.97
+          }
+        },
+        "completeBody": {
+          "median": {
+            "before": 6.39,
+            "after": 5.31,
+            "change": -1.08,
+            "reductionPercent": 16.9
+          },
+          "p95": {
+            "before": 7.91,
+            "after": 7.1,
+            "change": -0.81,
+            "reductionPercent": 10.24
+          }
+        }
+      },
+      "serializedIndexMarkers": {
+        "before": [],
+        "after": []
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-domain-boundaries",
+      "mode": "rsc",
+      "payload": {
+        "rawBytes": {
+          "before": 257603,
+          "after": 12323,
+          "change": -245280,
+          "reductionPercent": 95.22
+        },
+        "gzipBytes": {
+          "before": 66257,
+          "after": 4125,
+          "change": -62132,
+          "reductionPercent": 93.77
+        },
+        "brotliBytes": {
+          "before": 66288,
+          "after": 4275,
+          "change": -62013,
+          "reductionPercent": 93.55
+        }
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": {
+            "before": 2.2,
+            "after": 0.6,
+            "change": -1.6,
+            "reductionPercent": 72.73
+          },
+          "p95": {
+            "before": 3.42,
+            "after": 0.77,
+            "change": -2.65,
+            "reductionPercent": 77.49
+          }
+        },
+        "completeBody": {
+          "median": {
+            "before": 2.3,
+            "after": 0.64,
+            "change": -1.66,
+            "reductionPercent": 72.17
+          },
+          "p95": {
+            "before": 3.6,
+            "after": 0.81,
+            "change": -2.79,
+            "reductionPercent": 77.5
+          }
+        }
+      },
+      "serializedIndexMarkers": {
+        "before": [
+          "hello-rust",
+          "wasm-bindings",
+          "game-ecs"
+        ],
+        "after": []
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-outbox",
+      "mode": "html",
+      "payload": {
+        "rawBytes": {
+          "before": 325513,
+          "after": 301072,
+          "change": -24441,
+          "reductionPercent": 7.51
+        },
+        "gzipBytes": {
+          "before": 76354,
+          "after": 69475,
+          "change": -6879,
+          "reductionPercent": 9.01
+        },
+        "brotliBytes": {
+          "before": 75371,
+          "after": 68404,
+          "change": -6967,
+          "reductionPercent": 9.24
+        }
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": {
+            "before": 6.61,
+            "after": 5.31,
+            "change": -1.3,
+            "reductionPercent": 19.67
+          },
+          "p95": {
+            "before": 8.37,
+            "after": 6.3,
+            "change": -2.07,
+            "reductionPercent": 24.73
+          }
+        },
+        "completeBody": {
+          "median": {
+            "before": 6.82,
+            "after": 5.44,
+            "change": -1.38,
+            "reductionPercent": 20.23
+          },
+          "p95": {
+            "before": 8.64,
+            "after": 6.48,
+            "change": -2.16,
+            "reductionPercent": 25
+          }
+        }
+      },
+      "serializedIndexMarkers": {
+        "before": [],
+        "after": []
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-outbox",
+      "mode": "rsc",
+      "payload": {
+        "rawBytes": {
+          "before": 259385,
+          "after": 14101,
+          "change": -245284,
+          "reductionPercent": 94.56
+        },
+        "gzipBytes": {
+          "before": 66679,
+          "after": 4428,
+          "change": -62251,
+          "reductionPercent": 93.36
+        },
+        "brotliBytes": {
+          "before": 66640,
+          "after": 4594,
+          "change": -62046,
+          "reductionPercent": 93.11
+        }
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": {
+            "before": 2.25,
+            "after": 0.72,
+            "change": -1.53,
+            "reductionPercent": 68
+          },
+          "p95": {
+            "before": 3.34,
+            "after": 1.47,
+            "change": -1.87,
+            "reductionPercent": 55.99
+          }
+        },
+        "completeBody": {
+          "median": {
+            "before": 2.35,
+            "after": 0.76,
+            "change": -1.59,
+            "reductionPercent": 67.66
+          },
+          "p95": {
+            "before": 3.49,
+            "after": 1.52,
+            "change": -1.97,
+            "reductionPercent": 56.45
+          }
+        }
+      },
+      "serializedIndexMarkers": {
+        "before": [
+          "hello-rust",
+          "wasm-bindings",
+          "game-ecs"
+        ],
+        "after": []
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-service-project",
+      "mode": "html",
+      "payload": {
+        "rawBytes": {
+          "before": 514123,
+          "after": 386418,
+          "change": -127705,
+          "reductionPercent": 24.84
+        },
+        "gzipBytes": {
+          "before": 126197,
+          "after": 94309,
+          "change": -31888,
+          "reductionPercent": 25.27
+        },
+        "brotliBytes": {
+          "before": 110694,
+          "after": 92103,
+          "change": -18591,
+          "reductionPercent": 16.79
+        }
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": {
+            "before": 7.32,
+            "after": 5.63,
+            "change": -1.69,
+            "reductionPercent": 23.09
+          },
+          "p95": {
+            "before": 8.63,
+            "after": 6.61,
+            "change": -2.02,
+            "reductionPercent": 23.41
+          }
+        },
+        "completeBody": {
+          "median": {
+            "before": 7.56,
+            "after": 5.8,
+            "change": -1.76,
+            "reductionPercent": 23.28
+          },
+          "p95": {
+            "before": 8.81,
+            "after": 6.79,
+            "change": -2.02,
+            "reductionPercent": 22.93
+          }
+        }
+      },
+      "serializedIndexMarkers": {
+        "before": [],
+        "after": []
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-service-project",
+      "mode": "rsc",
+      "payload": {
+        "rawBytes": {
+          "before": 337406,
+          "after": 92125,
+          "change": -245281,
+          "reductionPercent": 72.7
+        },
+        "gzipBytes": {
+          "before": 90504,
+          "after": 28206,
+          "change": -62298,
+          "reductionPercent": 68.83
+        },
+        "brotliBytes": {
+          "before": 89958,
+          "after": 28087,
+          "change": -61871,
+          "reductionPercent": 68.78
+        }
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": {
+            "before": 2.23,
+            "after": 0.76,
+            "change": -1.47,
+            "reductionPercent": 65.92
+          },
+          "p95": {
+            "before": 3.58,
+            "after": 0.9,
+            "change": -2.68,
+            "reductionPercent": 74.86
+          }
+        },
+        "completeBody": {
+          "median": {
+            "before": 2.41,
+            "after": 0.82,
+            "change": -1.59,
+            "reductionPercent": 65.98
+          },
+          "p95": {
+            "before": 3.7,
+            "after": 0.97,
+            "change": -2.73,
+            "reductionPercent": 73.78
+          }
+        }
+      },
+      "serializedIndexMarkers": {
+        "before": [
+          "hello-rust",
+          "wasm-bindings",
+          "game-ecs"
+        ],
+        "after": []
+      }
+    }
+  ],
+  "initialAssets": [
+    {
+      "path": "/khoa-hoc/nen-tang",
+      "referencedRequests": {
+        "before": 14,
+        "after": 14,
+        "change": 0,
+        "reductionPercent": 0
+      },
+      "js": {
+        "rawBytes": {
+          "before": 1017706,
+          "after": 634450,
+          "change": -383256,
+          "reductionPercent": 37.66
+        },
+        "gzipBytes": {
+          "before": 300837,
+          "after": 199338,
+          "change": -101499,
+          "reductionPercent": 33.74
+        },
+        "brotliBytes": {
+          "before": 301618,
+          "after": 200823,
+          "change": -100795,
+          "reductionPercent": 33.42
+        }
+      },
+      "css": {
+        "rawBytes": {
+          "before": 182736,
+          "after": 120357,
+          "change": -62379,
+          "reductionPercent": 34.14
+        },
+        "gzipBytes": {
+          "before": 31185,
+          "after": 19743,
+          "change": -11442,
+          "reductionPercent": 36.69
+        },
+        "brotliBytes": {
+          "before": 32312,
+          "after": 20125,
+          "change": -12187,
+          "reductionPercent": 37.72
+        }
+      }
+    },
+    {
+      "path": "/bai-hoc/ownership",
+      "referencedRequests": {
+        "before": 14,
+        "after": 17,
+        "change": 3,
+        "reductionPercent": -21.43
+      },
+      "js": {
+        "rawBytes": {
+          "before": 1017706,
+          "after": 693696,
+          "change": -324010,
+          "reductionPercent": 31.84
+        },
+        "gzipBytes": {
+          "before": 300837,
+          "after": 216956,
+          "change": -83881,
+          "reductionPercent": 27.88
+        },
+        "brotliBytes": {
+          "before": 301618,
+          "after": 219246,
+          "change": -82372,
+          "reductionPercent": 27.31
+        }
+      },
+      "css": {
+        "rawBytes": {
+          "before": 182736,
+          "after": 154182,
+          "change": -28554,
+          "reductionPercent": 15.63
+        },
+        "gzipBytes": {
+          "before": 31185,
+          "after": 26878,
+          "change": -4307,
+          "reductionPercent": 13.81
+        },
+        "brotliBytes": {
+          "before": 32312,
+          "after": 27606,
+          "change": -4706,
+          "reductionPercent": 14.56
+        }
+      }
+    },
+    {
+      "path": "/khoa-hoc/backend",
+      "referencedRequests": {
+        "before": 14,
+        "after": 16,
+        "change": 2,
+        "reductionPercent": -14.29
+      },
+      "js": {
+        "rawBytes": {
+          "before": 1017706,
+          "after": 641380,
+          "change": -376326,
+          "reductionPercent": 36.98
+        },
+        "gzipBytes": {
+          "before": 300837,
+          "after": 200942,
+          "change": -99895,
+          "reductionPercent": 33.21
+        },
+        "brotliBytes": {
+          "before": 301618,
+          "after": 202472,
+          "change": -99146,
+          "reductionPercent": 32.87
+        }
+      },
+      "css": {
+        "rawBytes": {
+          "before": 182736,
+          "after": 137909,
+          "change": -44827,
+          "reductionPercent": 24.53
+        },
+        "gzipBytes": {
+          "before": 31185,
+          "after": 23300,
+          "change": -7885,
+          "reductionPercent": 25.28
+        },
+        "brotliBytes": {
+          "before": 32312,
+          "after": 23720,
+          "change": -8592,
+          "reductionPercent": 26.59
+        }
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-domain-boundaries",
+      "referencedRequests": {
+        "before": 14,
+        "after": 17,
+        "change": 3,
+        "reductionPercent": -21.43
+      },
+      "js": {
+        "rawBytes": {
+          "before": 1017706,
+          "after": 693696,
+          "change": -324010,
+          "reductionPercent": 31.84
+        },
+        "gzipBytes": {
+          "before": 300837,
+          "after": 216956,
+          "change": -83881,
+          "reductionPercent": 27.88
+        },
+        "brotliBytes": {
+          "before": 301618,
+          "after": 219246,
+          "change": -82372,
+          "reductionPercent": 27.31
+        }
+      },
+      "css": {
+        "rawBytes": {
+          "before": 182736,
+          "after": 154182,
+          "change": -28554,
+          "reductionPercent": 15.63
+        },
+        "gzipBytes": {
+          "before": 31185,
+          "after": 26878,
+          "change": -4307,
+          "reductionPercent": 13.81
+        },
+        "brotliBytes": {
+          "before": 32312,
+          "after": 27606,
+          "change": -4706,
+          "reductionPercent": 14.56
+        }
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-outbox",
+      "referencedRequests": {
+        "before": 14,
+        "after": 17,
+        "change": 3,
+        "reductionPercent": -21.43
+      },
+      "js": {
+        "rawBytes": {
+          "before": 1017706,
+          "after": 693696,
+          "change": -324010,
+          "reductionPercent": 31.84
+        },
+        "gzipBytes": {
+          "before": 300837,
+          "after": 216956,
+          "change": -83881,
+          "reductionPercent": 27.88
+        },
+        "brotliBytes": {
+          "before": 301618,
+          "after": 219246,
+          "change": -82372,
+          "reductionPercent": 27.31
+        }
+      },
+      "css": {
+        "rawBytes": {
+          "before": 182736,
+          "after": 154182,
+          "change": -28554,
+          "reductionPercent": 15.63
+        },
+        "gzipBytes": {
+          "before": 31185,
+          "after": 26878,
+          "change": -4307,
+          "reductionPercent": 13.81
+        },
+        "brotliBytes": {
+          "before": 32312,
+          "after": 27606,
+          "change": -4706,
+          "reductionPercent": 14.56
+        }
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-service-project",
+      "referencedRequests": {
+        "before": 14,
+        "after": 17,
+        "change": 3,
+        "reductionPercent": -21.43
+      },
+      "js": {
+        "rawBytes": {
+          "before": 1017706,
+          "after": 693696,
+          "change": -324010,
+          "reductionPercent": 31.84
+        },
+        "gzipBytes": {
+          "before": 300837,
+          "after": 216956,
+          "change": -83881,
+          "reductionPercent": 27.88
+        },
+        "brotliBytes": {
+          "before": 301618,
+          "after": 219246,
+          "change": -82372,
+          "reductionPercent": 27.31
+        }
+      },
+      "css": {
+        "rawBytes": {
+          "before": 182736,
+          "after": 154182,
+          "change": -28554,
+          "reductionPercent": 15.63
+        },
+        "gzipBytes": {
+          "before": 31185,
+          "after": 26878,
+          "change": -4307,
+          "reductionPercent": 13.81
+        },
+        "brotliBytes": {
+          "before": 32312,
+          "after": 27606,
+          "change": -4706,
+          "reductionPercent": 14.56
+        }
+      }
+    }
+  ],
+  "supabaseRevalidation": {
+    "baselineReport": "supabase-cold-baseline.json",
+    "afterReport": "supabase-revalidation-after.json",
+    "decodedResponseBytes": {
+      "before": 2945450,
+      "after": 68,
+      "change": -2945382,
+      "reductionPercent": 99.9977
+    },
+    "medianMs": {
+      "before": 1118.79,
+      "after": 364.62,
+      "change": -754.17,
+      "reductionPercent": 67.41
+    },
+    "samplesPerCondition": 3,
+    "limitations": "Loader behavior and network cost only; not browser, rendering, production SLO or the live server cache"
+  },
+  "limitations": [
+    "This comparison does not establish sidebar DOM identity, focus, scroll, animation or learner-state retention; root records independent browser evidence.",
+    "HTML first entry still includes the navigation index. Foundation, ownership and backend course HTML increased slightly; the report retains those increases.",
+    "Capstone response is larger than ordinary lessons because the lesson includes lab content; no claim that all routes have identical payload.",
+    "Application revalidation after TTL is measured in a separate loader report. The navigation benchmark does not prove cold-start or expired-cache latency.",
+    "Asset caching means the initial JS total is not downloaded on every click. Browser fetch/evaluation costs are not inferred from raw file size.",
+    "Final local timing is mixed: the backend course RSC median is 2.66 ms versus 1.98 ms at baseline. Payload reductions do not establish a universal response-time or browser-rendering improvement."
+  ]
+}

@@ -108,7 +108,7 @@ function LocalLabFile({ path, content }: { path: string; content: string }) {
 }
 
 function LocalLab({ lab, lessonId }: { lab: NonNullable<Lesson["localLab"]>; lessonId: string }) {
-  return <AnimatedDisclosure className="lv-local-lab" title={<><span>Dự án Cargo</span><ChevronDown size={16} /></>}>
+  return <AnimatedDisclosure lazy className="lv-local-lab" title={<><span>Dự án Cargo</span><ChevronDown size={16} /></>}>
     <div className="lv-local-lab-body">
       <h2>{lab.title}</h2>
       <p>{lab.instructions}</p>
@@ -152,7 +152,8 @@ type LessonViewProps = {
 };
 
 export function LessonView({ lesson, progress, onBookmark, onQuiz, onPass, onComplete, onNavigate, onBack }: LessonViewProps) {
-  const { lessons: catalogLessons, modules, currentTrack } = useCourse();
+  const { lessons: catalogLessons, modules, specializations } = useCourse();
+  const currentTrack = specializations.find(track => lesson.moduleId === "track-" + track.id || track.lessonIds.includes(lesson.id));
   const lessons = currentTrack ? currentTrack.lessonIds.flatMap(id => {
     const item = catalogLessons.find(candidate => candidate.id === id);
     return item ? [item] : [];

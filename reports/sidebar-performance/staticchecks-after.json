@@ -1,0 +1,61 @@
+{
+  "checkedAt": "2026-11-11T05:10:00.162Z",
+  "buildId": "iOQPdKY4IKUDQq02ucgt8",
+  "base": "http://127.0.0.1:3000",
+  "canonical": "http://127.0.0.1:3000",
+  "indexable": false,
+  "status": "passed",
+  "checks": [
+    {
+      "name": "lint",
+      "command": "npm run lint -- --max-warnings 0",
+      "exitCode": 0,
+      "elapsedMs": 3151,
+      "output": "\n> learn-rust@0.1.0 lint\n> eslint . --ignore-pattern dist --ignore-pattern .next --max-warnings 0\n\n"
+    },
+    {
+      "name": "content-and-progress",
+      "command": "node --test lib/content/content.test.mjs scripts/test-progress-catalog.mjs",
+      "exitCode": 0,
+      "elapsedMs": 1374,
+      "output": "✔ existing foundation data satisfies the content contract (2.435333ms)\n✔ canonical content is independent of property insertion order (0.213792ms)\n✔ duplicates, orphan module links and out-of-range quiz answers fail (0.241875ms)\n✔ unsafe URLs, traversal in downloadable files and unknown fields fail (0.229625ms)\n✔ unsupported export versions and invalid source choices fail closed (0.088125ms)\n✔ published loader uses a single joined public read and validates the payload (7.733833ms)\n✔ loader never substitutes local data for missing, rejected or invalid releases (0.440333ms)\n✔ loader rejects oversized responses before parsing (0.095625ms)\n✔ public and admin key types are not interchangeable (0.129583ms)\n✔ import options reject ambiguity and default to dry-run (0.169ms)\n✔ dry-run validates all content without credentials or a network request (3.908167ms)\n✔ apply without publish only stages a private release (1.069541ms)\n✔ publish reads revision first and passes that exact revision to the atomic RPC (2.58825ms)\n✔ publication conflict and invalid expected revision never retry a write (1.755667ms)\n✔ published snapshot coalesces concurrent loads and refreshes after its TTL (0.252959ms)\n✔ expired snapshots are not served when refresh fails; later calls can recover (0.109833ms)\n✔ schema 1 remains readable and schema 2 validates chapters, projects and assessments (142.0895ms)\n✔ reordered chapters and cross-course project/remediation references cannot publish (419.15275ms)\n✔ assessment cannot omit a chapter or use answers outside its options (202.227791ms)\n✔ interactive trace rejects unknown nodes and duplicate scenarios (202.214208ms)\n✔ published loader accepts schema 2 and rejects unsupported release schemas (100.570041ms)\n✔ publication checks reuse the validated catalog when both identity fields are unchanged (0.527875ms)\n▶ changed revision or release identity reloads the complete published snapshot\n  ✔ revision changed (0.220708ms)\n  ✔ release changed (0.152042ms)\n  ✔ revision decreased (0.161291ms)\n✔ changed revision or release identity reloads the complete published snapshot (0.676583ms)\n✔ rollback to an earlier release reloads that release and supports both schema versions (0.221208ms)\n✔ default reader coalesces both initial loads and expired publication checks (0.198875ms)\n▶ failed or missing publication checks reject expired content without extending its TTL\n  ✔ network failure (0.188417ms)\n  ✔ HTTP failure (0.124917ms)\n  ✔ missing publication (0.134209ms)\n  ✔ unpublished release (0.135541ms)\n  ✔ invalid revision (0.140417ms)\n  ✔ invalid release (0.123333ms)\n  ✔ oversized metadata (0.136333ms)\n✔ failed or missing publication checks reject expired content without extending its TTL (1.127875ms)\n▶ failed replacement snapshots reject expired content and recover with a validated reload\n  ✔ HTTP failure (0.255542ms)\n  ✔ removed publication (0.194833ms)\n  ✔ invalid catalog (0.228917ms)\n✔ failed replacement snapshots reject expired content and recover with a validated reload (0.765042ms)\n✔ a concurrent publication keeps catalog and identity from the same joined snapshot (0.172208ms)\n✔ a full → foundation-only → full catalog cycle preserves lesson and project progress (0.828792ms)\n✔ malformed IDs and answers are cleaned without rejecting valid hidden lessons (0.101291ms)\n✔ oversized ID or answer collections fail instead of silently truncating (4.893209ms)\n✔ the actual load/save effect preserves raw backup after an oversized snapshot error (8.99625ms)\nℹ tests 45\nℹ suites 0\nℹ pass 45\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 1294.186417\n"
+    },
+    {
+      "name": "diff",
+      "command": "git diff --check",
+      "exitCode": 0,
+      "elapsedMs": 38,
+      "output": ""
+    },
+    {
+      "name": "seo",
+      "command": "node scripts/check-seo.mjs --base http://127.0.0.1:3000 --canonical http://127.0.0.1:3000 --output reports/sidebar-performance/seo-after.json",
+      "exitCode": 0,
+      "elapsedMs": 3420,
+      "output": "SEO HTTP checks passed: 388 pages, 314 lessons, 42 projects, 0 sitemap URLs; redirects, 404, SSR, metadata and social image.\n"
+    }
+  ],
+  "tests": {
+    "total": 45,
+    "passed": 45,
+    "failed": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "seoSummary": {
+    "pages": 388,
+    "lessons": 314,
+    "specializations": 13,
+    "assessments": 13,
+    "projects": 42,
+    "sitemapUrls": 0,
+    "image": "1200x630 PNG",
+    "status": "passed"
+  },
+  "notes": [
+    "Verification ran against the final production build after the focus and course-sidebar visibility fixes.",
+    "Empty sitemap and noindex are expected for the local preview configuration.",
+    "The progress tests execute the current parser and load/save effects. Browser interaction regression is recorded separately.",
+    "The content fixtures validate catalog and cache behavior; no course publication was changed."
+  ]
+}

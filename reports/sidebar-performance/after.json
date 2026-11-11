@@ -1,0 +1,1223 @@
+{
+  "startedAt": "2026-11-11T05:08:42.084Z",
+  "checkedAt": "2026-11-11T05:08:42.779Z",
+  "label": "after",
+  "base": "http://127.0.0.1:3000",
+  "status": "passed",
+  "gitHead": "594a75907e0829a14a02fdd19c029bce22b2226d",
+  "serverBuildId": "iOQPdKY4IKUDQq02ucgt8",
+  "nextVersion": "16.3.4",
+  "methodology": {
+    "warmupRequestsPerCase": 3,
+    "measuredRequestsPerCase": 8,
+    "sequential": true,
+    "transport": "Node fetch on loopback; keep-alive; Accept-Encoding identity; no browser/network/CPU throttling",
+    "gitIdentity": "gitHead identifies the checkout base, not proof that uncommitted source equals the running server. serverBuildId is read from this server Flight response.",
+    "rsc": "RSC:1 + Next-Router-State-Tree serialized by the installed Next helper from the server's actual source route flight tree + Next-Url + installed Next cache-busting query helper",
+    "sourceRoute": "/bai-hoc/backend-http",
+    "sourceRouterTree": [
+      "",
+      {
+        "children": [
+          "(learn)",
+          {
+            "children": [
+              [
+                "path",
+                "bai-hoc/backend-http",
+                "c",
+                [
+                  "api",
+                  "auth",
+                  "opengraph-image"
+                ]
+              ],
+              {
+                "children": [
+                  "__PAGE__",
+                  {},
+                  null,
+                  null,
+                  4096
+                ]
+              },
+              null,
+              null,
+              4096
+            ]
+          },
+          null,
+          null,
+          4096
+        ]
+      },
+      null,
+      null,
+      4112
+    ],
+    "compression": "Offline sizes of representative response: gzip level6 / Brotli quality4; estimates, not observed wire transfer bytes",
+    "cache": "Requests are no-store; the application can serve or revalidate its process-local catalog cache. Warm-up does not establish a cold Supabase miss or an expired-publication check.",
+    "initialObservedRequest": {
+      "ttfbMs": 17.36,
+      "totalMs": 18.5,
+      "rawBytes": 238023,
+      "coldCacheGuaranteed": false
+    },
+    "timing": "TTFB is time until response headers; completeBody includes receiving the entire body. p95 is nearest-rank over a small sample, not a production SLO.",
+    "browserLimitations": "Does not measure click-to-paint, React commits, sidebar identity/scroll, INP, LCP or browser cache reuse; those require separate UI evidence.",
+    "actualGzipNegotiation": {
+      "status": 200,
+      "contentEncoding": "gzip"
+    }
+  },
+  "results": [
+    {
+      "path": "/khoa-hoc/nen-tang",
+      "mode": "html",
+      "from": null,
+      "status": "passed",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 355815,
+        "gzipBytes": 69649,
+        "brotliBytes": 67519
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 8.23,
+          "p95": 10.73,
+          "min": 7.16,
+          "max": 10.73
+        },
+        "completeBody": {
+          "median": 8.47,
+          "p95": 11.27,
+          "min": 7.41,
+          "max": 11.27
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 8.89,
+          "totalMs": 9.12,
+          "rawBytes": 355815
+        },
+        {
+          "ttfbMs": 8.85,
+          "totalMs": 9.15,
+          "rawBytes": 355815
+        },
+        {
+          "ttfbMs": 8.01,
+          "totalMs": 8.36,
+          "rawBytes": 355815
+        },
+        {
+          "ttfbMs": 8.23,
+          "totalMs": 8.47,
+          "rawBytes": 355815
+        },
+        {
+          "ttfbMs": 7.87,
+          "totalMs": 8.09,
+          "rawBytes": 355815
+        },
+        {
+          "ttfbMs": 8.29,
+          "totalMs": 8.97,
+          "rawBytes": 355815
+        },
+        {
+          "ttfbMs": 10.73,
+          "totalMs": 11.27,
+          "rawBytes": 355815
+        },
+        {
+          "ttfbMs": 7.16,
+          "totalMs": 7.41,
+          "rawBytes": 355815
+        }
+      ]
+    },
+    {
+      "path": "/khoa-hoc/nen-tang",
+      "mode": "rsc",
+      "from": "/bai-hoc/backend-http",
+      "status": "passed",
+      "headers": {
+        "content-type": "text/x-component",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 11605,
+        "gzipBytes": 2298,
+        "brotliBytes": 2264
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 1.05,
+          "p95": 1.15,
+          "min": 0.92,
+          "max": 1.15
+        },
+        "completeBody": {
+          "median": 1.11,
+          "p95": 1.2,
+          "min": 0.96,
+          "max": 1.2
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 1.08,
+          "totalMs": 1.13,
+          "rawBytes": 11605
+        },
+        {
+          "ttfbMs": 0.92,
+          "totalMs": 0.96,
+          "rawBytes": 11605
+        },
+        {
+          "ttfbMs": 1.15,
+          "totalMs": 1.2,
+          "rawBytes": 11605
+        },
+        {
+          "ttfbMs": 1.07,
+          "totalMs": 1.13,
+          "rawBytes": 11605
+        },
+        {
+          "ttfbMs": 0.96,
+          "totalMs": 1,
+          "rawBytes": 11605
+        },
+        {
+          "ttfbMs": 1.05,
+          "totalMs": 1.11,
+          "rawBytes": 11605
+        },
+        {
+          "ttfbMs": 0.96,
+          "totalMs": 1,
+          "rawBytes": 11605
+        },
+        {
+          "ttfbMs": 1.12,
+          "totalMs": 1.17,
+          "rawBytes": 11605
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/ownership",
+      "mode": "html",
+      "from": null,
+      "status": "passed",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 303426,
+        "gzipBytes": 69525,
+        "brotliBytes": 68511
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 5.99,
+          "p95": 7.02,
+          "min": 5.65,
+          "max": 7.02
+        },
+        "completeBody": {
+          "median": 6.22,
+          "p95": 7.27,
+          "min": 5.84,
+          "max": 7.27
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 5.99,
+          "totalMs": 6.22,
+          "rawBytes": 303426
+        },
+        {
+          "ttfbMs": 5.94,
+          "totalMs": 6.17,
+          "rawBytes": 303426
+        },
+        {
+          "ttfbMs": 7.02,
+          "totalMs": 7.27,
+          "rawBytes": 303426
+        },
+        {
+          "ttfbMs": 5.77,
+          "totalMs": 6.01,
+          "rawBytes": 303426
+        },
+        {
+          "ttfbMs": 6.86,
+          "totalMs": 7.08,
+          "rawBytes": 303426
+        },
+        {
+          "ttfbMs": 6.08,
+          "totalMs": 6.37,
+          "rawBytes": 303426
+        },
+        {
+          "ttfbMs": 6.05,
+          "totalMs": 6.28,
+          "rawBytes": 303426
+        },
+        {
+          "ttfbMs": 5.65,
+          "totalMs": 5.84,
+          "rawBytes": 303426
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/ownership",
+      "mode": "rsc",
+      "from": "/bai-hoc/backend-http",
+      "status": "passed",
+      "headers": {
+        "content-type": "text/x-component",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 9317,
+        "gzipBytes": 3295,
+        "brotliBytes": 3373
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 0.84,
+          "p95": 0.94,
+          "min": 0.71,
+          "max": 0.94
+        },
+        "completeBody": {
+          "median": 0.92,
+          "p95": 1,
+          "min": 0.75,
+          "max": 1
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 0.88,
+          "totalMs": 0.92,
+          "rawBytes": 9317
+        },
+        {
+          "ttfbMs": 0.84,
+          "totalMs": 0.88,
+          "rawBytes": 9317
+        },
+        {
+          "ttfbMs": 0.8,
+          "totalMs": 0.85,
+          "rawBytes": 9317
+        },
+        {
+          "ttfbMs": 0.71,
+          "totalMs": 0.75,
+          "rawBytes": 9317
+        },
+        {
+          "ttfbMs": 0.94,
+          "totalMs": 1,
+          "rawBytes": 9317
+        },
+        {
+          "ttfbMs": 0.88,
+          "totalMs": 0.94,
+          "rawBytes": 9317
+        },
+        {
+          "ttfbMs": 0.91,
+          "totalMs": 0.95,
+          "rawBytes": 9317
+        },
+        {
+          "ttfbMs": 0.84,
+          "totalMs": 0.92,
+          "rawBytes": 9317
+        }
+      ]
+    },
+    {
+      "path": "/khoa-hoc/backend",
+      "mode": "html",
+      "from": null,
+      "status": "passed",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 315186,
+        "gzipBytes": 71693,
+        "brotliBytes": 71626
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 6.18,
+          "p95": 7.75,
+          "min": 5.58,
+          "max": 7.75
+        },
+        "completeBody": {
+          "median": 6.35,
+          "p95": 7.91,
+          "min": 5.76,
+          "max": 7.91
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 6.18,
+          "totalMs": 6.32,
+          "rawBytes": 315186
+        },
+        {
+          "ttfbMs": 6.44,
+          "totalMs": 6.63,
+          "rawBytes": 315186
+        },
+        {
+          "ttfbMs": 7.75,
+          "totalMs": 7.91,
+          "rawBytes": 315186
+        },
+        {
+          "ttfbMs": 6.13,
+          "totalMs": 6.35,
+          "rawBytes": 315186
+        },
+        {
+          "ttfbMs": 5.58,
+          "totalMs": 5.76,
+          "rawBytes": 315186
+        },
+        {
+          "ttfbMs": 5.87,
+          "totalMs": 6.03,
+          "rawBytes": 315186
+        },
+        {
+          "ttfbMs": 6.3,
+          "totalMs": 6.44,
+          "rawBytes": 315186
+        },
+        {
+          "ttfbMs": 7.24,
+          "totalMs": 7.43,
+          "rawBytes": 315186
+        }
+      ]
+    },
+    {
+      "path": "/khoa-hoc/backend",
+      "mode": "rsc",
+      "from": "/bai-hoc/backend-http",
+      "status": "passed",
+      "headers": {
+        "content-type": "text/x-component",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 35514,
+        "gzipBytes": 10656,
+        "brotliBytes": 11121
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 2.66,
+          "p95": 13.72,
+          "min": 1,
+          "max": 13.72
+        },
+        "completeBody": {
+          "median": 2.88,
+          "p95": 13.83,
+          "min": 1.03,
+          "max": 13.83
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 1,
+          "totalMs": 1.03,
+          "rawBytes": 35514
+        },
+        {
+          "ttfbMs": 3.14,
+          "totalMs": 3.22,
+          "rawBytes": 35514
+        },
+        {
+          "ttfbMs": 13.72,
+          "totalMs": 13.83,
+          "rawBytes": 35514
+        },
+        {
+          "ttfbMs": 8.14,
+          "totalMs": 12.92,
+          "rawBytes": 35514
+        },
+        {
+          "ttfbMs": 10.13,
+          "totalMs": 10.31,
+          "rawBytes": 35514
+        },
+        {
+          "ttfbMs": 2.04,
+          "totalMs": 2.14,
+          "rawBytes": 35514
+        },
+        {
+          "ttfbMs": 2.65,
+          "totalMs": 2.71,
+          "rawBytes": 35514
+        },
+        {
+          "ttfbMs": 2.66,
+          "totalMs": 2.88,
+          "rawBytes": 35514
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/backend-domain-boundaries",
+      "mode": "html",
+      "from": null,
+      "status": "passed",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 295752,
+        "gzipBytes": 68714,
+        "brotliBytes": 67493
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 5.15,
+          "p95": 6.95,
+          "min": 5.09,
+          "max": 6.95
+        },
+        "completeBody": {
+          "median": 5.31,
+          "p95": 7.1,
+          "min": 5.24,
+          "max": 7.1
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 6.95,
+          "totalMs": 7.1,
+          "rawBytes": 295752
+        },
+        {
+          "ttfbMs": 5.29,
+          "totalMs": 5.42,
+          "rawBytes": 295752
+        },
+        {
+          "ttfbMs": 5.15,
+          "totalMs": 5.31,
+          "rawBytes": 295752
+        },
+        {
+          "ttfbMs": 5.09,
+          "totalMs": 5.24,
+          "rawBytes": 295752
+        },
+        {
+          "ttfbMs": 5.1,
+          "totalMs": 5.24,
+          "rawBytes": 295752
+        },
+        {
+          "ttfbMs": 6.02,
+          "totalMs": 6.18,
+          "rawBytes": 295752
+        },
+        {
+          "ttfbMs": 5.4,
+          "totalMs": 5.57,
+          "rawBytes": 295752
+        },
+        {
+          "ttfbMs": 5.13,
+          "totalMs": 5.27,
+          "rawBytes": 295752
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/backend-domain-boundaries",
+      "mode": "rsc",
+      "from": "/bai-hoc/backend-http",
+      "status": "passed",
+      "headers": {
+        "content-type": "text/x-component",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 12323,
+        "gzipBytes": 4125,
+        "brotliBytes": 4275
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 0.6,
+          "p95": 0.77,
+          "min": 0.59,
+          "max": 0.77
+        },
+        "completeBody": {
+          "median": 0.64,
+          "p95": 0.81,
+          "min": 0.62,
+          "max": 0.81
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 0.59,
+          "totalMs": 0.62,
+          "rawBytes": 12323
+        },
+        {
+          "ttfbMs": 0.77,
+          "totalMs": 0.81,
+          "rawBytes": 12323
+        },
+        {
+          "ttfbMs": 0.6,
+          "totalMs": 0.63,
+          "rawBytes": 12323
+        },
+        {
+          "ttfbMs": 0.68,
+          "totalMs": 0.73,
+          "rawBytes": 12323
+        },
+        {
+          "ttfbMs": 0.64,
+          "totalMs": 0.71,
+          "rawBytes": 12323
+        },
+        {
+          "ttfbMs": 0.61,
+          "totalMs": 0.65,
+          "rawBytes": 12323
+        },
+        {
+          "ttfbMs": 0.59,
+          "totalMs": 0.64,
+          "rawBytes": 12323
+        },
+        {
+          "ttfbMs": 0.6,
+          "totalMs": 0.64,
+          "rawBytes": 12323
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/backend-outbox",
+      "mode": "html",
+      "from": null,
+      "status": "passed",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 301072,
+        "gzipBytes": 69475,
+        "brotliBytes": 68404
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 5.31,
+          "p95": 6.3,
+          "min": 4.96,
+          "max": 6.3
+        },
+        "completeBody": {
+          "median": 5.44,
+          "p95": 6.48,
+          "min": 5.11,
+          "max": 6.48
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 4.99,
+          "totalMs": 5.11,
+          "rawBytes": 301072
+        },
+        {
+          "ttfbMs": 5.33,
+          "totalMs": 5.47,
+          "rawBytes": 301072
+        },
+        {
+          "ttfbMs": 4.96,
+          "totalMs": 5.12,
+          "rawBytes": 301072
+        },
+        {
+          "ttfbMs": 6.3,
+          "totalMs": 6.48,
+          "rawBytes": 301072
+        },
+        {
+          "ttfbMs": 5.65,
+          "totalMs": 5.8,
+          "rawBytes": 301072
+        },
+        {
+          "ttfbMs": 5.31,
+          "totalMs": 5.44,
+          "rawBytes": 301072
+        },
+        {
+          "ttfbMs": 5.15,
+          "totalMs": 5.29,
+          "rawBytes": 301072
+        },
+        {
+          "ttfbMs": 5.35,
+          "totalMs": 5.49,
+          "rawBytes": 301072
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/backend-outbox",
+      "mode": "rsc",
+      "from": "/bai-hoc/backend-http",
+      "status": "passed",
+      "headers": {
+        "content-type": "text/x-component",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 14101,
+        "gzipBytes": 4428,
+        "brotliBytes": 4594
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 0.72,
+          "p95": 1.47,
+          "min": 0.59,
+          "max": 1.47
+        },
+        "completeBody": {
+          "median": 0.76,
+          "p95": 1.52,
+          "min": 0.61,
+          "max": 1.52
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 0.8,
+          "totalMs": 0.86,
+          "rawBytes": 14101
+        },
+        {
+          "ttfbMs": 0.78,
+          "totalMs": 0.82,
+          "rawBytes": 14101
+        },
+        {
+          "ttfbMs": 0.74,
+          "totalMs": 0.77,
+          "rawBytes": 14101
+        },
+        {
+          "ttfbMs": 1.47,
+          "totalMs": 1.52,
+          "rawBytes": 14101
+        },
+        {
+          "ttfbMs": 0.72,
+          "totalMs": 0.76,
+          "rawBytes": 14101
+        },
+        {
+          "ttfbMs": 0.67,
+          "totalMs": 0.68,
+          "rawBytes": 14101
+        },
+        {
+          "ttfbMs": 0.64,
+          "totalMs": 0.66,
+          "rawBytes": 14101
+        },
+        {
+          "ttfbMs": 0.59,
+          "totalMs": 0.61,
+          "rawBytes": 14101
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/backend-service-project",
+      "mode": "html",
+      "from": null,
+      "status": "passed",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 386418,
+        "gzipBytes": 94309,
+        "brotliBytes": 92103
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 5.63,
+          "p95": 6.61,
+          "min": 5.4,
+          "max": 6.61
+        },
+        "completeBody": {
+          "median": 5.8,
+          "p95": 6.79,
+          "min": 5.55,
+          "max": 6.79
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 6.37,
+          "totalMs": 6.52,
+          "rawBytes": 386418
+        },
+        {
+          "ttfbMs": 5.61,
+          "totalMs": 5.76,
+          "rawBytes": 386418
+        },
+        {
+          "ttfbMs": 5.4,
+          "totalMs": 5.55,
+          "rawBytes": 386418
+        },
+        {
+          "ttfbMs": 5.46,
+          "totalMs": 5.63,
+          "rawBytes": 386418
+        },
+        {
+          "ttfbMs": 5.66,
+          "totalMs": 5.85,
+          "rawBytes": 386418
+        },
+        {
+          "ttfbMs": 6.61,
+          "totalMs": 6.79,
+          "rawBytes": 386418
+        },
+        {
+          "ttfbMs": 5.79,
+          "totalMs": 5.97,
+          "rawBytes": 386418
+        },
+        {
+          "ttfbMs": 5.63,
+          "totalMs": 5.8,
+          "rawBytes": 386418
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/backend-service-project",
+      "mode": "rsc",
+      "from": "/bai-hoc/backend-http",
+      "status": "passed",
+      "headers": {
+        "content-type": "text/x-component",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 92125,
+        "gzipBytes": 28206,
+        "brotliBytes": 28087
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 0.76,
+          "p95": 0.9,
+          "min": 0.7,
+          "max": 0.9
+        },
+        "completeBody": {
+          "median": 0.82,
+          "p95": 0.97,
+          "min": 0.75,
+          "max": 0.97
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 0.76,
+          "totalMs": 0.82,
+          "rawBytes": 92125
+        },
+        {
+          "ttfbMs": 0.78,
+          "totalMs": 0.84,
+          "rawBytes": 92125
+        },
+        {
+          "ttfbMs": 0.7,
+          "totalMs": 0.75,
+          "rawBytes": 92125
+        },
+        {
+          "ttfbMs": 0.8,
+          "totalMs": 0.88,
+          "rawBytes": 92125
+        },
+        {
+          "ttfbMs": 0.73,
+          "totalMs": 0.78,
+          "rawBytes": 92125
+        },
+        {
+          "ttfbMs": 0.9,
+          "totalMs": 0.97,
+          "rawBytes": 92125
+        },
+        {
+          "ttfbMs": 0.77,
+          "totalMs": 0.83,
+          "rawBytes": 92125
+        },
+        {
+          "ttfbMs": 0.71,
+          "totalMs": 0.76,
+          "rawBytes": 92125
+        }
+      ]
+    }
+  ],
+  "initialAssets": [
+    {
+      "path": "/khoa-hoc/nen-tang",
+      "requests": 14,
+      "js": {
+        "rawBytes": 634450,
+        "gzipBytes": 199338,
+        "brotliBytes": 200823
+      },
+      "css": {
+        "rawBytes": 120357,
+        "gzipBytes": 19743,
+        "brotliBytes": 20125
+      }
+    },
+    {
+      "path": "/bai-hoc/ownership",
+      "requests": 17,
+      "js": {
+        "rawBytes": 693696,
+        "gzipBytes": 216956,
+        "brotliBytes": 219246
+      },
+      "css": {
+        "rawBytes": 154182,
+        "gzipBytes": 26878,
+        "brotliBytes": 27606
+      }
+    },
+    {
+      "path": "/khoa-hoc/backend",
+      "requests": 16,
+      "js": {
+        "rawBytes": 641380,
+        "gzipBytes": 200942,
+        "brotliBytes": 202472
+      },
+      "css": {
+        "rawBytes": 137909,
+        "gzipBytes": 23300,
+        "brotliBytes": 23720
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-domain-boundaries",
+      "requests": 17,
+      "js": {
+        "rawBytes": 693696,
+        "gzipBytes": 216956,
+        "brotliBytes": 219246
+      },
+      "css": {
+        "rawBytes": 154182,
+        "gzipBytes": 26878,
+        "brotliBytes": 27606
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-outbox",
+      "requests": 17,
+      "js": {
+        "rawBytes": 693696,
+        "gzipBytes": 216956,
+        "brotliBytes": 219246
+      },
+      "css": {
+        "rawBytes": 154182,
+        "gzipBytes": 26878,
+        "brotliBytes": 27606
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-service-project",
+      "requests": 17,
+      "js": {
+        "rawBytes": 693696,
+        "gzipBytes": 216956,
+        "brotliBytes": 219246
+      },
+      "css": {
+        "rawBytes": 154182,
+        "gzipBytes": 26878,
+        "brotliBytes": 27606
+      }
+    }
+  ],
+  "assets": [
+    {
+      "path": "/_next/static/chunks/0f6q1gu48r938.css",
+      "type": "css",
+      "rawBytes": 120357,
+      "gzipBytes": 19743,
+      "brotliBytes": 20125,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/3mc6dra1m0098.js",
+      "type": "js",
+      "rawBytes": 12653,
+      "gzipBytes": 3551,
+      "brotliBytes": 3588,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/11jq0c2_zavac.js",
+      "type": "js",
+      "rawBytes": 31917,
+      "gzipBytes": 8505,
+      "brotliBytes": 8743,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/1mh6a-0e61pyc.js",
+      "type": "js",
+      "rawBytes": 229156,
+      "gzipBytes": 71641,
+      "brotliBytes": 71509,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/2e_32g43rjawq.js",
+      "type": "js",
+      "rawBytes": 155442,
+      "gzipBytes": 42674,
+      "brotliBytes": 42384,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-2s4_1e_3f-hwc.js",
+      "type": "js",
+      "rawBytes": 10946,
+      "gzipBytes": 4306,
+      "brotliBytes": 4391,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/3fntmmi971322.js",
+      "type": "js",
+      "rawBytes": 14377,
+      "gzipBytes": 3665,
+      "brotliBytes": 3747,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/23t3jawxv2o0-.js",
+      "type": "js",
+      "rawBytes": 9683,
+      "gzipBytes": 4014,
+      "brotliBytes": 4074,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/22i43cg4l4-dq.js",
+      "type": "js",
+      "rawBytes": 8868,
+      "gzipBytes": 3592,
+      "brotliBytes": 3668,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/40djgj1dr-5ap.js",
+      "type": "js",
+      "rawBytes": 282,
+      "gzipBytes": 227,
+      "brotliBytes": 203,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/37cf4h3n0i99n.js",
+      "type": "js",
+      "rawBytes": 39317,
+      "gzipBytes": 13762,
+      "brotliBytes": 14086,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/285o-xbn9flfy.js",
+      "type": "js",
+      "rawBytes": 4593,
+      "gzipBytes": 1773,
+      "brotliBytes": 1759,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/3u129wnzrzqy7.js",
+      "type": "js",
+      "rawBytes": 4622,
+      "gzipBytes": 2155,
+      "brotliBytes": 2176,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+      "type": "js",
+      "rawBytes": 112594,
+      "gzipBytes": 39473,
+      "brotliBytes": 40495,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/1umoklr-_fl_v.css",
+      "type": "css",
+      "rawBytes": 934,
+      "gzipBytes": 459,
+      "brotliBytes": 429,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/42xe9vio5rke0.css",
+      "type": "css",
+      "rawBytes": 32891,
+      "gzipBytes": 6676,
+      "brotliBytes": 7052,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/1pc7-dtdi89be.js",
+      "type": "js",
+      "rawBytes": 16147,
+      "gzipBytes": 5625,
+      "brotliBytes": 5914,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/13io0kxfw0u0t.js",
+      "type": "js",
+      "rawBytes": 47721,
+      "gzipBytes": 14148,
+      "brotliBytes": 14685,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/0tsw8ssizx4z5.css",
+      "type": "css",
+      "rawBytes": 16618,
+      "gzipBytes": 3098,
+      "brotliBytes": 3166,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/1ci6ya_-99t6f.js",
+      "type": "js",
+      "rawBytes": 11552,
+      "gzipBytes": 3759,
+      "brotliBytes": 3825,
+      "cacheControl": "public, max-age=31536000, immutable"
+    }
+  ]
+}

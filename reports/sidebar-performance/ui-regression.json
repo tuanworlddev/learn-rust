@@ -1,0 +1,147 @@
+{
+  "checkedAt": "2026-11-11T05:14:00.359Z",
+  "status": "passed",
+  "base": "http://127.0.0.1:3000",
+  "buildId": "iOQPdKY4IKUDQq02ucgt8",
+  "method": "Real Chrome browser interactions through the connected browser; DOM state and geometry inspected after navigation.",
+  "beforeFix": {
+    "expandedBefore": [
+      "01",
+      "02",
+      "05"
+    ],
+    "expandedAfter": [
+      "05"
+    ],
+    "scrollBefore": 392,
+    "scrollAfter": 0
+  },
+  "finalChecks": {
+    "directLesson": [
+      {
+        "active": {
+          "bottom": 742.203125,
+          "top": 686.359375
+        },
+        "activeText": "5.2Outbox, worker và xử lý sự kiện ít nhất một lần",
+        "activeVisible": true,
+        "nav": {
+          "bottom": 742.203125,
+          "top": 341.015625
+        },
+        "scroll": 1,
+        "step": "direct-lesson"
+      }
+    ],
+    "sameCourse": [
+      {
+        "expanded": [
+          "01Thiết kế dịch vụ và runtime",
+          "02Hợp đồng HTTP và API đầu tiên",
+          "05Giao tiếp và công việc nền"
+        ],
+        "progress": "1/18 bài hoàn thành",
+        "scroll": 489.5,
+        "step": "before-click"
+      },
+      {
+        "expanded": [
+          "01Thiết kế dịch vụ và runtime",
+          "02Hợp đồng HTTP và API đầu tiên",
+          "05Giao tiếp và công việc nền"
+        ],
+        "heading": "Outbox, worker và xử lý sự kiện ít nhất một lần",
+        "progress": "1/18 bài hoàn thành",
+        "scroll": 489.5,
+        "step": "after-click"
+      }
+    ],
+    "historyWithSettings": [
+      {
+        "bodyOverflow": "",
+        "dialogs": 0,
+        "expanded": [
+          "01Thiết kế dịch vụ và runtime",
+          "02Hợp đồng HTTP và API đầu tiên",
+          "05Giao tiếp và công việc nền"
+        ],
+        "focusId": "main-content",
+        "heading": "Từ yêu cầu sản phẩm đến ranh giới nghiệp vụ",
+        "mainInert": false,
+        "scroll": 489.5,
+        "step": "back-from-settings"
+      }
+    ],
+    "ordinaryModalAndForward": [
+      {
+        "focusId": "main-content",
+        "heading": "Outbox, worker và xử lý sự kiện ít nhất một lần",
+        "scroll": 489.5,
+        "step": "forward"
+      },
+      {
+        "dialogs": 0,
+        "focusLabel": "Cài đặt",
+        "focusTag": "BUTTON",
+        "step": "ordinary-settings-close"
+      }
+    ],
+    "crossCourseSearch": [
+      {
+        "active": {
+          "bottom": 396.859375,
+          "top": 341.015625
+        },
+        "activeText": "4.1Ownership: Ai sở hữu dữ liệu?",
+        "activeVisible": true,
+        "course": "Kiến thức nền tảng",
+        "dialogs": 0,
+        "heading": "Ownership: Ai sở hữu dữ liệu?",
+        "nav": {
+          "bottom": 742.203125,
+          "top": 341.015625
+        },
+        "scroll": 191.5,
+        "step": "search-cross-course"
+      }
+    ],
+    "themeAndFoundationNavigation": [
+      {
+        "chapterText": "4.1Ownership: Ai sở hữu dữ liệu?4.2Borrowing & Tham chiếu4.3Slice: Mượn một phần dữ liệu4.4Lifetime: Tham chiếu sống bao lâu?",
+        "scroll": 191.5,
+        "theme": "light"
+      },
+      {
+        "theme": "dark"
+      },
+      {
+        "expanded": [
+          "04Ownership & Borrowing"
+        ],
+        "heading": "Borrowing & Tham chiếu",
+        "scroll": 191.5,
+        "step": "foundation-next",
+        "theme": "dark"
+      }
+    ],
+    "endStateAndConsole": [
+      {
+        "heading": "Ownership: Ai sở hữu dữ liệu?",
+        "progress": "0/80 bài hoàn thành",
+        "scroll": 191.5,
+        "theme": "light"
+      },
+      []
+    ]
+  },
+  "allReportedUiRegressionsResolved": true,
+  "notes": [
+    "The sidebar preserves expanded chapters and scroll for navigation within a course.",
+    "When the course changes, the active lesson is brought into the visible sidebar area without scrolling the document.",
+    "History navigation from an open Settings dialog focuses the new main content; ordinary dialog closing restores its trigger.",
+    "No browser INP, LCP, click-to-paint or React commit count was measured.",
+    "The viewport differs from the initial baseline; preservation is asserted by comparing before/after in the same run."
+  ],
+  "screenshot": "sidebar-after.jpg",
+  "screenshotSha256": "30b553ac19e313e7d2594836701e13cf57a396045937b2ea84c03191bc1c8d96"
+}

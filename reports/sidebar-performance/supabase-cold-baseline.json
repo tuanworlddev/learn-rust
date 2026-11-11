@@ -1,0 +1,82 @@
+{
+  "checkedAt": "2026-11-11T04:25:20.065Z",
+  "status": "passed",
+  "methodology": {
+    "loader": "fetchPublishedCatalog",
+    "loaderSha256": "5ceaa3d063a2203e7cb904683b526f0f87f6dbe94d702551ffbbb04bb59e94af",
+    "calls": 3,
+    "process": "One separate Node process, 3 direct uncached loader calls; no createPublishedCatalogReader wrapper and no process 3000 mutation",
+    "configuration": "Read publishable config from loopback public-config endpoint into memory only; no key or environment values saved",
+    "transport": "Supabase HTTPS; first call may include DNS/TLS setup, subsequent calls may reuse connections",
+    "instrumentation": "A counting ReadableStream forwards decoded response bytes to the unchanged loader. No duplicate body/clone read. Total includes fetch, JSON parse and validateCatalog.",
+    "byteMeaning": "decoded response bytes observed by Fetch; content-encoding retained for context; not exact compressed wire bytes",
+    "scope": "Measures uncached loader cost, not full page rendering/browser metrics and not a forced restart or TTL miss inside live server 3000"
+  },
+  "medianTotalMs": 1118.79,
+  "rangeTotalMs": [
+    825.55,
+    1932.94
+  ],
+  "results": [
+    {
+      "run": 1,
+      "status": "passed",
+      "requestCount": 1,
+      "totalMs": 1932.94,
+      "lessons": 314,
+      "courses": 13,
+      "catalogSha256": "7159c3cba97d65732116d0ddaf92656b0cad5e5c20ea60fe697e9eadc2b2bc65",
+      "requests": [
+        {
+          "status": 200,
+          "decodedBytes": 2945450,
+          "ttfbMs": 1393.64,
+          "bodyCompleteMs": 1904.08,
+          "contentType": "application/json; charset=utf-8",
+          "contentEncoding": "gzip",
+          "declaredContentLength": null
+        }
+      ]
+    },
+    {
+      "run": 2,
+      "status": "passed",
+      "requestCount": 1,
+      "totalMs": 1118.79,
+      "lessons": 314,
+      "courses": 13,
+      "catalogSha256": "7159c3cba97d65732116d0ddaf92656b0cad5e5c20ea60fe697e9eadc2b2bc65",
+      "requests": [
+        {
+          "status": 200,
+          "decodedBytes": 2945450,
+          "ttfbMs": 557.89,
+          "bodyCompleteMs": 1103.49,
+          "contentType": "application/json; charset=utf-8",
+          "contentEncoding": "gzip",
+          "declaredContentLength": null
+        }
+      ]
+    },
+    {
+      "run": 3,
+      "status": "passed",
+      "requestCount": 1,
+      "totalMs": 825.55,
+      "lessons": 314,
+      "courses": 13,
+      "catalogSha256": "7159c3cba97d65732116d0ddaf92656b0cad5e5c20ea60fe697e9eadc2b2bc65",
+      "requests": [
+        {
+          "status": 200,
+          "decodedBytes": 2945450,
+          "ttfbMs": 455.4,
+          "bodyCompleteMs": 799.02,
+          "contentType": "application/json; charset=utf-8",
+          "contentEncoding": "gzip",
+          "declaredContentLength": null
+        }
+      ]
+    }
+  ]
+}

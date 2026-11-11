@@ -1,0 +1,110 @@
+{
+  "checkedAt": "2026-11-11T04:30:55.083Z",
+  "status": "passed",
+  "methodology": {
+    "reader": "createPublishedCatalogReader with the default publication-aware loader",
+    "loaderSha256": "2ad7ded919da81f25055727e4e8571ad25dd369ef7c32ff024837ddff6c392fc",
+    "process": "Separate Node process; no server restart, application process mutation, database write or publication change",
+    "clock": "Injected monotonic clock advances exactly 30 seconds between reads to exercise expiration without a blocking sleep; HTTPS transport and loader code are real",
+    "requests": "One initial catalog read and three sequential expired-cache revalidations; publication changes are reported for review rather than treated as unchanged",
+    "timing": "Reader duration includes network, body read and any validation; report hashing is outside the measured interval",
+    "byteMeaning": "Decoded Fetch response bytes, not compressed wire bytes; content encoding is retained for context",
+    "configuration": "Publishable config read from loopback into memory; no key or environment values are saved",
+    "scope": "Loader behavior and network cost only; not browser, rendering, production SLO or the live server cache"
+  },
+  "medianRevalidationMs": 364.62,
+  "results": [
+    {
+      "phase": "initial-catalog",
+      "run": 0,
+      "status": "passed",
+      "totalMs": 1807.04,
+      "requestCount": 1,
+      "reusedInitialCatalog": null,
+      "lessons": 314,
+      "courses": 13,
+      "catalogSha256": "7159c3cba97d65732116d0ddaf92656b0cad5e5c20ea60fe697e9eadc2b2bc65",
+      "requests": [
+        {
+          "kind": "catalog",
+          "status": 200,
+          "decodedBytes": 2945450,
+          "ttfbMs": 1223.89,
+          "contentType": "application/json; charset=utf-8",
+          "contentEncoding": "gzip",
+          "declaredContentLength": null,
+          "bodyCompleteMs": 1768.34
+        }
+      ]
+    },
+    {
+      "phase": "expired-revalidation",
+      "run": 1,
+      "status": "passed",
+      "totalMs": 373.03,
+      "requestCount": 1,
+      "reusedInitialCatalog": true,
+      "lessons": 314,
+      "courses": 13,
+      "catalogSha256": "7159c3cba97d65732116d0ddaf92656b0cad5e5c20ea60fe697e9eadc2b2bc65",
+      "requests": [
+        {
+          "kind": "publication",
+          "status": 200,
+          "decodedBytes": 68,
+          "ttfbMs": 370.42,
+          "contentType": "application/json; charset=utf-8",
+          "contentEncoding": "br",
+          "declaredContentLength": null,
+          "bodyCompleteMs": 372.7
+        }
+      ]
+    },
+    {
+      "phase": "expired-revalidation",
+      "run": 2,
+      "status": "passed",
+      "totalMs": 364.62,
+      "requestCount": 1,
+      "reusedInitialCatalog": true,
+      "lessons": 314,
+      "courses": 13,
+      "catalogSha256": "7159c3cba97d65732116d0ddaf92656b0cad5e5c20ea60fe697e9eadc2b2bc65",
+      "requests": [
+        {
+          "kind": "publication",
+          "status": 200,
+          "decodedBytes": 68,
+          "ttfbMs": 362.88,
+          "contentType": "application/json; charset=utf-8",
+          "contentEncoding": "br",
+          "declaredContentLength": null,
+          "bodyCompleteMs": 364.44
+        }
+      ]
+    },
+    {
+      "phase": "expired-revalidation",
+      "run": 3,
+      "status": "passed",
+      "totalMs": 139.44,
+      "requestCount": 1,
+      "reusedInitialCatalog": true,
+      "lessons": 314,
+      "courses": 13,
+      "catalogSha256": "7159c3cba97d65732116d0ddaf92656b0cad5e5c20ea60fe697e9eadc2b2bc65",
+      "requests": [
+        {
+          "kind": "publication",
+          "status": 200,
+          "decodedBytes": 68,
+          "ttfbMs": 138.6,
+          "contentType": "application/json; charset=utf-8",
+          "contentEncoding": "br",
+          "declaredContentLength": null,
+          "bodyCompleteMs": 139.34
+        }
+      ]
+    }
+  ]
+}

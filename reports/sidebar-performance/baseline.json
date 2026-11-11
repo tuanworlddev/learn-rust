@@ -1,0 +1,1191 @@
+{
+  "startedAt": "2026-11-11T04:18:23.978Z",
+  "checkedAt": "2026-11-11T04:18:24.840Z",
+  "label": "baseline",
+  "base": "http://127.0.0.1:3000",
+  "status": "passed",
+  "gitHead": "594a75907e0829a14a02fdd19c029bce22b2226d",
+  "nextVersion": "16.3.4",
+  "methodology": {
+    "warmupRequestsPerCase": 3,
+    "measuredRequestsPerCase": 8,
+    "sequential": true,
+    "transport": "Node fetch on loopback; keep-alive; Accept-Encoding identity; no browser/network/CPU throttling",
+    "rsc": "RSC:1 + Next-Router-State-Tree serialized by the installed Next helper from the server's actual source route flight tree + Next-Url + installed Next cache-busting query helper",
+    "sourceRoute": "/bai-hoc/backend-http",
+    "sourceRouterTree": [
+      "",
+      {
+        "children": [
+          [
+            "path",
+            "bai-hoc/backend-http",
+            "c",
+            [
+              "api",
+              "auth",
+              "opengraph-image"
+            ]
+          ],
+          {
+            "children": [
+              "__PAGE__",
+              {},
+              null,
+              null,
+              4096
+            ]
+          },
+          null,
+          null,
+          4096
+        ]
+      },
+      null,
+      null,
+      4112
+    ],
+    "compression": "Offline sizes of representative response: gzip level6 / Brotli quality4; estimates, not observed wire transfer bytes",
+    "cache": "Requests are no-store; application still reuses its validated Supabase catalog snapshot for up to30 seconds. Warm-up does not establish a cold Supabase miss.",
+    "initialObservedRequest": {
+      "ttfbMs": 16.91,
+      "totalMs": 18.12,
+      "rawBytes": 261664,
+      "coldCacheGuaranteed": false
+    },
+    "timing": "TTFB is time until response headers; completeBody includes receiving the entire body. p95 is nearest-rank over a small sample, not a production SLO.",
+    "browserLimitations": "Does not measure click-to-paint, React commits, sidebar identity/scroll, INP, LCP or browser cache reuse; those require separate UI evidence.",
+    "actualGzipNegotiation": {
+      "status": 200,
+      "contentEncoding": "gzip"
+    },
+    "gitIdentity": "gitHead identifies the checkout base. Server build ID was recorded after the timing run while verifying the same baseline app bundle was still served."
+  },
+  "results": [
+    {
+      "path": "/khoa-hoc/nen-tang",
+      "mode": "html",
+      "from": null,
+      "status": "passed",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 353533,
+        "gzipBytes": 68847,
+        "brotliBytes": 67161
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 8.79,
+          "p95": 12.57,
+          "min": 7.34,
+          "max": 12.57
+        },
+        "completeBody": {
+          "median": 9.05,
+          "p95": 13.1,
+          "min": 7.59,
+          "max": 13.1
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 9.02,
+          "totalMs": 9.61,
+          "rawBytes": 353533
+        },
+        {
+          "ttfbMs": 12.57,
+          "totalMs": 13.1,
+          "rawBytes": 353533
+        },
+        {
+          "ttfbMs": 9.93,
+          "totalMs": 10.17,
+          "rawBytes": 353533
+        },
+        {
+          "ttfbMs": 8.81,
+          "totalMs": 9.05,
+          "rawBytes": 353533
+        },
+        {
+          "ttfbMs": 8.42,
+          "totalMs": 8.68,
+          "rawBytes": 353533
+        },
+        {
+          "ttfbMs": 8.79,
+          "totalMs": 9.05,
+          "rawBytes": 353533
+        },
+        {
+          "ttfbMs": 7.34,
+          "totalMs": 7.59,
+          "rawBytes": 353533
+        },
+        {
+          "ttfbMs": 8.59,
+          "totalMs": 8.94,
+          "rawBytes": 353533
+        }
+      ]
+    },
+    {
+      "path": "/khoa-hoc/nen-tang",
+      "mode": "rsc",
+      "from": "/bai-hoc/backend-http",
+      "status": "passed",
+      "headers": {
+        "content-type": "text/x-component",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 231288,
+        "gzipBytes": 57349,
+        "brotliBytes": 57434
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 2.2,
+          "p95": 3.07,
+          "min": 2.01,
+          "max": 3.07
+        },
+        "completeBody": {
+          "median": 2.38,
+          "p95": 3.29,
+          "min": 2.2,
+          "max": 3.29
+        }
+      },
+      "serializedIndexMarkers": [
+        "hello-rust",
+        "wasm-bindings",
+        "game-ecs"
+      ],
+      "samples": [
+        {
+          "ttfbMs": 2.01,
+          "totalMs": 2.2,
+          "rawBytes": 231288
+        },
+        {
+          "ttfbMs": 2.11,
+          "totalMs": 2.32,
+          "rawBytes": 231288
+        },
+        {
+          "ttfbMs": 2.39,
+          "totalMs": 2.55,
+          "rawBytes": 231288
+        },
+        {
+          "ttfbMs": 2.2,
+          "totalMs": 2.38,
+          "rawBytes": 231288
+        },
+        {
+          "ttfbMs": 2.12,
+          "totalMs": 2.28,
+          "rawBytes": 231288
+        },
+        {
+          "ttfbMs": 2.44,
+          "totalMs": 2.61,
+          "rawBytes": 231288
+        },
+        {
+          "ttfbMs": 2.23,
+          "totalMs": 2.43,
+          "rawBytes": 231288
+        },
+        {
+          "ttfbMs": 3.07,
+          "totalMs": 3.29,
+          "rawBytes": 231288
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/ownership",
+      "mode": "html",
+      "from": null,
+      "status": "passed",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 300675,
+        "gzipBytes": 68838,
+        "brotliBytes": 68071
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 7.05,
+          "p95": 9.38,
+          "min": 6.63,
+          "max": 9.38
+        },
+        "completeBody": {
+          "median": 7.33,
+          "p95": 9.59,
+          "min": 6.82,
+          "max": 9.59
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 6.63,
+          "totalMs": 6.91,
+          "rawBytes": 300675
+        },
+        {
+          "ttfbMs": 7.37,
+          "totalMs": 7.59,
+          "rawBytes": 300675
+        },
+        {
+          "ttfbMs": 6.86,
+          "totalMs": 7.04,
+          "rawBytes": 300675
+        },
+        {
+          "ttfbMs": 6.68,
+          "totalMs": 6.82,
+          "rawBytes": 300675
+        },
+        {
+          "ttfbMs": 7.05,
+          "totalMs": 7.33,
+          "rawBytes": 300675
+        },
+        {
+          "ttfbMs": 9.38,
+          "totalMs": 9.59,
+          "rawBytes": 300675
+        },
+        {
+          "ttfbMs": 7.57,
+          "totalMs": 7.87,
+          "rawBytes": 300675
+        },
+        {
+          "ttfbMs": 7.38,
+          "totalMs": 7.63,
+          "rawBytes": 300675
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/ownership",
+      "mode": "rsc",
+      "from": "/bai-hoc/backend-http",
+      "status": "passed",
+      "headers": {
+        "content-type": "text/x-component",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 228890,
+        "gzipBytes": 58137,
+        "brotliBytes": 58483
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 2.04,
+          "p95": 2.91,
+          "min": 1.92,
+          "max": 2.91
+        },
+        "completeBody": {
+          "median": 2.18,
+          "p95": 3.06,
+          "min": 2.05,
+          "max": 3.06
+        }
+      },
+      "serializedIndexMarkers": [
+        "hello-rust",
+        "wasm-bindings",
+        "game-ecs"
+      ],
+      "samples": [
+        {
+          "ttfbMs": 2.1,
+          "totalMs": 2.21,
+          "rawBytes": 228890
+        },
+        {
+          "ttfbMs": 2.26,
+          "totalMs": 2.38,
+          "rawBytes": 228890
+        },
+        {
+          "ttfbMs": 2.01,
+          "totalMs": 2.13,
+          "rawBytes": 228890
+        },
+        {
+          "ttfbMs": 1.92,
+          "totalMs": 2.05,
+          "rawBytes": 228890
+        },
+        {
+          "ttfbMs": 2,
+          "totalMs": 2.15,
+          "rawBytes": 228890
+        },
+        {
+          "ttfbMs": 2.04,
+          "totalMs": 2.18,
+          "rawBytes": 228890
+        },
+        {
+          "ttfbMs": 2.91,
+          "totalMs": 3.06,
+          "rawBytes": 228890
+        },
+        {
+          "ttfbMs": 2.5,
+          "totalMs": 2.75,
+          "rawBytes": 228890
+        }
+      ]
+    },
+    {
+      "path": "/khoa-hoc/backend",
+      "mode": "html",
+      "from": null,
+      "status": "passed",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 312522,
+        "gzipBytes": 70982,
+        "brotliBytes": 71214
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 6.71,
+          "p95": 7.96,
+          "min": 6.11,
+          "max": 7.96
+        },
+        "completeBody": {
+          "median": 6.84,
+          "p95": 8.13,
+          "min": 6.25,
+          "max": 8.13
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 6.95,
+          "totalMs": 7.13,
+          "rawBytes": 312522
+        },
+        {
+          "ttfbMs": 6.71,
+          "totalMs": 6.84,
+          "rawBytes": 312522
+        },
+        {
+          "ttfbMs": 7.96,
+          "totalMs": 8.13,
+          "rawBytes": 312522
+        },
+        {
+          "ttfbMs": 6.27,
+          "totalMs": 6.43,
+          "rawBytes": 312522
+        },
+        {
+          "ttfbMs": 6.37,
+          "totalMs": 6.51,
+          "rawBytes": 312522
+        },
+        {
+          "ttfbMs": 6.11,
+          "totalMs": 6.25,
+          "rawBytes": 312522
+        },
+        {
+          "ttfbMs": 6.82,
+          "totalMs": 6.95,
+          "rawBytes": 312522
+        },
+        {
+          "ttfbMs": 7.24,
+          "totalMs": 7.37,
+          "rawBytes": 312522
+        }
+      ]
+    },
+    {
+      "path": "/khoa-hoc/backend",
+      "mode": "rsc",
+      "from": "/bai-hoc/backend-http",
+      "status": "passed",
+      "headers": {
+        "content-type": "text/x-component",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 252403,
+        "gzipBytes": 64436,
+        "brotliBytes": 64701
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 1.98,
+          "p95": 2.29,
+          "min": 1.78,
+          "max": 2.29
+        },
+        "completeBody": {
+          "median": 2.08,
+          "p95": 2.4,
+          "min": 1.87,
+          "max": 2.4
+        }
+      },
+      "serializedIndexMarkers": [
+        "hello-rust",
+        "wasm-bindings",
+        "game-ecs"
+      ],
+      "samples": [
+        {
+          "ttfbMs": 2.18,
+          "totalMs": 2.28,
+          "rawBytes": 252403
+        },
+        {
+          "ttfbMs": 2.29,
+          "totalMs": 2.4,
+          "rawBytes": 252403
+        },
+        {
+          "ttfbMs": 2.19,
+          "totalMs": 2.28,
+          "rawBytes": 252403
+        },
+        {
+          "ttfbMs": 1.99,
+          "totalMs": 2.09,
+          "rawBytes": 252403
+        },
+        {
+          "ttfbMs": 1.81,
+          "totalMs": 1.9,
+          "rawBytes": 252403
+        },
+        {
+          "ttfbMs": 1.78,
+          "totalMs": 1.87,
+          "rawBytes": 252403
+        },
+        {
+          "ttfbMs": 1.98,
+          "totalMs": 2.08,
+          "rawBytes": 252403
+        },
+        {
+          "ttfbMs": 1.9,
+          "totalMs": 2.02,
+          "rawBytes": 252403
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/backend-domain-boundaries",
+      "mode": "html",
+      "from": null,
+      "status": "passed",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 320199,
+        "gzipBytes": 75514,
+        "brotliBytes": 74647
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 6.2,
+          "p95": 7.72,
+          "min": 6,
+          "max": 7.72
+        },
+        "completeBody": {
+          "median": 6.39,
+          "p95": 7.91,
+          "min": 6.18,
+          "max": 7.91
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 6.32,
+          "totalMs": 6.52,
+          "rawBytes": 320199
+        },
+        {
+          "ttfbMs": 6,
+          "totalMs": 6.18,
+          "rawBytes": 320199
+        },
+        {
+          "ttfbMs": 6.2,
+          "totalMs": 6.39,
+          "rawBytes": 320199
+        },
+        {
+          "ttfbMs": 6.2,
+          "totalMs": 6.33,
+          "rawBytes": 320199
+        },
+        {
+          "ttfbMs": 7.72,
+          "totalMs": 7.91,
+          "rawBytes": 320199
+        },
+        {
+          "ttfbMs": 6.45,
+          "totalMs": 6.61,
+          "rawBytes": 320199
+        },
+        {
+          "ttfbMs": 6.17,
+          "totalMs": 6.3,
+          "rawBytes": 320199
+        },
+        {
+          "ttfbMs": 7.05,
+          "totalMs": 7.21,
+          "rawBytes": 320199
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/backend-domain-boundaries",
+      "mode": "rsc",
+      "from": "/bai-hoc/backend-http",
+      "status": "passed",
+      "headers": {
+        "content-type": "text/x-component",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 257603,
+        "gzipBytes": 66257,
+        "brotliBytes": 66288
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 2.2,
+          "p95": 3.42,
+          "min": 1.93,
+          "max": 3.42
+        },
+        "completeBody": {
+          "median": 2.3,
+          "p95": 3.6,
+          "min": 2.04,
+          "max": 3.6
+        }
+      },
+      "serializedIndexMarkers": [
+        "hello-rust",
+        "wasm-bindings",
+        "game-ecs"
+      ],
+      "samples": [
+        {
+          "ttfbMs": 2.89,
+          "totalMs": 3.02,
+          "rawBytes": 257603
+        },
+        {
+          "ttfbMs": 2.06,
+          "totalMs": 2.16,
+          "rawBytes": 257603
+        },
+        {
+          "ttfbMs": 2.09,
+          "totalMs": 2.19,
+          "rawBytes": 257603
+        },
+        {
+          "ttfbMs": 2.28,
+          "totalMs": 2.38,
+          "rawBytes": 257603
+        },
+        {
+          "ttfbMs": 2.2,
+          "totalMs": 2.31,
+          "rawBytes": 257603
+        },
+        {
+          "ttfbMs": 3.42,
+          "totalMs": 3.6,
+          "rawBytes": 257603
+        },
+        {
+          "ttfbMs": 2.2,
+          "totalMs": 2.3,
+          "rawBytes": 257603
+        },
+        {
+          "ttfbMs": 1.93,
+          "totalMs": 2.04,
+          "rawBytes": 257603
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/backend-outbox",
+      "mode": "html",
+      "from": null,
+      "status": "passed",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 325513,
+        "gzipBytes": 76354,
+        "brotliBytes": 75371
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 6.61,
+          "p95": 8.37,
+          "min": 6.44,
+          "max": 8.37
+        },
+        "completeBody": {
+          "median": 6.82,
+          "p95": 8.64,
+          "min": 6.6,
+          "max": 8.64
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 6.95,
+          "totalMs": 7.26,
+          "rawBytes": 325513
+        },
+        {
+          "ttfbMs": 8.37,
+          "totalMs": 8.64,
+          "rawBytes": 325513
+        },
+        {
+          "ttfbMs": 6.74,
+          "totalMs": 6.89,
+          "rawBytes": 325513
+        },
+        {
+          "ttfbMs": 6.61,
+          "totalMs": 6.73,
+          "rawBytes": 325513
+        },
+        {
+          "ttfbMs": 6.47,
+          "totalMs": 6.6,
+          "rawBytes": 325513
+        },
+        {
+          "ttfbMs": 6.44,
+          "totalMs": 6.6,
+          "rawBytes": 325513
+        },
+        {
+          "ttfbMs": 8.18,
+          "totalMs": 8.32,
+          "rawBytes": 325513
+        },
+        {
+          "ttfbMs": 6.58,
+          "totalMs": 6.82,
+          "rawBytes": 325513
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/backend-outbox",
+      "mode": "rsc",
+      "from": "/bai-hoc/backend-http",
+      "status": "passed",
+      "headers": {
+        "content-type": "text/x-component",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 259385,
+        "gzipBytes": 66679,
+        "brotliBytes": 66640
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 2.25,
+          "p95": 3.34,
+          "min": 2.18,
+          "max": 3.34
+        },
+        "completeBody": {
+          "median": 2.35,
+          "p95": 3.49,
+          "min": 2.3,
+          "max": 3.49
+        }
+      },
+      "serializedIndexMarkers": [
+        "hello-rust",
+        "wasm-bindings",
+        "game-ecs"
+      ],
+      "samples": [
+        {
+          "ttfbMs": 2.38,
+          "totalMs": 2.48,
+          "rawBytes": 259385
+        },
+        {
+          "ttfbMs": 2.2,
+          "totalMs": 2.31,
+          "rawBytes": 259385
+        },
+        {
+          "ttfbMs": 2.33,
+          "totalMs": 2.47,
+          "rawBytes": 259385
+        },
+        {
+          "ttfbMs": 2.27,
+          "totalMs": 2.36,
+          "rawBytes": 259385
+        },
+        {
+          "ttfbMs": 2.23,
+          "totalMs": 2.32,
+          "rawBytes": 259385
+        },
+        {
+          "ttfbMs": 2.25,
+          "totalMs": 2.35,
+          "rawBytes": 259385
+        },
+        {
+          "ttfbMs": 2.18,
+          "totalMs": 2.3,
+          "rawBytes": 259385
+        },
+        {
+          "ttfbMs": 3.34,
+          "totalMs": 3.49,
+          "rawBytes": 259385
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/backend-service-project",
+      "mode": "html",
+      "from": null,
+      "status": "passed",
+      "headers": {
+        "content-type": "text/html; charset=utf-8",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 514123,
+        "gzipBytes": 126197,
+        "brotliBytes": 110694
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 7.32,
+          "p95": 8.63,
+          "min": 6.9,
+          "max": 8.63
+        },
+        "completeBody": {
+          "median": 7.56,
+          "p95": 8.81,
+          "min": 7.1,
+          "max": 8.81
+        }
+      },
+      "serializedIndexMarkers": [],
+      "samples": [
+        {
+          "ttfbMs": 7.28,
+          "totalMs": 7.45,
+          "rawBytes": 514123
+        },
+        {
+          "ttfbMs": 8.63,
+          "totalMs": 8.81,
+          "rawBytes": 514123
+        },
+        {
+          "ttfbMs": 6.9,
+          "totalMs": 7.1,
+          "rawBytes": 514123
+        },
+        {
+          "ttfbMs": 7.32,
+          "totalMs": 7.56,
+          "rawBytes": 514123
+        },
+        {
+          "ttfbMs": 7.49,
+          "totalMs": 7.68,
+          "rawBytes": 514123
+        },
+        {
+          "ttfbMs": 8.32,
+          "totalMs": 8.53,
+          "rawBytes": 514123
+        },
+        {
+          "ttfbMs": 7.62,
+          "totalMs": 7.79,
+          "rawBytes": 514123
+        },
+        {
+          "ttfbMs": 7.23,
+          "totalMs": 7.54,
+          "rawBytes": 514123
+        }
+      ]
+    },
+    {
+      "path": "/bai-hoc/backend-service-project",
+      "mode": "rsc",
+      "from": "/bai-hoc/backend-http",
+      "status": "passed",
+      "headers": {
+        "content-type": "text/x-component",
+        "cache-control": "private, no-cache, no-store, max-age=0, must-revalidate",
+        "vary": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding",
+        "content-encoding": null,
+        "content-length": null
+      },
+      "payload": {
+        "rawBytes": 337406,
+        "gzipBytes": 90504,
+        "brotliBytes": 89958
+      },
+      "timingMs": {
+        "ttfb": {
+          "median": 2.23,
+          "p95": 3.58,
+          "min": 2.11,
+          "max": 3.58
+        },
+        "completeBody": {
+          "median": 2.41,
+          "p95": 3.7,
+          "min": 2.28,
+          "max": 3.7
+        }
+      },
+      "serializedIndexMarkers": [
+        "hello-rust",
+        "wasm-bindings",
+        "game-ecs"
+      ],
+      "samples": [
+        {
+          "ttfbMs": 2.23,
+          "totalMs": 2.49,
+          "rawBytes": 337406
+        },
+        {
+          "ttfbMs": 2.84,
+          "totalMs": 2.98,
+          "rawBytes": 337406
+        },
+        {
+          "ttfbMs": 2.36,
+          "totalMs": 2.49,
+          "rawBytes": 337406
+        },
+        {
+          "ttfbMs": 2.29,
+          "totalMs": 2.41,
+          "rawBytes": 337406
+        },
+        {
+          "ttfbMs": 2.17,
+          "totalMs": 2.35,
+          "rawBytes": 337406
+        },
+        {
+          "ttfbMs": 2.15,
+          "totalMs": 2.28,
+          "rawBytes": 337406
+        },
+        {
+          "ttfbMs": 3.58,
+          "totalMs": 3.7,
+          "rawBytes": 337406
+        },
+        {
+          "ttfbMs": 2.11,
+          "totalMs": 2.28,
+          "rawBytes": 337406
+        }
+      ]
+    }
+  ],
+  "initialAssets": [
+    {
+      "path": "/khoa-hoc/nen-tang",
+      "requests": 14,
+      "js": {
+        "rawBytes": 1017706,
+        "gzipBytes": 300837,
+        "brotliBytes": 301618
+      },
+      "css": {
+        "rawBytes": 182736,
+        "gzipBytes": 31185,
+        "brotliBytes": 32312
+      }
+    },
+    {
+      "path": "/bai-hoc/ownership",
+      "requests": 14,
+      "js": {
+        "rawBytes": 1017706,
+        "gzipBytes": 300837,
+        "brotliBytes": 301618
+      },
+      "css": {
+        "rawBytes": 182736,
+        "gzipBytes": 31185,
+        "brotliBytes": 32312
+      }
+    },
+    {
+      "path": "/khoa-hoc/backend",
+      "requests": 14,
+      "js": {
+        "rawBytes": 1017706,
+        "gzipBytes": 300837,
+        "brotliBytes": 301618
+      },
+      "css": {
+        "rawBytes": 182736,
+        "gzipBytes": 31185,
+        "brotliBytes": 32312
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-domain-boundaries",
+      "requests": 14,
+      "js": {
+        "rawBytes": 1017706,
+        "gzipBytes": 300837,
+        "brotliBytes": 301618
+      },
+      "css": {
+        "rawBytes": 182736,
+        "gzipBytes": 31185,
+        "brotliBytes": 32312
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-outbox",
+      "requests": 14,
+      "js": {
+        "rawBytes": 1017706,
+        "gzipBytes": 300837,
+        "brotliBytes": 301618
+      },
+      "css": {
+        "rawBytes": 182736,
+        "gzipBytes": 31185,
+        "brotliBytes": 32312
+      }
+    },
+    {
+      "path": "/bai-hoc/backend-service-project",
+      "requests": 14,
+      "js": {
+        "rawBytes": 1017706,
+        "gzipBytes": 300837,
+        "brotliBytes": 301618
+      },
+      "css": {
+        "rawBytes": 182736,
+        "gzipBytes": 31185,
+        "brotliBytes": 32312
+      }
+    }
+  ],
+  "assets": [
+    {
+      "path": "/_next/static/chunks/0f6q1gu48r938.css",
+      "type": "css",
+      "rawBytes": 120357,
+      "gzipBytes": 19743,
+      "brotliBytes": 20125,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/18qg1po6_u38v.css",
+      "type": "css",
+      "rawBytes": 2809,
+      "gzipBytes": 728,
+      "brotliBytes": 696,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/1-lf6non-8qc_.css",
+      "type": "css",
+      "rawBytes": 59570,
+      "gzipBytes": 10714,
+      "brotliBytes": 11491,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/310vm2bl3xxpt.js",
+      "type": "js",
+      "rawBytes": 5364,
+      "gzipBytes": 1958,
+      "brotliBytes": 1953,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/19mx3mg6lkumu.js",
+      "type": "js",
+      "rawBytes": 28907,
+      "gzipBytes": 7617,
+      "brotliBytes": 7794,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/1mh6a-0e61pyc.js",
+      "type": "js",
+      "rawBytes": 229156,
+      "gzipBytes": 71641,
+      "brotliBytes": 71509,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/25ze6k7b5__ty.js",
+      "type": "js",
+      "rawBytes": 165741,
+      "gzipBytes": 45050,
+      "brotliBytes": 44726,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/turbopack-1mrlgaa5y447h.js",
+      "type": "js",
+      "rawBytes": 10946,
+      "gzipBytes": 4307,
+      "brotliBytes": 4396,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/3fntmmi971322.js",
+      "type": "js",
+      "rawBytes": 14377,
+      "gzipBytes": 3665,
+      "brotliBytes": 3747,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/23t3jawxv2o0-.js",
+      "type": "js",
+      "rawBytes": 9683,
+      "gzipBytes": 4014,
+      "brotliBytes": 4074,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/22i43cg4l4-dq.js",
+      "type": "js",
+      "rawBytes": 8868,
+      "gzipBytes": 3592,
+      "brotliBytes": 3668,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/1gjrezt0l1dsl.js",
+      "type": "js",
+      "rawBytes": 247077,
+      "gzipBytes": 64202,
+      "brotliBytes": 64047,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/17qw6nr3uck6w.js",
+      "type": "js",
+      "rawBytes": 184993,
+      "gzipBytes": 55318,
+      "brotliBytes": 55209,
+      "cacheControl": "public, max-age=31536000, immutable"
+    },
+    {
+      "path": "/_next/static/chunks/0cz1d0mv5g_q7.js",
+      "type": "js",
+      "rawBytes": 112594,
+      "gzipBytes": 39473,
+      "brotliBytes": 40495,
+      "cacheControl": "public, max-age=31536000, immutable"
+    }
+  ],
+  "serverBuildId": "T2Y3CjQ9W2N5DahE14q0z"
+}

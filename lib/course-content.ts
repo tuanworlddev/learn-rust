@@ -7,13 +7,15 @@ import { validateCatalog } from "./content/catalog.mjs";
 import { courseContentSource, createPublishedCatalogReader } from "./content/source.mjs";
 
 const readPublishedCatalog = createPublishedCatalogReader();
+let bundledCatalog: CourseCatalog | undefined;
 
 /** React cache deduplicates metadata/page/JSON-LD reads within one request.
- * A validated Supabase snapshot is reused for at most 30 seconds; failure never serves bundled
- * lessons under a production Supabase configuration. */
+ * Supabase publication is revalidated every 30 seconds; failure never serves
+ * bundled lessons under a production Supabase configuration. Static bundled
+ * content is validated once per server process, on its first use. */
 export const getCourseCatalog = cache(async (): Promise<CourseCatalog> => {
   if (courseContentSource() === "supabase") return readPublishedCatalog();
-  return validateCatalog({
+  return bundledCatalog ??= validateCatalog({
     modules: [...modules, ...specializationModules],
     lessons: [...lessons, ...specializationLessons],
     specializations,
